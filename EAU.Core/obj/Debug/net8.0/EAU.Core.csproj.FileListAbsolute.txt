@@ -1,0 +1,11 @@
+D:\DD\Proje\EAU.Core\bin\Debug\net8.0\EAU.Core.deps.json
+D:\DD\Proje\EAU.Core\bin\Debug\net8.0\EAU.Core.dll
+D:\DD\Proje\EAU.Core\bin\Debug\net8.0\EAU.Core.pdb
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.AssemblyInfoInputs.cache
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.AssemblyInfo.cs
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.csproj.CoreCompileInputs.cache
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.dll
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\refint\EAU.Core.dll
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\EAU.Core.pdb
+D:\DD\Proje\EAU.Core\obj\Debug\net8.0\ref\EAU.Core.dll

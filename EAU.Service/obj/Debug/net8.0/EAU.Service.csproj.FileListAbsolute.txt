@@ -1,0 +1,17 @@
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Service.deps.json
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Service.dll
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Service.pdb
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Core.dll
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Repository.dll
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Repository.pdb
+D:\DD\Proje\EAU.Service\bin\Debug\net8.0\EAU.Core.pdb
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.csproj.AssemblyReference.cache
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.AssemblyInfoInputs.cache
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.AssemblyInfo.cs
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.csproj.CoreCompileInputs.cache
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.csproj.CopyComplete
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.dll
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\refint\EAU.Service.dll
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\EAU.Service.pdb
+D:\DD\Proje\EAU.Service\obj\Debug\net8.0\ref\EAU.Service.dll
