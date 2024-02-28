@@ -1,0 +1,15 @@
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\bin\Debug\net8.0\EduPortal.Application.deps.json
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\bin\Debug\net8.0\EduPortal.Application.dll
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\bin\Debug\net8.0\EduPortal.Application.pdb
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\bin\Debug\net8.0\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\bin\Debug\net8.0\EduPortal.Domain.pdb
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.csproj.AssemblyReference.cache
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.AssemblyInfoInputs.cache
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.AssemblyInfo.cs
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.csproj.CoreCompileInputs.cache
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.csproj.CopyComplete
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.dll
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\refint\EduPortal.Application.dll
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.pdb
+C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Application\obj\Debug\net8.0\ref\EduPortal.Application.dll
