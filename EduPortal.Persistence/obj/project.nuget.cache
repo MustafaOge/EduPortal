@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k34HuRjqDhgNCS5ZKLWSkAZvJS7blGKv6Hr+mFEKKJ/8/SedbijzfWCJGkMJoohbQV3dbgKGkW8F/hhsjgc4BQ==",
+  "dgSpecHash": "sYDuxwySAhg9Zx6DF77tbqdphPTOsck0D3RiTGoZDlfabuVD+XKK6fgwVt/CNItGOpfcdkLLXxp4WNdozkmEwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

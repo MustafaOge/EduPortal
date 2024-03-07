@@ -8530,11 +8530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal\\EduPortal.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal\\EduPortal.csproj",
       "projectName": "EduPortal",
-      "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal\\EduPortal.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal\\EduPortal.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8550,14 +8550,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Application\\EduPortal.Application.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Application\\EduPortal.Application.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj"
             },
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Domain\\EduPortal.Domain.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Domain\\EduPortal.Domain.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj"
             },
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\EduPortal\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
             }
           }
         }
