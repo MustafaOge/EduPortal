@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-    public class Subscriber:IEntity
+    public class Subscriber: BaseEntity
     {
+        public int Id { get; set; }
         public string SubscriberContractNumber { get; set; } 
     }
 }

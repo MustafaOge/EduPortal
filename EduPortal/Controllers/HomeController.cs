@@ -6,53 +6,65 @@ using EduPortal.Persistence.context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
-using StoreApp.Models;
 using System.Diagnostics;
 
 namespace EduPortal.Controllers
 {
-    public class HomeController(ILogger<HomeController> loggeri,AppDbContext context) : Controller
+    public class HomeController : Controller
     {
 
-        [HttpGet]
-        public  IActionResult Index()
+
+        public IActionResult Index()
         {
+            ViewData["Title"] = "Welcome";
             return View();
-
-        }
-        [HttpPost]
-        public async Task<IActionResult> Login (LoginModel model)
-        {
-
-            if (ModelState.IsValid)
-            {
-                IdentityUser user = await context.FindByNameAsync(model.Name);
-                if (user is not null)
-                {
-                    await _signInManager.SignOutAsync();
-                    if ((await _signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
-                    {
-                        return Redirect(model?.ReturnUrl ?? "/");
-                    }
-                }
-                ModelState.AddModelError("Error", "Invalid username or password.");
-            }
-            return View();
-
         }
 
-        // log out
-
-
-        public IActionResult Privacy()
+        public IActionResult Login()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Register()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+
+
+
     }
 }
+
+
+//[HttpPost]
+//[ValidateAntiForgeryToken]
+//public async Task<IActionResult> Register([FromForm] UserCreateDTO model)
+//{
+//    var user = new IdentityUser
+//    {
+//        UserName = model.Password,
+//        Email = model.Email,
+//    };
+
+//    var result = await _userManager
+//        .CreateAsync(user, model.Password);
+
+//    if (result.Succeeded)
+//    {
+//        var roleResult = await _userManager
+//            .AddToRoleAsync(user, "User");
+
+//        if (roleResult.Succeeded)
+//            return RedirectToAction("Login", new { ReturnUrl = "/" });
+//    }
+//    else
+//    {
+//        foreach (var err in result.Errors)
+//        {
+//            ModelState.AddModelError("", err.Description);
+//        }
+//    }
+
+//    return View();
+//}
+

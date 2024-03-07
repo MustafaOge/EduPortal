@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace StoreApp.Models
+namespace EduPortal.Models
 {
     public class LoginModel
     {

@@ -18,14 +18,13 @@
 
     <div class="container">
         <main role="main" class="pb-3">
-            
-            <h1>Deneme</h1>
-
-            <partial name = "_Login"/>
-            @RenderSection("login",false)
-
 
             @RenderBody()
+            <partial name = "_Login"/>
+            @RenderSection("login",false)
+                
+
+       
         </main>
     </div>
 
