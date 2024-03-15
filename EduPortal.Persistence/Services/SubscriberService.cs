@@ -13,14 +13,15 @@ namespace EduPortal.Service.Services
         {
             var newSubscriber = new Subscriber
             {
-                SubscriberContractNumber = request.SubscriberContractNumber
+                Email = request.Email
+             
             };
 
             subscriberReposityory.Create(newSubscriber);
 
             var SubscriberDto = new SubscriberResponseResponseDTO
             {
-                SubscriberContractNumber = newSubscriber.SubscriberContractNumber,           
+                //SubscriberContractNumber = newSubscriber.SubscriberContractNumber,           
                 //Consumer = newSubscriber.Consumer,
                 //ElectricityMeter = newSubscriber.ElectricityMeter,
 
@@ -46,7 +47,7 @@ namespace EduPortal.Service.Services
             var subscribersListDto = subscribers.Select(x => new Subscriber
             {
                 //ElectricityMeter = x.ElectricityMeter,
-                SubscriberContractNumber = x.SubscriberContractNumber
+                //SubscriberContractNumber = x.SubscriberContractNumber
             }).ToList();
 
 

@@ -1,5 +1,4 @@
 ﻿
-using EduPortal.Domain.Entities;
 using EduPortal.Persistence.Interceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -13,27 +12,31 @@ using System.Text;
 using System.Threading.Tasks;
 using EduPortal.API.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using EduPortal.Domain.Entities;
 
 namespace EduPortal.Persistence.context
 {
-    public class AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor contextAccessor) : IdentityDbContext<IdentityUser>(options)
+    public class AppDbContext : DbContext
     {
-        public DbSet<Consumer> Consumers { get; set; }
-        public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<Individual> Individuals { get; set; }
+        public DbSet<Corporate> Corprorates { get; set; }
+        //public DbSet<Subscriber> Subscribers { get; set; }
+
+
+        //public DbSet<Book> Books { get; set; }
+
+        //public DbSet<Consumer> Consumers { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.AddInterceptors(new SaveChangesInterceptor(contextAccessor)).UseLazyLoadingProxies()
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            if (optionsBuilder.IsConfigured == false)
+            {
+                optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;");
+                optionsBuilder.UseLazyLoadingProxies(false);
+            }
             base.OnConfiguring(optionsBuilder);
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-            base.OnModelCreating(modelBuilder);
         }
 
 

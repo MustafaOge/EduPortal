@@ -14,11 +14,11 @@ namespace EduPortal.Repository.Repositories
 {
     public class ConsumerRepository(AppDbContext context) : IConsumerRepository
     {
-        public Consumer GetById(int id)
-        {
-            var consumer = context.Consumers.First(x => x.Id == id);
-            return consumer;
-        }
+        //public Consumer GetById(int id)
+        //{
+        //    //var consumer = context.Consumers.First(x => x.Id == id);
+        //    return consumer;
+        //}
 
         public void Create(Consumer consumer)
         {
@@ -26,11 +26,11 @@ namespace EduPortal.Repository.Repositories
             context.SaveChanges();
         }
 
-        public IReadOnlyList<Consumer> GetAll()
-        {
-            //    return _context.Attach();
-            return context.Consumers.AsNoTracking().ToList().AsReadOnly();
-        }
+        //public IReadOnlyList<Consumer> GetAll()
+        //{
+        //    //    return _context.Attach();
+        //    return context.Consumers.AsNoTracking().ToList().AsReadOnly();
+        //}
 
         public void DeleteById(Consumer id)
         {

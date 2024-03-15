@@ -17,17 +17,17 @@ namespace EduPortal.Persistence.Services
     {
 
 
-        public Response<List<ConsumerDTO>> GetAll()
-        {
-            var consumers = consumerRepository.GetAll();
-            var consumersListDto = consumers.Select(x => new ConsumerDTO
-            {
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-            }).ToList();
+        //public Response<List<ConsumerDTO>> GetAll()
+        //{
+        //    var consumers = consumerRepository.GetAll();
+        //    var consumersListDto = consumers.Select(x => new ConsumerDTO
+        //    {
+        //        FirstName = x.FirstName,
+        //        LastName = x.LastName,
+        //    }).ToList();
 
-            return Response<List<ConsumerDTO>>.Success(consumersListDto, HttpStatusCode.OK);
-        }
+        //    return Response<List<ConsumerDTO>>.Success(consumersListDto, HttpStatusCode.OK);
+        //}
 
         public Consumer GetById(int id)
         {

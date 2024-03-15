@@ -10,3 +10,16 @@ C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Domain\obj\Debug\net8.0\r
 C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.pdb
 C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Domain\obj\Debug\net8.0\ref\EduPortal.Domain.dll
 C:\Users\Mustafa\Desktop\EduPortal\EduPortal\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.csproj.AssemblyReference.cache
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.deps.json
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.pdb
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.csproj.AssemblyReference.cache
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.AssemblyInfoInputs.cache
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.AssemblyInfo.cs
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.sourcelink.json
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\refint\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.pdb
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\obj\Debug\net8.0\ref\EduPortal.Domain.dll

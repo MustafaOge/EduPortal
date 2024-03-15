@@ -11,13 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
 builder.Services.ConfigureIdentity();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
-    options.User.RequireUniqueEmail = false;
-})
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+    options.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 //builder.Services.AddScoped<UserManager<IdentityUser>>();
 //builder.Services.AddScoped<RoleManager<IdentityRole>>();
@@ -60,27 +60,21 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
+
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-//app.UseEndpoints(endpoints =>
-//{
-//    //endpoints.MapDefaultControllerRoute("")
-//}
-//);
-app.UseHttpsRedirection();
 app.UseRouting();
-
 app.UseAuthorization();
 
-app.MapRazorPages();
 
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-app.ConfigureDefaultAdminUser();
 
 app.Run();

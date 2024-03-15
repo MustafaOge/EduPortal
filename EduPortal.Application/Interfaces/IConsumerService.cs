@@ -11,7 +11,7 @@ namespace EduPortal.Application.Interfaces
 {
     public interface IConsumerService
     {
-        Response<List<ConsumerDTO>> GetAll();
+        //Response<List<ConsumerDTO>> GetAll();
         Response<Consumer> GetById(int id);
         Response<ConsumerCreateResponseDTO> Save(ConsumerCreateDTO consumer);
         Response<string> Update(ConsumerUpdateDTO consumer);

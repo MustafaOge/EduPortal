@@ -10,8 +10,8 @@ namespace EduPortal.Application.Interfaces.Repositories
 {
     public interface IConsumerRepository
     {
-        IReadOnlyList<Consumer> GetAll();
-        Consumer? GetById(int id);
+        //IReadOnlyList<Consumer> GetAll();
+        //Consumer? GetById(int id);
         void Create(Consumer consumer);
         void Update(Consumer consumer);
         void DeleteById(Consumer consumerToDelete);
