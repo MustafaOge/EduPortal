@@ -19,14 +19,13 @@ namespace EduPortal.Persistence.context
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Individual> Individuals { get; set; }
-        public DbSet<Corporate> Corprorates { get; set; }
-        //public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<SubsIndividual> Individuals { get; set; }
+        public DbSet<SubsCorporate> Corprorates { get; set; }
+
+        public DbSet<Invoice> Invoices { get; set; }
 
 
-        //public DbSet<Book> Books { get; set; }
 
-        //public DbSet<Consumer> Consumers { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,6 +36,12 @@ namespace EduPortal.Persistence.context
                 optionsBuilder.UseLazyLoadingProxies(false);
             }
             base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SubsIndividual>().ToTable("SubsIndividuals");
+            modelBuilder.Entity<SubsCorporate>().ToTable("SubsCorporates");
         }
 
 

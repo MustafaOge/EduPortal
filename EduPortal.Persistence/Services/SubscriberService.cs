@@ -7,11 +7,11 @@ using System.Net;
 
 namespace EduPortal.Service.Services
 {
-    public class SubscriberService(ISubscriberRepository subscriberReposityory) : ISubscriberService
+    public class SubscriberService(ISubsIndividualRepository subscriberReposityory) : ISubsIndividualService
     {
         public Response<SubscriberResponseResponseDTO> Save(SubscriberCreateDTO request)
         {
-            var newSubscriber = new Subscriber
+            var newSubscriber = new SubsIndividual
             {
                 Email = request.Email
              
@@ -30,47 +30,49 @@ namespace EduPortal.Service.Services
             return Response<SubscriberResponseResponseDTO>.Success(SubscriberDto, HttpStatusCode.Created);
         }
 
-        public Response<Subscriber> Get(int id)
+        public Response<SubsIndividual> Get(int id)
         {
             var subscriber = subscriberReposityory.GetById(id);
 
-            if (subscriber is null) return Response<Subscriber?>.Fail("Product not found", HttpStatusCode.NotFound);
+            if (subscriber is null) return Response<SubsIndividual?>.Fail("Product not found", HttpStatusCode.NotFound);
 
-            return Response<Subscriber?>.Success(subscriber, HttpStatusCode.OK);
+            return Response<SubsIndividual?>.Success(subscriber, HttpStatusCode.OK);
         }
 
-        public Response<List<Subscriber>> GetAll()
+        public Response<List<SubsIndividual>> GetAll()
         {
             var subscribers = subscriberReposityory.GetAll();
 
 
-            var subscribersListDto = subscribers.Select(x => new Subscriber
+            var subscribersListDto = subscribers.Select(x => new SubsIndividual
             {
                 //ElectricityMeter = x.ElectricityMeter,
                 //SubscriberContractNumber = x.SubscriberContractNumber
             }).ToList();
 
 
-            return Response<List<Subscriber>>.Success(subscribersListDto, HttpStatusCode.OK);
+            return Response<List<SubsIndividual>>.Success(subscribersListDto, HttpStatusCode.OK);
         }
 
-        Response<List<Subscriber>> ISubscriberService.GetAll()
+        Response<List<SubsIndividual>> ISubsIndividualService.GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Response<Subscriber?> GetById(int id)
+        public Response<SubsIndividual?> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
 
-        public Response<string> Update(Subscriber subscriber)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public Response<string> DeleteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Response<string> Update(SubsIndividual subscriber)
         {
             throw new NotImplementedException();
         }

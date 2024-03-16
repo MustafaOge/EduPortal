@@ -22,7 +22,7 @@ namespace EduPortal.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EduPortal.Domain.Entities.Corporate", b =>
+            modelBuilder.Entity("EduPortal.Domain.Entities.Invoice", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,73 +30,43 @@ namespace EduPortal.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CorprorateName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("CounterNumber")
+                    b.Property<int>("ConsumerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("SubscriberType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TaxIdNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Corprorates");
-                });
-
-            modelBuilder.Entity("EduPortal.Domain.Entities.Individual", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CounterNumber")
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EICCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("SubscriberId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdentityNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameSurname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SubscriberType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("TotalConsumptionKwh")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Individuals");
+                    b.HasIndex("SubscriberId");
+
+                    b.ToTable("Invoices");
                 });
 
             modelBuilder.Entity("EduPortal.Domain.Entities.Subscriber", b =>
@@ -137,7 +107,74 @@ namespace EduPortal.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subscribers");
+                    b.ToTable("Subscriber");
+
+                    b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.SubsCorporate", b =>
+                {
+                    b.HasBaseType("EduPortal.Domain.Entities.Subscriber");
+
+                    b.Property<string>("CorprorateName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TaxIdNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("SubsCorporates", (string)null);
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.SubsIndividual", b =>
+                {
+                    b.HasBaseType("EduPortal.Domain.Entities.Subscriber");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IdentityNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameSurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("SubsIndividuals", (string)null);
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Invoice", b =>
+                {
+                    b.HasOne("EduPortal.Domain.Entities.Subscriber", "Subscriber")
+                        .WithMany("Invoices")
+                        .HasForeignKey("SubscriberId");
+
+                    b.Navigation("Subscriber");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.SubsCorporate", b =>
+                {
+                    b.HasOne("EduPortal.Domain.Entities.Subscriber", null)
+                        .WithOne()
+                        .HasForeignKey("EduPortal.Domain.Entities.SubsCorporate", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.SubsIndividual", b =>
+                {
+                    b.HasOne("EduPortal.Domain.Entities.Subscriber", null)
+                        .WithOne()
+                        .HasForeignKey("EduPortal.Domain.Entities.SubsIndividual", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Subscriber", b =>
+                {
+                    b.Navigation("Invoices");
                 });
 #pragma warning restore 612, 618
         }
