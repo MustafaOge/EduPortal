@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EduPortal.MVC.props" />
+</Project>

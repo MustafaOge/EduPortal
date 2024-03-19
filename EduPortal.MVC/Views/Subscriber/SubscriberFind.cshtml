@@ -1,0 +1,60 @@
+﻿@using EduPortal.Domain.Entities
+@model List<SubsIndividual>
+
+<h2>Subscriber Find</h2>
+
+
+
+
+<h2>Abone Bilgileri</h2>
+
+<form method="post" asp-action="SubscriberFind">
+    <div class="form-group">
+        <label for="IdentityNumber">TC Kimlik No:</label>
+        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Bilgileri Getir</button>
+</form>
+
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead >
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Telefon Numarası</th>
+                    <th>Tc Kimlik No</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Doğum tarihi</th>
+                    <th>Abone Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SubsIndividual subsIndividual in Model)
+                {
+                    <tr>
+                        <td> @subsIndividual.NameSurname </td>
+                        <td> @subsIndividual.PhoneNumber </td>
+                        <td> @subsIndividual.IdentityNumber </td>
+                        <td> @subsIndividual.CounterNumber </td>
+                        <td> @subsIndividual.BirthDate </td>
+                        <td> @subsIndividual.SubscriberType </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+
+
+@if (TempData["Message"] != null)
+
+{
+
+
+    <h2>Unknown Eroor </h2>
+    <p class="text-danger">@TempData["Message"]</p>
+}

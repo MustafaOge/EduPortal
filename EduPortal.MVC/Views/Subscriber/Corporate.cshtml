@@ -1,0 +1,81 @@
+﻿@using EduPortal.MVC.Models.Subscriber
+
+@model SubsCorporate
+
+
+<h4 class="text-center">Kurumsal Abone Kayıt</h4>
+
+
+<div class="row">
+    <form method="post" asp-action="Corporate">
+        <div class="container p-5 my-5 border">
+
+            <div class="row">
+
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="CorprorateName" id="corprorateNameLabel">Kurum Adı</label>
+                        <input asp-for="CorprorateName" type="text" class="form-control" placeholder="Kurum Adı">
+                        <span asp-validation-for="CorprorateName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="TaxIdNumber" id="taxIdNumberLabel">Vergi Numarası</label>
+                        <input asp-for="TaxIdNumber" type="number" class="form-control" placeholder="Vergi Numarası">
+                        <span asp-validation-for="TaxIdNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Email" id="EmailLabel">Email Adresi</label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresi">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="CounterNumber">Sayaç Numarası</label>
+                        <input asp-for="CounterNumber" type="number" class="form-control" placeholder="Counter Number">
+                        <span asp-validation-for="CounterNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" id="phoneNumberLabel">Tel No</label>
+                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Tel No">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="SubscriberType" value="Kurumsal" />
+
+
+
+
+
+            </div>
+
+        </div>
+
+        <div class="form-group float-right">
+            <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2"></i> Back To List</a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
