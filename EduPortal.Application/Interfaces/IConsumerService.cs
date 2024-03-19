@@ -16,6 +16,6 @@ namespace EduPortal.Application.Interfaces
         Response<ConsumerCreateResponseDTO> Save(ConsumerCreateDTO consumer);
         Response<string> Update(ConsumerUpdateDTO consumer);
         Response <string> DeleteById(Consumer id);
-
+z
     }
 }

@@ -86,6 +86,10 @@ namespace EduPortal.Persistence.Migrations
                     b.Property<int>("CreatedByUser")
                         .HasColumnType("int");
 
+                    b.Property<string>("Discriminator")
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -107,7 +111,7 @@ namespace EduPortal.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subscriber");
+                    b.ToTable("Subscribers");
 
                     b.UseTptMappingStrategy();
                 });

@@ -28,6 +28,7 @@ namespace EduPortal.Domain.Entities
 
 
 
+
     }
 }
 // Authentşcatşon cookies
