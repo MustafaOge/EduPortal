@@ -11,6 +11,7 @@ namespace EduPortal.Domain.Entities
     {
         public DateTime Created { get; set; }
 
+
         public DateTime? Updated { get; set; }
 
         public int CreatedByUser { get; set; }

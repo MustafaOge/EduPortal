@@ -7,6 +7,7 @@ namespace Entities.Dtos
         [Required(ErrorMessage = "Username is required")]
         public String? UserName { get; init; }
         
+        
         [Required(ErrorMessage = "Email is required")]
         public String? Email { get; init; }
         

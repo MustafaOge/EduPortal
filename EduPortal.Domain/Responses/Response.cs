@@ -27,6 +27,7 @@ namespace EduPortal.Core.Responses
             return new Response<T> { Errors = new List<string> { error }, StatusCode = status };
         }
 
+
     
     }
 }

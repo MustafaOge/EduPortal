@@ -6,6 +6,7 @@ namespace EduPortal.API.Models
     {
 
         public int City { get; set; }
+
         public DateTime? BirthDate { get; set; }
 
     }

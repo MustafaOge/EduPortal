@@ -20,5 +20,6 @@ namespace EduPortal.Domain.Entities
         public DateTime BirthDate { get; set; }
 
 
+
     }
 }

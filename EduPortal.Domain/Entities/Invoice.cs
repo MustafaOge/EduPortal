@@ -10,6 +10,7 @@ namespace EduPortal.Domain.Entities
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
+
         public Subscriber? Subscriber { get; set; }
         public int? SubscriberId { get; set; }
 

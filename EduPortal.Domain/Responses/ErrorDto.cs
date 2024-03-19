@@ -29,6 +29,7 @@ namespace EduPortal.Core.Responses
         {
             Errors = errors;
             IsShow = isShow;
+
         }
     }
 }
