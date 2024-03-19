@@ -1,0 +1,54 @@
+﻿
+<h3>Çalışıyor h4</h3> 
+<h2>Çalışıyor h4</h2>
+<h3>Çalışıyor çalışmakta olan h4</h3>
+<h1>Çalışıyor h4</h1>
+
+
+@* @model Book
+<h1 class="display-4">Create Book</h1>
+<hr />
+
+<div class="row">
+    <div class="col">
+        <<form method="post" asp-action="Create">
+
+            <div class="form-groub">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" placeholder="book title" />
+                <span asp-valiation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-groub">
+                <label asp-for="Summary"></label>
+                <input asp-for="Summary" rows="3" class="form-control" placeholder="book title" />
+                <small><span asp-valiation-for="Summary" class="text-danger"></span></small>
+            </div>
+
+            <div class="form-groub">
+                <label asp-for="Author"></label>
+                <input asp-for="Author" rows="3" class="form-control" placeholder="book title" />
+                <small><span asp-valiation-for="Author" class="text-danger"></span></small>
+            </div>
+
+            <div class="form-groub">
+                <label asp-for="PageCount"></label>
+                <input asp-for="PageCount" rows="3" class="form-control" placeholder="book title" />
+                <small><span asp-valiation-for="PageCount" class="text-danger"></span></small>
+            </div>
+
+            <div class="form-groub form-check">
+                <input asp-for="PageCount" class="form-check-input" />
+                <label asp-for="Published" class="form-check-input"></label>
+                <small><span asp-valiation-for="PageCount" class="text-check-label"></span></small>
+            </div>
+
+            <div class="form-groub float-right">
+                <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2">     </i>Back To List</a>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+ *@
