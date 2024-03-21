@@ -1,4 +1,5 @@
 ﻿using EduPortal.Application.DTO_s.Subscriber;
+using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models;
 using EduPortal.Persistence.context;
@@ -10,7 +11,12 @@ using static System.Reflection.Metadata.BlobBuilder;
 
 namespace EduPortal.Controllers
 {
-    public class SubscriberController(IToastNotification toast, AppDbContext appDbContext) : Controller
+    public class SubscriberController(
+        IToastNotification toast,
+        AppDbContext appDbContext,
+        ISubsIndividualService subsIndividualService,
+        ISubsCorporateService subsCorporateService
+        ) : Controller
     {
 
 
@@ -56,46 +62,69 @@ namespace EduPortal.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Corporate(SubsCorporate corporate)
-        {
-            if (ModelState.IsValid)
-            {
-                toast.AddSuccessToastMessage("Abone Eklendi", new ToastrOptions { Title = "Başarılı!" });
-                appDbContext.Corprorates.Add(corporate);
-                appDbContext.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                toast.AddErrorToastMessage("Abone Eklenemedi", new ToastrOptions { Title = "Başarısız!" });
-            }
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Corporate()
         {
             return View();
         }
 
-        [HttpPost]
 
-        public IActionResult Individual(SubsIndividual individual)
+        [HttpPost]
+        public async Task<IActionResult> Corporate(CreateCorporateDto individual)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+
+            try
             {
-                toast.AddSuccessToastMessage("İşlem Başarılı", new ToastrOptions { Title = "Başarılı!" });
-                appDbContext.Individuals.Add(individual);
-                appDbContext.SaveChanges();
+                await subsCorporateService.CreateIndividualAsync(individual);
+                toast.AddSuccessToastMessage("İşlem Başarılı");
                 return RedirectToAction("Index");
             }
-            else
+            catch (Exception ex)
             {
-                toast.AddErrorToastMessage("Abone Eklenemedi", new ToastrOptions { Title = "Başarısız!" });
+                toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
+                return View();
             }
-            return View();
         }
+
+
+        //[HttpPost]
+        //public IActionResult Corporate(SubsCorporate corporate)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        toast.AddSuccessToastMessage("Abone Eklendi", new ToastrOptions { Title = "Başarılı!" });
+        //        appDbContext.Corprorates.Add(corporate);
+        //        appDbContext.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        toast.AddErrorToastMessage("Abone Eklenemedi", new ToastrOptions { Title = "Başarısız!" });
+        //    }
+        //    return View();
+        //}
+
+      
+        [HttpPost]
+
+        public async Task<IActionResult> Individual(CreateIndividualDto individual)
+        {
+            if (!ModelState.IsValid) return View();
+
+            try
+            {
+                await subsIndividualService.CreateIndividualAsync(individual);
+                toast.AddSuccessToastMessage("İşlem Başarılı");
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
+                return View();
+            }
+        }
+
 
         [HttpGet]
         public IActionResult Individual()
@@ -106,13 +135,13 @@ namespace EduPortal.Controllers
 
         //ToDo
         [HttpGet]
-        public IActionResult SubscriberFind()
+        public IActionResult FindSubscriber()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult SubscriberFind(string IdentityNumber)
+        public IActionResult FindSubscriber(string IdentityNumber)
         {
             List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
 
@@ -133,11 +162,11 @@ namespace EduPortal.Controllers
             {
                 SubsIndividual subsIndividual = new SubsIndividual
                 {
-                    
+
                     PhoneNumber = PhoneNumberData.GetPhoneNumber(),
                     NameSurname = NameData.GetFullName(),
                     BirthDate = DateTimeData.GetDatetime(),
-                    CounterNumber = NumberData.GetNumber(1000,100000),
+                    CounterNumber = NumberData.GetNumber(1000, 100000),
                     IdentityNumber = NumberData.GetNumber(1000, 100000).ToString(),
                     Email = NetworkData.GetEmail(),
                     SubscriberType = "Bireysel"
@@ -149,6 +178,16 @@ namespace EduPortal.Controllers
             appDbContext.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet]
+
+        public  IActionResult TerminateSubscription()
+        {
+
+            return View();
         }
 
     }

@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Repositories
 {
-    public interface ISubsIndividualRepository
+    public interface ISubsIndividualRepository : IGenericRepository<SubsIndividual, int> 
     {
 
-        IReadOnlyList<SubsIndividual> GetAll();
-        SubsIndividual? GetById(int id);
-        void Create(SubsIndividual individual);
-        void Update(SubsIndividual individual);
-        void Delete(SubsIndividual individualToDelete);
-        SubsIndividual? GetByName(string name);
+        //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
+
+        //IReadOnlyList<SubsIndividual> GetAll();
+        //SubsIndividual? GetById(int id);
+        //void Create(SubsIndividual individual);
+        //void Update(SubsIndividual individual);
+        //void Delete(SubsIndividual individualToDelete);
+        //SubsIndividual? GetByName(string name);
     }
 
 

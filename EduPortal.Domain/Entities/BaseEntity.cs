@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using EduPortal.Domain.Abstractions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity<TKey> : IEntity
     {
-        public DateTime Created { get; set; }
+        public TKey Id { get; set; }
 
+        public DateTime Created { get; set; }
 
         public DateTime? Updated { get; set; }
 

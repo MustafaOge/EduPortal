@@ -13,9 +13,28 @@ namespace EduPortal.Persistence.Mapping
     {
         public MapProfile()
         {
-            CreateMap< IndividualCreateDto, SubsIndividual>();
-            CreateMap<SubsCorporate, CorporateCreateDto>().ReverseMap();
+
+         
+            CreateMap<SubsIndividual, SubsIndividualDto>();
+
+            CreateMap<CreateIndividualDto, SubsIndividual>();
+            CreateMap<SubsIndividualDto, SubsIndividual>();
+
+
+            CreateMap<SubsCorporate, SubsCorporateDto>();
+
+            CreateMap<CreateCorporateDto, SubsCorporate>();
+            CreateMap<SubsCorporateDto, SubsCorporate>();
+
+            //CreateMap<CreateIndividualDto, SubsIndividualDto>().ReverseMap();
+
+
+            CreateMap<SubsCorporate, CreateCorporateDto>().ReverseMap();
             CreateMap<Subscriber, SubscriberCreateDTO>();
+            
+
+
+
         }
     }
 }

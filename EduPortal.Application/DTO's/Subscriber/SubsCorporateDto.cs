@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.DTO_s.Subscriber
 {
-    public class CorporateCreateDto : SubscriberCreateDTO
+    public class SubsCorporateDto : SubscriberCreateDTO
     {
         public string CorprorateName { get; set; }
         public string TaxIdNumber { get; set; }
-
     }
 }

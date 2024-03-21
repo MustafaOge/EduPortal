@@ -7,21 +7,23 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Abstractions
 {
-    public abstract class IEntity
-    {
-        public IEntity()
-        {
-            CreatedTime = null;
-            IsDeleted = false;
-            IsActive = true;
-        }
+    public interface IEntity
+    { }
+    //public abstract class IEntity
+    //{
+    //    public IEntity()
+    //    {
+    //        CreatedTime = null;
+    //        IsDeleted = false;
+    //        IsActive = true;
+    //    }
 
-        [Key]
-        public int Id { get; set; }
-        public DateTime? CreatedTime { get; set; }
-        public DateTime? UpdatedTime { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
+    //    [Key]
+    //    public int Id { get; set; }
+    //    public DateTime? CreatedTime { get; set; }
+    //    public DateTime? UpdatedTime { get; set; }
+    //    public bool IsActive { get; set; }
+    //    public bool IsDeleted { get; set; }
 
-    }
+    //}
 }

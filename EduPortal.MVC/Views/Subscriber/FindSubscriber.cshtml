@@ -1,0 +1,111 @@
+﻿@using EduPortal.Domain.Entities
+@model List<SubsIndividual>
+
+<h2>Subscriber Find</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-center mb-4">
+                <h2>Kaydırarak Sorgulama Türünü Seçin</h2>
+            </div>
+            <div class="btn-group btn-group-toggle d-flex mb-4" data-toggle="buttons">
+                <label class="btn btn-primary active flex-fill">
+                    <input type="radio" name="options" id="kurumsal" autocomplete="off" checked> Kurumsal
+                </label>
+                <label class="btn btn-primary flex-fill">
+                    <input type="radio" name="options" id="bireysel" autocomplete="off"> Bireysel
+                </label>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="query">Arama Sorgusu:</label>
+                    <input type="text" class="form-control" id="query" name="query" placeholder="Arama terimini girin">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sorgula</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('input[type="radio"]').on('change', function() {
+                if ($(this).attr('id') === 'kurumsal') {
+                    $('#query').attr('placeholder', 'Kurumsal müşteri arama terimini girin');
+                } else if ($(this).attr('id') === 'bireysel') {
+                    $('#query').attr('placeholder', 'Bireysel müşteri arama terimini girin');
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+@* @using EduPortal.Domain.Entities
+@model List<SubsIndividual>
+
+<h2>Subscriber Find</h2>
+
+
+
+
+<h2>Abone Bilgileri</h2>
+
+<form method="post" asp-action="FindSubscriber">
+    <div class="form-group">
+        <label for="IdentityNumber">TC Kimlik No:</label>
+        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Bilgileri Getir</button>
+</form>
+
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead >
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Telefon Numarası</th>
+                    <th>Tc Kimlik No</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Doğum tarihi</th>
+                    <th>Abone Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SubsIndividual subsIndividual in Model)
+                {
+                    <tr>
+                        <td> @subsIndividual.NameSurname </td>
+                        <td> @subsIndividual.PhoneNumber </td>
+                        <td> @subsIndividual.IdentityNumber </td>
+                        <td> @subsIndividual.CounterNumber </td>
+                        <td> @subsIndividual.BirthDate </td>
+                        <td> @subsIndividual.SubscriberType </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+
+
+@if (TempData["Message"] != null)
+
+{
+
+
+    <h2>Unknown Eroor </h2>
+    <p class="text-danger">@TempData["Message"]</p>
+}
+ *@

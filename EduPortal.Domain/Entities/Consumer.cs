@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-    public class Consumer : BaseEntity
+    public class Consumer : BaseEntity<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         
         public string UserName { get; set; }
         public string FirstName { get; set; }

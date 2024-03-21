@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduPortal.Application.Interfaces
+namespace EduPortal.Application.Interfaces.Services
 {
     public interface IConsumerService
     {
@@ -15,7 +15,7 @@ namespace EduPortal.Application.Interfaces
         Response<Consumer> GetById(int id);
         Response<ConsumerCreateResponseDTO> Save(ConsumerCreateDTO consumer);
         Response<string> Update(ConsumerUpdateDTO consumer);
-        Response <string> DeleteById(Consumer id);
-z
+        Response<string> DeleteById(Consumer id);
     }
+   
 }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-    public class Subscriber: BaseEntity
+    public class Subscriber: BaseEntity<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [BindProperty]
         public string SubscriberType { get; set; }

@@ -1,5 +1,12 @@
+using CreditWiseHub.Repository.UnitOfWorks;
+using EduPortal.Application.Interfaces.Repositories;
+using EduPortal.Application.Interfaces.Services;
+using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Persistence.context;
-using Microsoft.EntityFrameworkCore;
+using EduPortal.Persistence.Mapping;
+using EduPortal.Persistence.Repositories;
+using EduPortal.Service.Services;
+
 using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,8 +20,23 @@ builder.Services.AddControllersWithViews()
         TimeOut = 3000
 
     });
+
+builder.Services.AddAutoMapper(typeof(MapProfile));
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<AppDbContext>();
+
+
+builder.Services.AddScoped<ISubsIndividualRepository, SubsIndividualRepository>(); 
+builder.Services.AddScoped<ISubsIndividualService, SubsIndividualService>();
+
+
+builder.Services.AddScoped<ISubsCorporateRepository, SubsCorporateRepository>();
+builder.Services.AddScoped<ISubsCorporateService, SubsCorporateService>();
+
+builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
 
 var app = builder.Build();

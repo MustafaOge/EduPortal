@@ -1,6 +1,6 @@
 ﻿using EduPortal.Application.DTO_s.Consumer;
-using EduPortal.Application.Interfaces;
 using EduPortal.Application.Interfaces.Repositories;
+using EduPortal.Application.Interfaces.Services;
 using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
 using System;

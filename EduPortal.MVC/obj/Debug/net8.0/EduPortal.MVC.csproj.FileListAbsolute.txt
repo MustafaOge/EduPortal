@@ -459,3 +459,4 @@ C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\
 C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\NToastNotify.dll
 C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\MFramework.Services.FakeData.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

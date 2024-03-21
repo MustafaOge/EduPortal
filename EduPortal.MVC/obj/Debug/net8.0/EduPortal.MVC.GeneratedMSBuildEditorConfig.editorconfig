@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Subscriber/FindSubscriber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxGaW5kU3Vic2NyaWJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Subscriber/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,8 +62,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxJbmRpdmlkdWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Subscriber/SubscriberFind.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxTdWJzY3JpYmVyRmluZC5jc2h0bWw=
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Subscriber/TerminateSubscription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxUZXJtaW5hdGVTdWJzY3JpcHRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/_ViewImports.cshtml]
