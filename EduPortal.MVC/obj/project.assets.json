@@ -10387,11 +10387,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.MVC\\EduPortal.MVC.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.MVC\\EduPortal.MVC.csproj",
       "projectName": "EduPortal.MVC",
-      "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.MVC\\EduPortal.MVC.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.MVC\\EduPortal.MVC.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.MVC\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10407,14 +10407,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Application\\EduPortal.Application.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Application\\EduPortal.Application.csproj"
             },
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Domain\\EduPortal.Domain.csproj"
             },
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
             }
           }
         }

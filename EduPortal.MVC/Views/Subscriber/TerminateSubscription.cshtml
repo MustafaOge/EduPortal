@@ -1,3 +1,88 @@
-﻿
+﻿@using EduPortal.MVC.Models.Subscriber
+@model SubscriberViewModel;
 
-<h4>SAMPLE PAGE</h4>   
+
+
+<div class="login-box">
+    <div class="lb-header">
+        <a href="#" class="active" id="individual-box-link">Bireysel</a>
+        <a href="#" id="corporate-box-link">Kurumsal</a>
+    </div>
+    <div class="social-login">
+        <a href="#">
+            <i class="fa fa-facebook fa-lg"></i>
+            Login in with facebook
+        </a>
+        <a href="#">
+            <i class="fa fa-google-plus fa-lg"></i>
+            log in with Google
+        </a>
+    </div>
+
+    <div class="individual-find">
+        @Html.Partial("FindIndividualSubscriber")
+    </div>
+    <div class="corporate-find">
+        @Html.Partial("FindCorporateSubscriber")
+    </div>
+
+
+@*     <form method="post" class="corporate-find" asp-action="FindCorporateSubscriber">
+        <div class="form-group">
+            <label for="TaxIdNumber">Vergi Kimlik No:</label>
+            <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+        </div>
+        <button type="submit" class="btn btn-primary">Bilgileri Getira</button>
+    </form> *@
+
+
+</div>
+
+
+@* 
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Telefon Numarası</th>
+                    <th>Tc Kimlik No</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Doğum tarihi</th>
+                    <th>Abone Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SubsIndividual subsIndividual in Model.IndividualList)
+                {
+                    <tr>
+                        <td> @subsIndividual.NameSurname </td>
+                        <td> @subsIndividual.PhoneNumber </td>
+                        <td> @subsIndividual.IdentityNumber </td>
+                        <td> @subsIndividual.CounterNumber </td>
+                        <td> @subsIndividual.BirthDate </td>
+                        <td> @subsIndividual.SubscriberType </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+ *@
+
+
+
+@if (TempData["Message"] != null)
+
+{
+
+
+    <h2>Unknown Eroor </h2>
+    <p class="text-danger">@TempData["Message"]</p>
+}
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/substerminate.js"></script>

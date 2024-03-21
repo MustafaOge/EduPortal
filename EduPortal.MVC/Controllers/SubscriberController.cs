@@ -190,5 +190,85 @@ namespace EduPortal.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public IActionResult TerminateSubscription(string IdentityNumber = null, string TaxIdNumber = null)
+        //{
+        //    if (!string.IsNullOrEmpty(IdentityNumber))
+        //    {
+        //        Bireysel abone arama
+        //        List<SubsIndividual> individualSubscribers = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
+
+        //        if (individualSubscribers == null || individualSubscribers.Count == 0)
+        //        {
+        //            TempData["Message"] = "Abone bulunamadı.";
+        //            return View("FindIndividualSubscriber", individualSubscribers);
+        //        }
+
+        //        return View("FindIndividualSubscriber", individualSubscribers);
+        //    }
+        //    else if (!string.IsNullOrEmpty(TaxIdNumber))
+        //    {
+        //        Kurumsal abone arama
+        //        List<SubsCorporate> corporateSubscribers = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
+
+        //        if (corporateSubscribers == null || corporateSubscribers.Count == 0)
+        //        {
+        //            TempData["Message"] = "Kurumsal abone bulunamadı.";
+        //            return View("FindCorporateSubscriber", corporateSubscribers);
+        //        }
+
+        //        return View("FindCorporateSubscriber", corporateSubscribers);
+        //    }
+        //    else
+        //    {
+        //        Hem IdentityNumber hem de TaxIdNumber boşsa, geçersiz bir istek yapılmış demektir
+        //        TempData["Message"] = "Geçersiz istek.";
+        //        return View();
+        //    }
+        //}
+
+
+        public IActionResult FindIndividualSubscriber()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FindIndividualSubscriber(string IdentityNumber)
+        {
+            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
+
+            if (abone == null)
+            {
+                TempData["Message"] = "Abone bulunamadı.";
+                return View(abone);
+            }
+
+            return View(abone);
+        }
+        [HttpGet]
+
+        public IActionResult FindCorporateSubscriber()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FindCorporateSubscriber(string TaxIdNumber)
+        {
+            List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
+
+            if (abone == null)
+            {
+                TempData["Message"] = "Kurumsal abone bulunamadı.";
+                return View(abone);
+            }
+
+            return View(abone);
+        }
+
+
     }
 }

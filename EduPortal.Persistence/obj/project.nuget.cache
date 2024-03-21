@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tV49S0LlmmpnPLu0Pw3H8IzMxa+Mqp8AUKl9lEWn/rAI5bZI3tO8YAF9spHoIAYBUxyeIlyUBSX3ChW1YwQidA==",
+  "dgSpecHash": "nayVNakHEFO+vOdpq63I1RSxedFKaiv9Wh+hBaD2P3dTqogxdz75k7gUIjSpr7OXZmwvGM4m2C5dxhRtNB/FDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\NewWersion\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
