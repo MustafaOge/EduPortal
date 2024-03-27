@@ -20,7 +20,7 @@ namespace EduPortal.Application.DTO_s.Subscriber
 
         public string PhoneNumber { get; set; }
 
-        public int CounterNumber { get; set; }
+        public string CounterNumber { get; set; }
 
         public string Email { get; set; }
 

@@ -77,18 +77,15 @@ namespace EduPortal.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CounterNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("CounterNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedByUser")
                         .HasColumnType("int");
-
-                    b.Property<string>("Discriminator")
-                        .HasMaxLength(21)
-                        .HasColumnType("nvarchar(21)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -120,7 +117,7 @@ namespace EduPortal.Persistence.Migrations
                 {
                     b.HasBaseType("EduPortal.Domain.Entities.Subscriber");
 
-                    b.Property<string>("CorprorateName")
+                    b.Property<string>("CorporateName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

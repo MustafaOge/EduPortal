@@ -1,0 +1,31 @@
+﻿@model EduPortal.MVC.Models.Subscriber.SubscriberModel
+
+
+<h3>Subscriber Create</h3>
+
+<div class="register-box" >
+    <div class="lb-header">
+        <a href="#" class="active" id="individual-box-link">Bireysel Abonelik</a>
+        <a href="#" id="corporate-box-link">Kurumsal Abonelik</a>
+    </div>
+
+    <div class="individual-find">
+        @Html.Partial("CreateIndividual") 
+    </div>
+    <div class="corporate-find">
+        @Html.Partial("CreateCorporate")
+    </div> 
+</div>
+
+
+@if (TempData["Message"] != null)
+{
+    <h2>Unknown Error </h2>
+    <p class="text-danger">@TempData["Message"]</p>
+}
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

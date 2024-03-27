@@ -11,7 +11,14 @@ namespace EduPortal.Application.Interfaces.Services
 {
     public interface ISubsCorporateService
     {
-        Task<Response<SubsCorporateDto>> CreateIndividualAsync(CreateCorporateDto individualCreate);
+        Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto individualCreate);
+
+        Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string TaxIdNumber);
+
+
+
+
+        //Task<Response<List<SubsCorporateDto>>> FindCorporate(string TaxIdNumber);
 
         //Response<List<SubsIndividual>> GetAll();
         //Response<SubsIndividual?> GetById(int id);

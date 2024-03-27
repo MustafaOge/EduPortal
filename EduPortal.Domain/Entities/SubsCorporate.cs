@@ -12,7 +12,7 @@ namespace EduPortal.Domain.Entities
     {
         public int Id { get; set; }
 
-        public string CorprorateName { get; set; }
+        public string CorporateName { get; set; }
         public string TaxIdNumber { get; set; }
 
 

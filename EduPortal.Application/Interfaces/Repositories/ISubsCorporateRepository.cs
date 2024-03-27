@@ -11,6 +11,11 @@ namespace EduPortal.Application.Interfaces.Repositories
     public interface ISubsCorporateRepository : IGenericRepository<SubsCorporate, int> 
     {
 
+        //Task<List<SubsCorporate>> FindCorporate(string taxIdNumber);
+
+        Task<List<SubsCorporate>> FindCorporateAsync(string TaxIdNumber);
+
+
         //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
 
         //IReadOnlyList<SubsIndividual> GetAll();

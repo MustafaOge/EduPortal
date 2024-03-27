@@ -1,0 +1,46 @@
+﻿@using EduPortal.Domain.Entities
+
+@model List<SubsIndividual>
+
+
+<form method="post" class="individual-find" asp-action="FindIndividual">
+    <div class="form-group">
+        <label for="IdentityNumber">T.C. Kimlik No:</label>
+        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber">
+    </div>
+    <button type="submit" asp-controller="subscriber" asp-action="FindIndividual" class="btn btn-primary">Bilgileri Getir</button>
+</form>
+
+
+
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Telefon Numarası</th>
+                    <th>Tc Kimlik No</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Doğum tarihi</th>
+                    <th>Abone Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SubsIndividual subsIndividual in Model)
+                {
+                    <tr>
+                        <td> @subsIndividual.NameSurname </td>
+                        <td> @subsIndividual.PhoneNumber </td>
+                        <td> @subsIndividual.IdentityNumber </td>
+                        <td> @subsIndividual.CounterNumber </td>
+                        <td> @subsIndividual.BirthDate </td>
+                        <td> @subsIndividual.SubscriberType </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+

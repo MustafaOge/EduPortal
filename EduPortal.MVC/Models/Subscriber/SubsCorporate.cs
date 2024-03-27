@@ -2,26 +2,33 @@
 
 namespace EduPortal.MVC.Models.Subscriber
 {
-    public class SubsCorporate
+    public class SubsCorporate : SubscriberViewModel
     {
+        public int Id { get; set; }
+
+        [Display(Name = "Kurum Adı")]
         [Required(ErrorMessage = "Kurum Adı Alanı Zorunludur")]
         [MaxLength(200)]
-        public string CorprorateName { get; set; }
+        public string CorporateName { get; set; }
 
-       
+        [Display(Name = "Vergi Numarası")]
         [Required(ErrorMessage = "Vergi Numarası Alanı Zorunludur")]
         public string TaxIdNumber { get; set; }
+
+        [Display(Name = "Abone Türü")]
         public string SubscriberType { get; set; }
 
-        [MinLength(11, ErrorMessage = "Gerçersiz Telefon Numarası"), MaxLength(11,ErrorMessage ="Gerçersiz Telefon Numarası")]
+        [Display(Name = "Telefon Numarası")]
+        [MinLength(11, ErrorMessage = "Geçersiz Telefon Numarası"), MaxLength(11, ErrorMessage = "Geçersiz Telefon Numarası")]
         [Required(ErrorMessage = "Telefon Numarası Alanı Zorunludur")]
-
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "Sayaç Naumarası Alanı Zorunludur")]
 
-        public int CounterNumber { get; set; }
+        [Display(Name = "Sayaç Numarası")]
+        [Required(ErrorMessage = "Sayaç Numarası Alanı Zorunludur")]
+        public string CounterNumber { get; set; }
+
+        [Display(Name = "E-posta Adresi")]
         [Required(ErrorMessage = "Email Adresi Alanı Zorunludur")]
-
         public string Email { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
-using EduPortal.MVC.Models;
+using EduPortal.MVC.Models.ViewModel;
 using EduPortal.Persistence.context;
+using EduPortal.Service.Services;
 using MFramework.Services.FakeData;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
-using System;
-using static System.Reflection.Metadata.BlobBuilder;
+using System.Net;
+using System.Security.Policy;
+
 
 namespace EduPortal.Controllers
 {
@@ -20,32 +22,21 @@ namespace EduPortal.Controllers
     {
 
 
-
         //[HttpPost]
-        //public IActionResult SubscriberCreate(Subscriber subscriber)
+        //public IActionResult Create(Subscriber subscriber)
         //{
         //    if (ModelState.IsValid)
         //    {
-        //        dbContext.Subscribers.Add(subscriber);
-        //        dbContext.SaveChanges();
+        //        //_db.Subscribers.Add(subscriber);
+        //        appDbContext.SaveChanges();
         //        return RedirectToAction("Index");
         //    }
-
-        //    return View(subscriber);
+        //    return View();
         //}
-        //[Route("Subscriber")]
-
-        [HttpPost]
-        public IActionResult Create(Subscriber subscriber)
-        {
-            if (ModelState.IsValid)
-            {
-                //_db.Subscribers.Add(subscriber);
-                appDbContext.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         [HttpGet]
         public IActionResult Index()
@@ -53,65 +44,52 @@ namespace EduPortal.Controllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-        public IActionResult SubscriptionRemove()
+     
+        public IActionResult TerminateSubscription()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult Corporate()
+        public IActionResult CreateSubscriber()
         {
             return View();
         }
 
+        [HttpGet]
+        public IActionResult CreateCorporate()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Corporate(CreateCorporateDto individual)
+        public async Task<IActionResult> CreateCorporate(CreateCorporateDto corporate)
         {
-            if (!ModelState.IsValid) return View();
-
+            if (!ModelState.IsValid) return View("CreateSubscriber");
             try
             {
-                await subsCorporateService.CreateIndividualAsync(individual);
+                await subsCorporateService.CreateCorporateAsync(corporate);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
-                return View();
+                return View("CreateSubscriber");
             }
         }
 
 
-        //[HttpPost]
-        //public IActionResult Corporate(SubsCorporate corporate)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        toast.AddSuccessToastMessage("Abone Eklendi", new ToastrOptions { Title = "Başarılı!" });
-        //        appDbContext.Corprorates.Add(corporate);
-        //        appDbContext.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        toast.AddErrorToastMessage("Abone Eklenemedi", new ToastrOptions { Title = "Başarısız!" });
-        //    }
-        //    return View();
-        //}
-
-      
-        [HttpPost]
-
-        public async Task<IActionResult> Individual(CreateIndividualDto individual)
+        [HttpGet]
+        public IActionResult CreateIndividual()
         {
-            if (!ModelState.IsValid) return View();
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
+        {
+            if (!ModelState.IsValid) return View("CreateSubscriber");
             try
             {
                 await subsIndividualService.CreateIndividualAsync(individual);
@@ -121,19 +99,11 @@ namespace EduPortal.Controllers
             catch (Exception ex)
             {
                 toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
-                return View();
+                return View("CreateSubscriber");
             }
         }
 
 
-        [HttpGet]
-        public IActionResult Individual()
-        {
-            return View();
-        }
-
-
-        //ToDo
         [HttpGet]
         public IActionResult FindSubscriber()
         {
@@ -144,16 +114,13 @@ namespace EduPortal.Controllers
         public IActionResult FindSubscriber(string IdentityNumber)
         {
             List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-
             if (abone == null)
             {
                 TempData["Message"] = "Abone bulunamadı.";
                 return View(abone);
             }
-
             return View(abone);
         }
-
 
 
         public IActionResult CreateFakeData()
@@ -166,7 +133,7 @@ namespace EduPortal.Controllers
                     PhoneNumber = PhoneNumberData.GetPhoneNumber(),
                     NameSurname = NameData.GetFullName(),
                     BirthDate = DateTimeData.GetDatetime(),
-                    CounterNumber = NumberData.GetNumber(1000, 100000),
+                    CounterNumber = "değişecek sayi11",
                     IdentityNumber = NumberData.GetNumber(1000, 100000).ToString(),
                     Email = NetworkData.GetEmail(),
                     SubscriberType = "Bireysel"
@@ -180,85 +147,54 @@ namespace EduPortal.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult FindIndividual()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FindIndividual(string IdentityNumber)
+        {
+            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
+            if (abone == null)
+            {
+                TempData["Message"] = "Abone bulunamadı.";
+                return View(abone);
+            }
+            return View(abone);
+        }
 
 
         [HttpGet]
 
-        public  IActionResult TerminateSubscription()
+        public IActionResult FindCorporate()
         {
 
             return View();
         }
 
         //[HttpPost]
-        //public IActionResult TerminateSubscription(string IdentityNumber = null, string TaxIdNumber = null)
+        //public async Task<IActionResult> FindCorporate(string TaxIdNumber)
         //{
-        //    if (!string.IsNullOrEmpty(IdentityNumber))
+        //    var abone = await subsCorporateService.FindCorporateAsync(TaxIdNumber);
+
+        //    if (abone == null)
         //    {
-        //        Bireysel abone arama
-        //        List<SubsIndividual> individualSubscribers = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-
-        //        if (individualSubscribers == null || individualSubscribers.Count == 0)
-        //        {
-        //            TempData["Message"] = "Abone bulunamadı.";
-        //            return View("FindIndividualSubscriber", individualSubscribers);
-        //        }
-
-        //        return View("FindIndividualSubscriber", individualSubscribers);
+        //        TempData["Message"] = "Kurumsal abone bulunamadı.";
+        //        return View(abone);
         //    }
-        //    else if (!string.IsNullOrEmpty(TaxIdNumber))
-        //    {
-        //        Kurumsal abone arama
-        //        List<SubsCorporate> corporateSubscribers = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
 
-        //        if (corporateSubscribers == null || corporateSubscribers.Count == 0)
-        //        {
-        //            TempData["Message"] = "Kurumsal abone bulunamadı.";
-        //            return View("FindCorporateSubscriber", corporateSubscribers);
-        //        }
-
-        //        return View("FindCorporateSubscriber", corporateSubscribers);
-        //    }
-        //    else
-        //    {
-        //        Hem IdentityNumber hem de TaxIdNumber boşsa, geçersiz bir istek yapılmış demektir
-        //        TempData["Message"] = "Geçersiz istek.";
-        //        return View();
-        //    }
+        //    return View(abone);
         //}
 
 
-        public IActionResult FindIndividualSubscriber()
-        {
-
-            return View();
-        }
-
         [HttpPost]
-        public IActionResult FindIndividualSubscriber(string IdentityNumber)
-        {
-            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-
-            if (abone == null)
-            {
-                TempData["Message"] = "Abone bulunamadı.";
-                return View(abone);
-            }
-
-            return View(abone);
-        }
-        [HttpGet]
-
-        public IActionResult FindCorporateSubscriber()
-        {
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult FindCorporateSubscriber(string TaxIdNumber)
+        public IActionResult FindCorporate(string TaxIdNumber)
         {
             List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
+
+            //List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
 
             if (abone == null)
             {
@@ -268,7 +204,7 @@ namespace EduPortal.Controllers
 
             return View(abone);
         }
-
-
     }
 }
+
+

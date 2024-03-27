@@ -18,24 +18,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/CreateCorporate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENyZWF0ZUNvcnBvcmF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/CreateIndividual.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENyZWF0ZUluZGl2aWR1YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/FindCorporateSubscriber.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZpbmRDb3Jwb3JhdGVTdWJzY3JpYmVyLmNzaHRtbA==
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/FindCorporate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZpbmRDb3Jwb3JhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/FindIndividualSubscriber.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZpbmRJbmRpdmlkdWFsU3Vic2NyaWJlci5jc2h0bWw=
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/FindIndividual.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZpbmRJbmRpdmlkdWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWVcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Shared/_Footer.cshtml]
@@ -50,12 +62,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/Corporate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxDb3Jwb3JhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxDcmVhdGUuY3NodG1s
+[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/CreateSubscriber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxDcmVhdGVTdWJzY3JpYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/FindSubscriber.cshtml]
@@ -64,10 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/Individual.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxJbmRpdmlkdWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/NewWersion/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31/EduPortal.MVC/Views/Subscriber/TerminateSubscription.cshtml]

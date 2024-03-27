@@ -4,33 +4,29 @@ namespace EduPortal.MVC.Models.Subscriber
 {
     public class SubsIndividual
     {
-        public int Id { get; set; }
-
+        [Display(Name = "Ad Soyad")]
         [Required(ErrorMessage = "Ad Soyad Alanı Zorunludur")]
-
+        [MaxLength(200)]
         public string NameSurname { get; set; }
 
-
-        [Required(ErrorMessage = "Kimlik Numarası Alanı Zorunludur")]
-
+        [Display(Name = "Kimlik Numarası")]
+        [MinLength(11, ErrorMessage = "Geçersiz Kimlik Numarası"), MaxLength(11, ErrorMessage = "Geçersiz Telefon Numarası")]
         public string IdentityNumber { get; set; }
-
-        [Required(ErrorMessage = "Doğum Tarihi Alanı Zorunludur")]
-
         public DateTime BirthDate { get; set; }
 
-        [MinLength(11, ErrorMessage = "Gerçersiz Telefon Numarası"), MaxLength(11, ErrorMessage = "Gerçersiz Telefon Numarası")]
+        public string SubscriberType { get; set; }
+
+        [Display(Name = "Telefon Numarası")]
+        [MinLength(11, ErrorMessage = "Geçersiz Telefon Numarası"), MaxLength(11, ErrorMessage = "Geçersiz Telefon Numarası")]
         [Required(ErrorMessage = "Telefon Numarası Alanı Zorunludur")]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = "Sayaç Numarası")]
         [Required(ErrorMessage = "Sayaç Numarası Alanı Zorunludur")]
+        public string CounterNumber { get; set; }
 
-        public int CounterNumber { get; set; }
-
+        [Display(Name = "E-posta Adresi")]
         [Required(ErrorMessage = "Email Adresi Alanı Zorunludur")]
-
         public string Email { get; set; }
-        public string SubscriberType { get; set; }
-
     }
 }

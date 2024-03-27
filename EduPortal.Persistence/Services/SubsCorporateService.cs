@@ -20,7 +20,7 @@ namespace EduPortal.Service.Services
         IMapper mapper
         ) : ISubsCorporateService
     {
-        public async Task<Response<SubsCorporateDto>> CreateIndividualAsync(CreateCorporateDto corporateDto)
+        public async Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto corporateDto)
         {
             var corporatelEntity = mapper.Map<SubsCorporate>(corporateDto);
 
@@ -31,6 +31,54 @@ namespace EduPortal.Service.Services
 
             return Response<SubsCorporateDto>.Success(individualDto, HttpStatusCode.Created);
         }
+
+
+
+        public async Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string taxIdNumber)
+        {
+            var corporates = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+            var corporatesDto = corporates.Select(corporate => new SubsCorporateDto
+            {
+                // Gerekirse mapping işlemleri burada yapılabilir
+            }).ToList();
+
+            if (corporatesDto.Any())
+            {
+                return Response<List<SubsCorporateDto>>.Success(corporatesDto, HttpStatusCode.OK);
+            }
+            else
+            {
+                return Response<List<SubsCorporateDto>>.Fail("Abone bulunamadı.", HttpStatusCode.Found);
+            }
+        }
+
+        //public async Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string TaxIdNumber)
+        //{
+        //    var corporates = await subsCorporateRepository.FindCorporateAsync(TaxIdNumber);
+
+        //    if (corporates == null || !corporates.Any())
+        //    {
+        //        return Response<List<SubsCorporateDto>>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
+        //    }
+
+        //    var corporateDtos = mapper.Map<List<SubsCorporateDto>>(corporates);
+        //    return Response<List<SubsCorporateDto>>.Success(corporateDtos, HttpStatusCode.OK);
+        //},
+
+
+
+
+
+
+
+
+        //public async Task<Response<List<SubsCorporateDto>>> FindCorporate(string TaxIdNumber)
+        //{
+        //    var abone = subsCorporateRepository.FindCorporate(TaxIdNumber);
+        //    var aboneDto = mapper.Map<List<SubsCorporateDto>>(abone);
+        //    return Response<List<SubsCorporateDto>>.Success(aboneDto, HttpStatusCode.OK);
+        //}
+
 
 
 
