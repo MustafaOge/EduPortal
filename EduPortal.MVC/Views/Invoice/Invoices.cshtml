@@ -1,0 +1,30 @@
+﻿@using EduPortal.Domain.Entities
+
+
+<table class="table table-bordered table-hover table-sm">
+    <thead>
+        <tr>
+            <th>Fatura Tarihi</th>
+            <th>Ödendi</th>
+            <th>Ödenecek Tutar</th>
+            <th>Dönemi</th>
+            <th>Fatura Detay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Invoice in Model)
+        {
+            <tr style="@(Invoice.IsPaid ? "" : "background-color: lightcoral;")">
+                <td>@Invoice.ReadingDate</td>
+                <td>@(Invoice.IsPaid ? "Evet" : "Hayır")</td>
+                <td>@Invoice.Amount</td>
+                <td>@Invoice.ReadingDate.Year/@Invoice.ReadingDate.Month.ToString("00")</td>
+                <td>
+                    <a asp-controller="Invoice" asp-action="Detail" asp-route-id="@Invoice.Id" class="btn btn-primary" style="color:black; background:white">
+                        <i class="fas fa-file-invoice"></i> Fatura Detayları
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

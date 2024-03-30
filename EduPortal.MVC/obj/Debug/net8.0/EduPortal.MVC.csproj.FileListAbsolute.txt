@@ -924,3 +924,6 @@ C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

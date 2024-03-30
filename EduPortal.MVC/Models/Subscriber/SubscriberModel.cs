@@ -40,5 +40,8 @@ namespace EduPortal.MVC.Models.Subscriber
 
         [Display(Name = "E-posta Adresi")]
         public string TaxIdNumber { get; set; }
+
+        public bool IsActive { get; set; }
+
     }
 }

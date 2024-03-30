@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-    public class Invoice
+    public class Invoice : BaseEntity<int>
     {
-        public int Id { get; set; }
         public DateTime Date { get; set; }
 
         public Subscriber? Subscriber { get; set; }
         public int? SubscriberId { get; set; }
-
-        public string EICCode { get; set; }
         public decimal Amount { get; set; }
-        public int ConsumerId { get; set; }
         public string SubscriberType { get; set; }
+        public DateTime ReadingDate { get; set; }  
         public DateTime DueDate { get; set; }
         public DateTime PaymentDate { get; set; }
         public bool IsPaid { get; set; } // Fatura ödendi mi?
-        public decimal TotalConsumptionKwh { get; set; }
+
+        public MeterReading MeterReading { get; set; }
+
+
     }
 }

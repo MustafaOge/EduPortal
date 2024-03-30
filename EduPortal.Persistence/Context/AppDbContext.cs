@@ -23,21 +23,25 @@ namespace EduPortal.Persistence.context
         public DbSet<SubsIndividual> Individuals { get; set; }
         public DbSet<SubsCorporate> Corprorates { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<MeterReading> MeterReadings { get; set; }
+
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(optionsBuilder.IsConfigured == false)
+            if (optionsBuilder.IsConfigured == false)
             {
                 optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;").AddInterceptors(new SaveChangesInterceptor(contextAccessor)).UseLazyLoadingProxies()
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); 
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 optionsBuilder.UseLazyLoadingProxies(false);
             }
             base.OnConfiguring(optionsBuilder);
 
         }
 
-        
+
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    if (optionsBuilder.IsConfigured == false)
@@ -66,4 +70,3 @@ namespace EduPortal.Persistence.context
     }
 
 }
-

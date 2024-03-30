@@ -37,8 +37,6 @@
       "EduPortal.MVC/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "EduPortal.Application": "1.0.0",
-          "EduPortal.Domain": "1.0.0",
           "EduPortal.Persistence": "1.0.0",
           "MFramework.Services.FakeData": "1.0.23",
           "Microsoft.EntityFrameworkCore": "8.0.2",

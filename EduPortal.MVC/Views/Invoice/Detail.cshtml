@@ -1,0 +1,160 @@
+﻿@* @using EduPortal.MVC.Models.ViewModel.YourProject.ViewModels
+@model InvoiceDetailViewModel *@
+
+<div id="invoiceholder">
+
+    <div id="headerimage"></div>
+    <div id="invoice" class="effect2">
+
+        <div id="invoice-top">
+            <div class="info">
+                <h2>EDU ENERJİ</h2>
+                <br>
+                <h7>
+                    Elektrik Faturası</br>
+                </h7>
+            </div><!--End Info-->
+            <div class="center-logo">
+                <div class="row">
+                    <div class="logo"></div>
+                    <br>
+                    <b>
+                        e-Arşiv Fatura</br>
+                    </b>
+                </div>
+            </div>
+
+            <div class="title">
+                <h1>Invoice #1069</h1>
+                <p>
+                    Issued: May 27, 2015</br>
+                    Payment Due: June 27, 2015
+                </p>
+            </div><!--End Title-->
+        </div>
+        <div id="invoice-mid">
+            <div class="clientlogo"></div>
+            <div class="info">
+                <h2>Client Email</h2>
+                <p>
+                    @if (Model.Invoice != null && Model.Invoice.Subscriber != null)
+                    {
+                        <span>@Model.Invoice.Subscriber.Email</span>
+
+                        <br>
+
+                    }
+                </p>
+            </div>
+
+            <div id="project">
+                <h2>Project Description</h2>
+                <p>Proin cursus, dui non tincidunt elementum, tortor ex feugiat enim, at elementum enim quam vel purus. Curabitur semper malesuada urna ut suscipit.</p>
+            </div>
+        </div>
+        <!--End
+
+          <div id="invoice-mid">
+
+              <div class="clientlogo"></div>
+              <div class="info">
+                  <h2>Client Name</h2>
+                  <p>
+                      JohnDoe@gmail.com</br>
+                      555-555-5555</br>
+              </div>
+
+              <div id="project">
+                  <h2>Project Description</h2>
+                  <p>Proin cursus, dui non tincidunt elementum, tortor ex feugiat enim, at elementum enim quam vel purus. Curabitur semper malesuada urna ut suscipit.</p>
+              </div>
+
+          </div><!--End Invoice Mid-->
+
+        <div id="invoice-bot">
+
+            <div id="table">
+                <table>
+                    <tr class="tabletitle">
+                        <td class="item"><h2>Okuma Bilgisi</h2></td>
+                        <td class="Hours"><h2>İlk Endeks</h2></td>
+                        <td class="Rate"><h2>Son Endeks</h2></td>
+                        <td class="subtotal"><h2>Fark</h2></td>
+
+
+                    </tr>
+
+                @foreach (var meterReading in Model.MeterReadings)
+                {
+                        <tr class="service">
+                        <tr class="service">
+                            <td class="tableitem">Okuma Günü</td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.ReadingDate.ToShortDateString()</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.LastIndexDate.ToShortDateString()</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.ReadingDayDifference</p></td>
+                        </tr>
+                        
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">Toplam(Endeks)</td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.TotalFirstIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.TotalLastIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.TotalDifference</p></td>
+
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">Gündüz</td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.DayFirstIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.DayLastIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.DayDifference</p></td>
+      
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">Puant</td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.PeakFirstIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.PeakLastIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.PeakDifference</p></td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">Gece</td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.NightFirstIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.NightLastIndex</p></td>
+                            <td class="tableitem"><p class="itemtext">@meterReading.NightDifference</p></td>
+                        </tr>
+                }
+
+                    <tr class="tabletitle">
+                        <td></td>
+                        <td></td>
+                        <td class="Rate"><h2>Total</h2></td>
+                        <td class="payment"><h2>@(Model.Invoice != null ? Model.Invoice.Amount.ToString() : "")</h2></td>
+                    </tr>
+                </table>
+            </div><!--End Table-->
+
+            <form id="payButton" asp-controller="Invoice" asp-action="PayInvoice" method="post">
+                <!-- Fatura ID'sini gizli bir alan olarak ekleyin -->
+                
+                <input id="" type="hidden" name="id" value=@Model.Invoice> <!-- Örnek olarak 84 yerine fatura ID'sini dinamik olarak alabilirsiniz -->
+                <!-- Buraya gerekli form alanları eklenebilir -->
+                <button type="submit">Faturayı Öde</button>
+            </form>
+
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="QRZ7QTM9XRPJ6">
+                <input type="image" src="http://michaeltruong.ca/images/paypal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            </form>
+
+
+
+            <div id="legalcopy">
+                <p class="legal">
+                    <strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices.
+                </p>
+            </div>
+
+        </div><!--End InvoiceBot-->
+    </div><!--End Invoice-->
+</div><!-- End Invoice Holder-->

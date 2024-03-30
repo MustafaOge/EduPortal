@@ -1,0 +1,83 @@
+﻿@using EduPortal.MVC.Models.Subscriber
+@model SubsIndividual
+
+<div class="row" >
+    <form method="post"  asp-controller="Subscriber" asp-action="CreateIndividual">
+        <div class="container p-5 my-5 border">
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NameSurname" id="nameSurnameLabel"></label>
+                        <input asp-for="NameSurname" type="tel" class="form-control" placeholder="Ad Soyad">
+                        <span asp-validation-for="NameSurname" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="IdentityNumber" id="identityNumberLabel"></label>
+                        <input asp-for="IdentityNumber" type="tel" class="form-control" placeholder="TC No">
+                        <span asp-validation-for="IdentityNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="CounterNumber"></label>
+                        <input asp-for="CounterNumber" type="tel" class="form-control" placeholder="Counter Number">
+                        <span asp-validation-for="CounterNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" id="phoneNumberLabel"></label>
+                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Tel No">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="BirthDate" id="birthDateLabel"></label>
+                        <input asp-for="BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi">
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Email" id="emailLabel"></label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresi">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="SubscriberType" value="Bireysel" />
+                @* <input type="hidden" asp-for="Discriminator" value="Bireysel" /> *@
+
+
+
+            </div>
+        </div>
+
+        <div class="col-12 mb-3 text-left">
+            <a asp-action="CreateFakeData" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Create Fake Data</a>
+        </div>
+
+
+        <div class="form-group float-right">
+            <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2"></i> Back To List</a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

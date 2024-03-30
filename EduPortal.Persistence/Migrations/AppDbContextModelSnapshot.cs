@@ -33,7 +33,10 @@ namespace EduPortal.Persistence.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ConsumerId")
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUser")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -42,14 +45,13 @@ namespace EduPortal.Persistence.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EICCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsPaid")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ReadingDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("SubscriberId")
@@ -59,14 +61,96 @@ namespace EduPortal.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("TotalConsumptionKwh")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUser")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SubscriberId");
 
                     b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.MeterReading", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUser")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("DayDifference")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DayFirstIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DayLastIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastIndexDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("NightDifference")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NightFirstIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NightLastIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PeakDifference")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PeakFirstIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PeakLastIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ReadingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ReadingDayDifference")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalDifference")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalFirstIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalLastIndex")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId")
+                        .IsUnique();
+
+                    b.ToTable("MeterReadings");
                 });
 
             modelBuilder.Entity("EduPortal.Domain.Entities.Subscriber", b =>
@@ -91,10 +175,12 @@ namespace EduPortal.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubscriberType")
                         .IsRequired()
@@ -155,6 +241,17 @@ namespace EduPortal.Persistence.Migrations
                     b.Navigation("Subscriber");
                 });
 
+            modelBuilder.Entity("EduPortal.Domain.Entities.MeterReading", b =>
+                {
+                    b.HasOne("EduPortal.Domain.Entities.Invoice", "Invoice")
+                        .WithOne("MeterReading")
+                        .HasForeignKey("EduPortal.Domain.Entities.MeterReading", "InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Invoice");
+                });
+
             modelBuilder.Entity("EduPortal.Domain.Entities.SubsCorporate", b =>
                 {
                     b.HasOne("EduPortal.Domain.Entities.Subscriber", null)
@@ -170,6 +267,12 @@ namespace EduPortal.Persistence.Migrations
                         .WithOne()
                         .HasForeignKey("EduPortal.Domain.Entities.SubsIndividual", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Invoice", b =>
+                {
+                    b.Navigation("MeterReading")
                         .IsRequired();
                 });
 

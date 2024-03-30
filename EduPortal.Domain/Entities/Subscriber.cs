@@ -11,25 +11,13 @@ namespace EduPortal.Domain.Entities
 {
     public class Subscriber: BaseEntity<int>
     {
-        //public int Id { get; set; }
-
         [BindProperty]
         public string SubscriberType { get; set; }
-
-        [MaxLength(100)]
-
         public string PhoneNumber { get; set; }
-
         public string CounterNumber { get; set; }
-
         public string Email { get; set; }
-
         public List<Invoice>? Invoices { get; set; }
-
-
-
-
-
+        public bool IsActive { get; set; }
     }
 }
 // Authentşcatşon cookies

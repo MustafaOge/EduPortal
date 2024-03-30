@@ -22,29 +22,13 @@ namespace EduPortal.Controllers
     {
 
 
-        //[HttpPost]
-        //public IActionResult Create(Subscriber subscriber)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //_db.Subscribers.Add(subscriber);
-        //        appDbContext.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-     
+
         public IActionResult TerminateSubscription()
         {
             return View();
@@ -114,7 +98,7 @@ namespace EduPortal.Controllers
         public IActionResult FindSubscriber(string IdentityNumber)
         {
             List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-            if (abone == null)
+            if (abone.Count == 0)
             {
                 TempData["Message"] = "Abone bulunamadı.";
                 return View(abone);
@@ -125,7 +109,7 @@ namespace EduPortal.Controllers
 
         public IActionResult CreateFakeData()
         {
-            for (int i = 11; i < 15; i++)
+            for (int i = 0; i < 5; i++)
             {
                 SubsIndividual subsIndividual = new SubsIndividual
                 {
@@ -136,7 +120,7 @@ namespace EduPortal.Controllers
                     CounterNumber = "değişecek sayi11",
                     IdentityNumber = NumberData.GetNumber(1000, 100000).ToString(),
                     Email = NetworkData.GetEmail(),
-                    SubscriberType = "Bireysel"
+                    SubscriberType = "Kurumsal"
 
 
                 };
@@ -190,9 +174,9 @@ namespace EduPortal.Controllers
 
 
         [HttpPost]
-        public IActionResult FindCorporate(string TaxIdNumber)
+        public IActionResult FindCorporate(string taxIdNumber)
         {
-            List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
+            List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == taxIdNumber).ToList();
 
             //List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
 
@@ -204,6 +188,9 @@ namespace EduPortal.Controllers
 
             return View(abone);
         }
+
+
+
     }
 }
 

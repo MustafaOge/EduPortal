@@ -1,0 +1,35 @@
+﻿
+
+
+<div class="login-box">
+    <div class="lb-header">
+        <a href="#" class="active" id="individual-box-link">Bireysel</a>
+        <a href="#" id="corporate-box-link">Kurumsal</a>
+    </div>
+
+
+    <div class="individual-find">
+        @Html.Partial("PaymentIndividual")
+    </div>
+    <div class="corporate-find">
+        @Html.Partial("PaymentCorporate")
+    </div>
+
+
+
+
+    @if (TempData["Message"] != null)
+
+    {
+
+
+        <h2>Unknown Eroor </h2>
+        <p class="text-danger">@TempData["Message"]</p>
+    }
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/substerminate.js"></script>
+
+
+

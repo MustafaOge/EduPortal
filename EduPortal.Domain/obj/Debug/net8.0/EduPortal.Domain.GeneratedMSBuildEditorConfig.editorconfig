@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EduPortal.Domain
-build_property.ProjectDir = C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.Domain\
+build_property.ProjectDir = C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
