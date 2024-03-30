@@ -24,6 +24,10 @@ namespace EduPortal.Application.DTO_s.Subscriber
 
         public string Email { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
+
+
 
 
     }

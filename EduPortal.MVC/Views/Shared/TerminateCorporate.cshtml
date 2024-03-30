@@ -1,0 +1,45 @@
+﻿@using EduPortal.Domain.Entities
+
+@model List<SubsCorporate>
+
+
+
+<form method="post" class="corporate-find" asp-action="TerminateCorporate">
+        <div class="form-group">
+            <label for="TaxIdNumber">Vergi Kimlik No:</label>
+            <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+        </div>
+    <button type="submit" asp-controller="subscriber" asp-action="TerminateCorporate" class="btn btn-primary">Bilgileri Getir</button>
+    </form>
+
+
+
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Kurum İsmi</th>
+                    <th>Telefon Numarası</th>
+                    <th>Vergi Kimlik Numarası</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Abone Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SubsCorporate subsCorporate in Model)
+                {
+                    <tr>
+                        <td> @subsCorporate.CorporateName </td>
+                        <td> @subsCorporate.PhoneNumber </td>
+                        <td> @subsCorporate.TaxIdNumber </td>
+                        <td> @subsCorporate.CounterNumber </td>
+                        <td> @subsCorporate.SubscriberType </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+

@@ -23,7 +23,7 @@ namespace EduPortal.MVC.Controllers
 
         public IActionResult CreateFakeData()
         {
-            for (int i = 40; i < 45; i++)
+            for (int i = 40; i < 57; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
                 decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi
@@ -68,7 +68,7 @@ namespace EduPortal.MVC.Controllers
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
                     DueDate = DateTimeData.GetDatetime(new(2023, 9, 10), new(2023, 12, 10)),
                     Date = DateTime.Now,
-                    SubscriberId = NumberData.GetNumber(7, 15),
+                    SubscriberId = NumberData.GetNumber(43, 57),
                     SubscriberType = "Bireysel",
                     MeterReading = meterReading,
                     Amount = (meterReading.TotalDifference) * 1.45m

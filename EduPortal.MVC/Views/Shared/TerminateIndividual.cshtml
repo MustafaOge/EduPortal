@@ -1,0 +1,58 @@
+﻿@using EduPortal.Domain.Entities
+
+@model List<SubsIndividual>
+
+
+<form method="post" class="individual-find" asp-action="TerminateIndividual">
+    <div class="form-group">
+        <label for="IdentityNumber">T.C. Kimlik No:</label>
+        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber">
+    </div>
+    <button type="submit" asp-controller="subscriber" asp-action="TerminateIndividual" class="btn btn-primary">Bilgileri Getir</button>
+</form>
+
+
+
+<div class="col">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Telefon Numarası</th>
+                    <th>Tc Kimlik No</th>
+                    <th>Sayaç Numarası</th>
+                    <th>Doğum tarihi</th>
+                    <th>Abone Tipi</th>
+                    <th>Abonelik İşlemleri</th> <!-- Yeni sütun başlığı -->
+
+                </tr>
+            </thead>
+            <tbody>
+               @foreach (SubsIndividual subsIndividual in Model)
+{
+    <tr>
+        <td> @subsIndividual.NameSurname </td>
+        <td> @subsIndividual.PhoneNumber </td>
+        <td> @subsIndividual.IdentityNumber </td>
+        <td> @subsIndividual.CounterNumber </td>
+        <td> @subsIndividual.BirthDate </td>
+        <td> @subsIndividual.SubscriberType </td>
+        <td> <!-- Yeni sütun için -->
+
+                            <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsIndividual">
+                                <!-- Abonelik Sonlandırma Butonu -->
+                <input type="hidden" name="IdentityNumber" value="@subsIndividual.IdentityNumber" />
+
+
+                <button type="submit" class="btn btn-danger">Aboneliği Sonlandır</button>
+            </form>
+        </td>
+    </tr>
+}
+            </tbody>
+        </table>
+    }
+</div>
+

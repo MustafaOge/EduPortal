@@ -3,7 +3,8 @@
 
 
 document.getElementById("payButton").addEventListener("click", function () {
-    var invoiceId = parseInt(this.getAttribute('data-invoice-id')); // Fatura ID'sini al ve integer'a dönüştür
+    var invoiceIdInput = document.getElementById('invoiceIdInput');
+
 
     console.log("Invoice ID: " + invoiceId); // Fatura ID'sini konsola yazdır
 
@@ -21,7 +22,6 @@ document.getElementById("payButton").addEventListener("click", function () {
             }
         };
     
-        var data = JSON.stringify({ id: invoiceId }); // Fatura ID'sini JSON olarak dönüştür
-        xhr.send(invoiceId); // JSON verisini gönder
+        xhr.send(invoiceIdInput); // JSON verisini gönder
     }
 });

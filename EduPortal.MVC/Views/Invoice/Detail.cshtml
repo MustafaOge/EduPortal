@@ -134,7 +134,8 @@
 
             <form id="payButton" asp-controller="Invoice" asp-action="PayInvoice" method="post">
                 <!-- Fatura ID'sini gizli bir alan olarak ekleyin -->
-                
+                <input id="invoiceIdInput" type="hidden" name="id" value=@Model.Invoice.Id> <!-- Örnek olarak 11 yerine fatura ID'sini dinamik olarak alabilirsiniz -->
+           
                 <input id="" type="hidden" name="id" value=@Model.Invoice> <!-- Örnek olarak 84 yerine fatura ID'sini dinamik olarak alabilirsiniz -->
                 <!-- Buraya gerekli form alanları eklenebilir -->
                 <button type="submit">Faturayı Öde</button>
