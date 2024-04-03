@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace EduPortal.Persistence.Repositories
 {
     public class SubsCorporateRepository : GenericRepository<SubsCorporate, int>, ISubsCorporateRepository
-    { 
+    {
         private readonly IGenericRepository<SubsCorporate, int> _genericRepository;
         public DbContext _context;
         public SubsCorporateRepository(AppDbContext context, IGenericRepository<SubsCorporate, int> genericRepository) : base(context)
@@ -26,7 +26,7 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task<List<SubsCorporate>> FindCorporateAsync(string TaxIdNumber)
         {
-                        return await _dbSet.Where(c => c.TaxIdNumber == TaxIdNumber).ToListAsync();
+            return await _dbSet.Where(c => c.TaxIdNumber == TaxIdNumber).ToListAsync();
 
 
         }
@@ -42,6 +42,6 @@ namespace EduPortal.Persistence.Repositories
         //    return await _context.Corprorates.Where(c => c.TaxIdNumber == taxIdNumber).ToListAsync();
         //}
 
-  
+
     }
 }

@@ -3,6 +3,7 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models.ViewModel;
 using EduPortal.Persistence.context;
+using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using MFramework.Services.FakeData;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,8 @@ namespace EduPortal.Controllers
         IToastNotification toast,
         AppDbContext appDbContext,
         ISubsIndividualService subsIndividualService,
-        ISubsCorporateService subsCorporateService
+        ISubsCorporateService subsCorporateService,
+        IFakeDataService fakeDataService
         ) : Controller
     {
 
@@ -27,7 +29,11 @@ namespace EduPortal.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        public IActionResult Find()
+        {
+            return View();
+        }
 
         public IActionResult Terminate()
         {
@@ -49,55 +55,12 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCorporate(CreateCorporateDto corporate)
         {
-            if (!ModelState.IsValid) return View("CreateSubscriber");
+            if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsCorporateService.CreateCorporateAsync(corporate);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
                 return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
-                return View("CreateSubscriber");
-            }
-        }
-
-
-        [HttpGet]
-        public IActionResult CreateIndividual()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
-        {
-            if (!ModelState.IsValid) return View("Create");
-            try
-            {
-                List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.CounterNumber == individual.CounterNumber).ToList();
-                if (abone.Count > 0)
-                {
-                    foreach (SubsIndividual sub in abone)
-                    {
-                        if (sub.IsActive == true)
-                        {
-                            toast.AddErrorToastMessage("Bu sayaç numarasına ait aktif bir abonelik zaten mevcut.");
-                            return View("Create");
-                        }
-                    }
-                }
-                else
-                {
-                    await subsIndividualService.CreateIndividualAsync(individual);
-                    toast.AddSuccessToastMessage("İşlem Başarılı");
-
-                }
-
-                return RedirectToAction("Index");
-
-
             }
             catch (Exception ex)
             {
@@ -108,46 +71,73 @@ namespace EduPortal.Controllers
 
 
         [HttpGet]
-        public IActionResult Find()
+        public IActionResult CreateIndividual()
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Find(string IdentityNumber)
+        public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
         {
-            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-            if (abone.Count == 0)
+            if (!ModelState.IsValid) return View("Create");
+
+            try
             {
-                TempData["Message"] = "Abone bulunamadı.";
-                return View(abone);
+                if (await subsIndividualService.CreateIndividualAsync(individual))
+                {
+                    toast.AddSuccessToastMessage("İşlem Başarılı");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    toast.AddErrorToastMessage("Bu sayaç numarasına ait aktif bir abonelik zaten mevcut.");
+                    return View("Create");
+                }
             }
-            return View(abone);
+            catch (Exception ex)
+            {
+                toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
+                return View("Create");
+            }
         }
 
 
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
+        //{
+        //    if (!ModelState.IsValid) return View("Create");
+        //    try
+        //    {
+        //        List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.CounterNumber == individual.CounterNumber).ToList();
+        //        if (abone.Count > 0)
+        //        {
+        //            foreach (SubsIndividual sub in abone)
+        //            {
+        //                if (sub.IsActive == true)
+        //                {
+        //                    toast.AddErrorToastMessage("Bu sayaç numarasına ait aktif bir abonelik zaten mevcut.");
+        //                    return View("Create");
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            await subsIndividualService.CreateIndividualAsync(individual);
+        //            toast.AddSuccessToastMessage("İşlem Başarılı");
+
+        //        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
+        //        return View("Create");
+        //    }
+        //}
+
         public IActionResult CreateFakeData()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                SubsIndividual subsIndividual = new SubsIndividual
-                {
-
-                    PhoneNumber = PhoneNumberData.GetPhoneNumber(),
-                    NameSurname = NameData.GetFullName(),
-                    BirthDate = DateTimeData.GetDatetime(),
-                    CounterNumber = NumberData.GetNumber(1000000, 9999999).ToString(),
-                    IdentityNumber = NumberData.GetNumber(1000, 100000).ToString(),
-                    Email = NetworkData.GetEmail(),
-                    SubscriberType = "Kurumsal",
-                    IsActive = true
-
-
-                };
-                appDbContext.Individuals.Add(subsIndividual);
-            }
-            appDbContext.SaveChanges();
-
+            fakeDataService.CreateFakeSubsIndividualData();
             return RedirectToAction("Index");
         }
 

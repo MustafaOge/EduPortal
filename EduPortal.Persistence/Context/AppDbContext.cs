@@ -24,6 +24,8 @@ namespace EduPortal.Persistence.context
         public DbSet<SubsCorporate> Corprorates { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<MeterReading> MeterReadings { get; set; }
+        public DbSet<InvoiceComplaint> invoiceComplaints { get; set; }
+
 
 
 

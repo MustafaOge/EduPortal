@@ -18,20 +18,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Mustafa\Desktop\EduPortal\ElektrikAbonelikUygulamasi\EduPortal.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxEZXRhaWwuY3NodG1s
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Complaint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxDb21wbGFpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/DetailPay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxEZXRhaWxQYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Find.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxGaW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Invoices.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxJbnZvaWNlcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/Payment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxQYXltZW50LmNzaHRtbA==
+[C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Invoice/InvoiceList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxJbnZvaWNlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mustafa/Desktop/EduPortal/ElektrikAbonelikUygulamasi/EduPortal.MVC/Views/Shared/Error.cshtml]

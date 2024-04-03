@@ -10,7 +10,7 @@ namespace EduPortal.Domain.Entities
 {
     public class SubsCorporate : Subscriber
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string CorporateName { get; set; }
         public string TaxIdNumber { get; set; }
 

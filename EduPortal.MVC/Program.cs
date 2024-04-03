@@ -8,6 +8,7 @@ using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
 using EduPortal.Persistence.Mapping;
 using EduPortal.Persistence.Repositories;
+using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
 using NToastNotify;
@@ -37,8 +38,21 @@ builder.Services.AddScoped<ISubsIndividualService, SubsIndividualService>();
 builder.Services.AddScoped<ISubsCorporateRepository, SubsCorporateRepository>();
 builder.Services.AddScoped<ISubsCorporateService, SubsCorporateService>();
 
+builder.Services.AddScoped<IFakeDataService, CreateFakeDataService>();
+
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+
+
 builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddScoped<SubsCorporateRepository>();
+builder.Services.AddScoped<SubsIndividualRepository>();
+
+builder.Services.AddScoped<ISubscriberRepository, SubscriberRepository>();
+
+
 
 builder.Services
 .AddControllers()

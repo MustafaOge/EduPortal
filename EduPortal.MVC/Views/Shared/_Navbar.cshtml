@@ -25,31 +25,29 @@
                         @* <li><a class="dropdown-item" asp-action="RedirectResult" asp-route-versiyon=2>Redirect Permant Result </a></li> *@
                     </ul>
 
-        @*         <li class="nav-item dropdown">
+                    @*         <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Fatura iþlemleri
+                    Fatura iþlemleri
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                        <li><a class="dropdown-item" asp-action="LocalFunctions">Fatura Sorgulama</a></li>
+                    <li><a class="dropdown-item" asp-action="LocalFunctions">Fatura Sorgulama</a></li>
 
 
                     </ul>
-                </li> *@
+                    </li> *@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Fatura iþlemleri
                     </a>
-
                     <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
                         <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Index">Fatura Sorgulama</a></li>
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Payment">Fatura Ödeme</a></li>
-                        <li><a class="dropdown-item" asp-action="LocalFunctions">Fatura Ýtiraz</a></li>
-
+                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Find">Fatura Ödeme</a></li>
+                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Complaint">Fatura Ýtiraz</a></li>
 
                     </ul>
-                    </li>
+                </li>
                 </li>
             </ul>
         </div>
@@ -71,7 +69,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" asp-controller="Account" asp-action="Register">Register</a>
         </li>
- 
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" asp-controller="Category" asp-action="Index">Categories</a>
         </li>
@@ -79,7 +77,7 @@
           <a class="nav-link active" aria-current="page" asp-page="/Contact">Contact</a>
         </li>
       </ul>
-  
+
     </div>
   </div>
 </nav> *@

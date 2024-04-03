@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EduPortal.Application.DTO_s.Invoice;
 using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Domain.Entities;
 using System;
@@ -31,7 +32,10 @@ namespace EduPortal.Persistence.Mapping
 
             CreateMap<SubsCorporate, CreateCorporateDto>().ReverseMap();
             CreateMap<Subscriber, SubscriberCreateDTO>();
-            
+
+            CreateMap<InvoiceComplaintCreateDto, InvoiceComplaint>();
+
+
 
 
 

@@ -93,7 +93,7 @@
                             <td class="tableitem"><p class="itemtext">@meterReading.LastIndexDate.ToShortDateString()</p></td>
                             <td class="tableitem"><p class="itemtext">@meterReading.ReadingDayDifference</p></td>
                         </tr>
-                        
+
                         </tr>
                         <tr class="service">
                             <td class="tableitem">Toplam(Endeks)</td>
@@ -107,7 +107,7 @@
                             <td class="tableitem"><p class="itemtext">@meterReading.DayFirstIndex</p></td>
                             <td class="tableitem"><p class="itemtext">@meterReading.DayLastIndex</p></td>
                             <td class="tableitem"><p class="itemtext">@meterReading.DayDifference</p></td>
-      
+
                         </tr>
                         <tr class="service">
                             <td class="tableitem">Puant</td>
@@ -135,7 +135,7 @@
             <form id="payButton" asp-controller="Invoice" asp-action="PayInvoice" method="post">
                 <!-- Fatura ID'sini gizli bir alan olarak ekleyin -->
                 <input id="invoiceIdInput" type="hidden" name="id" value=@Model.Invoice.Id> <!-- Örnek olarak 11 yerine fatura ID'sini dinamik olarak alabilirsiniz -->
-           
+
                 <input id="" type="hidden" name="id" value=@Model.Invoice> <!-- Örnek olarak 84 yerine fatura ID'sini dinamik olarak alabilirsiniz -->
                 <!-- Buraya gerekli form alanları eklenebilir -->
                 <button type="submit">Faturayı Öde</button>

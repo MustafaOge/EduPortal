@@ -11,7 +11,8 @@ namespace EduPortal.Application.Interfaces.Services
 {
     public interface ISubsIndividualService
     {
-        Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate);
+        Task<bool> CreateIndividualAsync(CreateIndividualDto individualCreate);
+
 
         //Response<List<SubsIndividual>> GetAll();
         //Response<SubsIndividual?> GetById(int id);

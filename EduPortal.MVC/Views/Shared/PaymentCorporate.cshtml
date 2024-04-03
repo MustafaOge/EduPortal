@@ -4,13 +4,14 @@
 
 
 
-<form method="post" asp-controller="Invoice" class="corporate-find" asp-action="FindCorporate">
+<form method="post" asp-controller="Invoice" class="corporate-find" asp-action="PaymentCorporate">
         <div class="form-group">
-            <label for="TaxIdNumber">Vergi Kimlik No:</label>
-            <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+        <label for="TaxIdNumber">Vergi Kimlik No:</label>
+        <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
         </div>
-    <button type="submit" asp-controller="Invoice" asp-action="FindCorporate" class="btn btn-primary">Bilgileri Getir</button>
+    <button type="submit" asp-controller="Invoice" asp-action="PaymentCorporate" class="btn btn-primary">Bilgileri Getir</button>
     </form>
+
 
 
 
@@ -25,6 +26,7 @@
                     <th>Vergi Kimlik Numarası</th>
                     <th>Sayaç Numarası</th>
                     <th>Abone Tipi</th>
+                    <th>Faturalar</th>   
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +38,10 @@
                         <td> @subsCorporate.TaxIdNumber </td>
                         <td> @subsCorporate.CounterNumber </td>
                         <td> @subsCorporate.SubscriberType </td>
+                        <td>
+                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsCorporate.Id" class="btn btn-primary" style="color:brown; background:darkorange">Faturaları Göster</a>
+
+                        </td>
                     </tr>
                 }
             </tbody>

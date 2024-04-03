@@ -1,0 +1,59 @@
+﻿@model EduPortal.MVC.Models.Invoice.InvoiceComplaintCreateModel
+
+@{
+    ViewData["Title"] = "Fatura İtirazı Oluştur";
+}
+
+<h1>Fatura İtirazı Oluştur</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+<div class="register-box">
+    <div class="row justify-content-center">
+        <form asp-action="Complaint" method="post">
+
+            <div class="container p-5 my-5 border">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="InvoiceId">Fatura Seri No</label>
+                        <input asp-for="InvoiceId" class="form-control" />
+                        <span asp-validation-for="InvoiceId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Title">İtiraz Başlığı</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Reason">İtiraz Nedeni</label>
+                        <textarea asp-for="Reason" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">İtiraz Oluştur</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
+

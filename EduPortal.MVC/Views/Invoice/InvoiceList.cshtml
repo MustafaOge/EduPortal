@@ -1,4 +1,4 @@
-﻿@using EduPortal.Domain.Entities
+﻿﻿@using EduPortal.Domain.Entities
 
 
 <table class="table table-bordered table-hover table-sm">
@@ -20,7 +20,7 @@
                 <td>@Invoice.Amount</td>
                 <td>@Invoice.ReadingDate.Year/@Invoice.ReadingDate.Month.ToString("00")</td>
                 <td>
-                    <a asp-controller="Invoice" asp-action="Detail" asp-route-id="@Invoice.Id" class="btn btn-primary" style="color:black; background:white">
+                    <a asp-controller="Invoice" asp-action="DetailPay" asp-route-id="@Invoice.Id" class="btn btn-primary" style="color:black; background:white">
                         <i class="fas fa-file-invoice"></i> Fatura Detayları
                     </a>
                 </td>

@@ -28,5 +28,10 @@ namespace EduPortal.Persistence.Repositories
         {
             await _genericRepository.AddAsync(subsIndividual);
         }
+
+        public async Task<List<SubsIndividual>> FindIndividualAsync(string IdentityNumber)
+        {
+            return await _dbSet.Where(c => c.IdentityNumber == IdentityNumber).ToListAsync();
+        }
     }
 }
