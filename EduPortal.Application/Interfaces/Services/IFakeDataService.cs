@@ -9,9 +9,11 @@ namespace EduPortal.Application.Interfaces.Services
     public interface IFakeDataService
     {
 
-        void CreateFakeSubsInvoicesData(); // Sahte fatura verileri oluşturur, başarı durumunu döndürür
         void CreateFakeSubsIndividualData();
+        void CreateFakeData();
 
         void CreateFakeInvoiceData();
+
+
     }
 }

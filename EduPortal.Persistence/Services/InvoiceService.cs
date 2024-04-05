@@ -3,7 +3,6 @@ using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
-using EduPortal.Application.Validations.Invoice;
 using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models.ViewModel.YourProject.ViewModels;

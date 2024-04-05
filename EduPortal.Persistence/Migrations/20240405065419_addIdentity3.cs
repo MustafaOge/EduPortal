@@ -5,7 +5,7 @@
 namespace EduPortal.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class check_entity : Migration
+    public partial class addIdentity3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

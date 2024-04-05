@@ -13,7 +13,6 @@ namespace EduPortal.Application.Interfaces.Repositories
 
         Task<List<SubsIndividual>> FindIndividualAsync(string IdentityNumber);
 
-
         //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
 
         //IReadOnlyList<SubsIndividual> GetAll();

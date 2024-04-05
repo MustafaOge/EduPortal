@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduPortal.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240402140748_addComplaint2")]
-    partial class addComplaint2
+    [Migration("20240405065001_addAppUser")]
+    partial class addAppUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,0 +1,54 @@
+﻿@using EduPortal.Models.ViewModels.AppUsers
+@model UserSignInRequestModel
+
+
+<div class="login-box">
+    <div class="lb-header">
+        <a href="#" class="active" id="individual-box-link">Kullanıcı Giriş</a>
+
+
+    </div>
+    <form asp-controller="Home" asp-action="SignIn" method="post">
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        <div class="mb-3">
+            <label>Kullanıcı ismi giriniz</label>
+            <span class="text-danger" asp-validation-for="UserName"></span>
+            <input asp-for="UserName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Sifre giriniz</label>
+            <span class="text-danger" asp-validation-for="Password"></span>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" asp-for="RememberMe" class="form-check-input" />
+            <label>Beni Hatırla?</label>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary">Giriş Yap</button>
+        </div>
+
+        <div class="mb-3" asp-validation-summary="ModelOnly">
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+
+    {
+        <h2>Unknown Eroor </h2>
+        <p class="text-danger">@TempData["Message"]</p>
+    }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/substerminate.js"></script>
+
+
+
+
+
+
+  

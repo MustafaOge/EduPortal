@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EduPortal.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class addComplaint2 : Migration
+    public partial class dbCheck2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

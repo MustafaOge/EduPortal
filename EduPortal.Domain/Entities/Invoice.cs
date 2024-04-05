@@ -9,6 +9,7 @@ namespace EduPortal.Domain.Entities
     public class Invoice : BaseEntity<int>
     {
         public DateTime Date { get; set; }
+
         public Subscriber? Subscriber { get; set; }
         public int? SubscriberId { get; set; }
         public decimal Amount { get; set; }

@@ -14,6 +14,8 @@ namespace EduPortal.MVC.Models.Subscriber
         [Required(ErrorMessage = "Kimlik Numarası Alanı Zorunludur")]
 
         public string IdentityNumber { get; set; }
+
+
         public DateTime BirthDate { get; set; }
 
         public string SubscriberType { get; set; }

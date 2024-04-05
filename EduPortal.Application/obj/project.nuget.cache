@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bWzyOC2X8vnn8bUHK9tMO5MdCA5HKp9KNly9cm59nlE842HuPbh0y/nKW5lomD3O/qXmg8fFkvQqKIom9KpJWg==",
+  "dgSpecHash": "fNkFlyxf5rHDmSyF9n2/pietKOxCmcCj92d6ANOAcqrrKa0WoqjpJ8uhhR9MvXK0aRk+wCPNMsrzzg1OkLhBMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj",
+  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Application\\EduPortal.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",

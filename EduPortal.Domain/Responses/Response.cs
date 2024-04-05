@@ -8,8 +8,6 @@ namespace EduPortal.Core.Responses
         public T? Data { get; init; }
         public List<string>? Errors { get; init; }
 
-
-
         [JsonIgnore] public HttpStatusCode StatusCode { get; init; }
 
         //Static factory method design pattern

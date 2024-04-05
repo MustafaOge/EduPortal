@@ -948,11 +948,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Application\\EduPortal.Application.csproj",
       "projectName": "EduPortal.Application",
-      "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\EduPortal.Application.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Application\\EduPortal.Application.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Application\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -968,8 +968,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\EduPortal\\ElektrikAbonelikUygulamasi\\EduPortal.Domain\\EduPortal.Domain.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Domain\\EduPortal.Domain.csproj"
             }
           }
         }

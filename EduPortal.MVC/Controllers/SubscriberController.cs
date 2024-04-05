@@ -3,9 +3,9 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models.ViewModel;
 using EduPortal.Persistence.context;
-using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using MFramework.Services.FakeData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using System.Net;
@@ -16,30 +16,26 @@ namespace EduPortal.Controllers
 {
     public class SubscriberController(
         IToastNotification toast,
+        IFakeDataService fakeDataService,
         AppDbContext appDbContext,
         ISubsIndividualService subsIndividualService,
-        ISubsCorporateService subsCorporateService,
-        IFakeDataService fakeDataService
+        ISubsCorporateService subsCorporateService
         ) : Controller
     {
-
 
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        [HttpGet]
-        public IActionResult Find()
-        {
-            return View();
-        }
+
 
         public IActionResult Terminate()
         {
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
@@ -69,29 +65,21 @@ namespace EduPortal.Controllers
             }
         }
 
-
         [HttpGet]
         public IActionResult CreateIndividual()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
         {
             if (!ModelState.IsValid) return View("Create");
-
             try
             {
-                if (await subsIndividualService.CreateIndividualAsync(individual))
-                {
-                    toast.AddSuccessToastMessage("İşlem Başarılı");
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    toast.AddErrorToastMessage("Bu sayaç numarasına ait aktif bir abonelik zaten mevcut.");
-                    return View("Create");
-                }
+                await subsIndividualService.CreateIndividualAsync(individual);
+                toast.AddSuccessToastMessage("İşlem Başarılı");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -100,40 +88,23 @@ namespace EduPortal.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Find()
+        {
+            return View();
+        }
 
-
-        //[HttpPost]
-        //public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
-        //{
-        //    if (!ModelState.IsValid) return View("Create");
-        //    try
-        //    {
-        //        List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.CounterNumber == individual.CounterNumber).ToList();
-        //        if (abone.Count > 0)
-        //        {
-        //            foreach (SubsIndividual sub in abone)
-        //            {
-        //                if (sub.IsActive == true)
-        //                {
-        //                    toast.AddErrorToastMessage("Bu sayaç numarasına ait aktif bir abonelik zaten mevcut.");
-        //                    return View("Create");
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            await subsIndividualService.CreateIndividualAsync(individual);
-        //            toast.AddSuccessToastMessage("İşlem Başarılı");
-
-        //        }
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        toast.AddErrorToastMessage("Abone Eklenemedi: " + ex.Message);
-        //        return View("Create");
-        //    }
-        //}
+        [HttpPost]
+        public IActionResult Find(string IdentityNumber)
+        {
+            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
+            if (abone.Count == 0)
+            {
+                TempData["Message"] = "Abone bulunamadı.";
+                return View(abone);
+            }
+            return View(abone);
+        }
 
         public IActionResult CreateFakeData()
         {
@@ -188,17 +159,13 @@ namespace EduPortal.Controllers
         {
             List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == taxIdNumber).ToList();
 
-            //List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
-
             if (abone == null)
             {
                 TempData["Message"] = "Kurumsal abone bulunamadı.";
                 return View(abone);
             }
-
             return View(abone);
         }
-
 
 
         [HttpGet]
@@ -214,14 +181,11 @@ namespace EduPortal.Controllers
         {
             List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == taxIdNumber).ToList();
 
-            //List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == TaxIdNumber).ToList();
-
             if (abone == null)
             {
                 TempData["Message"] = "Kurumsal abone bulunamadı.";
                 return View(abone);
             }
-
             return View(abone);
         }
 
@@ -269,9 +233,8 @@ namespace EduPortal.Controllers
                     toast.AddErrorToastMessage("Ödenmemiş Faturası Bulunduğu İçin Aboneliği Sonlandıramazsınız.");
                     TempData["Message"] = "Bazı abonelerin ödenmemiş faturası bulunduğu için aboneliklerini sonlandıramazsınız.";
                     return View("TerminateIndividual", aboneler);
-
-
                 }
+
                 else
                 {
                     // Abonenin ödenmemiş faturası yoksa
@@ -281,57 +244,8 @@ namespace EduPortal.Controllers
                     toast.AddSuccessToastMessage("Abonelik Başarıyla Sonlandırıldı.");
                 }
             }
-
             return RedirectToAction("Index");
         }
-
-        //[HttpPost]
-        //public IActionResult TerminateIndividual(string IdentityNumber)
-        //{
-        //    // Girilen TC numarasına sahip aboneleri bulma işlemi
-        //    List<SubsIndividual> aboneler = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-
-        //    if (aboneler.Count == 0)
-        //    {
-        //        TempData["Message"] = "Girilen TC numarasına sahip abone bulunamadı.";
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    foreach (var abone in aboneler)
-        //    {
-        //        // Abonenin ödenmemiş faturalarını kontrol et
-        //        bool hasUnpaidInvoices = appDbContext.Invoices
-        //            .Any(i => i.SubscriberId == abone.Id && !i.IsPaid);
-
-        //        if (hasUnpaidInvoices)
-        //        {
-        //            toast.AddErrorToastMessage("Ödenmemiş Faturası Bulunduğu İçin Aboneliği Sonlandıramazsınız.");
-
-        //            // Abonenin ödenmemiş faturası varsa
-        //            TempData["Message"] = "Bazı abonelerin ödenmemiş faturası bulunduğu için aboneliklerini sonlandıramazsınız.";
-        //            return View(abone);
-        //        }
-        //        else
-        //        {
-        //            // Abonenin ödenmemiş faturası yoksa
-        //            abone.IsActive = false; // Aboneliği pasif hale getir
-
-
-        //            appDbContext.Update(abone);
-
-
-        //            appDbContext.SaveChanges(); //
-        //            toast.AddSuccessToastMessage("Abonelik Başarıyla Sonlandırıldı.");
-        //        }
-        //    }
-
-        //    // Tüm abonelerin listesini döndür
-        //    return View(aboneler);
-        //}
-
-
-
-
     }
 }
 

@@ -11,7 +11,6 @@ namespace EduPortal.MVC.Models.Subscriber
         [MaxLength(200)]
         public string CorporateName { get; set; }
 
-        [MinLength(10, ErrorMessage = "Geçersiz Vergi Numarası"), MaxLength(10, ErrorMessage = "Geçersiz Vergi Numarası")]
         [Display(Name = "Vergi Numarası")]
         [Required(ErrorMessage = "Vergi Numarası Alanı Zorunludur")]
         public string TaxIdNumber { get; set; }

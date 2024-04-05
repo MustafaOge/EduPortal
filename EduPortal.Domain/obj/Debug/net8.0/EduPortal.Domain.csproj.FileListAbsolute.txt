@@ -35,3 +35,15 @@ C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.Domain\obj\Debug\net8.0\refint\EduPortal.Domain.dll
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.pdb
 C:\Users\Mustafa\Desktop\EduPortal\NewWersion\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal-48b7e87b657c3b09b74ea5af926b1dd4a721ba31\EduPortal.Domain\obj\Debug\net8.0\ref\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.deps.json
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\bin\Debug\net8.0\EduPortal.Domain.pdb
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.csproj.AssemblyReference.cache
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.AssemblyInfoInputs.cache
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.AssemblyInfo.cs
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\refint\EduPortal.Domain.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\EduPortal.Domain.pdb
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.Domain\obj\Debug\net8.0\ref\EduPortal.Domain.dll

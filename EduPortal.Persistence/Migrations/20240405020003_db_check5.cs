@@ -5,7 +5,7 @@
 namespace EduPortal.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class addComplaint : Migration
+    public partial class db_check5 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
