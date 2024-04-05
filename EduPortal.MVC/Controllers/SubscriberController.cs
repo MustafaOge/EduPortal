@@ -35,7 +35,7 @@ namespace EduPortal.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Create()
         {

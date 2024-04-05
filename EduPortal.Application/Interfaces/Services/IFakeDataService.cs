@@ -10,7 +10,7 @@ namespace EduPortal.Application.Interfaces.Services
     {
 
         void CreateFakeSubsIndividualData();
-        void CreateFakeData();
+        Task CreateFakeData();
 
         void CreateFakeInvoiceData();
 
