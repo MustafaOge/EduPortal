@@ -1,16 +1,16 @@
-﻿@using EduPortal.Domain.Entities
+﻿@using EduPortal.Application.DTO_s.Subscriber
 
-@model List<SubsCorporate>
+@model List<SubsCorporateDto>
 
 
 
 <form method="post" class="corporate-find" asp-action="TerminateCorporate">
-        <div class="form-group">
-            <label for="TaxIdNumber">Vergi Kimlik No:</label>
-            <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
-        </div>
+    <div class="form-group">
+        <label for="TaxIdNumber">Vergi Kimlik No:</label>
+        <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+    </div>
     <button type="submit" asp-controller="subscriber" asp-action="TerminateCorporate" class="btn btn-primary">Bilgileri Getir</button>
-    </form>
+</form>
 
 
 
@@ -25,10 +25,11 @@
                     <th>Vergi Kimlik Numarası</th>
                     <th>Sayaç Numarası</th>
                     <th>Abone Tipi</th>
+                    <th>Abonelik İşlemleri</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsCorporate subsCorporate in Model)
+                @foreach (SubsCorporateDto subsCorporate in Model)
                 {
                     <tr>
                         <td> @subsCorporate.CorporateName </td>
@@ -36,6 +37,12 @@
                         <td> @subsCorporate.TaxIdNumber </td>
                         <td> @subsCorporate.CounterNumber </td>
                         <td> @subsCorporate.SubscriberType </td>
+                        <td>
+                            <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsCorporate">
+                                <input type="hidden" name="TaxIdNumber" value="@subsCorporate.TaxIdNumber" />
+                                <button type="submit" class="btn btn-danger">Aboneliği Sonlandır</button>
+                            </form>
+                        </td>
                     </tr>
                 }
             </tbody>

@@ -31,7 +31,8 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task<List<SubsIndividual>> FindIndividualAsync(string IdentityNumber)
         {
-            return await _dbSet.Where(c => c.IdentityNumber == IdentityNumber).ToListAsync();
+            return await _dbSet.Where(c => c.IdentityNumber == IdentityNumber && c.IsActive).ToListAsync();
         }
     }
 }
+

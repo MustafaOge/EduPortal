@@ -1,6 +1,5 @@
-﻿@using EduPortal.Domain.Entities
-
-@model List<SubsIndividual>
+﻿@using EduPortal.Application.DTO_s.Subscriber;
+@model List<SubsIndividualDto>
 
 
 <form method="post" class="individual-find" asp-action="FindIndividual">
@@ -28,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsIndividual subsIndividual in Model)
+                @foreach (SubsIndividualDto subsIndividual in Model)
                 {
                     <tr>
                         <td> @subsIndividual.NameSurname </td>

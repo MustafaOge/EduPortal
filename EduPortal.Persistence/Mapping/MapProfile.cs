@@ -16,10 +16,9 @@ namespace EduPortal.Persistence.Mapping
         {
 
          
-            CreateMap<SubsIndividual, SubsIndividualDto>();
+            CreateMap<SubsIndividual, SubsIndividualDto>().ReverseMap();
 
             CreateMap<CreateIndividualDto, SubsIndividual>();
-            CreateMap<SubsIndividualDto, SubsIndividual>();
 
 
             CreateMap<SubsCorporate, SubsCorporateDto>();
@@ -34,6 +33,9 @@ namespace EduPortal.Persistence.Mapping
             CreateMap<Subscriber, SubscriberCreateDTO>();
 
             CreateMap<InvoiceComplaintCreateDto, InvoiceComplaint>();
+
+
+
 
 
 

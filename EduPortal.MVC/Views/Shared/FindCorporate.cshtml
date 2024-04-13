@@ -1,6 +1,6 @@
-﻿@using EduPortal.Domain.Entities
+﻿@using EduPortal.Application.DTO_s.Subscriber
 
-@model List<SubsCorporate>
+@model List<SubsCorporateDto>
 
 
 
@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsCorporate subsCorporate in Model)
+                @foreach (SubsCorporateDto subsCorporate in Model)
                 {
                     <tr>
                         <td> @subsCorporate.CorporateName </td>

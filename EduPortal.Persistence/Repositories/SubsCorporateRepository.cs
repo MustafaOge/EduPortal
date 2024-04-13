@@ -26,7 +26,7 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task<List<SubsCorporate>> FindCorporateAsync(string TaxIdNumber)
         {
-            return await _dbSet.Where(c => c.TaxIdNumber == TaxIdNumber).ToListAsync();
+            return await _dbSet.Where(c => c.TaxIdNumber == TaxIdNumber && c.IsActive).ToListAsync();
         }
 
 

@@ -1367,6 +1367,8 @@ C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb75
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\EduPortal.Application.pdb
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\EduPortal.Domain.pdb
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.csproj.AssemblyReference.cache
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.Properties.Resources.resources
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.csproj.GenerateResource.cache
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.AssemblyInfoInputs.cache
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.AssemblyInfo.cs

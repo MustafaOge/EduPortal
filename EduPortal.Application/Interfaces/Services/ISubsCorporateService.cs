@@ -13,8 +13,9 @@ namespace EduPortal.Application.Interfaces.Services
     {
         Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto individualCreate);
 
-        Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string TaxIdNumber);
+        Task<List<SubsCorporateDto>> FindCorporateAsync(string TaxIdNumber);
 
+        Task<Response<bool>> TerminateSubsCorporateAsync(string TaxIdNumber);
 
 
 

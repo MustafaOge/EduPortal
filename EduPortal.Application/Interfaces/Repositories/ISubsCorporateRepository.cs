@@ -16,6 +16,8 @@ namespace EduPortal.Application.Interfaces.Repositories
         Task<List<SubsCorporate>> FindCorporateAsync(string TaxIdNumber);
 
 
+
+
         //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
 
         //IReadOnlyList<SubsIndividual> GetAll();

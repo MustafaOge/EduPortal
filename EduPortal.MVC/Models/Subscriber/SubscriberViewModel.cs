@@ -1,8 +1,10 @@
-﻿namespace EduPortal.MVC.Models.Subscriber
+﻿using EduPortal.Application.DTO_s.Subscriber;
+
+namespace EduPortal.MVC.Models.Subscriber
 {
     public class SubscriberViewModel
     {
-        public List<SubsIndividual> IndividualList { get; set; }
-        public List<SubsCorporate> CorporateList { get; set; }
+        public List<SubsIndividualDto> IndividualList { get; set; }
+        public List<SubsCorporateDto> CorporateList { get; set; }
     }
 }

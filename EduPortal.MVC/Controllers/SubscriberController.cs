@@ -94,18 +94,6 @@ namespace EduPortal.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Find(string IdentityNumber)
-        {
-            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-            if (abone.Count == 0)
-            {
-                TempData["Message"] = "Abone bulunamadı.";
-                return View(abone);
-            }
-            return View(abone);
-        }
-
         public IActionResult CreateFakeData()
         {
             fakeDataService.CreateFakeSubsIndividualData();
@@ -119,17 +107,12 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public IActionResult FindIndividual(string IdentityNumber)
+        public async Task<IActionResult> FindIndividual(string IdentityNumber)
         {
-            List<SubsIndividual> abone = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber).ToList();
-            if (abone == null)
-            {
-                TempData["Message"] = "Abone bulunamadı.";
-                return View(abone);
-            }
-            return View(abone);
-        }
+            List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityNumber);
 
+            return View(entities);
+        }
 
         [HttpGet]
 
@@ -139,34 +122,13 @@ namespace EduPortal.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> FindCorporate(string TaxIdNumber)
-        //{
-        //    var abone = await subsCorporateService.FindCorporateAsync(TaxIdNumber);
-
-        //    if (abone == null)
-        //    {
-        //        TempData["Message"] = "Kurumsal abone bulunamadı.";
-        //        return View(abone);
-        //    }
-
-        //    return View(abone);
-        //}
-
-
         [HttpPost]
-        public IActionResult FindCorporate(string taxIdNumber)
+        public async Task<IActionResult> FindCorporate(string taxIdNumber)
         {
-            List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == taxIdNumber).ToList();
+            List<SubsCorporateDto> entities = await subsCorporateService.FindCorporateAsync(taxIdNumber);
 
-            if (abone == null)
-            {
-                TempData["Message"] = "Kurumsal abone bulunamadı.";
-                return View(abone);
-            }
-            return View(abone);
+            return View(entities);
         }
-
 
         [HttpGet]
 
@@ -177,16 +139,10 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public IActionResult TerminateCorporate(string taxIdNumber)
+        public async Task<IActionResult> TerminateCorporate(string taxIdNumber)
         {
-            List<SubsCorporate> abone = appDbContext.Corprorates.Where(a => a.TaxIdNumber == taxIdNumber).ToList();
-
-            if (abone == null)
-            {
-                TempData["Message"] = "Kurumsal abone bulunamadı.";
-                return View(abone);
-            }
-            return View(abone);
+            List<SubsCorporateDto> corporate = await subsCorporateService.FindCorporateAsync(taxIdNumber);
+            return View(corporate);
         }
 
 
@@ -197,55 +153,53 @@ namespace EduPortal.Controllers
 
             return View();
         }
-
+        //To-Do
         [HttpPost]
-        public IActionResult TerminateIndividual(string IdentityNumber)
+        public async Task<IActionResult> TerminateIndividual(string identityNumber)
         {
-            // Girilen TC numarasına sahip aktif aboneleri bulma işlemi
-            List<SubsIndividual> aboneler = appDbContext.Individuals.Where(a => a.IdentityNumber == IdentityNumber && a.IsActive).ToList();
-
-            return View(aboneler);
+            List<SubsIndividualDto> indivudal = await subsIndividualService.FindIndividualDtosAsync(identityNumber);
+            return View(indivudal);
         }
 
+
         [HttpPost]
-        public IActionResult TerminateSubsIndividual(string IdentityNumber)
+        public async Task<IActionResult> TerminateSubsIndividual(string IdentityNumber)
         {
-            // Girilen TC numarasına sahip aboneleri bulma işlemi
-            List<SubsIndividual> aboneler = appDbContext.Individuals
-                .Where(a => a.IdentityNumber == IdentityNumber && a.IsActive)
-                .ToList();
+            var response = await subsIndividualService.TerminateSubsIndividualAsync(IdentityNumber);
 
-
-            if (aboneler.Count == 0)
+            if (response.StatusCode != HttpStatusCode.OK)
             {
-                TempData["Message"] = "Girilen TC numarasına sahip aktif abone bulunamadı.";
+                TempData["Message"] = "Abonelik sonlandırma işlemi başarısız oldu: " + response.Errors?[0];
+                toast.AddSuccessToastMessage("Ödenmemiş faturası olduğu için abonelik sonladırılamadı");
+
                 return RedirectToAction("Index");
             }
 
-            foreach (var abone in aboneler)
-            {
-                // Abonenin ödenmemiş faturalarını kontrol et
-                bool hasUnpaidInvoices = appDbContext.Invoices
-                    .Any(i => i.SubscriberId == abone.Id && !i.IsPaid);
+            TempData["Message"] = "Abonelik(ler) başarıyla sonlandırıldı.";
+            toast.AddSuccessToastMessage("Abonelik başarıyla sonlandırıldı.");
 
-                if (hasUnpaidInvoices)
-                {
-                    toast.AddErrorToastMessage("Ödenmemiş Faturası Bulunduğu İçin Aboneliği Sonlandıramazsınız.");
-                    TempData["Message"] = "Bazı abonelerin ödenmemiş faturası bulunduğu için aboneliklerini sonlandıramazsınız.";
-                    return View("TerminateIndividual", aboneler);
-                }
-
-                else
-                {
-                    // Abonenin ödenmemiş faturası yoksa
-                    abone.IsActive = false; // Aboneliği pasif hale getir
-                    appDbContext.Update(abone);
-                    appDbContext.SaveChanges();
-                    toast.AddSuccessToastMessage("Abonelik Başarıyla Sonlandırıldı.");
-                }
-            }
             return RedirectToAction("Index");
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> TerminateSubsCorporate(string TaxIdNumber)
+        {
+            var response = await subsCorporateService.TerminateSubsCorporateAsync(TaxIdNumber);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                TempData["Message"] = "Abonelik sonlandırma işlemi başarısız oldu: " + response.Errors?[0];
+
+                return RedirectToAction("Index");
+            }
+
+            TempData["Message"] = "Abonelik(ler) başarıyla sonlandırıldı.";
+            toast.AddSuccessToastMessage("Abonelik başarıyla sonlandırıldı.");
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
 

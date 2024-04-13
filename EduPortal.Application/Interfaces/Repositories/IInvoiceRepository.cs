@@ -9,7 +9,7 @@ namespace EduPortal.Application.Interfaces.Repositories
 {
     public interface IInvoiceRepository :IGenericRepository<Invoice,int>
     {
-
+        Task<bool> AnyInvoiceAsync();
 
 
     }

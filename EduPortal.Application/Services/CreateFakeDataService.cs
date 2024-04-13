@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,22 +17,25 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Services
 {
-    public class CreateFakeDataService(IUnitOfWork unitOfWork, IGenericRepository<Invoice,int> genericRepository, ISubsIndividualRepository individualRepository) : IFakeDataService
+    public class CreateFakeDataService(
+        IUnitOfWork unitOfWork,
+        IGenericRepository<Invoice, int> genericRepository,
+        ISubsIndividualRepository individualRepository,
+        ISubsCorporateRepository corporateRepository,
+        IInvoiceRepository invoiceRepository) : IFakeDataService
     {
-        private readonly IUnitOfWork _unitOfWork;
+       
 
 
-
+        //TO-DO
         public async Task CreateFakeData()
         {
-            if (!await individualRepository.AnyAsync(x => true) &&
-                !await genericRepository.AnyAsync(x => true) &&
-                !await genericRepository.AnyAsync(x => true))
+            if (await invoiceRepository.AnyInvoiceAsync())
             {
                 CreateFakeSubsIndividualData(); // Create and save individual subscriber data
                 CreateFakeInvoiceData(); // Create invoice data
-                await _unitOfWork.CommitAsync(); // Save changes
             }
+            await unitOfWork.CommitAsync(); // Save changes
         }
 
 
@@ -52,42 +56,80 @@ namespace EduPortal.Persistence.Services
                     IsActive = true
                 };
 
+                SubsCorporate subsCorporate = new SubsCorporate
+                {
+                    PhoneNumber = PhoneNumberData.GetPhoneNumber(),
+                    CorporateName = NameData.GetCompanyName(),
+                    CounterNumber = NumberData.GetNumber(1000000, 9999999).ToString(),
+                    TaxIdNumber = NumberData.GetNumber(1000, 100000).ToString(),
+                    Email = NetworkData.GetEmail(),
+                    SubscriberType = "Kurumsal",
+                    IsActive = true
+                };
                 individualRepository.AddAsync(subsIndividual);
+                corporateRepository.AddAsync(subsCorporate);
             }
-
             unitOfWork.CommitAsync().GetAwaiter().GetResult(); // Bireysel abone verilerini kaydet
         }
 
+        #region CreateFakeData
         public void CreateFakeInvoiceData()
         {
-            // Fatura verilerini oluştur
-            for (int i = 1; i < 101; i++)
+            for (int i = 40; i < 57; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
-                // Diğer fatura verilerini oluştur...
+                decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi
+                decimal dayLastIndex = NumberData.GetNumber(500, 2000); // Gündüzün son indeksi
+                decimal peakFirstIndex = NumberData.GetNumber(0, 200); // Puantın ilk indeksi
+                decimal peakLastIndex = NumberData.GetNumber(200, 800); // Puantın son indeksi
+                decimal nightFirstIndex = NumberData.GetNumber(0, 300); // Gece nin ilk indeksi
+                decimal nightLastIndex = NumberData.GetNumber(300, 1200); // Gece nin son indeksi
 
-                // Abone ID'sini rastgele seç
-                int subscriberId = NumberData.GetNumber(1, 100);
+                var meterReading = new MeterReading(DateTimeData.GetDatetime(new DateTime(2023, 2, 10), new DateTime(2023, 7, 10)))
+                {
+                    ReadingDate = DateTimeData.GetDatetime(new DateTime(2023, 2, 10), new DateTime(2023, 7, 10)),
 
-                // Faturayı oluştur ve abone ID'sini ayarla
-                Invoice invoice = new()
+                    TotalIndex = totalIndex,
+                    TotalFirstIndex = totalIndex - (dayLastIndex + peakLastIndex + nightLastIndex),
+                    TotalLastIndex = totalIndex,
+
+                    DayFirstIndex = dayFirstIndex,
+                    DayLastIndex = dayLastIndex,
+
+                    PeakFirstIndex = peakFirstIndex,
+                    PeakLastIndex = peakLastIndex,
+
+                    NightFirstIndex = nightFirstIndex,
+                    NightLastIndex = nightLastIndex
+                };
+
+                // Fark değerlerini hesapla ve ayarla
+                meterReading.DayDifference = meterReading.DayLastIndex - meterReading.DayFirstIndex;
+                meterReading.PeakDifference = meterReading.PeakLastIndex - meterReading.PeakFirstIndex;
+                meterReading.NightDifference = meterReading.NightLastIndex - meterReading.NightFirstIndex;
+                meterReading.TotalDifference = meterReading.TotalLastIndex - meterReading.TotalFirstIndex;
+                meterReading.ReadingDayDifference = (meterReading.LastIndexDate - meterReading.ReadingDate).Days;
+
+
+                // Invoice oluştur
+                EduPortal.Domain.Entities.Invoice invoice = new()
                 {
                     IsPaid = BooleanData.GetBoolean(),
                     PaymentDate = DateTimeData.GetDatetime(new(2023, 8, 10), DateTime.Now),
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
                     DueDate = DateTimeData.GetDatetime(new(2023, 9, 10), new(2023, 12, 10)),
                     Date = DateTime.Now,
-                    SubscriberId = subscriberId,
+                    SubscriberId = NumberData.GetNumber(1, 100),
                     SubscriberType = "Bireysel",
-                    // Diğer fatura bilgilerini ayarla...
+                    MeterReading = meterReading,
+                    Amount = (meterReading.TotalDifference) * 1.45m
                 };
 
-                genericRepository.AddAsync(invoice);
+                invoiceRepository.AddAsync(invoice);
             }
-
             unitOfWork.CommitAsync().GetAwaiter().GetResult(); // Fatura verilerini kaydet
         }
 
-
+        #endregion
     }
 }

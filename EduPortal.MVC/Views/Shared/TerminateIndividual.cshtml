@@ -1,6 +1,7 @@
-﻿@using EduPortal.Domain.Entities
+﻿@using EduPortal.Application.DTO_s.Subscriber
+@using EduPortal.Domain.Entities
 
-@model List<SubsIndividual>
+@model List<SubsIndividualDto>
 
 
 <form method="post" class="individual-find" asp-action="TerminateIndividual">
@@ -30,27 +31,28 @@
                 </tr>
             </thead>
             <tbody>
-               @foreach (SubsIndividual subsIndividual in Model)
-{
-    <tr>
-        <td> @subsIndividual.NameSurname </td>
-        <td> @subsIndividual.PhoneNumber </td>
-        <td> @subsIndividual.IdentityNumber </td>
-        <td> @subsIndividual.CounterNumber </td>
-        <td> @subsIndividual.BirthDate </td>
-        <td> @subsIndividual.SubscriberType </td>
-        <td> <!-- Yeni sütun için -->
+                @foreach (SubsIndividualDto subsIndividual in Model)
+                {
+                    <tr>
+                        <td> @subsIndividual.NameSurname </td>
+                        <td> @subsIndividual.PhoneNumber </td>
+                        <td> @subsIndividual.IdentityNumber </td>
+                        <td> @subsIndividual.CounterNumber </td>
+                        <td> @subsIndividual.BirthDate </td>
+                        <td> @subsIndividual.SubscriberType </td>
+                        <td>
+                            <!-- Yeni sütun için -->
 
                             <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsIndividual">
                                 <!-- Abonelik Sonlandırma Butonu -->
-                <input type="hidden" name="IdentityNumber" value="@subsIndividual.IdentityNumber" />
+                                <input type="hidden" name="IdentityNumber" value="@subsIndividual.IdentityNumber" />
 
 
-                <button type="submit" class="btn btn-danger">Aboneliği Sonlandır</button>
-            </form>
-        </td>
-    </tr>
-}
+                                <button type="submit" class="btn btn-danger">Aboneliği Sonlandır</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     }

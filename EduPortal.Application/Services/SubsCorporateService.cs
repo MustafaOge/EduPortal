@@ -14,6 +14,7 @@ namespace EduPortal.Service.Services
     public class SubsCorporateService(
         IUnitOfWork unitOfWork,
         ISubsCorporateRepository subsCorporateRepository,
+        ISubscriberRepository subscriberRepository,
         IMapper mapper
         ) : ISubsCorporateService
     {
@@ -31,141 +32,45 @@ namespace EduPortal.Service.Services
 
 
 
-        public async Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string taxIdNumber)
+        public async Task<List<SubsCorporateDto>> FindCorporateAsync(string taxIdNumber)
         {
-            var corporates = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
-            var corporatesDto = corporates.Select(corporate => new SubsCorporateDto
-            {
-                // Gerekirse mapping işlemleri burada yapılabilir
-            }).ToList();
+            // Servisten Entity listesini al
+            List<SubsCorporate> entities = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
 
-            if (corporatesDto.Any())
-            {
-                return Response<List<SubsCorporateDto>>.Success(corporatesDto, HttpStatusCode.OK);
-            }
-            else
-            {
-                return Response<List<SubsCorporateDto>>.Fail("Abone bulunamadı.", HttpStatusCode.Found);
-            }
+            // Entity'leri DTO'lara dönüştür
+            List<SubsCorporateDto> dtos = entities.Select(entity => mapper.Map<SubsCorporateDto>(entity)).ToList();
+
+            return dtos;
         }
 
-        //public async Task<Response<List<SubsCorporateDto>>> FindCorporateAsync(string TaxIdNumber)
-        //{
-        //    var corporates = await subsCorporateRepository.FindCorporateAsync(TaxIdNumber);
+        public async Task<Response<bool>> TerminateSubsCorporateAsync(string TaxIdNumber)
+        {
+            List<SubsCorporate> aboneler = await subsCorporateRepository.FindCorporateAsync(TaxIdNumber);
 
-        //    if (corporates == null || !corporates.Any())
-        //    {
-        //        return Response<List<SubsCorporateDto>>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
-        //    }
+            if (aboneler.Count == 0)
+            {
+                return Response<bool>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
+            }
 
-        //    var corporateDtos = mapper.Map<List<SubsCorporateDto>>(corporates);
-        //    return Response<List<SubsCorporateDto>>.Success(corporateDtos, HttpStatusCode.OK);
-        //},
+            foreach (var abone in aboneler)
+            {
+                bool hasUnpaidInvoices = await subscriberRepository.HasUnpaidInvoices(abone.Id);
 
+                if (hasUnpaidInvoices)
+                {
 
+                    return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
+                }
+                else
+                {
+                    abone.IsActive = false;
+                    subscriberRepository.Update(abone);
+                }
+            }
 
+            await unitOfWork.CommitAsync();
 
-
-
-
-
-        //public async Task<Response<List<SubsCorporateDto>>> FindCorporate(string TaxIdNumber)
-        //{
-        //    var abone = subsCorporateRepository.FindCorporate(TaxIdNumber);
-        //    var aboneDto = mapper.Map<List<SubsCorporateDto>>(abone);
-        //    return Response<List<SubsCorporateDto>>.Success(aboneDto, HttpStatusCode.OK);
-        //}
-
-
-
-
-
-        //[HttpPost]
-
-        //public IActionResult Individual(SubsIndividual individual)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        toast.AddSuccessToastMessage("İşlem Başarılı", new ToastrOptions { Title = "Başarılı!" });
-        //        appDbContext.Individuals.Add(individual);
-        //        appDbContext.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        toast.AddErrorToastMessage("Abone Eklenemedi", new ToastrOptions { Title = "Başarısız!" });
-        //    }
-        //    return View();
-        //}
-
-
-        //public Response<SubscriberResponseResponseDTO> Save(SubscriberCreateDTO request)
-        //{
-        //    var newSubscriber = new SubsIndividual
-        //    {
-        //        Email = request.Email
-
-        //    };
-
-        //    subscriberReposityory.Create(newSubscriber);
-
-        //    var SubscriberDto = new SubscriberResponseResponseDTO
-        //    {
-        //        //SubscriberContractNumber = newSubscriber.SubscriberContractNumber,           
-        //        //Consumer = newSubscriber.Consumer,
-        //        //ElectricityMeter = newSubscriber.ElectricityMeter,
-
-        //    };
-
-        //    return Response<SubscriberResponseResponseDTO>.Success(SubscriberDto, HttpStatusCode.Created);
-        //}
-
-        //public Response<SubsIndividual> Get(int id)
-        //{
-        //    var subscriber = subscriberReposityory.GetById(id);
-
-        //    if (subscriber is null) return Response<SubsIndividual?>.Fail("Product not found", HttpStatusCode.NotFound);
-
-        //    return Response<SubsIndividual?>.Success(subscriber, HttpStatusCode.OK);
-        //}
-
-        //public Response<List<SubsIndividual>> GetAll()
-        //{
-        //    var subscribers = subscriberReposityory.GetAll();
-
-
-        //    var subscribersListDto = subscribers.Select(x => new SubsIndividual
-        //    {
-        //        //ElectricityMeter = x.ElectricityMeter,
-        //        //SubscriberContractNumber = x.SubscriberContractNumber
-        //    }).ToList();
-
-
-        //    return Response<List<SubsIndividual>>.Success(subscribersListDto, HttpStatusCode.OK);
-        //}
-
-        //Response<List<SubsIndividual>> ISubsIndividualService.GetAll()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Response<SubsIndividual?> GetById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-
-
-        //public Response<string> DeleteById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Response<string> Update(SubsIndividual subscriber)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+            return Response<bool>.Success(true, HttpStatusCode.OK);
+        }
     }
 }

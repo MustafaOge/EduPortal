@@ -9,5 +9,11 @@ namespace EduPortal.Application.Interfaces.Repositories
 {
     public interface ISubscriberRepository :  IGenericRepository<Subscriber, int> 
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<bool> HasUnpaidInvoices(int id);
     }
 }

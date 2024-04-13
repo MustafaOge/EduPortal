@@ -13,13 +13,20 @@ namespace EduPortal.Application.Interfaces.Services
     {
         Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate);
 
+        Task<List<SubsIndividualDto>> FindIndividualDtosAsync(string IdentityNumber);
+
+        Task<Response<bool>> TerminateSubsIndividualAsync(string identityNumber);
+    }
+}
+
+
+
+
+
+
         //Response<List<SubsIndividual>> GetAll();
         //Response<SubsIndividual?> GetById(int id);
         //Response<SubscriberResponseResponseDTO> Save(SubscriberCreateDTO subscriber);
         //Response<string> Update(SubsIndividual subscriber);
         //Response<string> DeleteById(int id);
-
-    }
-}
-
 
