@@ -11,7 +11,7 @@ namespace EduPortal.Application.Interfaces.Repositories
     public interface ISubsIndividualRepository : IGenericRepository<SubsIndividual, int> 
     {
 
-        Task<List<SubsIndividual>> FindIndividualAsync(string IdentityNumber);
+        Task<List<SubsIndividual>> FindIndividualAsync(string number);
 
         //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
 
@@ -25,54 +25,5 @@ namespace EduPortal.Application.Interfaces.Repositories
 
 
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    //public Task AddAsync(Subscriber entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
 
-    //    public Task AddRangeAsync(IEnumerable<Subscriber> items)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public Task<bool> AnyAsync(Expression<Func<Subscriber, bool>> expression)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public Task<IEnumerable<Subscriber>> GetAllAsync(Expression<Func<Subscriber, bool>> expression)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public Task<Subscriber> GetByIdAsync(int id)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void Remove(Subscriber entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void RemoveRange(IEnumerable<Subscriber> items)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void Update(Subscriber entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public IQueryable<Subscriber> Where(Expression<Func<Subscriber, bool>> expression)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
 }

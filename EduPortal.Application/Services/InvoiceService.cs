@@ -36,7 +36,7 @@ namespace EduPortal.Persistence.Services
         {
             try
             {
-                var invoice = await invoiceRepository.GetByIdAsync(id);
+                Invoice invoice = await invoiceRepository.GetByIdAsync(id);
 
                 if (invoice == null)
                 {
@@ -70,7 +70,7 @@ namespace EduPortal.Persistence.Services
             try
             {
                 // Kurumsal abone ödeme işlemi
-                var corporateSubscribers = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+                List<SubsCorporate> corporateSubscribers = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
 
                 if (corporateSubscribers == null || !corporateSubscribers.Any())
                 {

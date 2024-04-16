@@ -6,8 +6,9 @@
 
 <form method="post" asp-controller="Invoice" class="corporate-find" asp-action="PaymentCorporate">
     <div class="form-group">
-        <label for="TaxIdNumber">Vergi Kimlik No:</label>
-        <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+        <label for="TaxIdOrCounterNumber">Vergi Kimlik No / Tesisiat No:</label>
+
+        <input type="text" class="form-control" id="TaxIdOrCounterNumber" name="TaxIdOrCounterNumber">
     </div>
     <button type="submit" asp-controller="Invoice" asp-action="PaymentCorporate" class="btn btn-primary">Bilgileri Getir</button>
 </form>

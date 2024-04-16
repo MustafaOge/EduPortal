@@ -6,8 +6,9 @@
 
 <form method="post" class="corporate-find" asp-action="TerminateCorporate">
     <div class="form-group">
-        <label for="TaxIdNumber">Vergi Kimlik No:</label>
-        <input type="text" class="form-control" id="TaxIdNumber" name="TaxIdNumber">
+        <label for="TaxIdOrCounterNumber">Vergi Kimlik No / Tesisiat No:</label>
+
+        <input type="text" class="form-control" id="TaxIdOrCounterNumber" name="TaxIdOrCounterNumber">
     </div>
     <button type="submit" asp-controller="subscriber" asp-action="TerminateCorporate" class="btn btn-primary">Bilgileri Getir</button>
 </form>

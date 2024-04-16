@@ -24,7 +24,7 @@ namespace EduPortal.Persistence.Services
         ISubsCorporateRepository corporateRepository,
         IInvoiceRepository invoiceRepository) : IFakeDataService
     {
-       
+
 
 
         //TO-DO
@@ -44,13 +44,21 @@ namespace EduPortal.Persistence.Services
             // Bireysel abone verilerini oluştur
             for (int i = 0; i < 100; i++)
             {
+                string firstNumber = NumberData.GetNumber(10000, 99999).ToString(); 
+                string secondIdentityNumber = NumberData.GetNumber(100000, 999999).ToString(); 
+                string secondTaxIdNumber = NumberData.GetNumber(10000, 99999).ToString();
+
+                string fullIdentityNumber = firstNumber + secondIdentityNumber;
+                string fullTaxIdNumber = firstNumber + secondTaxIdNumber;
+
+
                 SubsIndividual subsIndividual = new SubsIndividual
                 {
                     PhoneNumber = PhoneNumberData.GetPhoneNumber(),
                     NameSurname = NameData.GetFullName(),
                     BirthDate = DateTimeData.GetDatetime(),
                     CounterNumber = NumberData.GetNumber(1000000, 9999999).ToString(),
-                    IdentityNumber = NumberData.GetNumber(1000, 100000).ToString(),
+                    IdentityNumber = fullIdentityNumber,
                     Email = NetworkData.GetEmail(),
                     SubscriberType = "Bireysel",
                     IsActive = true
@@ -61,7 +69,7 @@ namespace EduPortal.Persistence.Services
                     PhoneNumber = PhoneNumberData.GetPhoneNumber(),
                     CorporateName = NameData.GetCompanyName(),
                     CounterNumber = NumberData.GetNumber(1000000, 9999999).ToString(),
-                    TaxIdNumber = NumberData.GetNumber(1000, 100000).ToString(),
+                    TaxIdNumber = fullTaxIdNumber,
                     Email = NetworkData.GetEmail(),
                     SubscriberType = "Kurumsal",
                     IsActive = true
@@ -75,7 +83,7 @@ namespace EduPortal.Persistence.Services
         #region CreateFakeData
         public void CreateFakeInvoiceData()
         {
-            for (int i = 40; i < 57; i++)
+            for (int i = 10; i < 57; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
                 decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi
@@ -119,7 +127,7 @@ namespace EduPortal.Persistence.Services
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
                     DueDate = DateTimeData.GetDatetime(new(2023, 9, 10), new(2023, 12, 10)),
                     Date = DateTime.Now,
-                    SubscriberId = NumberData.GetNumber(1, 100),
+                    SubscriberId = NumberData.GetNumber(1, 300),
                     SubscriberType = "Bireysel",
                     MeterReading = meterReading,
                     Amount = (meterReading.TotalDifference) * 1.45m

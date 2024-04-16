@@ -32,10 +32,6 @@ namespace EduPortal.Service.Services
             return Response<SubsIndividualDto>.Success(individualDto, HttpStatusCode.Created);
         }
 
-        public Task<List<SubsIndividualDto>> FindIndividualAsync(string IdentityNumber)
-        {
-            throw new NotImplementedException();
-        }
 
 
         public async Task<List<SubsIndividualDto>> FindIndividualDtosAsync(string IdentityNumber)

@@ -29,10 +29,33 @@ namespace EduPortal.Persistence.Repositories
             await _genericRepository.AddAsync(subsIndividual);
         }
 
-        public async Task<List<SubsIndividual>> FindIndividualAsync(string IdentityNumber)
+        public async Task<List<SubsIndividual>> FindIndividualAsync(string number)
         {
-            return await _dbSet.Where(c => c.IdentityNumber == IdentityNumber && c.IsActive).ToListAsync();
+            var response = await _dbSet
+                .Where(c => (number.Length > 10 ? c.IdentityNumber : c.CounterNumber) == number && c.IsActive)
+                .ToListAsync();
+            return response;
         }
+
+        //public async Task<List<SubsIndividual>> FindIndividualAsync(string number)
+        //{
+        //    //if (number.Length!=11||number.Length!=7)
+        //    //{
+        //    //    //hata
+        //    //}
+        //    //switch (switch_on)
+        //    //{
+        //    //    default:
+        //    //}
+        //    //var response = await _dbSet
+        //    //    .Where(c => (number.Length > 10 ? c.IdentityNumber : c.CounterNumber) == number && c.IsActive)
+        //    //    .ToListAsync();
+
+        //    //return response;
+
+        //    return  await _dbSet.Where(c => c.IdentityNumber == number && c.IsActive).ToListAsync();
+
+        //}
     }
 }
 

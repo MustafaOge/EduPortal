@@ -52,9 +52,9 @@ namespace EduPortal.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PaymentIndividual(string identityNumber)
+        public async Task<IActionResult> PaymentIndividual(string IdentityOrCounterNumber)
         {
-            var response = await invoiceService.PaymentIndividual(identityNumber);
+            var response = await invoiceService.PaymentIndividual(IdentityOrCounterNumber);
             return View(response.Data);
         }
 
@@ -65,9 +65,9 @@ namespace EduPortal.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PaymentCorporate(string taxIdNumber)
+        public async Task<IActionResult> PaymentCorporate(string TaxIdOrCounterNumber)
         {
-            var response = await invoiceService.PaymentCorporate(taxIdNumber);
+            var response = await invoiceService.PaymentCorporate(TaxIdOrCounterNumber);
             return View(response.Data);
         }
 

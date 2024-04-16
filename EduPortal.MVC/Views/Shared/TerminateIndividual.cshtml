@@ -6,8 +6,9 @@
 
 <form method="post" class="individual-find" asp-action="TerminateIndividual">
     <div class="form-group">
-        <label for="IdentityNumber">T.C. Kimlik No:</label>
-        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber">
+        <label for="IdentityOrCounterNumber">T.C. Kimlik No / Tesisat No:</label>
+
+        <input type="text" class="form-control" id="IdentityOrCounterNumber" name="IdentityOrCounterNumber">
     </div>
     <button type="submit" asp-controller="subscriber" asp-action="TerminateIndividual" class="btn btn-primary">Bilgileri Getir</button>
 </form>

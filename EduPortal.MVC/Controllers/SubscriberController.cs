@@ -107,9 +107,9 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FindIndividual(string IdentityNumber)
+        public async Task<IActionResult> FindIndividual(string IdentityOrCounterNumber)
         {
-            List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityNumber);
+            List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityOrCounterNumber);
 
             return View(entities);
         }
@@ -123,9 +123,9 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FindCorporate(string taxIdNumber)
+        public async Task<IActionResult> FindCorporate(string TaxIdOrCounterNumber)
         {
-            List<SubsCorporateDto> entities = await subsCorporateService.FindCorporateAsync(taxIdNumber);
+            List<SubsCorporateDto> entities = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
 
             return View(entities);
         }
@@ -139,9 +139,9 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> TerminateCorporate(string taxIdNumber)
+        public async Task<IActionResult> TerminateCorporate(string TaxIdOrCounterNumber)
         {
-            List<SubsCorporateDto> corporate = await subsCorporateService.FindCorporateAsync(taxIdNumber);
+            List<SubsCorporateDto> corporate = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
             return View(corporate);
         }
 
@@ -155,9 +155,9 @@ namespace EduPortal.Controllers
         }
         //To-Do
         [HttpPost]
-        public async Task<IActionResult> TerminateIndividual(string identityNumber)
+        public async Task<IActionResult> TerminateIndividual(string identityOrCounterNumber)
         {
-            List<SubsIndividualDto> indivudal = await subsIndividualService.FindIndividualDtosAsync(identityNumber);
+            List<SubsIndividualDto> indivudal = await subsIndividualService.FindIndividualDtosAsync(identityOrCounterNumber);
             return View(indivudal);
         }
 
@@ -170,7 +170,7 @@ namespace EduPortal.Controllers
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 TempData["Message"] = "Abonelik sonlandırma işlemi başarısız oldu: " + response.Errors?[0];
-                toast.AddSuccessToastMessage("Ödenmemiş faturası olduğu için abonelik sonladırılamadı");
+                toast.AddErrorToastMessage("Ödenmemiş faturası olduğu için abonelik sonladırılamadı");
 
                 return RedirectToAction("Index");
             }

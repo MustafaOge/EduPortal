@@ -13,6 +13,7 @@ using EduPortal.Persistence.Repositories;
 using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +24,10 @@ builder.Services.AddToastNotify();
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddScopedWithExtension();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(
+    //options => options.UseSqlServer(builder.Configuration.GetConnectionString("")
+    );
+
 
 
 builder.Services
@@ -42,6 +46,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 
 
 }).AddEntityFrameworkStores<AppDbContext>();
+
 
 
 builder.Services.ConfigureApplicationCookie(opt =>

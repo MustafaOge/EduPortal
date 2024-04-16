@@ -3,6 +3,8 @@ using EduPortal.Persistence.Interceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +58,7 @@ namespace EduPortal.Persistence.context
 
         }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -68,6 +71,18 @@ namespace EduPortal.Persistence.context
 
             modelBuilder.Entity<SubsIndividual>().ToTable("SubsIndividuals");
             modelBuilder.Entity<SubsCorporate>().ToTable("SubsCorporates");
+
+
+            var decimalProps = modelBuilder.Model
+             .GetEntityTypes()
+             .SelectMany(t => t.GetProperties())
+               .Where(p => (System.Nullable.GetUnderlyingType(p.ClrType) ?? p.ClrType) == typeof(decimal));
+
+            foreach (var property in decimalProps)
+            {
+                property.SetPrecision(18);
+                property.SetScale(2);
+            }
         }
 
 
