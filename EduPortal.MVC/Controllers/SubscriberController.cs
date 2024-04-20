@@ -1,4 +1,5 @@
-﻿using EduPortal.Application.DTO_s.Subscriber;
+﻿using AutoMapper;
+using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models.ViewModel;
@@ -10,16 +11,19 @@ using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using System.Net;
 using System.Security.Policy;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace EduPortal.Controllers
 {
     public class SubscriberController(
         IToastNotification toast,
+        IMapper mapper,
         IFakeDataService fakeDataService,
         AppDbContext appDbContext,
         ISubsIndividualService subsIndividualService,
-        ISubsCorporateService subsCorporateService
+        ISubsCorporateService subsCorporateService,
+        ICacheService cacheService
         ) : Controller
     {
 
@@ -27,7 +31,7 @@ namespace EduPortal.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+            }
 
 
         public IActionResult Terminate()
@@ -107,12 +111,53 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
+        // [Cros]
+      //  Cross Cutting Concerns
         public async Task<IActionResult> FindIndividual(string IdentityOrCounterNumber)
+
+
         {
-            List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityOrCounterNumber);
+            //List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityOrCounterNumber);
+
+            //var entities = await cacheService.FindIndividualDtosAsync(IdentityOrCounterNumber);
+            var entities = await cacheService.FindIndividualDtosAsync(IdentityOrCounterNumber);
 
             return View(entities);
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> FindIndividual(string IdentityOrCounterNumber)
+        //{
+        //    // Virgülle ayrılmış dizeyi böler ve her bir numarayı alır
+        //    string[] numbers = IdentityOrCounterNumber.Split(',');
+
+        //    // Boşlukları temizler ve her bir numarayı işler
+        //    List<string> cleanedNumbers = numbers.Select(n => n.Trim()).ToList();
+
+        //    List<SubsIndividualDto> allSubscribers = new List<SubsIndividualDto>();
+
+        //    foreach (var number in cleanedNumbers)
+        //    {
+        //        // Her bir numara için ilk 10 aboneyi sorgular
+        //        var subscribers = await appDbContext.Individuals
+        //                                             .Where(x => x.CounterNumber == number)
+        //                                             .Take(10)
+        //                                             .ToListAsync();
+
+        //        // Aboneleri DTO'ya dönüştürür
+        //        var subsIndividualDtos = mapper.Map<List<SubsIndividualDto>>(subscribers);
+
+        //        // Sonuçları genel listeye ekler
+        //        allSubscribers.AddRange(subsIndividualDtos);
+        //    }
+
+        //    // Sonuçları görünüme aktarır
+        //    return View(allSubscribers);
+        //}
+
+
+        //List<SubsIndividualDto> entities = await subsIndividualService.FindIndividualDtosAsync(IdentityOrCounterNumber);
+
 
         [HttpGet]
 

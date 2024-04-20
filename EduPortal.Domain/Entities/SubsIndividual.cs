@@ -16,8 +16,8 @@ namespace EduPortal.Domain.Entities
         //public int SubscriberId { get; set; }
         //public Subscriber Subscriber { get; set; }
         public string NameSurname { get; set; }
-        public string IdentityNumber { get; set; }
         public DateTime BirthDate { get; set; }
+        public string IdentityNumber { get; set; }
 
 
 

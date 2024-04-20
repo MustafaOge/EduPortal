@@ -2,6 +2,7 @@
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
+using EduPortal.Application.Services;
 using EduPortal.Persistence.context;
 using EduPortal.Persistence.Repositories;
 using EduPortal.Persistence.Services;
@@ -36,9 +37,12 @@ namespace EduPortal.MVC.Extensions
             services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services.AddScoped<ICacheService, CacheService>();
 
 
-                return services;
+
+
+            return services;
         }
     }
 }

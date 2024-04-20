@@ -90,7 +90,7 @@ namespace EduPortal.Persistence.Services
             try
             {
                 // Bireysel abone ödeme işlemi
-                var individualSubscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
+                List<SubsIndividual> individualSubscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
                 if (individualSubscribers == null || !individualSubscribers.Any())
                 {
@@ -107,7 +107,7 @@ namespace EduPortal.Persistence.Services
 
         public async Task<Response<List<Invoice>>> GetInvoiceDetail(int id)
         {
-            var invoices = await invoiceRepository.Where(i => i.SubscriberId == id).ToListAsync();
+            List<Invoice> invoices = await invoiceRepository.Where(i => i.SubscriberId == id).ToListAsync();
 
             return Response<List<Invoice>>.Success(invoices, HttpStatusCode.OK);
         }
@@ -119,15 +119,15 @@ namespace EduPortal.Persistence.Services
 
         public async Task<Response<InvoiceDetailView>> DetailPay(int id)
         {
-            var invoice = await invoiceRepository.GetByIdAsync(id);
+            Invoice invoice = await invoiceRepository.GetByIdAsync(id);
             if (invoice == null)
             {
                 return Response<InvoiceDetailView>.Fail("Invoice not found", HttpStatusCode.NotFound);
             }
 
-            var subscriber = await GetSubscriberAsync(invoice);
+            Subscriber subscriber = await GetSubscriberAsync(invoice);
 
-            var viewModel = new InvoiceDetailView
+            InvoiceDetailView viewModel = new InvoiceDetailView
             {
                 Invoice = invoice,
                 Subscriber = subscriber,
@@ -157,18 +157,11 @@ namespace EduPortal.Persistence.Services
             }
         }
 
-        public Task<Response<List<Invoice>>> GetInvoices(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public async Task<Response<InvoiceComplaint>> CreateComplaint(InvoiceComplaint model)
         {
             try
             {
-
-                var existingInvoice = await invoiceRepository.GetByIdAsync(model.InvoiceId);
+                Invoice existingInvoice = await invoiceRepository.GetByIdAsync(model.InvoiceId);
 
                 // Eğer fatura bulunamadıysa, hata döndür
                 if (existingInvoice == null)
@@ -178,7 +171,7 @@ namespace EduPortal.Persistence.Services
                 }
 
                 // Yeni fatura itirazı oluştur
-                var complaint = new InvoiceComplaint
+                InvoiceComplaint complaint = new InvoiceComplaint
                 {
                     InvoiceId = model.InvoiceId,
                     Title = model.Title,

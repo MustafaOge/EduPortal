@@ -32,7 +32,6 @@ namespace EduPortal.Persistence.Repositories
             return await _dbSet.AsNoTracking().Where(expression).ToListAsync();
 
         }
-
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)
         {
             return _dbSet.Where(expression);
@@ -48,9 +47,27 @@ namespace EduPortal.Persistence.Repositories
             await _dbSet.AddRangeAsync(items);
         }
 
+
+
         public async Task AddAsync(TEntity entity)
         {
-            await _dbSet.AddAsync(entity);
+            var state = _context.Entry(entity).State;
+
+
+            _context.Entry(entity).State = EntityState.Added;
+            // context.Products.Add(product); // change tracker ?
+
+            var state2 = _context.Entry(entity).State;
+
+
+            _context.SaveChanges();
+
+
+       
+
+            //await _dbSet.AddAsync(entity);
+            //await _context.SaveChangesAsync();
+
         }
 
         public void Update(TEntity entity)
@@ -58,7 +75,6 @@ namespace EduPortal.Persistence.Repositories
             _dbSet.Update(entity);
 
         }
-
         public void Remove(TEntity entity)
         {
             _dbSet.Remove(entity);

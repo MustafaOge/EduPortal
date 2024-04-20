@@ -9,19 +9,49 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using EduPortal.Domain.Entities;
+using EduPortal.Application.Interfaces.Services;
+using EduPortal.Application.Services;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 
 namespace EduPortal.Persistence.Interceptors
 {
-    internal class SaveChangesInterceptor(IHttpContextAccessor contextAccessor)
-        : Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor
+    internal class SaveChangesInterceptor
+          : Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor
     {
-        readonly Dictionary<EntityState, Action<DbContext,
-            BaseEntity<int>,
-            string>> _actions = new()
+        readonly IHttpContextAccessor _contextAccessor;
+        readonly IDistributedCache _distributedCache;
+        public SaveChangesInterceptor(IHttpContextAccessor contextAccessor   , IDistributedCache distributedCache)
+        {
+            _contextAccessor = contextAccessor;
+            _distributedCache = distributedCache;
+
+        }
+
+        readonly Dictionary<EntityState, Action<DbContext, BaseEntity<int>, string>> _actions = new()
         {
             { EntityState.Added, AddEntity },
             { EntityState.Modified, ModifiedEntity }
         };
+
+        public async Task UpdateCacheAsync<T>( T newData)
+        {
+            var serializedData = JsonConvert.SerializeObject(newData);
+            await _distributedCache.SetStringAsync("all_subscribers", serializedData);
+        }
+        public async Task InvalidateCacheAsync(string cacheKey)
+        {
+            await _distributedCache.RemoveAsync(cacheKey);
+        }
+
+        public async Task AddOrUpdateCacheAsync<T>( T data, TimeSpan expirationTime)
+        {
+            var serializedData = JsonConvert.SerializeObject(data);
+            await _distributedCache.SetStringAsync("all_subscribers", serializedData, options: new DistributedCacheEntryOptions
+            {
+                SlidingExpiration = expirationTime
+            });
+        }
 
 
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData,
@@ -32,7 +62,7 @@ namespace EduPortal.Persistence.Interceptors
             if (dbContext is null) return base.SavingChanges(eventData, result);
 
 
-            var context = contextAccessor.HttpContext;
+            var context = _contextAccessor.HttpContext;
             var userId = context?.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             userId ??= "10";
@@ -44,6 +74,17 @@ namespace EduPortal.Persistence.Interceptors
                 var baseEntity = entry.Entity;
 
                 _actions[entry.State](dbContext, baseEntity, userId);
+
+                Task.Run(async () => await InvalidateCacheAsync(baseEntity.Id.ToString()));
+
+                // Yeni eklenen ve güncellenen öğeleri Redis'e ekle veya güncelle
+                if (entry.State == EntityState.Added || entry.State == EntityState.Modified)
+                {
+                    Task.Run(async () =>
+                    {
+                        await AddOrUpdateCacheAsync( baseEntity, TimeSpan.FromMinutes(60));
+                    });
+                }
 
                 switch (entry.State)
                 {
@@ -70,7 +111,7 @@ namespace EduPortal.Persistence.Interceptors
             baseEntity.Updated = DateTime.Now;
         }
 
-        private static void AddEntity(DbContext dbContext, BaseEntity<int>  baseEntity, string userId)
+        private static void AddEntity(DbContext dbContext, BaseEntity<int> baseEntity, string userId)
         {
             dbContext.Entry(baseEntity).Property(x => x.Updated).IsModified = false;
             dbContext.Entry(baseEntity).Property(x => x.UpdatedByUser).IsModified = false;

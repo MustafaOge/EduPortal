@@ -1,5 +1,5 @@
 ﻿@using EduPortal.Application.DTO_s.Subscriber;
-@model List<SubsIndividualDto>
+@model SubsIndividualDto
 
 
 <form method="post" class="individual-find" asp-action="FindIndividual">
@@ -27,17 +27,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsIndividualDto subsIndividual in Model)
-                {
-                    <tr>
-                        <td> @subsIndividual.NameSurname </td>
-                        <td> @subsIndividual.PhoneNumber </td>
-                        <td> @subsIndividual.IdentityNumber </td>
-                        <td> @subsIndividual.CounterNumber </td>
-                        <td> @subsIndividual.BirthDate </td>
-                        <td> @subsIndividual.SubscriberType </td>
-                    </tr>
-                }
+
+                <tr>
+                    <td> @Model.NameSurname </td>
+                    <td> @Model.PhoneNumber </td>
+                    <td> @Model.IdentityNumber </td>
+                    <td> @Model.CounterNumber </td>
+                    <td> @Model.BirthDate </td>
+                    <td> @Model.SubscriberType </td>
+                </tr>
+
             </tbody>
         </table>
     }

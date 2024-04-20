@@ -1,7 +1,60 @@
 ﻿
 
+
+
+@model TestModel
+
+<div class="row">
+    <form method="post" asp-controller="Home" asp-action="Set">
+        <div class="container p-5 my-5 border">
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Name" id="nameSurnameLabel"></label>
+                        <input asp-for="Name" type="tel" class="form-control" placeholder="Ad Soyad">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+               
+
+
+            </div>
+        </div>
+
+        <div class="col-12 mb-3 text-left">
+            <a asp-action="CreateFakeData" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Create Fake Data</a>
+        </div>
+
+        <div class="col-12 mb-3 text-left">
+            <a asp-controller="Home" asp-action="Get" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Get Cache Data</a>
+        </div>
+
+        <div class="col-12 mb-3 text-left">
+            <a asp-controller="Home" asp-action="Set" value="Bireysel" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Set Fake Data</a>
+        </div>
+
+
+
+        <div class="form-group float-right">
+            <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2"></i> Back To List</a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+        </div>
+
+
+
+    </form>
+</div>
 <h4> Fatura Oluştur</h4>
 
 <div class="col-12 mb-3 text-left">
     <a asp-action="CreateFakeData" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Create Fake Data</a>
 </div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

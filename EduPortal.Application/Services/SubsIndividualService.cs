@@ -22,12 +22,12 @@ namespace EduPortal.Service.Services
     {
         public async Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate)
         {
-            var individualEntity = mapper.Map<SubsIndividual>(individualCreate);
+            SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
 
             await subsIndividualRepository.AddAsync(individualEntity);
             await unitOfWork.CommitAsync();
 
-            var individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
+            SubsIndividualDto individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
 
             return Response<SubsIndividualDto>.Success(individualDto, HttpStatusCode.Created);
         }
@@ -42,25 +42,23 @@ namespace EduPortal.Service.Services
 
             return dtos;
         }
+
         public async Task<Response<bool>> TerminateSubsIndividualAsync(string identityNumber)
         {
-            List<SubsIndividual> aboneler = await subsIndividualRepository.FindIndividualAsync(identityNumber);
+            List<SubsIndividual> subscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
-            if (aboneler.Count == 0)
+            if (subscribers.Count == 0)
             {
                 return Response<bool>.Fail("Abone bulunamadı.",HttpStatusCode.NotFound);
             }
 
-            foreach (var abone in aboneler)
+            foreach (var abone in subscribers)
             {
-                bool hasUnpaidInvoices = await subscriberRepository.HasUnpaidInvoices(abone.Id);
 
-                if (hasUnpaidInvoices)
+                if (await subscriberRepository.HasUnpaidInvoices(abone.Id))
                 {
                     return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.",HttpStatusCode.Forbidden);
-                }
-                else
-                {
+                          
                     abone.IsActive = false;
                     subscriberRepository.Update(abone);
                 }

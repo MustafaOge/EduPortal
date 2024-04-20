@@ -58,7 +58,7 @@ namespace EduPortal.Persistence.Services
                     NameSurname = NameData.GetFullName(),
                     BirthDate = DateTimeData.GetDatetime(),
                     CounterNumber = NumberData.GetNumber(1000000, 9999999).ToString(),
-                    IdentityNumber = fullIdentityNumber,
+                    
                     Email = NetworkData.GetEmail(),
                     SubscriberType = "Bireysel",
                     IsActive = true
@@ -83,7 +83,7 @@ namespace EduPortal.Persistence.Services
         #region CreateFakeData
         public void CreateFakeInvoiceData()
         {
-            for (int i = 10; i < 57; i++)
+            for (int i = 55; i < 57; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
                 decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi
@@ -120,14 +120,15 @@ namespace EduPortal.Persistence.Services
 
 
                 // Invoice oluştur
-                EduPortal.Domain.Entities.Invoice invoice = new()
+                    EduPortal.Domain.Entities.Invoice invoice = new()
                 {
                     IsPaid = BooleanData.GetBoolean(),
                     PaymentDate = DateTimeData.GetDatetime(new(2023, 8, 10), DateTime.Now),
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
                     DueDate = DateTimeData.GetDatetime(new(2023, 9, 10), new(2023, 12, 10)),
                     Date = DateTime.Now,
-                    SubscriberId = NumberData.GetNumber(1, 300),
+                    SubscriberId = 83,
+                    //NumberData.GetNumber(1, 300),
                     SubscriberType = "Bireysel",
                     MeterReading = meterReading,
                     Amount = (meterReading.TotalDifference) * 1.45m

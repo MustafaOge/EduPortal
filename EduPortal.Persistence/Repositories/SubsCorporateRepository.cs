@@ -37,11 +37,5 @@ namespace EduPortal.Persistence.Repositories
             await _genericRepository.AddAsync(subsCorporate);
         }
 
-        //public async Task<List<SubsCorporate>> FindCorporate(string taxIdNumber)
-        //{
-        //    return await _context.Corprorates.Where(c => c.TaxIdNumber == taxIdNumber).ToListAsync();
-        //}
-
-
     }
 }

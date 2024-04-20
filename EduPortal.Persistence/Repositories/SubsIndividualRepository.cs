@@ -17,16 +17,20 @@ namespace EduPortal.Persistence.Repositories
     public class SubsIndividualRepository : GenericRepository<SubsIndividual, int>, ISubsIndividualRepository
     {
         private readonly IGenericRepository<SubsIndividual, int> _genericRepository;
+        public readonly AppDbContext _context;
 
         public SubsIndividualRepository(AppDbContext context, IGenericRepository<SubsIndividual, int> genericRepository) : base(context)
         {
             _genericRepository = genericRepository;
+            _context = context;
         }
 
 
         public async Task CreateIndividualSubscription(SubsIndividual subsIndividual)
         {
             await _genericRepository.AddAsync(subsIndividual);
+            await _context.SaveChangesAsync(); // Bu satır eklenerek SavingChanges metodu çalıştırılabilir.
+
         }
 
         public async Task<List<SubsIndividual>> FindIndividualAsync(string number)
@@ -36,26 +40,6 @@ namespace EduPortal.Persistence.Repositories
                 .ToListAsync();
             return response;
         }
-
-        //public async Task<List<SubsIndividual>> FindIndividualAsync(string number)
-        //{
-        //    //if (number.Length!=11||number.Length!=7)
-        //    //{
-        //    //    //hata
-        //    //}
-        //    //switch (switch_on)
-        //    //{
-        //    //    default:
-        //    //}
-        //    //var response = await _dbSet
-        //    //    .Where(c => (number.Length > 10 ? c.IdentityNumber : c.CounterNumber) == number && c.IsActive)
-        //    //    .ToListAsync();
-
-        //    //return response;
-
-        //    return  await _dbSet.Where(c => c.IdentityNumber == number && c.IsActive).ToListAsync();
-
-        //}
     }
 }
 

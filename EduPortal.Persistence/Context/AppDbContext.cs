@@ -18,17 +18,22 @@ using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
 using EduPortal.Models.Configurations;
 using EduPortal.Persistence.Configurations;
+using EduPortal.Application.Interfaces.Services;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace EduPortal.Persistence.context
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, int, IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
 
     {
-        private readonly IHttpContextAccessor _contextAccessor;
-        public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor contextAccessor)
+          IHttpContextAccessor _contextAccessor;
+        IDistributedCache _distributedCache;
+        public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor contextAccessor, IDistributedCache distributedCache )
            : base(options)
         {
             _contextAccessor = contextAccessor;
+            _distributedCache = distributedCache;
+
         }
 
         public DbSet<Subscriber> Subscribers { get; set; }
@@ -46,22 +51,30 @@ namespace EduPortal.Persistence.context
 
 
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;").AddInterceptors(new SaveChangesInterceptor(_contextAccessor)).UseLazyLoadingProxies()
+        //    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        //    optionsBuilder.UseLazyLoadingProxies(false);
+        //    base.OnConfiguring(optionsBuilder);
+
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (optionsBuilder.IsConfigured == false)
-            {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;").AddInterceptors(new SaveChangesInterceptor(_contextAccessor)).UseLazyLoadingProxies()
+            optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;").AddInterceptors(new SaveChangesInterceptor(_contextAccessor, _distributedCache)).UseLazyLoadingProxies()
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-                optionsBuilder.UseLazyLoadingProxies(false);
-            }
+            optionsBuilder.UseLazyLoadingProxies(false);
             base.OnConfiguring(optionsBuilder);
-
         }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
 
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
@@ -70,6 +83,7 @@ namespace EduPortal.Persistence.context
 
 
             modelBuilder.Entity<SubsIndividual>().ToTable("SubsIndividuals");
+            modelBuilder.Entity<SubsCorporate>().ToTable("SubsCorporates");
             modelBuilder.Entity<SubsCorporate>().ToTable("SubsCorporates");
 
 

@@ -1,10 +1,17 @@
+using EduPortal.Application.Interfaces.Services;
+using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
 using EduPortal.Models.ViewModels.AppUsers;
 using EduPortal.MVC.Models;
+using EduPortal.Persistence.context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using NToastNotify;
 using System.Diagnostics;
+using System.Text;
 using IdentitySignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace EduPortal.MVC.Controllers
@@ -15,16 +22,63 @@ namespace EduPortal.MVC.Controllers
         readonly UserManager<AppUser> _userManager;
         readonly SignInManager<AppUser> _signInManager;
         private readonly IToastNotification _toast;
+        private readonly IDistributedCache _distributedCache;
+        private readonly AppDbContext _appDbContext;
+        private readonly ICacheService _cacheService;
 
 
-
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
+        public HomeController(ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
             _toast = toast;
+            _distributedCache = distributedCache;
+            _appDbContext = appDbContext;
+            _cacheService = cacheservice;
         }
+
+        [HttpGet("set")]
+        public async Task<IActionResult> Set()
+        {
+            _cacheService.CacheSubscribersAsync();
+            //var subscribers = await _appDbContext.Invoices.ToListAsync();
+
+            //foreach (var subscriber in subscribers)
+            //{
+            //    // Serialize and store each subscriber in Redis cache
+            //    var serializedSubscriber = JsonConvert.SerializeObject(subscriber);
+            //    await _distributedCache.SetStringAsync("subscriber:" + subscriber.Id, serializedSubscriber);
+            //}
+
+            return View("Index");
+        }
+
+        [HttpGet("get")]
+        public async Task<IActionResult> Get()
+        {
+            // Try to get subscribers from Redis cache
+            var serializedSubscribers = await _distributedCache.GetStringAsync("subscribers");
+
+
+            if (serializedSubscribers != null)
+            {
+                var subscribers = JsonConvert.DeserializeObject<List<Invoice>>(serializedSubscribers);
+                return Ok(subscribers);
+            }
+            else
+            {
+                // If not found in cache, fetch from database
+                var subscribers = await _appDbContext.Invoices.ToListAsync();
+
+                // Serialize and store subscribers in Redis cache
+                //var serializedSubscribers = JsonConvert.SerializeObject(subscribers);
+                //await _distributedCache.SetStringAsync("subscribers", serializedSubscribers);
+
+                return Ok(subscribers);
+            }
+        }
+
 
         public IActionResult Index()
         {

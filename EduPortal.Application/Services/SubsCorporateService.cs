@@ -20,12 +20,12 @@ namespace EduPortal.Service.Services
     {
         public async Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto corporateDto)
         {
-            var corporatelEntity = mapper.Map<SubsCorporate>(corporateDto);
+            SubsCorporate corporatelEntity = mapper.Map<SubsCorporate>(corporateDto);
 
             await subsCorporateRepository.AddAsync(corporatelEntity);
             await unitOfWork.CommitAsync();
 
-            var individualDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
+            SubsCorporateDto individualDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
 
             return Response<SubsCorporateDto>.Success(individualDto, HttpStatusCode.Created);
         }

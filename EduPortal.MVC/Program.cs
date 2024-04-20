@@ -15,6 +15,7 @@ using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using NToastNotify;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,12 +28,15 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<AppDbContext>(
     //options => options.UseSqlServer(builder.Configuration.GetConnectionString("")
     );
+//builder.Services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:1500");
+
 
 
 
 builder.Services
 .AddControllers()
 .AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<CreateSubsIndividualDtoValidator>());
+
 
 
 builder.Services.AddIdentity<AppUser, AppRole>(opt =>
@@ -62,6 +66,19 @@ builder.Services.ConfigureApplicationCookie(opt =>
 });
 
 var app = builder.Build();
+
+var appLifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+
+appLifetime.ApplicationStarted.Register(async () =>
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var cacheService = scope.ServiceProvider.GetRequiredService<ICacheService>();
+        await cacheService.CacheSubscribersAsync();
+    }
+});
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
