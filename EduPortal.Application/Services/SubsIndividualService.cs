@@ -45,28 +45,31 @@ namespace EduPortal.Service.Services
 
         public async Task<Response<bool>> TerminateSubsIndividualAsync(string identityNumber)
         {
-            List<SubsIndividual> subscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
+            var subscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
             if (subscribers.Count == 0)
-            {
-                return Response<bool>.Fail("Abone bulunamadı.",HttpStatusCode.NotFound);
-            }
+                return Response<bool>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
+
+            var updatedSubscribers = new List<SubsIndividual>(); // Güncellenen abonelerin listesi
 
             foreach (var abone in subscribers)
             {
-
                 if (await subscriberRepository.HasUnpaidInvoices(abone.Id))
-                {
-                    return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.",HttpStatusCode.Forbidden);
-                          
-                    abone.IsActive = false;
-                    subscriberRepository.Update(abone);
-                }
+                    return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
+
+                abone.IsActive = false;
+                updatedSubscribers.Add(abone);
+            }
+
+            foreach (var updatedSubscriber in updatedSubscribers)
+            {
+                 subscriberRepository.Update(updatedSubscriber);
             }
 
             await unitOfWork.CommitAsync();
 
-            return Response<bool>.Success(true,HttpStatusCode.OK);
+            return Response<bool>.Success(true, HttpStatusCode.OK);
         }
+
     }
 }

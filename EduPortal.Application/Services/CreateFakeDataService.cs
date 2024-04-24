@@ -25,9 +25,6 @@ namespace EduPortal.Persistence.Services
         IInvoiceRepository invoiceRepository) : IFakeDataService
     {
 
-
-
-        //TO-DO
         public async Task CreateFakeData()
         {
             if (await invoiceRepository.AnyInvoiceAsync())

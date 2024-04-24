@@ -4,7 +4,7 @@ namespace EduPortal.MVC.Models.Subscriber
 {
     public class SubsIndividual
     {
-        [Display(Name = "Ad Soyad")]
+        [Display(Name = "NameSurname")]
         [Required(ErrorMessage = "Ad Soyad Alanı Zorunludur")]
         [MaxLength(200)]
         public string NameSurname { get; set; }

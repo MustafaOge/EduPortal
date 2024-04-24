@@ -27,10 +27,7 @@ namespace EduPortal.Persistence.Services
         ISubsIndividualRepository subsIndividualRepository,
         ISubscriberRepository subscriberRepository,
         IGenericRepository<InvoiceComplaint, int> invoiceComplaint,
-        IGenericRepository<MeterReading, int> meterReading
-
-
-) : IInvoiceService
+        IGenericRepository<MeterReading, int> meterReading) : IInvoiceService
     {
         public async Task<Response<int>> PayInvoice(int id)
         {
@@ -112,11 +109,6 @@ namespace EduPortal.Persistence.Services
             return Response<List<Invoice>>.Success(invoices, HttpStatusCode.OK);
         }
 
-
-
-
-
-
         public async Task<Response<InvoiceDetailView>> DetailPay(int id)
         {
             Invoice invoice = await invoiceRepository.GetByIdAsync(id);
@@ -137,8 +129,6 @@ namespace EduPortal.Persistence.Services
 
             return Response<InvoiceDetailView>.Success(viewModel, HttpStatusCode.OK);
         }
-
-
 
         private async Task<Subscriber> GetSubscriberAsync(Invoice invoice)
         {
@@ -163,7 +153,6 @@ namespace EduPortal.Persistence.Services
             {
                 Invoice existingInvoice = await invoiceRepository.GetByIdAsync(model.InvoiceId);
 
-                // Eğer fatura bulunamadıysa, hata döndür
                 if (existingInvoice == null)
                 {
                     toast.AddErrorToastMessage("Hatalı Fatura ID, Fatura Bulunamadı!");
@@ -192,12 +181,9 @@ namespace EduPortal.Persistence.Services
             {
                 toast.AddErrorToastMessage("İtiraz Talebi Oluşturulmadı");
 
-                // Hata durumunda uygun bir hata mesajı dön
                 return Response<InvoiceComplaint>.Fail("Fatura itirazı oluşturulurken bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
 
             }
         }
-
-
     }
 }

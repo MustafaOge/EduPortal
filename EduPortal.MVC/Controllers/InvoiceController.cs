@@ -20,7 +20,7 @@ namespace EduPortal.MVC.Controllers
         IMapper mapper
 
         )
-        : Controller
+        : BaseController
     {
         public IActionResult Index()
         {

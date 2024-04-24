@@ -3,9 +3,11 @@ using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
+using EduPortal.Application.Services;
 using EduPortal.Application.Validations.Subscriber;
 using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
+using EduPortal.MVC.Controllers;
 using EduPortal.MVC.Extensions;
 using EduPortal.Persistence.context;
 using EduPortal.Persistence.Mapping;
@@ -13,11 +15,43 @@ using EduPortal.Persistence.Repositories;
 using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using NToastNotify;
 using StackExchange.Redis;
+using System.Globalization;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+#region Localizer
+
+builder.Services.AddSingleton<LanguageService>();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization(options =>
+    options.DataAnnotationLocalizerProvider = (type, factory) =>
+    {
+        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
+        return factory.Create(nameof(SharedResource), assemblyName.Name);
+    });
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportCultures = new List<CultureInfo>
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("fr-FR"),
+        new CultureInfo("tr-TR"),
+    };
+    options.DefaultRequestCulture = new RequestCulture(culture: "tr-TR", uiCulture: "tr-TR");
+    options.SupportedCultures = supportCultures;
+    options.SupportedUICultures = supportCultures;
+    options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+});
+#endregion
+
 
 
 // Add services to the container.
@@ -95,12 +129,12 @@ using (var scope = app.Services.CreateScope())
     fakeDataService.CreateFakeData();
 }
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseNToastNotify();
 
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 app.UseRouting();
 
 app.UseAuthentication();

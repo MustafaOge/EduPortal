@@ -4,13 +4,13 @@
 
 
 
-   <form method="post" class="corporate-find" asp-action="FindCorporate">
-        <div class="form-group">
-        <label for="TaxIdOrCounterNumber">Vergi Kimlik No / Tesisiat No:</label>
+<form method="post" class="corporate-find" asp-action="FindCorporate">
+    <div class="form-group">
+        <label for="TaxIdOrCounterNumber">@_localization.Getkey("TaxID") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="TaxIdOrCounterNumber" name="TaxIdOrCounterNumber">
     </div>
-    <button type="submit" asp-controller="subscriber" asp-action="FindCorporate" class="btn btn-primary">Bilgileri Getir</button>
-    </form>
+    <button type="submit" asp-controller="Subscriber" asp-action="FindCorporate" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
+</form>
 
 
 
@@ -20,11 +20,11 @@
         <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Kurum İsmi</th>
-                    <th>Telefon Numarası</th>
-                    <th>Vergi Kimlik Numarası</th>
-                    <th>Sayaç Numarası</th>
-                    <th>Abone Tipi</th>
+                    <th>@_localization.Getkey("CorporateName")</th>
+                    <th>@_localization.Getkey("PhoneNumber")</th>
+                    <th>@_localization.Getkey("TaxID")</th>
+                    <th>@_localization.Getkey("CounterNumber")</th>
+                    <th>@_localization.Getkey("SubscriberType")</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,11 +35,10 @@
                         <td> @subsCorporate.PhoneNumber </td>
                         <td> @subsCorporate.TaxIdNumber </td>
                         <td> @subsCorporate.CounterNumber </td>
-                        <td> @subsCorporate.SubscriberType </td>
+                        <td> @_localization.Getkey("SubscriberType") </td>
                     </tr>
                 }
             </tbody>
         </table>
     }
 </div>
-

@@ -2534,6 +2534,17 @@
         "runtime": {
           "EduPortal.Application.dll": {}
         },
+        "resources": {
+          "en-US/EduPortal.Application.resources.dll": {
+            "locale": "en-US"
+          },
+          "fr-FR/EduPortal.Application.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "tr-TR/EduPortal.Application.resources.dll": {
+            "locale": "tr-TR"
+          }
+        },
         "compile": {
           "EduPortal.Application.dll": {}
         }

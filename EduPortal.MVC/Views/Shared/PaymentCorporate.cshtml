@@ -2,19 +2,13 @@
 
 @model List<SubsCorporate>
 
-
-
 <form method="post" asp-controller="Invoice" class="corporate-find" asp-action="PaymentCorporate">
     <div class="form-group">
-        <label for="TaxIdOrCounterNumber">Vergi Kimlik No / Tesisiat No:</label>
-
+        <label for="TaxIdOrCounterNumber">@_localization.Getkey("TaxID") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="TaxIdOrCounterNumber" name="TaxIdOrCounterNumber">
     </div>
-    <button type="submit" asp-controller="Invoice" asp-action="PaymentCorporate" class="btn btn-primary">Bilgileri Getir</button>
+    <button type="submit" asp-controller="Invoice" asp-action="PaymentCorporate" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
 </form>
-
-
-
 
 <div class="col">
     @if (Model != null)
@@ -22,12 +16,12 @@
         <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Kurum İsmi</th>
-                    <th>Telefon Numarası</th>
-                    <th>Vergi Kimlik Numarası</th>
-                    <th>Sayaç Numarası</th>
-                    <th>Abone Tipi</th>
-                    <th>Faturalar</th>
+                    <th>@_localization.Getkey("CorporateName")</th>
+                    <th>@_localization.Getkey("PhoneNumber")</th>
+                    <th>@_localization.Getkey("TaxID")</th>
+                    <th>@_localization.Getkey("CounterNumber")</th>
+                    <th>@_localization.Getkey("SubscriberType")</th>
+                    <th>@_localization.Getkey("Invoices")</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,8 +34,7 @@
                         <td> @subsCorporate.CounterNumber </td>
                         <td> @subsCorporate.SubscriberType </td>
                         <td>
-                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsCorporate.Id" class="btn btn-primary" style="color:brown; background:darkorange">Faturaları Göster</a>
-
+                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsCorporate.Id" class="btn btn-primary" style="color:brown; background:darkorange">@_localization.Getkey("ShowInvoices")</a>
                         </td>
                     </tr>
                 }
@@ -49,4 +42,3 @@
         </table>
     }
 </div>
-

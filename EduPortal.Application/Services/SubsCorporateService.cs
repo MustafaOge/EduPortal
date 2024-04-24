@@ -31,13 +31,10 @@ namespace EduPortal.Service.Services
         }
 
 
-
         public async Task<List<SubsCorporateDto>> FindCorporateAsync(string taxIdNumber)
         {
-            // Servisten Entity listesini al
             List<SubsCorporate> entities = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
 
-            // Entity'leri DTO'lara dönüştür
             List<SubsCorporateDto> dtos = entities.Select(entity => mapper.Map<SubsCorporateDto>(entity)).ToList();
 
             return dtos;
@@ -58,7 +55,6 @@ namespace EduPortal.Service.Services
 
                 if (hasUnpaidInvoices)
                 {
-
                     return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
                 }
                 else
@@ -67,9 +63,7 @@ namespace EduPortal.Service.Services
                     subscriberRepository.Update(abone);
                 }
             }
-
             await unitOfWork.CommitAsync();
-
             return Response<bool>.Success(true, HttpStatusCode.OK);
         }
     }

@@ -5,10 +5,10 @@
 
 <form method="post" asp-controller="Invoice" class="individual-find" asp-action="PaymentIndividual">
     <div class="form-group">
-        <label for="IdentityOrCounterNumber">T.C. Kimlik No / Tesisat No:</label>
+        <label for="IdentityOrCounterNumber">@_localization.Getkey("IDNumber") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="IdentityOrCounterNumber" name="IdentityOrCounterNumber">
     </div>
-    <button type="submit" asp-controller="Invoice" asp-action="PaymentIndividual" class="btn btn-primary">Bilgileri Getir</button>
+    <button type="submit" asp-controller="Invoice" asp-action="PaymentIndividual" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
 </form>
 
 
@@ -19,12 +19,12 @@
         <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Abone İsim</th>
-                    <th>Telefon Numarsı</th>
-                    <th>Sayaç Numarası</th>
-                    <th>Abonelik tarihi</th>
-                    <th>Abone Tipi</th>
-                    <th>Faturalar</th>
+                    <th>@_localization.Getkey("NameSurname")</th>
+                    <th>@_localization.Getkey("PhoneNumber")</th>
+                    <th>@_localization.Getkey("CounterNumber")</th>
+                    <th>@_localization.Getkey("BirthDate")</th>
+                    <th>@_localization.Getkey("IndividualSubscription")</th>
+                    <th>@_localization.Getkey("Invoices")</th>
 
                 </tr>
             </thead>
@@ -35,10 +35,10 @@
                         <td> @subsIndividual.NameSurname </td>
                         <td> @subsIndividual.PhoneNumber </td>
                         <td> @subsIndividual.CounterNumber </td>
-                        <td> @subsIndividual.Created.Year </td>
+                        <td> @subsIndividual.BirthDate.Year </td>
                         <td> @subsIndividual.SubscriberType </td>
                         <td>
-                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsIndividual.Id" class="btn btn-primary" style="color:brown; background:darkorange">Faturaları Göster</a>
+                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsIndividual.Id" class="btn btn-primary" style="color:brown; background:darkorange">@_localization.Getkey("Invoices")</a>
 
                         </td>
                     </tr>

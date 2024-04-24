@@ -1396,3 +1396,6 @@ C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb75
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\en-US\EduPortal.Application.resources.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\fr-FR\EduPortal.Application.resources.dll
+C:\Users\Mustafa\Desktop\Portal\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\EduPortal.MVC\bin\Debug\net8.0\tr-TR\EduPortal.Application.resources.dll

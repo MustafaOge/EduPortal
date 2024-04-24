@@ -54,30 +54,6 @@ namespace EduPortal.Application.Services
 
         }
 
-
-
-
-
-
-        //public async Task<SubsIndividualDto> FindIndividualDtosAsync(string identityOrCounterNumber)
-        //{
-
-
-
-        //    var subscribersJson = await distributedCache.GetStringAsync("all_subscribers");
-
-        //    if (string.IsNullOrEmpty(subscribersJson))
-        //    {
-        //        return null;
-        //    }
-
-        //    var subscribers = JsonConvert.DeserializeObject<List<SubsIndividualDto>>(subscribersJson);
-
-        //    var subscriber = subscribers.FirstOrDefault(s => s.CounterNumber == identityOrCounterNumber || s.IdentityNumber == identityOrCounterNumber);
-
-        //    return subscriber;
-        //}
-
         public async Task<SubsIndividualDto> FindIndividualDtosAsync(string identityOrCounterNumber)
         {
             var redis = await RedisService.RedisMasterDatabase();
@@ -90,18 +66,15 @@ namespace EduPortal.Application.Services
 
             var subscribers = JsonConvert.DeserializeObject<List<SubsIndividualDto>>(subscribersJson);
 
-            // Uzunluk kontrolü yap
+
             if (identityOrCounterNumber.Length > 7)
             {
-                // 7 karakterden fazla ise, FindCounterNumber metoduna yönlendir
                 var counterNumber = await FindCounterNumber(identityOrCounterNumber);
-
                 var subscriber2 = subscribers.FirstOrDefault(s => s.CounterNumber == counterNumber);
                 return subscriber2;
             }
             else
             {
-                // 7 karakter veya daha az ise, normal sorgulama işlemi
                 var subscriber = subscribers.FirstOrDefault(s => s.CounterNumber == identityOrCounterNumber);
                 return subscriber;
             }

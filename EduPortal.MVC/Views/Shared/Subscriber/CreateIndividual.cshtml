@@ -1,32 +1,32 @@
 ﻿@using EduPortal.MVC.Models.Subscriber
 @model SubsIndividual
 
-<div class="row" >
-    <form method="post"  asp-controller="Subscriber" asp-action="CreateIndividual">
+<div class="row">
+    <form method="post" asp-controller="Subscriber" asp-action="CreateIndividual">
         <div class="container p-5 my-5 border">
 
-
+            <label>@_localization.Getkey("IndividualSubscription")</label>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="NameSurname" id="nameSurnameLabel"></label>
-                        <input asp-for="NameSurname" type="tel" class="form-control" placeholder="Ad Soyad">
+                        <label asp-for="NameSurname" id="nameSurnameLabel">@_localization.Getkey("NameSurname")</label>
+                        <input asp-for="NameSurname" type="tel" class="form-control" placeholder="@_localization.Getkey("NameSurname")">
                         <span asp-validation-for="NameSurname" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="IdentityNumber" id="identityNumberLabel"></label>
-                        <input asp-for="IdentityNumber" type="tel" class="form-control" placeholder="TC No">
+                        <label asp-for="IdentityNumber" id="identityNumberLabel">@_localization.Getkey("IDNumber")</label>
+                        <input asp-for="IdentityNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("IDNumber")">
                         <span asp-validation-for="IdentityNumber" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="CounterNumber"></label>
-                        <input asp-for="CounterNumber" type="tel" class="form-control" placeholder="Counter Number">
+                        <label asp-for="CounterNumber">@_localization.Getkey("CounterNumber")</label>
+                        <input asp-for="CounterNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("CounterNumber")">
                         <span asp-validation-for="CounterNumber" class="text-danger"></span>
                     </div>
                 </div>
@@ -37,22 +37,22 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="PhoneNumber" id="phoneNumberLabel"></label>
-                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Tel No">
+                        <label asp-for="PhoneNumber" id="phoneNumberLabel">@_localization.Getkey("PhoneNumber")</label>
+                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("PhoneNumber")">
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="BirthDate" id="birthDateLabel"></label>
-                        <input asp-for="BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi">
+                        <label asp-for="BirthDate" id="birthDateLabel">@_localization.Getkey("BirthDate")</label>
+                        <input asp-for="BirthDate" type="date" class="form-control" placeholder="@_localization.Getkey("BirthDate")">
                         <span asp-validation-for="BirthDate" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label asp-for="Email" id="emailLabel"></label>
-                        <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresi">
+                        <label asp-for="Email" id="emailLabel">@_localization.Getkey("EmailAddress")</label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="@_localization.Getkey("EmailAddress")">
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                 </div>

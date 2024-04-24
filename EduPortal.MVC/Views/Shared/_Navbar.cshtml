@@ -6,78 +6,50 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-
-
-
+            <ul class="navbar-nav flex-grow-12">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Abone Ýþlemleri
-                    </a>
-                    @* <li><a class="dropdown-item" asp-controller="book" asp-action="Create" asp-route-versiyon=2>Redirect Permant Result </a></li> *@
-
-                    <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Create">Abone Kayýt</a></li>
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Find">Abone Sorgula</a></li>
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Terminate">Abone Sonlandir</a></li>
-
-
-                        @* <li><a class="dropdown-item" asp-action="RedirectResult" asp-route-versiyon=2>Redirect Permant Result </a></li> *@
-                    </ul>
-
-                    @*         <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Fatura iþlemleri
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                    <li><a class="dropdown-item" asp-action="LocalFunctions">Fatura Sorgulama</a></li>
-
-
-                    </ul>
-                    </li> *@
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Fatura iþlemleri
+                        @_localization.Getkey("Subscriber Operations")
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Index">Fatura Sorgulama</a></li>
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Find">Fatura Ödeme</a></li>
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Complaint">Fatura Ýtiraz</a></li>
-
+                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Create">@_localization.Getkey("Subscriber Registration")</a></li>
+                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Find">@_localization.Getkey("Subscriber Inquiry")</a></li>
+                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Terminate">@_localization.Getkey("Terminate Subscriber")</a></li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        @_localization.Getkey("Invoice Operations")
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
+                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Index">@_localization.Getkey("Invoice Inquiry")</a></li>
+                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Find">@_localization.Getkey("Invoice Payment")</a></li>
+                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Complaint">@_localization.Getkey("Invoice Complaint")</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            @_localization.Getkey("Localization")
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">
+                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("English")
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="fr-FR" class="dropdown-item">
+                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("French")
+                                </a>
+                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="dropdown-item">
+                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("Turkish")
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
-
-
-@* <nav class="navbar bg-light border-bottom navbar-expand-lg bg-body-tertiary">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <i class="fa-solid fa-store fa-2x text-secondary"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNavAltMarkup">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" asp-controller="Account" asp-action="Register">Register</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" asp-controller="Category" asp-action="Index">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" asp-page="/Contact">Contact</a>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</nav> *@

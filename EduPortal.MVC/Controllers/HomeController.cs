@@ -1,10 +1,12 @@
 using EduPortal.Application.Interfaces.Services;
+using EduPortal.Application.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
 using EduPortal.Models.ViewModels.AppUsers;
 using EduPortal.MVC.Models;
 using EduPortal.Persistence.context;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -16,7 +18,7 @@ using IdentitySignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace EduPortal.MVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         readonly UserManager<AppUser> _userManager;
@@ -25,9 +27,11 @@ namespace EduPortal.MVC.Controllers
         private readonly IDistributedCache _distributedCache;
         private readonly AppDbContext _appDbContext;
         private readonly ICacheService _cacheService;
+        //private LanguageService _localization;
+        private readonly LanguageService _localization;
 
 
-        public HomeController(ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
+        public HomeController(LanguageService localization, ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
         {
             _logger = logger;
             _userManager = userManager;
@@ -36,7 +40,18 @@ namespace EduPortal.MVC.Controllers
             _distributedCache = distributedCache;
             _appDbContext = appDbContext;
             _cacheService = cacheservice;
+            _localization = localization;
         }
+
+        public IActionResult Index()
+        {
+            //ViewBag.Welcome = _localization.Getkey("Welcome").Value;
+            //var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+            return View();
+        }
+
+
+                                
 
         [HttpGet("set")]
         public async Task<IActionResult> Set()
@@ -79,11 +94,7 @@ namespace EduPortal.MVC.Controllers
             }
         }
 
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+ 
 
         public IActionResult Privacy()
         {

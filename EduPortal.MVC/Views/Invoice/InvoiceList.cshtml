@@ -1,14 +1,11 @@
-﻿﻿@using EduPortal.Domain.Entities
-
-
-<table class="table table-bordered table-hover table-sm">
+﻿<table class="table table-bordered table-hover table-sm">
     <thead>
         <tr>
-            <th>Fatura Tarihi</th>
-            <th>Ödendi</th>
-            <th>Ödenecek Tutar</th>
-            <th>Dönemi</th>
-            <th>Fatura Detay</th>
+            <th>@_localization.Getkey("InvoiceDate")</th>
+            <th>@_localization.Getkey("Paid")</th>
+            <th>@_localization.Getkey("AmountDue")</th>
+            <th>@_localization.Getkey("Period")</th>
+            <th>@_localization.Getkey("InvoiceDetail")</th>
         </tr>
     </thead>
     <tbody>
@@ -16,12 +13,12 @@
         {
             <tr style="@(Invoice.IsPaid ? "" : "background-color: lightcoral;")">
                 <td>@Invoice.ReadingDate</td>
-                <td>@(Invoice.IsPaid ? "Evet" : "Hayır")</td>
+                <td>@(Invoice.IsPaid ? "Yes" : "No")</td>
                 <td>@Invoice.Amount</td>
                 <td>@Invoice.ReadingDate.Year/@Invoice.ReadingDate.Month.ToString("00")</td>
                 <td>
                     <a asp-controller="Invoice" asp-action="DetailPay" asp-route-id="@Invoice.Id" class="btn btn-primary" style="color:black; background:white">
-                        <i class="fas fa-file-invoice"></i> Fatura Detayları
+                        <i class="fas fa-file-invoice"></i> @_localization.Getkey("InvoiceDetail")
                     </a>
                 </td>
             </tr>

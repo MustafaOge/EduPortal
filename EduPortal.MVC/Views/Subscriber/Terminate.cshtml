@@ -2,11 +2,11 @@
 @model SubscriberViewModel;
 
 
-
+<h1 class="display-4">@_localization.Getkey("Welcome").Value</h1>
 <div class="login-box">
     <div class="lb-header">
-        <a href="#" class="active" id="individual-box-link">Bireysel</a>
-        <a href="#" id="corporate-box-link">Kurumsal</a>
+        <a href="#" class="active" id="individual-box-link">@_localization.Getkey("IndividualSubscription").Value</a>
+        <a href="#" id="corporate-box-link">@_localization.Getkey("CorporateSubscription").Value</a>
     </div>
 
 

@@ -2,18 +2,13 @@
 
 @model List<SubsCorporateDto>
 
-
-
 <form method="post" class="corporate-find" asp-action="TerminateCorporate">
     <div class="form-group">
-        <label for="TaxIdOrCounterNumber">Vergi Kimlik No / Tesisiat No:</label>
-
+        <label for="TaxIdOrCounterNumber">@_localization.Getkey("TaxID") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="TaxIdOrCounterNumber" name="TaxIdOrCounterNumber">
     </div>
-    <button type="submit" asp-controller="subscriber" asp-action="TerminateCorporate" class="btn btn-primary">Bilgileri Getir</button>
+    <button type="submit" asp-controller="Subscriber" asp-action="TerminateCorporate" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
 </form>
-
-
 
 <div class="col">
     @if (Model != null)
@@ -21,12 +16,12 @@
         <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Kurum İsmi</th>
-                    <th>Telefon Numarası</th>
-                    <th>Vergi Kimlik Numarası</th>
-                    <th>Sayaç Numarası</th>
-                    <th>Abone Tipi</th>
-                    <th>Abonelik İşlemleri</th>
+                    <th>@_localization.Getkey("CorporateName")</th>
+                    <th>@_localization.Getkey("PhoneNumber")</th>
+                    <th>@_localization.Getkey("TaxID")</th>
+                    <th>@_localization.Getkey("CounterNumber")</th>
+                    <th>@_localization.Getkey("SubscriberType")</th>
+                    <th>@_localization.Getkey("SubscriptionActions")</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +36,7 @@
                         <td>
                             <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsCorporate">
                                 <input type="hidden" name="TaxIdNumber" value="@subsCorporate.TaxIdNumber" />
-                                <button type="submit" class="btn btn-danger">Aboneliği Sonlandır</button>
+                                <button type="submit" class="btn btn-danger">@_localization.Getkey("TerminateSubscription")</button>
                             </form>
                         </td>
                     </tr>
@@ -50,4 +45,3 @@
         </table>
     }
 </div>
-

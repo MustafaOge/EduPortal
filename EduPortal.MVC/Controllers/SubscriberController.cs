@@ -12,6 +12,7 @@ using NToastNotify;
 using System.Net;
 using System.Security.Policy;
 using Microsoft.EntityFrameworkCore;
+using EduPortal.MVC.Controllers;
 
 
 namespace EduPortal.Controllers
@@ -24,7 +25,7 @@ namespace EduPortal.Controllers
         ISubsIndividualService subsIndividualService,
         ISubsCorporateService subsCorporateService,
         ICacheService cacheService
-        ) : Controller
+        ) : BaseController
     {
 
         [HttpGet]
