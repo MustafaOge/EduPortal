@@ -21,7 +21,7 @@ namespace EduPortal.Persistence.Interceptors
     {
         readonly IHttpContextAccessor _contextAccessor;
         readonly IDistributedCache _distributedCache;
-        public SaveChangesInterceptor(IHttpContextAccessor contextAccessor   , IDistributedCache distributedCache)
+        public SaveChangesInterceptor(IHttpContextAccessor contextAccessor, IDistributedCache distributedCache)
         {
             _contextAccessor = contextAccessor;
             _distributedCache = distributedCache;
@@ -34,7 +34,7 @@ namespace EduPortal.Persistence.Interceptors
             { EntityState.Modified, ModifiedEntity }
         };
 
-        public async Task UpdateCacheAsync<T>( T newData)
+        public async Task UpdateCacheAsync<T>(T newData)
         {
             var serializedData = JsonConvert.SerializeObject(newData);
             await _distributedCache.SetStringAsync("all_subscribers", serializedData);
@@ -44,7 +44,7 @@ namespace EduPortal.Persistence.Interceptors
             await _distributedCache.RemoveAsync(cacheKey);
         }
 
-        public async Task AddOrUpdateCacheAsync<T>( T data, TimeSpan expirationTime)
+        public async Task AddOrUpdateCacheAsync<T>(T data, TimeSpan expirationTime)
         {
             var serializedData = JsonConvert.SerializeObject(data);
             await _distributedCache.SetStringAsync("all_subscribers", serializedData, options: new DistributedCacheEntryOptions
@@ -82,7 +82,7 @@ namespace EduPortal.Persistence.Interceptors
                 {
                     Task.Run(async () =>
                     {
-                        await AddOrUpdateCacheAsync( baseEntity, TimeSpan.FromMinutes(60));
+                        await AddOrUpdateCacheAsync(baseEntity, TimeSpan.FromMinutes(60));
                     });
                 }
 

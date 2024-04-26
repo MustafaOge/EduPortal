@@ -51,6 +51,10 @@
               "target": "Package",
               "version": "[11.3.0, )"
             },
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.12, )"
+            },
             "MFramework.Services.FakeData": {
               "target": "Package",
               "version": "[1.0.23, )"
@@ -193,6 +197,22 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.12, )"
+            },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.12, )"
+            },
+            "Hangfire.Dashboard.Basic.Authentication": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.12, )"
             },
             "MFramework.Services.FakeData": {
               "target": "Package",

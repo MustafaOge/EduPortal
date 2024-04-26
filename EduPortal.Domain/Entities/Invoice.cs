@@ -16,7 +16,7 @@ namespace EduPortal.Domain.Entities
         public string SubscriberType { get; set; }
         public DateTime ReadingDate { get; set; }  
         public DateTime DueDate { get; set; }
-        public DateTime PaymentDate { get; set; }
+        public DateTime? PaymentDate { get; set; }
         public bool IsPaid { get; set; } // Fatura ödendi mi?
 
         public MeterReading MeterReading { get; set; }

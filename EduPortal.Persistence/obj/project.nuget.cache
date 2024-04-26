@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ehwNzcwcgf+ffTIgU+JoZhjg4F9cGVkg7kit40fH+C+KINQK8oHXShv6qnWvIGyFwtKXUJidUrDpPo0EKD3Wmg==",
+  "dgSpecHash": "gpTxJN2AEI1rGsI2ac7ywmwTaY6XWYb1nVvoXAOmfbMQ8D6XdZp6Ols2s1PoW2FZK17MfEV3uvBAId6Z9CGdcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e (3)\\EduPortal-b7be8cb6de12e072e3991a6015d88e302bfb753e\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,11 @@
     "C:\\Users\\Mustafa\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\hangfire\\1.8.12\\hangfire.1.8.12.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\hangfire.aspnetcore\\1.8.12\\hangfire.aspnetcore.1.8.12.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\hangfire.core\\1.8.12\\hangfire.core.1.8.12.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\hangfire.netcore\\1.8.12\\hangfire.netcore.1.8.12.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\hangfire.sqlserver\\1.8.12\\hangfire.sqlserver.1.8.12.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\mframework.services.fakedata\\1.0.23\\mframework.services.fakedata.1.0.23.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
@@ -73,7 +78,7 @@
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\6.0.0\\microsoft.extensions.fileproviders.embedded.6.0.0.nupkg.sha512",
-    "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.identity.core\\8.0.2\\microsoft.extensions.identity.core.8.0.2.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.identity.stores\\8.0.2\\microsoft.extensions.identity.stores.8.0.2.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.localization\\2.2.0\\microsoft.extensions.localization.2.2.0.nupkg.sha512",

@@ -1,5 +1,6 @@
 using CreditWiseHub.Repository.UnitOfWorks;
 using EduPortal.Application.DTO_s.Subscriber;
+using EduPortal.Application.HangfireJobs.Schedules;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
@@ -15,6 +16,7 @@ using EduPortal.Persistence.Repositories;
 using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
+using Hangfire;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -64,7 +66,14 @@ builder.Services.AddDbContext<AppDbContext>(
     );
 //builder.Services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:1500");
 
+var hangfireDbConnectionStrings = builder.Configuration.GetConnectionString("HangfireConnection");
 
+builder.Services.AddHangfire(x =>
+{
+    x.UseSqlServerStorage(hangfireDbConnectionStrings);
+});
+
+builder.Services.AddHangfireServer();
 
 
 builder.Services
@@ -139,6 +148,27 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+if (!TestServerOptions.TestServer)
+{
+
+    app.UseHangfireDashboard("/hangfire", new DashboardOptions()
+    {
+        DashboardTitle = "Hangfire Dashboard",
+        Authorization = new[]{
+    new HangfireBasicAuthenticationFilter.HangfireCustomBasicAuthenticationFilter{
+        User = builder.Configuration.GetSection("HangfireCredentials:UserName").Value,
+        Pass = builder.Configuration.GetSection("HangfireCredentials:Password").Value
+    }}
+    });
+
+    RecurringJobs.CheckLastPayment();
+
+}
+
+
+
 
 app.MapControllerRoute(
     name: "default",
