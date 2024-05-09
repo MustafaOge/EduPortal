@@ -13,7 +13,8 @@ namespace EduPortal.Persistence.Repositories
     public class InvoiceRepository : GenericRepository<Invoice, int>, IInvoiceRepository
     {
         private readonly IGenericRepository<SubsCorporate, int> _genericRepository;
-        public DbContext _context;
+        public AppDbContext _context;
+        
 
         public InvoiceRepository(AppDbContext context, IGenericRepository<SubsCorporate, int> genericRepository) : base(context)
         {
@@ -25,6 +26,10 @@ namespace EduPortal.Persistence.Repositories
         {
             return await _context.Set<Invoice>().AnyAsync();
         }
+
+
+
+
 
     }
 }

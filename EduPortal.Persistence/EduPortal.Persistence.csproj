@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EduPortal.Application\EduPortal.Application.csproj" />
+    <ProjectReference Include="..\EduPortal.Domain\EduPortal.Domain.csproj" />
   </ItemGroup>
 
 </Project>

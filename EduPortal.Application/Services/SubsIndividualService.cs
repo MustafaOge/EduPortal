@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using EduPortal.Application.Services;
 
 namespace EduPortal.Service.Services
 {
@@ -17,6 +18,7 @@ namespace EduPortal.Service.Services
         IUnitOfWork unitOfWork,
         ISubsIndividualRepository subsIndividualRepository,
         ISubscriberRepository subscriberRepository,
+        ISubscriberTerminateService subscriberTerminate,
         IMapper mapper
         ) : ISubsIndividualService
     {
@@ -64,6 +66,7 @@ namespace EduPortal.Service.Services
             foreach (var updatedSubscriber in updatedSubscribers)
             {
                  subscriberRepository.Update(updatedSubscriber);
+            await  subscriberTerminate.TerminateSubscriptionAndAddToOutbox(updatedSubscriber.Id);
             }
 
             await unitOfWork.CommitAsync();

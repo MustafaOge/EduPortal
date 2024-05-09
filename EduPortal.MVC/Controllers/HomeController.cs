@@ -1,4 +1,5 @@
 using EduPortal.Application.Interfaces.Services;
+using EduPortal.Application.Messaging;
 using EduPortal.Application.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
@@ -29,9 +30,12 @@ namespace EduPortal.MVC.Controllers
         private readonly ICacheService _cacheService;
         //private LanguageService _localization;
         private readonly LanguageService _localization;
+        private readonly RabbitMQPublisherService _rabbitMQPublisher;
+        private readonly RabbitMQConsumerService _rabbitMQConsumerService;
 
 
-        public HomeController(LanguageService localization, ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
+
+        public HomeController(RabbitMQConsumerService rabbitMQConsumerService , RabbitMQPublisherService rabbitMQPublisher,LanguageService localization, ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
         {
             _logger = logger;
             _userManager = userManager;
@@ -41,6 +45,8 @@ namespace EduPortal.MVC.Controllers
             _appDbContext = appDbContext;
             _cacheService = cacheservice;
             _localization = localization;
+            _rabbitMQPublisher = rabbitMQPublisher;
+            _rabbitMQConsumerService = rabbitMQConsumerService; 
         }
 
         public IActionResult Index()
@@ -94,7 +100,17 @@ namespace EduPortal.MVC.Controllers
             }
         }
 
- 
+        [HttpGet]
+        public async Task<IActionResult> SubcriberPublishGet()
+        {
+          //await  _rabbitMQPublisher.StartPublishing();
+            await _rabbitMQConsumerService.StartConsuming();
+            return View();
+
+
+        }
+
+
 
         public IActionResult Privacy()
         {
@@ -104,7 +120,7 @@ namespace EduPortal.MVC.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id });
         }
 
 

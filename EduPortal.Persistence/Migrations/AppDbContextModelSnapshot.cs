@@ -206,6 +206,48 @@ namespace EduPortal.Persistence.Migrations
                     b.ToTable("MeterReadings");
                 });
 
+            modelBuilder.Entity("EduPortal.Domain.Entities.OutboxMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUser")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsProcessed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("OccurredOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ProcessedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OutboxMessages");
+                });
+
             modelBuilder.Entity("EduPortal.Domain.Entities.Subscriber", b =>
                 {
                     b.Property<int>("Id")

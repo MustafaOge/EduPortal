@@ -20,10 +20,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
     <PackageReference Include="NToastNotify" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EduPortal.Application\EduPortal.Application.csproj" />
     <ProjectReference Include="..\EduPortal.Persistence\EduPortal.Persistence.csproj" />
   </ItemGroup>
 

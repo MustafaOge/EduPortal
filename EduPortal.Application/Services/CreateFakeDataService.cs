@@ -42,7 +42,7 @@ namespace EduPortal.Persistence.Services
         public void CreateFakeSubsIndividualData()
         {
             // Bireysel abone verilerini oluştur
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 400; i++)
             {
                 string firstNumber = NumberData.GetNumber(10000, 99999).ToString();
                 string secondIdentityNumber = NumberData.GetNumber(100000, 999999).ToString();
@@ -83,7 +83,7 @@ namespace EduPortal.Persistence.Services
         #region CreateFakeData
         public void CreateFakeInvoiceData()
         {
-            for (int i = 10; i < 15; i++)
+            for (int i = 0; i < 100; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
                 decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi
@@ -125,9 +125,9 @@ namespace EduPortal.Persistence.Services
                     IsPaid = BooleanData.GetBoolean(),
                     PaymentDate = DateTimeData.GetDatetime(new(2023, 8, 10), DateTime.Now),
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
-                    DueDate = DateTimeData.GetDatetime(new(2023, 9, 10), new(2023, 12, 10)),
+                    DueDate = DateTimeData.GetDatetime(new(2024, 3, 10), new(2024, 4, 20)),
                     Date = DateTime.Now,
-                    SubscriberId = NumberData.GetNumber(1, 300),
+                    SubscriberId = NumberData.GetNumber(1, 1200),
                     SubscriberType = "Bireysel",
                     MeterReading = meterReading,
                     Amount = (meterReading.TotalDifference) * 1.45m

@@ -13,8 +13,7 @@ using System.Net;
 using System.Security.Policy;
 using Microsoft.EntityFrameworkCore;
 using EduPortal.MVC.Controllers;
-
-
+using EduPortal.Application.Services;
 namespace EduPortal.Controllers
 {
     public class SubscriberController(
@@ -25,15 +24,17 @@ namespace EduPortal.Controllers
         ISubsIndividualService subsIndividualService,
         ISubsCorporateService subsCorporateService,
         ICacheService cacheService
+        , IMailService mailService
         ) : BaseController
     {
-
+        //await outboxMessageProcessor.ProcessOutboxMessagesAsync(cancellationToken);
         [HttpGet]
         public IActionResult Index()
         {
             return View();
-            }
+        }
 
+            
 
         public IActionResult Terminate()
         {
@@ -54,13 +55,14 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCorporate(CreateCorporateDto corporate)
+        public async Task<IActionResult> CreateCorporate(CreateCorporateDto corporate, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsCorporateService.CreateCorporateAsync(corporate);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
+                //outboxMessageProcessor.ProcessOutboxMessagesAsync(cancellationToken);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -77,13 +79,17 @@ namespace EduPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual)
+        public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsIndividualService.CreateIndividualAsync(individual);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
+                mailService.SendEmailWithMailKitPackage("Deneme Mail Başlığıdır Edu portal", "bu metin mailde bulunan body alanıdır", "M.Oge@dedas.com.tr");
+
+                //outboxMessageProcessor.ProcessOutboxMessagesAsync(cancellationToken);
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

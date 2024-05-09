@@ -1,5 +1,6 @@
 ﻿using EduPortal.Domain.Abstractions;
 using EduPortal.Domain.Entities;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,5 +72,21 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// </summary>
         /// <param name="items">Collection of entities to be removed.</param>
         void RemoveRange(IEnumerable<TEntity> items);
+        /// <summary>
+        /// Gets the entity entry for the specified entity.
+        /// </summary>
+        /// <param name="entity">The entity for which to get the entry.</param>
+        /// <returns>The entity entry for the specified entity.</returns>
+        EntityEntry<TEntity> GetEntry(TEntity entity);
+
+        /// <summary>
+        /// Updates a range of entities.
+        /// </summary>
+        /// <param name="entities">The collection of entities to be updated.</param>
+        void UpdateRange(IEnumerable<TEntity> entities);
+
+        Task UpdateAsync(TEntity entity);
+
+        void Detach(TEntity entity);
     }
 }

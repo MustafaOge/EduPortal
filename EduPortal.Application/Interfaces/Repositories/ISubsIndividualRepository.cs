@@ -15,7 +15,7 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// </summary>
         /// <param name="number">The number to search for individual subscribers.</param>
         /// <returns>A list of individual subscribers associated with the provided number.</returns>
-        Task<List<SubsIndividual>> FindIndividualAsync(string number);
+        Task<List<SubsIndividual>> FindIndividualAsync(string counterOrIdentityNumber);
 
 
 

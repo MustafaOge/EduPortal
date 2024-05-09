@@ -33,10 +33,10 @@ namespace EduPortal.Persistence.Repositories
 
         }
 
-        public async Task<List<SubsIndividual>> FindIndividualAsync(string number)
+        public async Task<List<SubsIndividual>> FindIndividualAsync(string counterOrIdentityNumber)
         {
             var response = await _dbSet
-                .Where(c => (number.Length > 10 ? c.IdentityNumber : c.CounterNumber) == number && c.IsActive)
+                .Where(c => (counterOrIdentityNumber.Length > 10 ? c.IdentityNumber : c.CounterNumber) == counterOrIdentityNumber && c.IsActive)
                 .ToListAsync();
             return response;
         }

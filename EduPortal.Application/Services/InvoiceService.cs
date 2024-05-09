@@ -1,4 +1,5 @@
-﻿using EduPortal.Application.DTO_s.Subscriber;
+﻿using AutoMapper;
+using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
@@ -22,6 +23,7 @@ namespace EduPortal.Persistence.Services
     public class InvoiceService(
         IInvoiceRepository invoiceRepository,
         IToastNotification toast,
+        IMapper mapper,
         IUnitOfWork unitOfWork,
         ISubsCorporateRepository subsCorporateRepository,
         ISubsIndividualRepository subsIndividualRepository,
@@ -138,7 +140,7 @@ namespace EduPortal.Persistence.Services
             }
             else if (invoice.SubscriberId != null)
             {
-                return (await subscriberRepository.GetByIdAsync(invoice.SubscriberId.Value));
+                return (await subscriberRepository.GetByIdAsync(invoice.SubscriberId));
 
             }
             else
@@ -185,5 +187,10 @@ namespace EduPortal.Persistence.Services
 
             }
         }
+
+
+
+      
+     
     }
 }

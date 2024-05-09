@@ -4,6 +4,7 @@ using EduPortal.Application.HangfireJobs.Schedules;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
+using EduPortal.Application.Messaging;
 using EduPortal.Application.Services;
 using EduPortal.Application.Validations.Subscriber;
 using EduPortal.Domain.Entities;
@@ -54,7 +55,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 #endregion
 
-
+//builder.Services.AddHostedService<DbInitializerHostedService>();
 
 // Add services to the container.
 builder.Services.AddToastNotify();
@@ -108,6 +109,11 @@ builder.Services.ConfigureApplicationCookie(opt =>
 
 });
 
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
+builder.Services.AddScoped<IMailService, MailService>();
+
+
+
 var app = builder.Build();
 
 var appLifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
@@ -118,8 +124,12 @@ appLifetime.ApplicationStarted.Register(async () =>
     {
         var cacheService = scope.ServiceProvider.GetRequiredService<ICacheService>();
         await cacheService.CacheSubscribersAsync();
+   
+
     }
 });
+
+
 
 
 
@@ -164,6 +174,8 @@ if (!TestServerOptions.TestServer)
     });
 
     RecurringJobs.CheckLastPayment();
+    RecurringJobs.StartMessageService();
+
 
 }
 

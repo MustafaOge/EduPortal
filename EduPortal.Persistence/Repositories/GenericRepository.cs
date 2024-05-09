@@ -2,6 +2,7 @@
 using EduPortal.Domain.Abstractions;
 using EduPortal.Persistence.context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace EduPortal.Persistence.Repositories
             return await _dbSet.AsNoTracking().Where(expression).ToListAsync();
 
         }
+
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)
         {
             return _dbSet.Where(expression);
@@ -79,6 +81,27 @@ namespace EduPortal.Persistence.Repositories
         public void RemoveRange(IEnumerable<TEntity> items)
         {
             _dbSet.RemoveRange(items);
+        }
+
+        public EntityEntry<TEntity> GetEntry(TEntity entity)
+        {
+            return _dbSet.Entry(entity);
+        }
+
+        public void UpdateRange(IEnumerable<TEntity> entities)
+        {
+            _dbSet.UpdateRange(entities);
+        }
+
+        public async Task UpdateAsync(TEntity entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public void Detach(TEntity entity)
+        {
+            _context.Entry(entity).State = EntityState.Detached;
         }
     }
 }

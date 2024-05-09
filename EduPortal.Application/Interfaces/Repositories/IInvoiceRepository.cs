@@ -12,6 +12,10 @@ namespace EduPortal.Application.Interfaces.Repositories
         Task<bool> AnyInvoiceAsync();
 
 
+
+
+
+
     }
 }
 

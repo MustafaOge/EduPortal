@@ -16,7 +16,6 @@ using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
 using EduPortal.Models.Configurations;
 using EduPortal.Persistence.Configurations;
-using EduPortal.Application.Interfaces.Services;
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace EduPortal.Persistence.context
@@ -40,6 +39,9 @@ namespace EduPortal.Persistence.context
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<MeterReading> MeterReadings { get; set; }
         public DbSet<InvoiceComplaint> invoiceComplaints { get; set; }
+        public DbSet<OutboxMessage> OutboxMessages { get; set; }
+
+        
 
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
@@ -58,12 +60,14 @@ namespace EduPortal.Persistence.context
 
         //}
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=localhost;Database=EduPortal; Trusted_Connection=true;TrustServerCertificate=True;").
-                AddInterceptors(new SaveChangesInterceptor(_contextAccessor, _distributedCache)).
+                //AddInterceptors(new SaveChangesInterceptor(_contextAccessor, _distributedCache)).
                 UseLazyLoadingProxies()
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
             optionsBuilder.UseLazyLoadingProxies(false);
             base.OnConfiguring(optionsBuilder);
         }

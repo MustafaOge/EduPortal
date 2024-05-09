@@ -11,7 +11,7 @@ namespace EduPortal.Domain.Entities
         public DateTime Date { get; set; }
 
         public Subscriber? Subscriber { get; set; }
-        public int? SubscriberId { get; set; }
+        public int SubscriberId { get; set; }
         public decimal Amount { get; set; }
         public string SubscriberType { get; set; }
         public DateTime ReadingDate { get; set; }  

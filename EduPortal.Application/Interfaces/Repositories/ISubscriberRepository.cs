@@ -15,5 +15,14 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <param name="id"></param>
         /// <returns></returns>
         Task<bool> HasUnpaidInvoices(int id);
+
+        /// <summary>
+        /// Retrieves subscriber information asynchronously based on the provided counter number.
+        /// </summary>
+        /// <param name="counterNumber">The counter number of the subscriber.</param>
+        /// <returns>An object representing the subscriber information. Returns null if the subscriber is not found.</returns>
+        Task<SubscriberInfo> GetSubscriberInfoAsync(int counterNumber);
+
+
     }
 }
