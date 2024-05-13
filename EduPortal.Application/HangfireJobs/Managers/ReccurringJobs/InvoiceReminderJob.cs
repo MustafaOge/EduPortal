@@ -6,6 +6,7 @@ using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,24 +18,20 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
 {
-    public class PaymentProcessor
+    public class InvoiceReminderJob
     {
         private readonly IQueueService _queueService;
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
         private readonly RabbitMQPublisherService _rabbitMQPublisherService;
         private readonly RabbitMQConsumerService _rabbitMQConsumerService;
 
-
-        //private readonly OutboxMessageProcessor _outboxMessageProcessor;
-
-        public PaymentProcessor(RabbitMQConsumerService rabbitMQConsumerService, RabbitMQPublisherService rabbitMQPublisherService, IQueueService queueService, OutboxMessageProcessor outboxMessageProcessor, IGenericRepository<OutboxMessage, int> outboxMessageRepository)
+        public InvoiceReminderJob(RabbitMQConsumerService rabbitMQConsumerService, RabbitMQPublisherService rabbitMQPublisherService, IQueueService queueService, OutboxMessageProcessor outboxMessageProcessor, IGenericRepository<OutboxMessage, int> outboxMessageRepository)
 
         {
             _outboxMessageRepository = outboxMessageRepository;
             _queueService = queueService;
             _rabbitMQPublisherService = rabbitMQPublisherService;
             _rabbitMQConsumerService = rabbitMQConsumerService;
-            //_outboxMessageProcessor = outboxMessageProcessor;
         }
         bool messageProcessingCompleted = false;
 
@@ -44,7 +41,6 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
 
             try
             {
-
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     foreach (var item in response.Data)
@@ -63,16 +59,11 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
                                 IsProcessed = false
                             };
                             await _outboxMessageRepository.AddAsync(outboxMessage);
-
-
                         }
                         else
                         {
                             Console.WriteLine($"A record with the same payload already exists: {item.InvoiceId}-{item.SubscriberId}");
                         }
-
-                      
-
                     }
                     await _rabbitMQPublisherService.StartPublishing();
                     _rabbitMQConsumerService.StartConsuming();
@@ -86,39 +77,10 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred in RunPaymentReminderJob: {ex.Message}");
+                Log.Warning($"An error occurred in RunPaymentReminderJob: : {ex.Message} Yeni hata oluştu - Class: RunPaymentReminderJob");
+
+
             }
         }
-
-
-
-
-
     }
 }
-//await Task.WhenAll(_rabbitMQPublisherService.StartPublishingAsync(), _messageConsumerService.StartConsuming());
-
-// Additional processing logic..
-
-// .
-
-
-
-
-
-//if (response.StatusCode == HttpStatusCode.OK)
-//{
-//    var mailInvoices = response.Data;
-//    Console.WriteLine("hnagfire job sorunsuz çalışmakta");
-//    //await _outboxMessageProcessor.ProcessOutboxMessagesAsync(mailInvoices);
-//    foreach (var item in mailInvoices)
-//    {
-//        Console.WriteLine($"fatura id {item.InvoiceId} müşterisimizin abone id {item.SubscriberId}");
-//    }
-
-//}
-//else
-//{
-//    Console.WriteLine("Failed to retrieve upcoming payment invoices.");
-//    Console.WriteLine($"Error: {response.StatusCode}");
-//}

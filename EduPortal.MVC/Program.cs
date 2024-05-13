@@ -25,8 +25,11 @@ using NToastNotify;
 using StackExchange.Redis;
 using System.Globalization;
 using System.Reflection;
+using Serilog;
+using Serilog.Sinks.Graylog;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 
 #region Localizer
@@ -116,7 +119,17 @@ builder.Services.AddScoped<IMailService, MailService>();
 
 var app = builder.Build();
 
+ Log.Logger = new LoggerConfiguration().WriteTo.Graylog(new GraylogSinkOptions()
+{
+    Facility = "GraylogClient",
+
+    HostnameOrAddress = "localhost",
+    Port = 12201,
+    TransportType = Serilog.Sinks.Graylog.Core.Transport.TransportType.Udp
+}).CreateLogger();
+
 var appLifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+
 
 appLifetime.ApplicationStarted.Register(async () =>
 {
@@ -173,7 +186,6 @@ if (!TestServerOptions.TestServer)
     }}
     });
 
-    RecurringJobs.CheckLastPayment();
     RecurringJobs.StartMessageService();
 
 
@@ -187,3 +199,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

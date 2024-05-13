@@ -8,29 +8,12 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.HangfireJobs.Schedules
 {
-
-
     public static class RecurringJobs
     {
-        [AutomaticRetry(Attempts = 0)]
         [Obsolete]
-        public static void CheckLastPayment()
+        public static void StartMessageService()
         {
-            //RecurringJob.AddOrUpdate<PaymentProcessor>(j => j.RunPaymentReminderJob(), "*/2 * * * *");
-
-
-
+            RecurringJob.AddOrUpdate<InvoiceReminderJob>(j => j.RunPaymentReminderJob(), "*/2 * * * *");
         }
-        public static void StartMessageService( )
-        {
-            RecurringJob.AddOrUpdate<MessageService>(j => j.StartMessaging(), "*/2 * * * *");
-
-            
-
-
-        }
-
-
     }
-
 }

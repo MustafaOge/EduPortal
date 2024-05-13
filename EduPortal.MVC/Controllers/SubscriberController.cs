@@ -86,7 +86,7 @@ namespace EduPortal.Controllers
             {
                 await subsIndividualService.CreateIndividualAsync(individual);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
-                mailService.SendEmailWithMailKitPackage("Deneme Mail Başlığıdır Edu portal", "bu metin mailde bulunan body alanıdır", "M.Oge@dedas.com.tr");
+                //mailService.SendEmailWithMailKitPackage("Deneme Mail Başlığıdır Edu portal", "bu metin mailde bulunan body alanıdır", "M.Oge@dedas.com.tr");
 
                 //outboxMessageProcessor.ProcessOutboxMessagesAsync(cancellationToken);
 

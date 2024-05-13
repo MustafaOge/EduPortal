@@ -8,6 +8,7 @@ using EduPortal.Application.Interfaces.UnitOfWorks;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduPortal.Service.Services
 {
@@ -20,14 +21,28 @@ namespace EduPortal.Service.Services
     {
         public async Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto corporateDto)
         {
-            SubsCorporate corporatelEntity = mapper.Map<SubsCorporate>(corporateDto);
+            try
+            {
+                SubsCorporate corporatelEntity = mapper.Map<SubsCorporate>(corporateDto);
 
-            await subsCorporateRepository.AddAsync(corporatelEntity);
-            await unitOfWork.CommitAsync();
+                await subsCorporateRepository.AddAsync(corporatelEntity);
+                await unitOfWork.CommitAsync();
+                throw new Exception();
+                SubsCorporateDto individualDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
 
-            SubsCorporateDto individualDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
+                return Response<SubsCorporateDto>.Success(individualDto, HttpStatusCode.Created);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Veritabanı güncelleme hatası durumunda loglama
+                return Response<SubsCorporateDto>.Fail($"Veritabanı güncelleme hatası oluştu.{ex}", HttpStatusCode.InternalServerError);
+            }
+            catch (Exception ex)
+            {
+                // Diğer tüm hata durumlarını ele almak için genel bir catch bloğu
+                return Response<SubsCorporateDto>.Fail($"Kurumsal abonelik oluşturulurken bir hata oluştu.{ex}", HttpStatusCode.InternalServerError);
+            }
 
-            return Response<SubsCorporateDto>.Success(individualDto, HttpStatusCode.Created);
         }
 
 
@@ -42,6 +57,7 @@ namespace EduPortal.Service.Services
 
         public async Task<Response<bool>> TerminateSubsCorporateAsync(string TaxIdNumber)
         {
+        
             List<SubsCorporate> aboneler = await subsCorporateRepository.FindCorporateAsync(TaxIdNumber);
 
             if (aboneler.Count == 0)

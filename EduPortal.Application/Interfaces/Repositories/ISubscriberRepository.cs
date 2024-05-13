@@ -23,6 +23,10 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <returns>An object representing the subscriber information. Returns null if the subscriber is not found.</returns>
         Task<SubscriberInfo> GetSubscriberInfoAsync(int counterNumber);
 
+        Task<string> FindSubscriberAsync(string counterOrIdentityOrTaxIdNumber);
+
+        Task<string> CreateInvoiceReminderMessage(int invoiceId, int subscriberId);
+
 
     }
 }

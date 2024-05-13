@@ -35,17 +35,15 @@ namespace EduPortal.Application.Services
                     {
 
                         case MessageType.SubscriptionTermination:
-                            var subscriberTerminate = subscriberRepository.GetByIdAsync(Convert.ToInt32(message));
-                            string a =  subscriberTerminate.Result.CounterNumber;
-                          //var subsIndividualTerminate =  subsIndividual.Where(x=>x.CounterNumber == a).AnyAsync();
+                            
+                            var subscriber = await subscriberRepository.GetByIdAsync(Convert.ToInt32(message));
 
-                            string subscriptionTerminationMessage = $"Sayın {subscriberTerminate.Result.PhoneNumber},\n\n" +
-                                $"Aboneliğiniz elektrik dağıtım hizmeti için sonlandırılmıştır. Artık EduPortal elektrik dağıtım uygulamasından faydalanamayacaksınız.\n" +
-                                $"Eğer bu bir hata ise lütfen bizimle iletişime geçiniz.\n\n" +
-                                $"Saygılarımızla,\nEduPortal Ekibi";
+                            var subscriberTerminateMessage = await subscriberRepository.FindSubscriberAsync(subscriber.CounterNumber);
 
-                            await SendEmail(mailService, "Abonelik Sonlandırma Bildirimi", subscriptionTerminationMessage, message);
-                            break;
+                                await SendEmail(mailService, "Abonelik Sonlandırma Bildirimi", subscriberTerminateMessage, message);
+                                                     
+                                break;
+                           
 
                         case MessageType.InvoiceReminder:
                             string[] messageParts = message.Split('-');
@@ -54,19 +52,21 @@ namespace EduPortal.Application.Services
                                 Console.WriteLine("Geçersiz mesaj formatı.");
                                 return;
                             }
-
                             int invoiceId = Convert.ToInt32(messageParts[0]);
                             int subscriberId = Convert.ToInt32(messageParts[1]);
-                            //var invoice = invoiceRepository.GetByIdAsync(invoiceId);
-                            //var subscriber = subscriberRepository.GetByIdAsync(subscriberId);
+                            var InvoiceReminderMessage = await subscriberRepository.CreateInvoiceReminderMessage(invoiceId, subscriberId);
+
+                            ////var invoice = invoiceRepository.GetByIdAsync(invoiceId);
+                            ////var subscriber = subscriberRepository.GetByIdAsync(subscriberId);
 
 
-                            // E-posta mesajını oluştur
-                            string reminderMessage = $"Sayın {invoiceId},\n\n" +
-                                $"Tesisat ID: {invoiceId} ile ilgili {invoiceId} tutarında ödenmemiş bir faturanız bulunmaktadır.\n" +
-                                $"Lütfen en kısa sürede faturayı ödeyiniz.\n\n" +
-                                $"Saygılarımızla,\nEduPortal Ekibi";
-                            await SendEmail(mailService, "Ödenmemiş Fatura Bildirimi", reminderMessage, message);
+                            //// E-posta mesajını oluştur
+                            //string reminderMessage = $"Sayın {invoiceId},\n\n" +
+                            //    $"Tesisat ID: {invoiceId} ile ilgili {invoiceId} tutarında ödenmemiş bir faturanız bulunmaktadır.\n" +
+                            //    $"Lütfen en kısa sürede faturayı ödeyiniz.\n\n" +
+                            //    $"Saygılarımızla,\nEduPortal Ekibi";
+
+                            await SendEmail(mailService, "Ödenmemiş Fatura Bildirimi", InvoiceReminderMessage, message);
 
                             break;
                     }

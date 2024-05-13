@@ -1,55 +1,74 @@
-﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" asp-area="" asp-controller="Subscriber" asp-action="Index" mg=1>Edu Portal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        @_localization.Getkey("Subscriber Operations")
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Create">@_localization.Getkey("Subscriber Registration")</a></li>
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Find">@_localization.Getkey("Subscriber Inquiry")</a></li>
-                        <li><a class="dropdown-item" asp-controller="Subscriber" asp-action="Terminate">@_localization.Getkey("Terminate Subscriber")</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        @_localization.Getkey("Invoice Operations")
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right" inline my-2 my-lg-0 style="margin-left: auto;">
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Index">@_localization.Getkey("Invoice Inquiry")</a></li>
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Find">@_localization.Getkey("Invoice Payment")</a></li>
-                        <li><a class="dropdown-item" asp-controller="Invoice" asp-action="Complaint">@_localization.Getkey("Invoice Complaint")</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            @_localization.Getkey("Localization")
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">
-                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("English")
-                                </a>
-                            </li>
-                            <li>
-                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="fr-FR" class="dropdown-item">
-                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("French")
-                                </a>
-                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="dropdown-item">
-                                    <i class="flag-icon flag-icon-gb"></i> @_localization.Getkey("Turkish")
-                                </a>
-                            </li>
-                        </ul>
+﻿﻿@using EduPortal.MVC.Models.Subscriber
+@model SubsCorporate
+
+
+<div class="row">
+    <form method="post" asp-controller="Subscriber" asp-action="CreateCorporate">
+        <div class="container p-5 my-5 border">
+
+            <div class="row">
+
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="CorporateName" id="corprorateNameLabel"></label>
+                        <input asp-for="CorporateName" type="tel" class="form-control" placeholder="Kurum Adı">
+                        <span asp-validation-for="CorporateName" class="text-danger"></span>
                     </div>
-                </li>
-            </ul>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="TaxIdNumber" id="taxIdNumberLabel"></label>
+                        <input asp-for="TaxIdNumber" type="number" class="form-control" placeholder="Vergi Numarası">
+                        <span asp-validation-for="TaxIdNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Email" id="EmailLabel"></label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresi">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="CounterNumber"></label>
+                        <input asp-for="CounterNumber" type="number" class="form-control" placeholder="Counter Number">
+                        <span asp-validation-for="CounterNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" id="phoneNumberLabel"></label>
+                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Tel No">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="SubscriberType" value="Kurumsal" />
+
+            </div>
+
         </div>
-    </div>
-</nav>
+
+        <div class="form-group float-right">
+            <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2"></i> Back To List</a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

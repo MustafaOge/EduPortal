@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B3W0x4e1v/hCCvhCLu8EK7/AtBMhmQu25NDMs7xWiUfsFq00d7Vxp2t8HSeD5m7wQJhnXK2U8Ilvhlch/+GagQ==",
+  "dgSpecHash": "AsxjKsLRFacxc129sVRpaY7SDW/b7WB6ZJLwd9KbGmQkTaUAXY7Yy0h4jZCbC8UzZ7pG/OxSzA+wkuaU0pxqmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Domain\\EduPortal.Domain.csproj",
   "expectedPackageFiles": [
@@ -21,7 +21,9 @@
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
-    "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
+    "C:\\Users\\Mustafa\\.nuget\\packages\\serilog.sinks.graylog\\3.1.1\\serilog.sinks.graylog.3.1.1.nupkg.sha512"
   ],
   "logs": []
 }

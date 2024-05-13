@@ -9,7 +9,9 @@
       "EduPortal.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore": "8.0.2"
+          "Microsoft.EntityFrameworkCore": "8.0.2",
+          "Serilog": "3.1.1",
+          "Serilog.Sinks.Graylog": "3.1.1"
         },
         "runtime": {
           "EduPortal.Domain.dll": {}
@@ -156,7 +158,27 @@
           }
         }
       },
-      "Microsoft.Extensions.Primitives/8.0.0": {}
+      "Microsoft.Extensions.Primitives/8.0.0": {},
+      "Serilog/3.1.1": {
+        "runtime": {
+          "lib/net7.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Graylog/3.1.1": {
+        "runtime": {
+          "lib/net7.0/Serilog.Sinks.Graylog.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net7.0/Serilog.Sinks.Graylog.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -290,6 +312,20 @@
       "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
       "path": "microsoft.extensions.primitives/8.0.0",
       "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    },
+    "Serilog/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P6G4/4Kt9bT635bhuwdXlJ2SCqqn2nhh4gqFqQueCOr9bK/e7W9ll/IoX1Ter948cV2Z/5+5v8pAfJYUISY03A==",
+      "path": "serilog/3.1.1",
+      "hashPath": "serilog.3.1.1.nupkg.sha512"
+    },
+    "Serilog.Sinks.Graylog/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9qgpkXGtRdv3kH7adSEe3k4MiAWNaSgDc+/1vfIkJiPospuI+YXYErBDECvPJ/0JVnspuXQnxUCQHpDRP5hgCA==",
+      "path": "serilog.sinks.graylog/3.1.1",
+      "hashPath": "serilog.sinks.graylog.3.1.1.nupkg.sha512"
     }
   }
 }

@@ -2,6 +2,7 @@
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,6 @@ namespace EduPortal.Application.Services
 
         public async Task TerminateSubscriptionAndAddToOutbox(int subscriberId)
         {
-            // Abonelik sonlandırma işlemleri burada gerçekleştirilir
-
             // Sonlandırılan abonelik bilgisini outbox tablosuna ekle
             var outboxMessage = new OutboxMessage
             {
@@ -37,12 +36,10 @@ namespace EduPortal.Application.Services
                 CreatedByUser = 10, // Kullanıcı kimliği buraya gelebilir
                 IsProcessed = false
             };
+            Log.Information("Yeni bir abone silindi silenn abone id :" + outboxMessage.Payload);
             await _outboxMessageRepository.AddAsync(outboxMessage);
             await _rabbitMQPublisher.StartPublishing();
               _rabbitMqConsumer.StartConsuming(); //?
-
-
-            //SubscriptionTerminated?.Invoke(this, subscriberId);
 
         }
     }

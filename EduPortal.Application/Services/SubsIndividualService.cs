@@ -10,6 +10,7 @@ using System;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using EduPortal.Application.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduPortal.Service.Services
 {
@@ -24,15 +25,31 @@ namespace EduPortal.Service.Services
     {
         public async Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate)
         {
-            SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
+            try
+            {
+                SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
+                await subsIndividualRepository.AddAsync(individualEntity);
 
-            await subsIndividualRepository.AddAsync(individualEntity);
-            await unitOfWork.CommitAsync();
+                //throw new DbUpdateException("Test hatası: Veritabanına kayıt eklenirken bir hata oluştu.");
+                await unitOfWork.CommitAsync();
 
-            SubsIndividualDto individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
+                SubsIndividualDto individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
 
-            return Response<SubsIndividualDto>.Success(individualDto, HttpStatusCode.Created);
+                return Response<SubsIndividualDto>.Success(individualDto, HttpStatusCode.Created);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Veritabanı güncelleme hatası durumunda loglama
+                return Response<SubsIndividualDto>.Fail($"Veritabanı güncelleme hatası oluştu.{ex}", HttpStatusCode.InternalServerError);
+            }
+            catch (Exception ex)
+            {
+                // Diğer tüm hata durumlarını ele almak için genel bir catch bloğu
+                return Response<SubsIndividualDto>.Fail($"Bireysel abonelik oluşturulurken bir hata oluştu.{ex}", HttpStatusCode.InternalServerError);
+            }
         }
+
+
 
 
 
@@ -49,6 +66,8 @@ namespace EduPortal.Service.Services
         {
             var subscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
+
+
             if (subscribers.Count == 0)
                 return Response<bool>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
 
@@ -57,6 +76,7 @@ namespace EduPortal.Service.Services
             foreach (var abone in subscribers)
             {
                 if (await subscriberRepository.HasUnpaidInvoices(abone.Id))
+
                     return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
 
                 abone.IsActive = false;
@@ -65,8 +85,8 @@ namespace EduPortal.Service.Services
 
             foreach (var updatedSubscriber in updatedSubscribers)
             {
-                 subscriberRepository.Update(updatedSubscriber);
-            await  subscriberTerminate.TerminateSubscriptionAndAddToOutbox(updatedSubscriber.Id);
+                subscriberRepository.Update(updatedSubscriber);
+                await subscriberTerminate.TerminateSubscriptionAndAddToOutbox(updatedSubscriber.Id);
             }
 
             await unitOfWork.CommitAsync();
