@@ -52,7 +52,6 @@ namespace EduPortal.MVC.Extensions
             //services.AddSingleton<IServiceScopeFactory, ServiceScopeFactory>(); // Add IServiceScopeFactory
 
 
-            services.AddScoped(typeof(ISingletonRepository<,>), typeof(SingletonRepository<,>));
 
             services.AddSingleton<RabbitMQConsumerService>();
             services.AddScoped<RabbitMQPublisherService>();
@@ -62,6 +61,9 @@ namespace EduPortal.MVC.Extensions
             services.AddScoped<ISubscriberTerminateService, SubscriberTerminateService>();
 
             //services.AddSingleton<RabbitMQConnectionManager>();
+
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IAddressService, AddressService>();
 
 
 

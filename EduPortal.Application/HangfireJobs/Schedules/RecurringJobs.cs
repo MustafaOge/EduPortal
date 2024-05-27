@@ -13,7 +13,7 @@ namespace EduPortal.Application.HangfireJobs.Schedules
         [Obsolete]
         public static void StartMessageService()
         {
-            RecurringJob.AddOrUpdate<InvoiceReminderJob>(j => j.RunPaymentReminderJob(), "*/2 * * * *");
+            RecurringJob.AddOrUpdate<InvoiceReminderJob>(j => j.RunPaymentReminderJob(), "0 0 * * *");
         }
     }
 }

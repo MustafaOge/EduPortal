@@ -47,31 +47,5 @@ namespace EduPortal.Application.Services
             }
         }
     }
-    //{
-    //    private readonly RabbitMQPublisherService _rabbitMQPublisherService;
-    //    private readonly MessageConsumerService _messageConsumerService;
-    //    private readonly IGenericRepository<OutboxMessage,int> _outboxMessageRepository;
-
-    //    public OutboxMessageProcessor(RabbitMQPublisherService rabbitMQPublisherService,
-    //                                   MessageConsumerService messageConsumerService,
-    //                                   IGenericRepository<OutboxMessage,int> outboxMessageRepository)
-    //    {
-    //        _rabbitMQPublisherService = rabbitMQPublisherService;
-    //        _messageConsumerService = messageConsumerService;
-    //        _outboxMessageRepository = outboxMessageRepository;
-    //    }
-
-    //    public async Task ProcessOutboxMessagesAsync(IEnumerable<MailInvoice> mailInvoices)
-    //    {
-    //        foreach (var item in mailInvoices)
-    //        {
-    //            await _outboxMessageRepository.AddAsync(new OutboxMessage { Type = "example-queue", Payload = $"{item.InvoiceId}-{item.SubscriberId}", CreatedByUser = 10 });
-    //        }
-
-    //        await Task.WhenAll(_rabbitMQPublisherService.StartPublishingAsync(), _messageConsumerService.StartConsuming());
-
-    //        // Additional processing logic...
-    //    }
-    //}
-
+   
 }

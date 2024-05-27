@@ -29,7 +29,7 @@ namespace EduPortal.MVC.Controllers
 
         public IActionResult CreateFakeData()
         {
-            fakeDataService.CreateFakeInvoiceData();
+            fakeDataService.CreateCounterNumber();
             return RedirectToAction("Index");
         }
 

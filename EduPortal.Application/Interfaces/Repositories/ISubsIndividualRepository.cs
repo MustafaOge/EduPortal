@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Repositories
 {
-    public interface ISubsIndividualRepository : IGenericRepository<SubsIndividual, int> 
+    public interface ISubsIndividualRepository : IGenericRepository<SubsIndividual, int>
     {
         /// <summary>
         /// Retrieves a list of individual subscribers based on the provided number.
@@ -16,20 +16,5 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <param name="number">The number to search for individual subscribers.</param>
         /// <returns>A list of individual subscribers associated with the provided number.</returns>
         Task<List<SubsIndividual>> FindIndividualAsync(string counterOrIdentityNumber);
-
-
-
-        //Task CreateIndividualSubscription(SubsIndividual subsIndividual);
-
-        //IReadOnlyList<SubsIndividual> GetAll();
-        //SubsIndividual? GetById(int id);
-        //void Create(SubsIndividual individual);
-        //void Update(SubsIndividual individual);
-        //void Delete(SubsIndividual individualToDelete);
-        //SubsIndividual? GetByName(string name);
     }
-
-
-
-
 }

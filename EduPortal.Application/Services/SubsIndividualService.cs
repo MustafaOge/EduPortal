@@ -20,6 +20,7 @@ namespace EduPortal.Service.Services
         ISubsIndividualRepository subsIndividualRepository,
         ISubscriberRepository subscriberRepository,
         ISubscriberTerminateService subscriberTerminate,
+        IAddressService addressService,
         IMapper mapper
         ) : ISubsIndividualService
     {
@@ -27,10 +28,24 @@ namespace EduPortal.Service.Services
         {
             try
             {
-                SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
-                await subsIndividualRepository.AddAsync(individualEntity);
+                string counterNumber = individualCreate.CounterNumber; // Gelen sayaç numarasını kontrol et
 
-                //throw new DbUpdateException("Test hatası: Veritabanına kayıt eklenirken bir hata oluştu.");
+                // Eğer sayaç numarası yoksa, ancak iç kapı numarası varsa, sayaç numarasını al
+                if (string.IsNullOrEmpty(counterNumber) && !string.IsNullOrEmpty(individualCreate.InternalDoorNumber))
+                {
+                    counterNumber = await addressService.GetCounter(individualCreate.InternalDoorNumber);
+                }
+
+                // Sayaç numarasını alıp hala boşsa, bir hata döndür
+                if (string.IsNullOrEmpty(counterNumber))
+                {
+                    return Response<SubsIndividualDto>.Fail("Sayaç numarası bulunamadı veya sağlanmadı.", HttpStatusCode.BadRequest);
+                }
+
+                // Sayaç numarası varsa, kaydı oluştur
+                SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
+                individualEntity.CounterNumber = counterNumber; // Sayaç numarasını atama
+                await subsIndividualRepository.AddAsync(individualEntity);
                 await unitOfWork.CommitAsync();
 
                 SubsIndividualDto individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
@@ -48,6 +63,7 @@ namespace EduPortal.Service.Services
                 return Response<SubsIndividualDto>.Fail($"Bireysel abonelik oluşturulurken bir hata oluştu.{ex}", HttpStatusCode.InternalServerError);
             }
         }
+
 
 
 

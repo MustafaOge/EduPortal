@@ -1,0 +1,71 @@
+﻿
+<h3>Subscriber Create</h3>
+<div class="register-box">
+    <div class="lb-header">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="ilce">Select District:</label>
+                    <select name="ilce" id="ilce" class="custom-select">
+                        <option value="">Select District</option>
+                    </select>
+                </div>
+            </div>
+            <!-- İlçeler bu dropdown menüye dinamik olarak eklenecek -->
+            <div class="col">
+                <div class="form-group">
+                    <label for="mahalle">Select Neighborhood:</label>
+                    <select name="mahalle" id="mahalle" class="custom-select">
+                        <option value="">Select Neighborhood</option>
+                        <!-- Mahalleler bu dropdown menüye dinamik olarak eklenecek -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="sokak">Select Street:</label>
+                    <select name="sokak" id="sokak" class="custom-select">
+                        <option value="">Select Street</option>
+                        <!-- Sokaklar bu dropdown menüye dinamik olarak eklenecek -->
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="dis_kapi">Select External Door:</label>
+                    <select name="dis_kapi" id="dis_kapi" class="custom-select">
+                        <option value="">Select External Door</option>
+                        <!-- Dış kapılar bu dropdown menüye dinamik olarak eklenecek -->
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="ic_kapi">Select Internal Door:</label>
+                    <select name="ic_kapi" id="ic_kapi" class="custom-select">
+                        <option value="">Select Internal Door</option>
+                        <!-- İç kapılar bu dropdown menüye dinamik olarak eklenecek -->
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 mb-3 text-left">
+            <a asp-controller="Subscriber" asp-action="AddressRegistration" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Adress Registration</a>
+        </div>
+        
+    </div>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <h2>Error</h2>
+    <p class="text-danger">@TempData["Message"]</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/addressdropdown.js"></script>
+}

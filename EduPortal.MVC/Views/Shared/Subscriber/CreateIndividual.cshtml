@@ -5,91 +5,169 @@
     <form method="post" asp-controller="Subscriber" asp-action="CreateIndividual">
         <div class="container p-5 my-5 border">
 
-            <label>@_localization.Getkey("IndividualSubscription")</label>
-            <div class="row">
-                <div class="col">
+            <h2 class="mb-4">@_localization.Getkey("IndividualSubscription")</h2>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="NameSurname" id="nameSurnameLabel">@_localization.Getkey("NameSurname")</label>
+                        <label asp-for="NameSurname">@_localization.Getkey("NameSurname")</label>
                         <input asp-for="NameSurname" type="tel" class="form-control" placeholder="@_localization.Getkey("NameSurname")">
                         <span asp-validation-for="NameSurname" class="text-danger"></span>
                     </div>
                 </div>
-
-                <div class="col">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="IdentityNumber" id="identityNumberLabel">@_localization.Getkey("IDNumber")</label>
+                        <label asp-for="IdentityNumber">@_localization.Getkey("IDNumber")</label>
                         <input asp-for="IdentityNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("IDNumber")">
                         <span asp-validation-for="IdentityNumber" class="text-danger"></span>
                     </div>
                 </div>
-
-                <div class="col">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="CounterNumber">@_localization.Getkey("CounterNumber")</label>
-                        <input asp-for="CounterNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("CounterNumber")">
-                        <span asp-validation-for="CounterNumber" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="PhoneNumber" id="phoneNumberLabel">@_localization.Getkey("PhoneNumber")</label>
+                        <label asp-for="PhoneNumber">@_localization.Getkey("PhoneNumber")</label>
                         <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("PhoneNumber")">
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col">
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="BirthDate" id="birthDateLabel">@_localization.Getkey("BirthDate")</label>
-                        <input asp-for="BirthDate" type="date" class="form-control" placeholder="@_localization.Getkey("BirthDate")">
+                        <label asp-for="BirthDate">@_localization.Getkey("BirthDate")</label>
+                        <input asp-for="BirthDate" type="date" class="form-control">
                         <span asp-validation-for="BirthDate" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="Email" id="emailLabel">@_localization.Getkey("EmailAddress")</label>
+                        <label asp-for="Email">@_localization.Getkey("EmailAddress")</label>
                         <input asp-for="Email" type="email" class="form-control" placeholder="@_localization.Getkey("EmailAddress")">
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                 </div>
-                <input type="hidden" asp-for="SubscriberType" value="Bireysel" />
-                @* <input type="hidden" asp-for="Discriminator" value="Bireysel" /> *@
-
-
+                <div class="col-md-4">
+                    <label class="d-none d-md-block">&nbsp;</label>
+                    <!-- Yukarıdaki satır eklenerek, sadece MD (medium) boyut ve üzerinde ekranlarda boşluk korunacak -->
+                   
+                </div>
 
             </div>
-        </div>
+            <div class="btn-group mb-3" role="group" aria-label="Options">
+                <input type="radio" class="btn-check" name="options" id="counterOption" autocomplete="off" checked>
+                <label class="btn btn-secondary" for="counterOption" onclick="showCounterForm()">Sayaç No</label>
 
-        <div class="col-12 mb-3 text-left">
-            <a asp-action="CreateFakeData" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Create Fake Data</a>
-        </div>
+                <input type="radio" class="btn-check" name="options" id="addressOption" autocomplete="off">
+                <label class="btn btn-secondary" for="addressOption" onclick="showAddressForm()">Adres</label>
+            </div>
 
-        <div class="col-12 mb-3 text-left">
-            <a asp-controller="Home" asp-action="Get" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Get Cache Data</a>
-        </div>
-        <div class="col-12 mb-3 text-left">
-            <a asp-controller="Home" asp-action="SubcriberPublishGet" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Get Publisher Message</a>
-        </div>
+            <input type="hidden" asp-for="SubscriberType" value="Bireysel" />
 
-        <div class="col-12 mb-3 text-left">
-            <a asp-controller="Home" asp-action="Set" value="Bireysel" class="btn btn-dark btn-sm"><i class="fa fa-cog mr-2"></i>Set Fake Data</a>
-        </div>
-
+            <div id="counterForm" style="display: none;">
+                <div class="form-group">
+                    <label asp-for="CounterNumber">@_localization.Getkey("CounterNumber")</label>
+                    <input asp-for="CounterNumber" type="tel" class="form-control" placeholder="@_localization.Getkey("CounterNumber")">
+                    <span asp-validation-for="CounterNumber" class="text-danger"></span>
+                </div>
+            </div>
 
 
-        <div class="form-group float-right">
-            <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left mr-2"></i> Back To List</a>
-            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2">     </i> Create</button>
+            <div id="addressForm" style="display: none;">
+                <h3>Adres Formu</h3>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="il">Şehir Seçin:</label>
+                            <select name="il" id="il" class="custom-select">
+                                <option value="diyarbakir" selected>Diyarbakır</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ilce">İlçe Seçin:</label>
+                            <select name="ilce" id="ilce" class="custom-select">
+                                <option value="">İlçe Seçin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="mahalle">Mahalle Seçin:</label>
+                            <select name="mahalle" id="mahalle" class="custom-select">
+                                <option value="">Mahalle Seçin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sokak">Sokak Seçin:</label>
+                            <select name="sokak" id="sokak" class="custom-select">
+                                <option value="">Sokak Seçin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="dis_kapi">Dış Kapı Seçin:</label>
+                            <select name="dis_kapi" id="dis_kapi" class="custom-select">
+                                <option value="">Dış Kapı Seçin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="InternalDoorNumber">İç Kapı Numarası Seçin:</label>
+                            <select asp-for="InternalDoorNumber" class="form-control" id="ic_kapi">
+                                <option value="">İç Kapı Seçin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group float-right">
+                <a asp-action="Index" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-arrow-left mr-2"></i> Back To List
+                </a>
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-save mr-2"></i> Create
+                </button>
+            </div>
         </div>
     </form>
 </div>
 
+<script>
+    document.getElementById('il').addEventListener('change', function (event) {
+        this.value = "diyarbakir";
+    });
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("addressForm").style.display = "block";
+        document.getElementById("counterForm").style.display = "none";
+    });
 
-}
+    function showCounterForm() {
+        document.getElementById("counterForm").style.display = "block";
+        document.getElementById("addressForm").style.display = "none";
+    }
+
+    function showAddressForm() {
+        document.getElementById("counterForm").style.display = "none";
+        document.getElementById("addressForm").style.display = "block";
+    }
+
+    document.getElementById("addressOption").addEventListener("click", function () {
+        showAddressForm();
+    });
+
+    document.getElementById("counterOption").addEventListener("click", function () {
+        showCounterForm();
+    });
+
+    document.getElementById("addressOption").checked = true;
+</script>

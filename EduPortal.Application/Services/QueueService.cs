@@ -15,12 +15,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EduPortal.Application.Services
-{
- 
-
+{ 
     public class QueueService(IGenericRepository<OutboxMessage, int> outboxMessageRepository, IQueueRepository queueRepository,IUnitOfWork unitOfWork, ISubscriberRepository subscriberRepository, IInvoiceRepository invoiceRepository) : IQueueService
     {
-
         public async Task<Response<IEnumerable<MailInvoice>>> GetUpcomingPaymentInvoices()
         {
             IEnumerable<(int Id, int SubscriberId)> invoices = await queueRepository.GetUnpaidInvoices();

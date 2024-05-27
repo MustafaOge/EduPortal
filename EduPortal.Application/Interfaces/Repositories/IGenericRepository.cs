@@ -85,6 +85,10 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <param name="entities">The collection of entities to be updated.</param>
         void UpdateRange(IEnumerable<TEntity> entities);
 
+        /// <summary>
+        /// Updates async the specified entity.
+        /// </summary>
+        /// <param name="entity">Entity to be updated async.</param>
         Task UpdateAsync(TEntity entity);
 
         void Detach(TEntity entity);

@@ -24,10 +24,10 @@ namespace EduPortal.Application.Validations.Subscriber
                 .Matches(@"^[0-9]*$").WithMessage("Telefon Numarası sadece rakamlardan oluşmalıdır.")
                 .Length(11).WithMessage("Telefon Numarası 11 karakter uzunluğunda olmalıdır.");
 
-            RuleFor(dto => dto.CounterNumber)
-                .NotEmpty().WithMessage("Sayacı Numarası Boş Bırakılamaz.")
-                .Matches(@"^[0-9]*$").WithMessage("Sayacı Numarası sadece rakamlardan oluşmalıdır.")
-                .Length(7).WithMessage("Sayacı Numarası 7 karakter uzunluğunda olmalıdır.");
+            //RuleFor(dto => dto.CounterNumber)
+            //    .NotEmpty().WithMessage("Sayacı Numarası Boş Bırakılamaz.")
+            //    .Matches(@"^[0-9]*$").WithMessage("Sayacı Numarası sadece rakamlardan oluşmalıdır.")
+            //    .Length(7).WithMessage("Sayacı Numarası 7 karakter uzunluğunda olmalıdır.");
 
             RuleFor(dto => dto.Email)
                 .NotEmpty().WithMessage("E-Posta Adresi Boş Bırakılamaz.")

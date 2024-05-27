@@ -27,6 +27,7 @@ using System.Globalization;
 using System.Reflection;
 using Serilog;
 using Serilog.Sinks.Graylog;
+using EduPortal.MVC.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -160,6 +161,9 @@ using (var scope = app.Services.CreateScope())
     var fakeDataService = scope.ServiceProvider.GetRequiredService<IFakeDataService>();
     fakeDataService.CreateFakeData();
 }
+
+
+////app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

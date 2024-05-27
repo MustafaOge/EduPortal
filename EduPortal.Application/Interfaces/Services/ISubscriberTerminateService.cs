@@ -10,5 +10,4 @@ namespace EduPortal.Application.Interfaces.Services
     {
         Task TerminateSubscriptionAndAddToOutbox(int subscriberId);
     }
-
 }

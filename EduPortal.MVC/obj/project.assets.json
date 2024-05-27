@@ -12247,11 +12247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.MVC\\EduPortal.MVC.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj",
       "projectName": "EduPortal.MVC",
-      "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.MVC\\EduPortal.MVC.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.MVC\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12267,11 +12267,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Application\\EduPortal.Application.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Application\\EduPortal.Application.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj"
             },
-            "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
+            "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
             }
           }
         }

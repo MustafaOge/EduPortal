@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AsxjKsLRFacxc129sVRpaY7SDW/b7WB6ZJLwd9KbGmQkTaUAXY7Yy0h4jZCbC8UzZ7pG/OxSzA+wkuaU0pxqmA==",
+  "dgSpecHash": "w90oudg3JhQEpndFqNPlwtBCuzEpSHMzbHOhprVRnapwb/3Os7UpqHsTga1AMG8sXQ9AwuFmByUpy6i4cHvO0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Domain\\EduPortal.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.2\\microsoft.aspnetcore.cryptography.internal.8.0.2.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.2\\microsoft.aspnetcore.cryptography.keyderivation.8.0.2.nupkg.sha512",

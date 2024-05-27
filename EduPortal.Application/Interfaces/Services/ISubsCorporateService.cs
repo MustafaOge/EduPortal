@@ -12,21 +12,8 @@ namespace EduPortal.Application.Interfaces.Services
     public interface ISubsCorporateService
     {
         Task<Response<SubsCorporateDto>> CreateCorporateAsync(CreateCorporateDto individualCreate);
-
         Task<List<SubsCorporateDto>> FindCorporateAsync(string TaxIdNumber);
-
         Task<Response<bool>> TerminateSubsCorporateAsync(string TaxIdNumber);
-
-
-
-        //Task<Response<List<SubsCorporateDto>>> FindCorporate(string TaxIdNumber);
-
-        //Response<List<SubsIndividual>> GetAll();
-        //Response<SubsIndividual?> GetById(int id);
-        //Response<SubscriberResponseResponseDTO> Save(SubscriberCreateDTO subscriber);
-        //Response<string> Update(SubsIndividual subscriber);
-        //Response<string> DeleteById(int id);
-
     }
 }
 

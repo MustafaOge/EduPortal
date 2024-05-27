@@ -13,7 +13,5 @@ namespace EduPortal.Application.DTO_s.Invoice
         public string Title { get; set; }
         public string Reason { get; set; }
         public DateTime CreatedAt { get; set; }
-
-        // Navigation property
     }
 }

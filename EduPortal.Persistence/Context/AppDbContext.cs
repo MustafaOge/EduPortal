@@ -49,6 +49,18 @@ namespace EduPortal.Persistence.context
         public DbSet<AppUserProfile> Profiles { get; set; }
 
 
+        public DbSet<Ad_IcKapi> Ad_IcKapi { get; set; }
+        public DbSet<Ad_Sayac> Ad_Sayac { get; set; }
+        public DbSet<Ad_Ilce> Ad_Ilceler { get; set; }
+        public DbSet<Ad_Mahalle> Ad_Mahalleler { get; set; }
+        public DbSet<Ad_Sokak> Ad_Sokaklar { get; set; }
+        public DbSet<Ad_DisKapi> Ad_Diskapi { get; set; }
+
+
+
+
+
+
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

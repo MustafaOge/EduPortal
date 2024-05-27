@@ -28,7 +28,6 @@ namespace EduPortal.Application.Services
                 var subsIndividual = scope.ServiceProvider.GetRequiredService<ISubsIndividualRepository>();
 
 
-                // subscriberRepository ve invoiceRepository gibi diğer gerekli scoped servisleri burada da alabilirsiniz
                 try
                 {
                     switch (messageType)
@@ -56,15 +55,7 @@ namespace EduPortal.Application.Services
                             int subscriberId = Convert.ToInt32(messageParts[1]);
                             var InvoiceReminderMessage = await subscriberRepository.CreateInvoiceReminderMessage(invoiceId, subscriberId);
 
-                            ////var invoice = invoiceRepository.GetByIdAsync(invoiceId);
-                            ////var subscriber = subscriberRepository.GetByIdAsync(subscriberId);
 
-
-                            //// E-posta mesajını oluştur
-                            //string reminderMessage = $"Sayın {invoiceId},\n\n" +
-                            //    $"Tesisat ID: {invoiceId} ile ilgili {invoiceId} tutarında ödenmemiş bir faturanız bulunmaktadır.\n" +
-                            //    $"Lütfen en kısa sürede faturayı ödeyiniz.\n\n" +
-                            //    $"Saygılarımızla,\nEduPortal Ekibi";
 
                             await SendEmail(mailService, "Ödenmemiş Fatura Bildirimi", InvoiceReminderMessage, message);
 
@@ -73,7 +64,7 @@ namespace EduPortal.Application.Services
                 }
                 catch (Exception ex)
                 {
-                    // Hata durumunda burada işlem yapabilirsiniz
+
                     Console.WriteLine($"Hata oluştu: {ex.Message}");
                 }
             }

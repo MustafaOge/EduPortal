@@ -11,9 +11,7 @@ namespace EduPortal.Application.Interfaces.Services
 {
     public interface IQueueService 
     {
-
         Task<Response<IEnumerable<MailInvoice>>> GetUpcomingPaymentInvoices();
-
         Task MessageProccesed(OutboxMessage message);
     }
 }

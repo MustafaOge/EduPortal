@@ -14,6 +14,7 @@ using System.Security.Policy;
 using Microsoft.EntityFrameworkCore;
 using EduPortal.MVC.Controllers;
 using EduPortal.Application.Services;
+using NToastNotify.Helpers;
 namespace EduPortal.Controllers
 {
     public class SubscriberController(
@@ -23,7 +24,9 @@ namespace EduPortal.Controllers
         AppDbContext appDbContext,
         ISubsIndividualService subsIndividualService,
         ISubsCorporateService subsCorporateService,
+        IAddressService addressService,
         ICacheService cacheService
+
         , IMailService mailService
         ) : BaseController
     {
@@ -34,7 +37,7 @@ namespace EduPortal.Controllers
             return View();
         }
 
-            
+
 
         public IActionResult Terminate()
         {
@@ -81,14 +84,12 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual, CancellationToken cancellationToken)
         {
-            if (!ModelState.IsValid) return View("Create");
+            //if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsIndividualService.CreateIndividualAsync(individual);
                 toast.AddSuccessToastMessage("İşlem Başarılı");
-                //mailService.SendEmailWithMailKitPackage("Deneme Mail Başlığıdır Edu portal", "bu metin mailde bulunan body alanıdır", "M.Oge@dedas.com.tr");
 
-                //outboxMessageProcessor.ProcessOutboxMessagesAsync(cancellationToken);
 
                 return RedirectToAction("Index");
             }
@@ -104,10 +105,10 @@ namespace EduPortal.Controllers
         {
             return View();
         }
-
-        public IActionResult CreateFakeData()
+        [HttpGet]
+        public async Task<IActionResult> CreateFakeData()
         {
-            fakeDataService.CreateFakeSubsIndividualData();
+            await fakeDataService.CreateCounterNumber();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +120,7 @@ namespace EduPortal.Controllers
 
         [HttpPost]
         // [Cros]
-      //  Cross Cutting Concerns
+        //  Cross Cutting Concerns
         public async Task<IActionResult> FindIndividual(string IdentityOrCounterNumber)
 
 
@@ -251,6 +252,37 @@ namespace EduPortal.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> AddressRegister(int i)
+        //{
+
+        //    return RedirectToAction("Index");
+        //}
+
+
+        [HttpGet]
+        public async Task<IActionResult> AddressRegister()
+        {
+
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAddressData()
+        {
+            var addressData = await addressService.GetAddressValue();
+            return Json(addressData);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetAddressData(int icKapiKimlikNo)
+        {
+            return Json(new { icKapiKimlikNo = icKapiKimlikNo });
+        }
+
+
+
 
     }
 }

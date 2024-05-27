@@ -186,11 +186,6 @@ namespace EduPortal.Persistence.Services
                 return Response<InvoiceComplaint>.Fail("Fatura itirazı oluşturulurken bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
 
             }
-        }
-
-
-
-      
-     
+        }      
     }
 }

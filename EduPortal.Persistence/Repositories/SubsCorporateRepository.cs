@@ -26,12 +26,13 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task<List<SubsCorporate>> FindCorporateAsync(string number)
         {
+            
             var response = await _dbSet
                 .Where(c => (number.Length > 9 ? c.TaxIdNumber : c.CounterNumber) == number && c.IsActive)
                 .ToListAsync();
             return response;
         }
-
+        
         public async Task CreateCorporateSubscription(SubsCorporate subsCorporate)
         {
             await _genericRepository.AddAsync(subsCorporate);

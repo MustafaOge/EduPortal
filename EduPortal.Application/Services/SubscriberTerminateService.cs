@@ -13,8 +13,6 @@ namespace EduPortal.Application.Services
 {
     public class SubscriberTerminateService : ISubscriberTerminateService
     {
-        public event EventHandler<int> SubscriptionTerminated;
-
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
         private readonly RabbitMQPublisherService _rabbitMQPublisher;
         private readonly RabbitMQConsumerService _rabbitMqConsumer;
@@ -29,17 +27,17 @@ namespace EduPortal.Application.Services
         public async Task TerminateSubscriptionAndAddToOutbox(int subscriberId)
         {
             // Sonlandırılan abonelik bilgisini outbox tablosuna ekle
-            var outboxMessage = new OutboxMessage
+            OutboxMessage outboxMessage = new OutboxMessage
             {
                 Type = "Subscription-Termination",
                 Payload = subscriberId.ToString(),
-                CreatedByUser = 10, // Kullanıcı kimliği buraya gelebilir
+                CreatedByUser = 10, 
                 IsProcessed = false
             };
             Log.Information("Yeni bir abone silindi silenn abone id :" + outboxMessage.Payload);
             await _outboxMessageRepository.AddAsync(outboxMessage);
             await _rabbitMQPublisher.StartPublishing();
-              _rabbitMqConsumer.StartConsuming(); //?
+              _rabbitMqConsumer.StartConsuming(); 
 
         }
     }

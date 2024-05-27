@@ -24,9 +24,9 @@ namespace EduPortal.Application.Validations.Subscriber
                 .Length(11).WithMessage("telefon numarası 11 karakter uzunluğunda olmalıdır.");
 
 
-            RuleFor(dto => dto.CounterNumber)
-                .NotEmpty().WithMessage("Sayacı Numarası Boş Geçilemez.")
-                .Length(7).WithMessage("Sayacı numarası 7 karakter uzunluğunda olmalıdır.");
+            //RuleFor(dto => dto.CounterNumber)
+            //    .NotEmpty().WithMessage("Sayacı Numarası Boş Geçilemez.")
+            //    .Length(7).WithMessage("Sayacı numarası 7 karakter uzunluğunda olmalıdır.");
 
             RuleFor(dto => dto.IdentityNumber)
                 .NotEmpty().WithMessage("Kimlik Numarası Boş Geçilemez.")

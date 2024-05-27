@@ -888,11 +888,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Domain\\EduPortal.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj",
       "projectName": "EduPortal.Domain",
-      "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Domain\\EduPortal.Domain.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",

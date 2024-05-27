@@ -243,6 +243,9 @@
   <data name="SubscriptionActions" xml:space="preserve">
     <value>Abonelik İşlemleri</value>
   </data>
+  <data name="TaxID" xml:space="preserve">
+    <value>Vergi Kimlik Numarası</value>
+  </data>
   <data name="TaxIdNumber" xml:space="preserve">
     <value>Vergi Numarası</value>
   </data>

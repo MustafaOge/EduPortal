@@ -4,7 +4,7 @@
 @model List<SubsIndividualDto>
 
 
-<form method="post" class="individual-find" asp-action="TerminateIndividual">
+<form method="post" class="individual-find" asp-action="TerminateIndividual" onsubmit="return validateForm()">
     <div class="form-group">
         <label for="IdentityOrCounterNumber">@_localization.Getkey("IDNumber") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="IdentityOrCounterNumber" name="IdentityOrCounterNumber">
@@ -57,3 +57,14 @@
         </table>
     }
 </div>
+
+<script>
+    function validateForm() {
+        var input = document.getElementById("IdentityOrCounterNumber").value;
+        if (input.trim() == "") {
+            alert("ID Number / Counter Number cannot be empty!");
+            return false;
+        }
+        return true;
+    }
+</script>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hHlSNurBMJlzAeHRHJghBOm0FrImAQ7l5BKUrhrla4kaGBYYZoqSvKWDpaFsou/u0CooiWBrYLjkGq8+Xbunow==",
+  "dgSpecHash": "vRnPWfXuntmpVmo5RN7evCFCxKR7JCnzhHoHilhUCZNSMM7g3iZ2ATTgDnprFadMXrNPyTd/hDc4j3+K+jl9Kg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\5\\EduPortal.MVC\\EduPortal.MVC.csproj",
+  "projectFilePath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Mustafa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

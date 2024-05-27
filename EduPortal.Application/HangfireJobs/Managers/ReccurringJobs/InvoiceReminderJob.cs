@@ -18,69 +18,63 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
 {
-    public class InvoiceReminderJob
+    public class InvoiceReminderJob(
+        IQueueService _queueService,
+        IGenericRepository<OutboxMessage, int> _outboxMessageRepository,
+        RabbitMQPublisherService _rabbitMQPublisherService,
+        RabbitMQConsumerService _rabbitMQConsumerService)
     {
-        private readonly IQueueService _queueService;
-        private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
-        private readonly RabbitMQPublisherService _rabbitMQPublisherService;
-        private readonly RabbitMQConsumerService _rabbitMQConsumerService;
-
-        public InvoiceReminderJob(RabbitMQConsumerService rabbitMQConsumerService, RabbitMQPublisherService rabbitMQPublisherService, IQueueService queueService, OutboxMessageProcessor outboxMessageProcessor, IGenericRepository<OutboxMessage, int> outboxMessageRepository)
-
-        {
-            _outboxMessageRepository = outboxMessageRepository;
-            _queueService = queueService;
-            _rabbitMQPublisherService = rabbitMQPublisherService;
-            _rabbitMQConsumerService = rabbitMQConsumerService;
-        }
-        bool messageProcessingCompleted = false;
-
         public async Task RunPaymentReminderJob()
         {
-            var response = await _queueService.GetUpcomingPaymentInvoices();
-
             try
             {
+                Response<IEnumerable<MailInvoice>> response = await _queueService.GetUpcomingPaymentInvoices();
+
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     foreach (var item in response.Data)
                     {
-                        // Payload bilgisine sahip bir kayıt var mı kontrol et
-                        var existingRecord = await _outboxMessageRepository.GetAllAsync(x => x.Payload == $"{item.InvoiceId}-{item.SubscriberId}");
-
-                        // Eğer aynı payload bilgisine sahip bir kayıt yoksa, yeni bir kayıt ekle
-                        if (existingRecord.Count() == 0)
-                        {
-                            var outboxMessage = new OutboxMessage
-                            {
-                                Type = "Subscription-Termination",
-                                Payload = $"{item.InvoiceId}-{item.SubscriberId}",
-                                CreatedByUser = 10,
-                                IsProcessed = false
-                            };
-                            await _outboxMessageRepository.AddAsync(outboxMessage);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"A record with the same payload already exists: {item.InvoiceId}-{item.SubscriberId}");
-                        }
+                        await ProcessInvoice(item);
                     }
+
                     await _rabbitMQPublisherService.StartPublishing();
                     _rabbitMQConsumerService.StartConsuming();
                 }
-
                 else
                 {
+                    // Error occurred while retrieving upcoming payment invoices
                     Console.WriteLine("Failed to retrieve upcoming payment invoices.");
                     Console.WriteLine($"Error: {response.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
-                Log.Warning($"An error occurred in RunPaymentReminderJob: : {ex.Message} Yeni hata oluştu - Class: RunPaymentReminderJob");
-
-
+                // Log any errors that occur
+                Log.Warning($"An error occurred in RunPaymentReminderJob: {ex.Message}. A new error occurred - Class: RunPaymentReminderJob");
             }
         }
+
+        private async Task ProcessInvoice(MailInvoice item)
+        {
+            var existingRecord = await _outboxMessageRepository.GetAllAsync(x => x.Payload == $"{item.InvoiceId}-{item.SubscriberId}");
+
+            if (existingRecord.Count() == 0)
+            {
+                var outboxMessage = new OutboxMessage
+                {
+                    Type = "Subscription-Termination",
+                    Payload = $"{item.InvoiceId}-{item.SubscriberId}",
+                    CreatedByUser = 10,
+                    IsProcessed = false
+                };
+
+                await _outboxMessageRepository.AddAsync(outboxMessage);
+            }
+            else
+            {
+                Console.WriteLine($"A record with the same payload already exists: {item.InvoiceId}-{item.SubscriberId}");
+            }
+        }
+
     }
 }
