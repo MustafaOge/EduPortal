@@ -2,78 +2,107 @@
 using EduPortal.Application.Interfaces.Repositories;
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
 using EduPortal.Domain.Enums;
 using EduPortal.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace EduPortal.Application.Services
 {
     public class SubscriberNotificationService
     {
-        private readonly IServiceScopeFactory _scopeFactory;
+        private readonly IMailService _mailService;
+        private readonly ISubscriberRepository _subscriberRepository;
+        private readonly IInvoiceRepository _invoiceRepository;
+        private readonly ISubsIndividualRepository _subsIndividualRepository;
 
-        public SubscriberNotificationService(IServiceScopeFactory scopeFactory)
+        public SubscriberNotificationService(
+            IMailService mailService,
+            ISubscriberRepository subscriberRepository,
+            IInvoiceRepository invoiceRepository,
+            ISubsIndividualRepository subsIndividualRepository)
         {
-            _scopeFactory = scopeFactory;
+            _mailService = mailService;
+            _subscriberRepository = subscriberRepository;
+            _invoiceRepository = invoiceRepository;
+            _subsIndividualRepository = subsIndividualRepository;
         }
 
         public async Task SendEmailNotification(MessageType messageType, string message)
         {
-            using (var scope = _scopeFactory.CreateScope())
+            try
             {
-                var mailService = scope.ServiceProvider.GetRequiredService<IMailService>();
-                var subscriberRepository = scope.ServiceProvider.GetRequiredService<ISubscriberRepository>();
-                var invoiceRepository = scope.ServiceProvider.GetRequiredService<IInvoiceRepository>();
-                var subsIndividual = scope.ServiceProvider.GetRequiredService<ISubsIndividualRepository>();
-
-
-                try
+                switch (messageType)
                 {
-                    switch (messageType)
-                    {
-
-                        case MessageType.SubscriptionTermination:
-                            
-                            var subscriber = await subscriberRepository.GetByIdAsync(Convert.ToInt32(message));
-
-                            var subscriberTerminateMessage = await subscriberRepository.FindSubscriberAsync(subscriber.CounterNumber);
-
-                                await SendEmail(mailService, "Abonelik Sonlandırma Bildirimi", subscriberTerminateMessage, message);
-                                                     
-                                break;
-                           
-
-                        case MessageType.InvoiceReminder:
-                            string[] messageParts = message.Split('-');
-                            if (messageParts.Length != 2)
-                            {
-                                Console.WriteLine("Geçersiz mesaj formatı.");
-                                return;
-                            }
-                            int invoiceId = Convert.ToInt32(messageParts[0]);
-                            int subscriberId = Convert.ToInt32(messageParts[1]);
-                            var InvoiceReminderMessage = await subscriberRepository.CreateInvoiceReminderMessage(invoiceId, subscriberId);
-
-
-
-                            await SendEmail(mailService, "Ödenmemiş Fatura Bildirimi", InvoiceReminderMessage, message);
-
-                            break;
-                    }
+                    case MessageType.SubscriptionTermination:
+                        await SendSubscriptionTerminationNotification(message);
+                        break;
+                    case MessageType.InvoiceReminder:
+                        await SendInvoiceReminderNotification(message);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(messageType), messageType, null);
                 }
-                catch (Exception ex)
-                {
+            }
+            catch (Exception ex)
+            {
+                // Hata yönetimi için loglama veya yeniden fırlatma (rethrow) yapılabilir
+                // Örneğin loglama:
+                Console.WriteLine($"Hata oluştu: {ex.Message}");
 
-                    Console.WriteLine($"Hata oluştu: {ex.Message}");
-                }
+                // İstisnayı yeniden fırlat (rethrow):
+                throw;
             }
         }
 
-        private async Task SendEmail(IMailService mailService, string subject, string body, string recipient)
+        private async Task SendSubscriptionTerminationNotification(string message)
         {
-            mailService.SendEmailWithMailKitPackage(subject, body, "mustafaoge1221@gmail.com");
-            await Task.CompletedTask; 
+            var subscriber = await _subscriberRepository.GetByIdAsync(Convert.ToInt32(message));
+            if (subscriber == null)
+            {
+                throw new Exception("Subscriber not found");
+            }
+
+            var subscriberTerminateMessage = await _subscriberRepository.FindSubscriberAsync(subscriber.CounterNumber);
+            await SendEmail("Abonelik Sonlandırma Bildirimi", subscriberTerminateMessage);
+        }
+
+        private async Task SendInvoiceReminderNotification(string message)
+        {
+            string[] messageParts = message.Split('-');
+            if (messageParts.Length != 2)
+            {
+                throw new ArgumentException("Geçersiz mesaj formatı.");
+            }
+
+            try
+            {
+                int invoiceId = Convert.ToInt32(messageParts[0]);
+                int subscriberId = Convert.ToInt32(messageParts[1]);
+
+                var invoiceReminderMessage = await _subscriberRepository.CreateInvoiceReminderMessage(invoiceId, subscriberId);
+                var subscriber = await _subscriberRepository.GetByIdAsync(subscriberId);
+                if (subscriber == null)
+                {
+                    throw new Exception("Subscriber not found");
+                }
+
+                await SendEmail("Ödenmemiş Fatura Bildirimi", invoiceReminderMessage);
+            }
+            catch (FormatException)
+            {
+                throw new ArgumentException("Geçersiz mesaj formatı.");
+            }
+            catch (ArgumentNullException)
+            {
+                throw new ArgumentException("Geçersiz mesaj formatı.");
+            }
+        }
+
+
+        private async Task SendEmail(string subject, string body)
+        {
+            _mailService.SendEmailWithMailKitPackage(subject, body, "mustafaoge1221@gmail.com");
+            await Task.CompletedTask;
         }
     }
+
 }

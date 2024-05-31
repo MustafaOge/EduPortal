@@ -9,43 +9,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NToastNotify;
 using System.Linq;
+using System.Net;
 
 namespace EduPortal.MVC.Controllers
 {
-    public class InvoiceController
-        (AppDbContext appDbContext,
-        IToastNotification toast,
-        IFakeDataService fakeDataService,
-        IInvoiceService invoiceService,
-        IMapper mapper
-
-        )
+    public class InvoiceController(IInvoiceService invoiceService)
         : BaseController
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        public IActionResult CreateFakeData()
-        {
-            fakeDataService.CreateCounterNumber();
-            return RedirectToAction("Index");
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> PayInvoice(int id)
-        {
-            await invoiceService.PayInvoice(id);
-            return RedirectToAction("Index");
-        }
         //[Authorize]
+        [HttpGet]
         public IActionResult Find()
         {
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PayInvoice(int id)
+        {
+            await invoiceService.PayInvoice(id);
+            return RedirectToAction("Index", "Subscriber");
+        }
+  
         public IActionResult PaymentIndividual()
         {
             return View();
@@ -92,7 +77,7 @@ namespace EduPortal.MVC.Controllers
         public async Task<IActionResult> Complaint(InvoiceComplaint model)
         {
             var complaintApplication = await invoiceService.CreateComplaint(model);
-            if (complaintApplication.StatusCode != null)
+            if (complaintApplication.StatusCode == HttpStatusCode.OK)
             {
                 return RedirectToAction("Index");
             }
@@ -101,5 +86,7 @@ namespace EduPortal.MVC.Controllers
                 return View(complaintApplication);
             }
         }
+
+
     }
 }

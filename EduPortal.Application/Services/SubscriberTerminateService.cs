@@ -14,10 +14,10 @@ namespace EduPortal.Application.Services
     public class SubscriberTerminateService : ISubscriberTerminateService
     {
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
-        private readonly RabbitMQPublisherService _rabbitMQPublisher;
-        private readonly RabbitMQConsumerService _rabbitMqConsumer;
+        private readonly IRabbitMQPublisherService _rabbitMQPublisher;
+        private readonly IRabbitMQConsumerService _rabbitMqConsumer;
 
-        public SubscriberTerminateService(IGenericRepository<OutboxMessage, int> outboxMessageRepository, RabbitMQPublisherService rabbitMQPublisher, RabbitMQConsumerService rabbitMQConsumer)
+        public SubscriberTerminateService(IGenericRepository<OutboxMessage, int> outboxMessageRepository, IRabbitMQPublisherService rabbitMQPublisher, IRabbitMQConsumerService rabbitMQConsumer)
         {
             _outboxMessageRepository = outboxMessageRepository;
             _rabbitMQPublisher = rabbitMQPublisher;

@@ -64,45 +64,46 @@ namespace EduPortal.Persistence.Services
             }
         }
 
-        public async Task<Response<List<SubsCorporate>>> PaymentCorporate(string taxIdNumber)
+        public async Task<Response<SubsCorporate>> PaymentCorporate(string taxIdNumber)
         {
             try
             {
                 // Kurumsal abone ödeme işlemi
-                List<SubsCorporate> corporateSubscribers = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+                SubsCorporate corporateSubscribers = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
 
-                if (corporateSubscribers == null || !corporateSubscribers.Any())
+                if (corporateSubscribers == null || corporateSubscribers == null)
                 {
-                    return Response<List<SubsCorporate>>.Fail("Kurumsal abone bulunamadı.", HttpStatusCode.NotFound);
+                    return Response<SubsCorporate>.Fail("Kurumsal abone bulunamadı.", HttpStatusCode.NotFound);
                 }
 
-                return Response<List<SubsCorporate>>.Success(corporateSubscribers, HttpStatusCode.OK);
+                return Response<SubsCorporate>.Success(corporateSubscribers, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {
-                return Response<List<SubsCorporate>>.Fail("Kurumsal abone ödeme işlemi sırasında bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
+                return Response<SubsCorporate>.Fail("Kurumsal abone ödeme işlemi sırasında bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
             }
         }
 
-        public async Task<Response<List<SubsIndividual>>> PaymentIndividual(string identityNumber)
+        public async Task<Response<SubsIndividual>> PaymentIndividual(string identityNumber)
         {
             try
             {
                 // Bireysel abone ödeme işlemi
-                List<SubsIndividual> individualSubscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
+                SubsIndividual individualSubscriber = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
-                if (individualSubscribers == null || !individualSubscribers.Any())
+                if (individualSubscriber == null)
                 {
-                    return Response<List<SubsIndividual>>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
+                    return Response<SubsIndividual>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
                 }
 
-                return Response<List<SubsIndividual>>.Success(individualSubscribers, HttpStatusCode.OK);
+                return Response<SubsIndividual>.Success(individualSubscriber, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {
-                return Response<List<SubsIndividual>>.Fail("Bireysel abone ödeme işlemi sırasında bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
+                return Response<SubsIndividual>.Fail("Bireysel abone ödeme işlemi sırasında bir hata oluştu: " + ex.Message, HttpStatusCode.InternalServerError);
             }
         }
+
 
         public async Task<Response<List<Invoice>>> GetInvoiceDetail(int id)
         {

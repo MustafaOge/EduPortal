@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Services
 {
-    public interface IInvoiceService 
+    public interface IInvoiceService
     {
         Task<Response<int>> PayInvoice(int Id);
-        Task<Response<List<SubsIndividual>>> PaymentIndividual(string identityNumber);
-        Task<Response<List<SubsCorporate>>> PaymentCorporate(string taxIdNumber);
+        Task<Response<SubsIndividual>> PaymentIndividual(string identityNumber);
+        Task<Response<SubsCorporate>> PaymentCorporate(string taxIdNumber);
         Task<Response<List<Invoice>>> GetInvoiceDetail(int id);
         Task<Response<InvoiceDetailView>> DetailPay(int id);
         Task<Response<InvoiceComplaint>> CreateComplaint(InvoiceComplaint model);

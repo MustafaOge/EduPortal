@@ -10,7 +10,8 @@ namespace EduPortal.Domain.Enums
     {
         ///
         SubscriptionTermination,
-        InvoiceReminder
+        InvoiceReminder,
+        Unknown
     }
 
 }

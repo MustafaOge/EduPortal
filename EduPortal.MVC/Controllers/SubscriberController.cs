@@ -21,7 +21,6 @@ namespace EduPortal.Controllers
         IToastNotification toast,
         IMapper mapper,
         IFakeDataService fakeDataService,
-        AppDbContext appDbContext,
         ISubsIndividualService subsIndividualService,
         ISubsCorporateService subsCorporateService,
         IAddressService addressService,
@@ -84,7 +83,7 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual, CancellationToken cancellationToken)
         {
-            //if (!ModelState.IsValid) return View("Create");
+            if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsIndividualService.CreateIndividualAsync(individual);
@@ -178,7 +177,7 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> FindCorporate(string TaxIdOrCounterNumber)
         {
-            List<SubsCorporateDto> entities = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
+           SubsCorporateDto entities = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
 
             return View(entities);
         }
@@ -194,7 +193,7 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> TerminateCorporate(string TaxIdOrCounterNumber)
         {
-            List<SubsCorporateDto> corporate = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
+            SubsCorporateDto corporate = await subsCorporateService.FindCorporateAsync(TaxIdOrCounterNumber);
             return View(corporate);
         }
 
@@ -210,7 +209,7 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> TerminateIndividual(string identityOrCounterNumber)
         {
-            List<SubsIndividualDto> indivudal = await subsIndividualService.FindIndividualDtosAsync(identityOrCounterNumber);
+            SubsIndividualDto indivudal = await subsIndividualService.FindIndividualDtoAsync(identityOrCounterNumber);
             return View(indivudal);
         }
 
@@ -262,9 +261,8 @@ namespace EduPortal.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> AddressRegister()
+        public IActionResult AddressRegister()
         {
-
             return View();
         }
 
@@ -286,5 +284,4 @@ namespace EduPortal.Controllers
 
     }
 }
-
 

@@ -2415,6 +2415,7 @@ C:\Users\Mustafa\Desktop\Portal\backup\5\EduPortal.MVC\obj\Debug\net8.0\refint\E
 C:\Users\Mustafa\Desktop\Portal\backup\5\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.pdb
 C:\Users\Mustafa\Desktop\Portal\backup\5\EduPortal.MVC\obj\Debug\net8.0\EduPortal.MVC.genruntimeconfig.cache
 C:\Users\Mustafa\Desktop\Portal\backup\5\EduPortal.MVC\obj\Debug\net8.0\ref\EduPortal.MVC.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\.msCoverageSourceRootsMapping_EduPortal.MVC
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\appsettings.json
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\libman.json
@@ -2748,6 +2749,7 @@ C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsof
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll

@@ -1,6 +1,6 @@
 ﻿@using EduPortal.Domain.Entities
 
-@model List<SubsIndividual>
+@model SubsIndividual
 
 
 <form method="post" asp-controller="Invoice" class="individual-find" asp-action="PaymentIndividual">
@@ -29,20 +29,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsIndividual subsIndividual in Model)
-                {
+           
                     <tr>
-                        <td> @subsIndividual.NameSurname </td>
-                        <td> @subsIndividual.PhoneNumber </td>
-                        <td> @subsIndividual.CounterNumber </td>
-                        <td> @subsIndividual.BirthDate.Year </td>
-                        <td> @subsIndividual.SubscriberType </td>
+                    <td> @Model.NameSurname </td>
+                    <td> @Model.PhoneNumber </td>
+                    <td> @Model.CounterNumber </td>
+                    <td> @Model.BirthDate.Year </td>
+                    <td> @Model.SubscriberType </td>
                         <td>
-                            <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@subsIndividual.Id" class="btn btn-primary" style="color:brown; background:darkorange">@_localization.Getkey("Invoices")</a>
+                        <a asp-controller="Invoice" asp-action="InvoiceList" asp-route-id="@Model.Id" class="btn btn-primary" style="color:brown; background:darkorange">@_localization.Getkey("Invoices")</a>
 
                         </td>
                     </tr>
-                }
+                
 
             </tbody>
         </table>

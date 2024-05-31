@@ -15,6 +15,6 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// </summary>
         /// <param name="number">Tax identification number or counter number.</param>
         /// <returns>A list of corporations with a specific tax identification number or counter number and are active.</returns>
-        Task<List<SubsCorporate>> FindCorporateAsync(string TaxIdNumber);
+        Task<SubsCorporate> FindCorporateAsync(string TaxIdNumber);
     }
 }

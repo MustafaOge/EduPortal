@@ -168,6 +168,11 @@ namespace EduPortal.MVC.Controllers
             return View(model);
         }
 
+        //public IActionResult CreateFakeData()
+        //{
+        //    //fakeDataService.CreateCounterNumber();
+        //    return RedirectToAction("Index");
+        //}
 
 
         public IActionResult SignIn(string returnUrl)

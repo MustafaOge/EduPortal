@@ -1,6 +1,6 @@
 ﻿@using EduPortal.Application.DTO_s.Subscriber
 
-@model List<SubsCorporateDto>
+@model SubsCorporateDto
 
 <form method="post" class="corporate-find" asp-action="TerminateCorporate">
     <div class="form-group">
@@ -25,22 +25,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsCorporateDto subsCorporate in Model)
-                {
+
                     <tr>
-                        <td> @subsCorporate.CorporateName </td>
-                        <td> @subsCorporate.PhoneNumber </td>
-                        <td> @subsCorporate.TaxIdNumber </td>
-                        <td> @subsCorporate.CounterNumber </td>
-                        <td> @subsCorporate.SubscriberType </td>
+                    <td> @Model.CorporateName </td>
+                    <td> @Model.PhoneNumber </td>
+                    <td> @Model.TaxIdNumber </td>
+                    <td> @Model.CounterNumber </td>
+                    <td> @Model.SubscriberType </td>
                         <td>
                             <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsCorporate">
-                                <input type="hidden" name="TaxIdNumber" value="@subsCorporate.TaxIdNumber" />
+                            <input type="hidden" name="TaxIdNumber" value="@Model.TaxIdNumber" />
                                 <button type="submit" class="btn btn-danger">@_localization.Getkey("TerminateSubscription")</button>
                             </form>
                         </td>
                     </tr>
-                }
+                
             </tbody>
         </table>
     }

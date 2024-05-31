@@ -12,7 +12,7 @@ namespace EduPortal.Application.Interfaces.Services
     public interface ISubsIndividualService
     {
         Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate);
-        Task<List<SubsIndividualDto>> FindIndividualDtosAsync(string IdentityNumber);
+        Task<SubsIndividualDto> FindIndividualDtoAsync(string IdentityNumber);
         Task<Response<bool>> TerminateSubsIndividualAsync(string identityNumber);
     }
 }

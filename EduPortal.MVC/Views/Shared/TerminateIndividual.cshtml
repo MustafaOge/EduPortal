@@ -1,18 +1,15 @@
 ﻿@using EduPortal.Application.DTO_s.Subscriber
-@using EduPortal.Domain.Entities
-
-@model List<SubsIndividualDto>
 
 
-<form method="post" class="individual-find" asp-action="TerminateIndividual" onsubmit="return validateForm()">
+@model SubsIndividualDto
+
+<form method="post" class="individual-find" asp-controller="Subscriber" asp-action="TerminateIndividual" onsubmit="return validateForm()">
     <div class="form-group">
         <label for="IdentityOrCounterNumber">@_localization.Getkey("IDNumber") / @_localization.Getkey("CounterNumber"):</label>
         <input type="text" class="form-control" id="IdentityOrCounterNumber" name="IdentityOrCounterNumber">
     </div>
-    <button type="submit" asp-controller="Subscriber" asp-action="TerminateIndividual" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
+    <button type="submit" class="btn btn-primary">@_localization.Getkey("Fetch Information")</button>
 </form>
-
-
 
 <div class="col">
     @if (Model != null)
@@ -26,33 +23,24 @@
                     <th>@_localization.Getkey("CounterNumber")</th>
                     <th>@_localization.Getkey("BirthDate")</th>
                     <th>@_localization.Getkey("SubscriberType")</th>
-                    <th>@_localization.Getkey("SubscriptionActions")</th> <!-- Yeni sütun başlığı -->
-
+                    <th>@_localization.Getkey("SubscriptionActions")</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (SubsIndividualDto subsIndividual in Model)
-                {
-                    <tr>
-                        <td> @subsIndividual.NameSurname </td>
-                        <td> @subsIndividual.PhoneNumber </td>
-                        <td> @subsIndividual.IdentityNumber </td>
-                        <td> @subsIndividual.CounterNumber </td>
-                        <td> @subsIndividual.BirthDate </td>
-                        <td> @subsIndividual.SubscriberType </td>
-                        <td>
-                            <!-- Yeni sütun için -->
-
-                            <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsIndividual">
-                                <!-- Abonelik Sonlandırma Butonu -->
-                                <input type="hidden" name="IdentityNumber" value="@subsIndividual.IdentityNumber" />
-
-
-                                <button type="submit" class="btn btn-danger">@_localization.Getkey("TerminateSubscription")</button>
-                            </form>
-                        </td>
-                    </tr>
-                }
+                <tr>
+                    <td>@Model.NameSurname</td>
+                    <td>@Model.PhoneNumber</td>
+                    <td>@Model.IdentityNumber</td>
+                    <td>@Model.CounterNumber</td>
+                    <td>@Model.BirthDate.ToString("dd/MM/yyyy")</td>
+                    <td>@Model.SubscriberType</td>
+                    <td>
+                        <form method="post" asp-controller="Subscriber" asp-action="TerminateSubsIndividual">
+                            <input type="hidden" name="IdentityNumber" value="@Model.IdentityNumber" />
+                            <button type="submit" class="btn btn-danger">@_localization.Getkey("TerminateSubscription")</button>
+                        </form>
+                    </td>
+                </tr>
             </tbody>
         </table>
     }
@@ -62,7 +50,7 @@
     function validateForm() {
         var input = document.getElementById("IdentityOrCounterNumber").value;
         if (input.trim() == "") {
-            alert("ID Number / Counter Number cannot be empty!");
+            alert("@_localization.Getkey("IDNumber") / @_localization.Getkey("CounterNumber") @_localization.Getkey("cannotbeempty")");
             return false;
         }
         return true;

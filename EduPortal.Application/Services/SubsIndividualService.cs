@@ -15,7 +15,6 @@ using Microsoft.EntityFrameworkCore;
 namespace EduPortal.Service.Services
 {
     public class SubsIndividualService(
-        IGenericRepository<SubsIndividual, int> subsInvidiualRepository,
         IUnitOfWork unitOfWork,
         ISubsIndividualRepository subsIndividualRepository,
         ISubscriberRepository subscriberRepository,
@@ -28,87 +27,95 @@ namespace EduPortal.Service.Services
         {
             try
             {
-                string counterNumber = individualCreate.CounterNumber; // Gelen sayaç numarasını kontrol et
-
-                // Eğer sayaç numarası yoksa, ancak iç kapı numarası varsa, sayaç numarasını al
-                if (string.IsNullOrEmpty(counterNumber) && !string.IsNullOrEmpty(individualCreate.InternalDoorNumber))
-                {
-                    counterNumber = await addressService.GetCounter(individualCreate.InternalDoorNumber);
-                }
-
-                // Sayaç numarasını alıp hala boşsa, bir hata döndür
+                string counterNumber = await GetCounterNumberAsync(individualCreate);
                 if (string.IsNullOrEmpty(counterNumber))
                 {
                     return Response<SubsIndividualDto>.Fail("Sayaç numarası bulunamadı veya sağlanmadı.", HttpStatusCode.BadRequest);
                 }
 
-                // Sayaç numarası varsa, kaydı oluştur
-                SubsIndividual individualEntity = mapper.Map<SubsIndividual>(individualCreate);
-                individualEntity.CounterNumber = counterNumber; // Sayaç numarasını atama
+                var individualEntity = mapper.Map<SubsIndividual>(individualCreate);
+                individualEntity.CounterNumber = counterNumber;
+
                 await subsIndividualRepository.AddAsync(individualEntity);
                 await unitOfWork.CommitAsync();
 
-                SubsIndividualDto individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
-
+                var individualDto = mapper.Map<SubsIndividualDto>(individualEntity);
                 return Response<SubsIndividualDto>.Success(individualDto, HttpStatusCode.Created);
             }
             catch (DbUpdateException ex)
             {
-                // Veritabanı güncelleme hatası durumunda loglama
                 return Response<SubsIndividualDto>.Fail($"Veritabanı güncelleme hatası oluştu.{ex}", HttpStatusCode.InternalServerError);
             }
             catch (Exception ex)
             {
-                // Diğer tüm hata durumlarını ele almak için genel bir catch bloğu
                 return Response<SubsIndividualDto>.Fail($"Bireysel abonelik oluşturulurken bir hata oluştu.{ex}", HttpStatusCode.InternalServerError);
             }
         }
 
-
-
-
-
-
-        public async Task<List<SubsIndividualDto>> FindIndividualDtosAsync(string IdentityNumber)
+        private async Task<string> GetCounterNumberAsync(CreateIndividualDto individualCreate)
         {
-            List<SubsIndividual> entities = await subsIndividualRepository.FindIndividualAsync(IdentityNumber);
+            if (!string.IsNullOrEmpty(individualCreate.CounterNumber))
+            {
+                return individualCreate.CounterNumber;
+            }
 
-            List<SubsIndividualDto> dtos = entities.Select(entity => mapper.Map<SubsIndividualDto>(entity)).ToList();
+            if (!string.IsNullOrEmpty(individualCreate.InternalDoorNumber))
+            {
+                return await addressService.GetCounter(individualCreate.InternalDoorNumber);
+            }
 
-            return dtos;
+            return null;
         }
+
+
+        public async Task<SubsIndividualDto> FindIndividualDtoAsync(string IdentityNumber)
+        {
+            SubsIndividual entity = await subsIndividualRepository.FindIndividualAsync(IdentityNumber);
+
+            if (entity == null)
+            {
+                return null;
+            }
+
+            SubsIndividualDto dto = mapper.Map<SubsIndividualDto>(entity);
+
+            return dto;
+        }
+
 
         public async Task<Response<bool>> TerminateSubsIndividualAsync(string identityNumber)
         {
             var subscribers = await subsIndividualRepository.FindIndividualAsync(identityNumber);
 
-
-
-            if (subscribers.Count == 0)
+            if (subscribers == null)
+            {
                 return Response<bool>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
+            }
 
             var updatedSubscribers = new List<SubsIndividual>(); // Güncellenen abonelerin listesi
 
-            foreach (var abone in subscribers)
+            if (await subscriberRepository.HasUnpaidInvoices(subscribers.Id))
             {
-                if (await subscriberRepository.HasUnpaidInvoices(abone.Id))
-
-                    return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
-
-                abone.IsActive = false;
-                updatedSubscribers.Add(abone);
+                return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
             }
 
-            foreach (var updatedSubscriber in updatedSubscribers)
-            {
-                subscriberRepository.Update(updatedSubscriber);
-                await subscriberTerminate.TerminateSubscriptionAndAddToOutbox(updatedSubscriber.Id);
-            }
+            subscribers.IsActive = false;
+            updatedSubscribers.Add(subscribers);
+
+            subscriberRepository.Update(subscribers);
+            await subscriberTerminate.TerminateSubscriptionAndAddToOutbox(subscribers.Id);
+
 
             await unitOfWork.CommitAsync();
 
             return Response<bool>.Success(true, HttpStatusCode.OK);
         }
+
+
+
+
+
+
 
     }
 }

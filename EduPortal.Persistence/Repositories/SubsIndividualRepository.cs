@@ -5,6 +5,7 @@ using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
 using EduPortal.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +29,19 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task CreateIndividualSubscription(SubsIndividual subsIndividual)
         {
-             _genericRepository.AddAsync(subsIndividual);
-             _context.SaveChangesAsync(); // Bu satır eklenerek SavingChanges metodu çalıştırılabilir.
+         await _genericRepository.AddAsync(subsIndividual);
+            //_context.SaveChangesAsync(); // Bu satır eklenerek SavingChanges metodu çalıştırılabilir.
 
         }
 
-        public async Task<List<SubsIndividual>> FindIndividualAsync(string counterOrIdentityNumber)
+        public async Task<SubsIndividual> FindIndividualAsync(string counterOrIdentityNumber)
         {
             var response = await _dbSet
                 .Where(c => (counterOrIdentityNumber.Length > 10 ? c.IdentityNumber : c.CounterNumber) == counterOrIdentityNumber && c.IsActive)
-                .ToListAsync();
+                .FirstOrDefaultAsync();
             return response;
         }
+
     }
 }
 

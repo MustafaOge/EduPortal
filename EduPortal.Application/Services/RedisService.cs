@@ -7,6 +7,18 @@ using System.Threading.Tasks;
 
 namespace Redis.Sentinel.Services
 {
+    public interface IRedisService
+    {
+        Task<IDatabase> GetRedisMasterDatabaseAsync();
+    }
+    public class RedisServiceWrapper : IRedisService
+    {
+        public Task<IDatabase> GetRedisMasterDatabaseAsync()
+        {
+            return RedisService.RedisMasterDatabase();
+        }
+    }
+
     public class RedisService
     {
         static ConfigurationOptions sentinelOptions => new()

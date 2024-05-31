@@ -4,7 +4,7 @@ namespace EduPortal.MVC.Models.Subscriber
 {
     public class SubscriberViewModel
     {
-        public List<SubsIndividualDto> IndividualList { get; set; }
+        public SubsIndividualDto IndividualList { get; set; }
         public List<SubsCorporateDto> CorporateList { get; set; }
     }
 }

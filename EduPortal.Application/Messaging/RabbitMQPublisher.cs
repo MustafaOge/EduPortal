@@ -11,7 +11,11 @@ using EduPortal.Application.Interfaces.UnitOfWorks;
 
 namespace EduPortal.Application.Services
 {
-    public class RabbitMQPublisherService
+    public interface IRabbitMQPublisherService
+    {
+        Task StartPublishing();
+    }
+    public class RabbitMQPublisherService : IRabbitMQPublisherService
     {
         private readonly IQueueService _queueService;
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;

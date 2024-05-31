@@ -27,10 +27,10 @@ namespace EduPortal.Service.Services
 
                 await subsCorporateRepository.AddAsync(corporatelEntity);
                 await unitOfWork.CommitAsync();
-                throw new Exception();
-                SubsCorporateDto individualDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
+                //throw new Exception();
+                SubsCorporateDto subsCorporateDto = mapper.Map<SubsCorporateDto>(corporatelEntity);
 
-                return Response<SubsCorporateDto>.Success(individualDto, HttpStatusCode.Created);
+                return Response<SubsCorporateDto>.Success(subsCorporateDto, HttpStatusCode.Created);
             }
             catch (DbUpdateException ex)
             {
@@ -46,41 +46,41 @@ namespace EduPortal.Service.Services
         }
 
 
-        public async Task<List<SubsCorporateDto>> FindCorporateAsync(string taxIdNumber)
+        public async Task<SubsCorporateDto> FindCorporateAsync(string taxIdNumber)
         {
-            List<SubsCorporate> entities = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+            SubsCorporate entity = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+            if (entity == null)
+            {
+                return null;
+            }
 
-            List<SubsCorporateDto> dtos = entities.Select(entity => mapper.Map<SubsCorporateDto>(entity)).ToList();
-
-            return dtos;
+            SubsCorporateDto dto = mapper.Map<SubsCorporateDto>(entity);
+            return dto;
         }
 
-        public async Task<Response<bool>> TerminateSubsCorporateAsync(string TaxIdNumber)
-        {
-        
-            List<SubsCorporate> aboneler = await subsCorporateRepository.FindCorporateAsync(TaxIdNumber);
 
-            if (aboneler.Count == 0)
+        public async Task<Response<bool>> TerminateSubsCorporateAsync(string taxIdNumber)
+        {
+            SubsCorporate abone = await subsCorporateRepository.FindCorporateAsync(taxIdNumber);
+
+            if (abone == null)
             {
                 return Response<bool>.Fail("Abone bulunamadı.", HttpStatusCode.NotFound);
             }
 
-            foreach (var abone in aboneler)
-            {
-                bool hasUnpaidInvoices = await subscriberRepository.HasUnpaidInvoices(abone.Id);
+            bool hasUnpaidInvoices = await subscriberRepository.HasUnpaidInvoices(abone.Id);
 
-                if (hasUnpaidInvoices)
-                {
-                    return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
-                }
-                else
-                {
-                    abone.IsActive = false;
-                    subscriberRepository.Update(abone);
-                }
+            if (hasUnpaidInvoices)
+            {
+                return Response<bool>.Fail("Ödenmemiş faturası bulunduğu için abonelik sonlandırılamadı.", HttpStatusCode.Forbidden);
             }
+
+            abone.IsActive = false;
+            subscriberRepository.Update(abone);
             await unitOfWork.CommitAsync();
+
             return Response<bool>.Success(true, HttpStatusCode.OK);
         }
+
     }
 }

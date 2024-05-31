@@ -24,7 +24,7 @@ namespace EduPortal.Persistence.Mapping
             CreateMap<SubsCorporate, SubsCorporateDto>();
 
             CreateMap<CreateCorporateDto, SubsCorporate>();
-            CreateMap<SubsCorporateDto, SubsCorporate>();
+            CreateMap<SubsCorporateDto, SubsCorporate>().ReverseMap();
 
             //CreateMap<CreateIndividualDto, SubsIndividualDto>().ReverseMap();
 

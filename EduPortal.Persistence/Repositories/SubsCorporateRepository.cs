@@ -24,12 +24,12 @@ namespace EduPortal.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<List<SubsCorporate>> FindCorporateAsync(string number)
+        public async Task<SubsCorporate> FindCorporateAsync(string number)
         {
             
             var response = await _dbSet
                 .Where(c => (number.Length > 9 ? c.TaxIdNumber : c.CounterNumber) == number && c.IsActive)
-                .ToListAsync();
+                       .FirstOrDefaultAsync();
             return response;
         }
         

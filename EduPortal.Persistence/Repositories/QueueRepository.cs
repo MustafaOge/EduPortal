@@ -24,7 +24,7 @@ namespace EduPortal.Persistence.Repositories
         public async Task<IEnumerable<(int Id, int SubscriberId)>> GetUnpaidInvoices()
         {
             var currentDate = DateTime.Today;
-            var dueDateThreshold = currentDate.AddDays(-30);
+            var dueDateThreshold = currentDate.AddDays(-45);
 
             try
             {
