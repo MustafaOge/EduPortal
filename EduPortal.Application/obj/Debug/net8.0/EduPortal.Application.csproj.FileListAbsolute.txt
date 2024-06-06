@@ -1320,3 +1320,6 @@ C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\refint\EduPortal.Application.dll
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\EduPortal.Application.pdb
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\ref\EduPortal.Application.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\en-US\EduPortal.Application.resources.cs
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\fr-FR\EduPortal.Application.resources.cs
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Application\obj\Debug\net8.0\tr-TR\EduPortal.Application.resources.cs

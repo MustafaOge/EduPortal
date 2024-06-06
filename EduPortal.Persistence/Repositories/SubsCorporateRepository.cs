@@ -33,10 +33,6 @@ namespace EduPortal.Persistence.Repositories
             return response;
         }
         
-        public async Task CreateCorporateSubscription(SubsCorporate subsCorporate)
-        {
-            await _genericRepository.AddAsync(subsCorporate);
-        }
 
     }
 }

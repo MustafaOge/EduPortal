@@ -626,7 +626,7 @@
           "Branches": [
             {
               "Line": 88,
-              "Offset": 706,
+              "Offset": 709,
               "EndOffset": 8,
               "Path": 1,
               "Ordinal": 1,
@@ -634,8 +634,8 @@
             },
             {
               "Line": 88,
-              "Offset": 706,
-              "EndOffset": 711,
+              "Offset": 709,
+              "EndOffset": 714,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 0
@@ -702,16 +702,16 @@
       "EduPortal.Persistence.Services.InvoiceService": {
         "System.Void EduPortal.Persistence.Services.InvoiceService::.ctor(EduPortal.Application.Interfaces.Repositories.IInvoiceRepository,NToastNotify.IToastNotification,AutoMapper.IMapper,EduPortal.Application.Interfaces.UnitOfWorks.IUnitOfWork,EduPortal.Application.Interfaces.Repositories.ISubsCorporateRepository,EduPortal.Application.Interfaces.Repositories.ISubsIndividualRepository,EduPortal.Application.Interfaces.Repositories.ISubscriberRepository,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.InvoiceComplaint,System.Int32>,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.MeterReading,System.Int32>)": {
           "Lines": {
-            "23": 4,
-            "24": 4,
-            "25": 4,
-            "26": 4,
-            "27": 4,
-            "28": 4,
-            "29": 4,
-            "30": 4,
-            "31": 4,
-            "32": 4
+            "23": 11,
+            "24": 11,
+            "25": 11,
+            "26": 11,
+            "27": 11,
+            "28": 11,
+            "29": 11,
+            "30": 11,
+            "31": 11,
+            "32": 11
           },
           "Branches": []
         }
@@ -719,33 +719,33 @@
       "EduPortal.Persistence.Services.InvoiceService/<CreateComplaint>d__15": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<CreateComplaint>d__15::MoveNext()": {
           "Lines": {
-            "154": 1,
-            "156": 1,
             "157": 1,
             "159": 1,
-            "160": 0,
-            "161": 0,
-            "162": 0,
-            "166": 1,
-            "167": 1,
-            "168": 1,
+            "160": 1,
+            "162": 1,
+            "163": 0,
+            "164": 0,
+            "165": 0,
             "169": 1,
             "170": 1,
             "171": 1,
             "172": 1,
+            "173": 1,
+            "174": 1,
             "175": 1,
-            "176": 1,
-            "177": 1,
-            "181": 1,
-            "183": 0,
-            "184": 0,
-            "185": 0,
+            "178": 1,
+            "179": 1,
+            "180": 1,
+            "184": 1,
+            "186": 0,
             "187": 0,
-            "190": 1
+            "188": 0,
+            "190": 0,
+            "193": 1
           },
           "Branches": [
             {
-              "Line": 159,
+              "Line": 162,
               "Offset": 204,
               "EndOffset": 206,
               "Path": 0,
@@ -753,7 +753,7 @@
               "Hits": 0
             },
             {
-              "Line": 159,
+              "Line": 162,
               "Offset": 204,
               "EndOffset": 261,
               "Path": 1,
@@ -766,25 +766,25 @@
       "EduPortal.Persistence.Services.InvoiceService/<DetailPay>d__13": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<DetailPay>d__13::MoveNext()": {
           "Lines": {
-            "116": 0,
-            "117": 0,
-            "118": 0,
             "119": 0,
             "120": 0,
+            "121": 0,
+            "122": 0,
             "123": 0,
-            "125": 0,
             "126": 0,
-            "127": 0,
             "128": 0,
             "129": 0,
             "130": 0,
             "131": 0,
+            "132": 0,
             "133": 0,
-            "134": 0
+            "134": 0,
+            "136": 0,
+            "137": 0
           },
           "Branches": [
             {
-              "Line": 118,
+              "Line": 121,
               "Offset": 208,
               "EndOffset": 210,
               "Path": 0,
@@ -792,7 +792,7 @@
               "Hits": 0
             },
             {
-              "Line": 118,
+              "Line": 121,
               "Offset": 208,
               "EndOffset": 239,
               "Path": 1,
@@ -805,10 +805,10 @@
       "EduPortal.Persistence.Services.InvoiceService/<GetInvoiceDetail>d__12": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<GetInvoiceDetail>d__12::MoveNext()": {
           "Lines": {
-            "109": 0,
             "110": 0,
-            "112": 0,
-            "113": 0
+            "111": 0,
+            "113": 0,
+            "114": 0
           },
           "Branches": []
         }
@@ -816,20 +816,20 @@
       "EduPortal.Persistence.Services.InvoiceService/<GetSubscriberAsync>d__14": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<GetSubscriberAsync>d__14::MoveNext()": {
           "Lines": {
-            "137": 0,
-            "138": 0,
-            "139": 0,
-            "140": 0,
+            "140": 2,
+            "141": 2,
             "142": 0,
             "143": 0,
-            "144": 0,
-            "148": 0,
-            "149": 0,
-            "151": 0
+            "145": 2,
+            "146": 2,
+            "147": 2,
+            "151": 0,
+            "152": 0,
+            "154": 2
           },
           "Branches": [
             {
-              "Line": 138,
+              "Line": 141,
               "Offset": 34,
               "EndOffset": 36,
               "Path": 0,
@@ -837,23 +837,23 @@
               "Hits": 0
             },
             {
-              "Line": 138,
+              "Line": 141,
               "Offset": 34,
               "EndOffset": 54,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 142,
+              "Line": 145,
               "Offset": 69,
               "EndOffset": 74,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 142,
+              "Line": 145,
               "Offset": 69,
               "EndOffset": 207,
               "Path": 1,
@@ -866,26 +866,27 @@
       "EduPortal.Persistence.Services.InvoiceService/<PayInvoice>d__9": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<PayInvoice>d__9::MoveNext()": {
           "Lines": {
-            "35": 1,
-            "37": 1,
-            "38": 1,
-            "40": 1,
-            "41": 0,
-            "42": 0,
-            "45": 1,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "51": 1,
+            "35": 4,
+            "37": 4,
+            "38": 4,
+            "40": 3,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "46": 2,
+            "47": 1,
+            "48": 1,
+            "49": 1,
             "52": 1,
-            "54": 1,
+            "53": 1,
             "55": 1,
-            "57": 1,
-            "59": 1,
-            "61": 0,
-            "62": 0,
-            "63": 0,
-            "65": 1
+            "56": 1,
+            "58": 1,
+            "60": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "66": 4
           },
           "Branches": [
             {
@@ -894,28 +895,28 @@
               "EndOffset": 187,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 40,
               "Offset": 185,
-              "EndOffset": 216,
+              "EndOffset": 239,
               "Path": 1,
               "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 46,
+              "Offset": 254,
+              "EndOffset": 256,
+              "Path": 0,
+              "Ordinal": 2,
               "Hits": 1
             },
             {
-              "Line": 45,
-              "Offset": 231,
-              "EndOffset": 233,
-              "Path": 0,
-              "Ordinal": 2,
-              "Hits": 0
-            },
-            {
-              "Line": 45,
-              "Offset": 231,
-              "EndOffset": 285,
+              "Line": 46,
+              "Offset": 254,
+              "EndOffset": 308,
               "Path": 1,
               "Ordinal": 3,
               "Hits": 1
@@ -926,21 +927,21 @@
       "EduPortal.Persistence.Services.InvoiceService/<PaymentCorporate>d__10": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<PaymentCorporate>d__10::MoveNext()": {
           "Lines": {
-            "68": 1,
-            "70": 1,
-            "72": 1,
-            "74": 1,
-            "75": 0,
+            "69": 2,
+            "71": 2,
+            "73": 2,
+            "75": 1,
             "76": 0,
-            "79": 1,
-            "81": 0,
-            "82": 0,
-            "83": 0,
-            "85": 1
+            "77": 0,
+            "80": 1,
+            "82": 1,
+            "83": 1,
+            "84": 1,
+            "86": 2
           },
           "Branches": [
             {
-              "Line": 74,
+              "Line": 75,
               "Offset": 166,
               "EndOffset": 168,
               "Path": 0,
@@ -948,7 +949,7 @@
               "Hits": 1
             },
             {
-              "Line": 74,
+              "Line": 75,
               "Offset": 166,
               "EndOffset": 179,
               "Path": 1,
@@ -956,7 +957,7 @@
               "Hits": 0
             },
             {
-              "Line": 74,
+              "Line": 75,
               "Offset": 184,
               "EndOffset": 186,
               "Path": 0,
@@ -964,7 +965,7 @@
               "Hits": 0
             },
             {
-              "Line": 74,
+              "Line": 75,
               "Offset": 184,
               "EndOffset": 212,
               "Path": 1,
@@ -977,21 +978,21 @@
       "EduPortal.Persistence.Services.InvoiceService/<PaymentIndividual>d__11": {
         "System.Void EduPortal.Persistence.Services.InvoiceService/<PaymentIndividual>d__11::MoveNext()": {
           "Lines": {
-            "88": 1,
-            "90": 1,
-            "92": 1,
-            "94": 1,
-            "95": 0,
+            "89": 2,
+            "91": 2,
+            "93": 2,
+            "95": 1,
             "96": 0,
-            "99": 1,
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "105": 1
+            "97": 0,
+            "100": 1,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "106": 2
           },
           "Branches": [
             {
-              "Line": 94,
+              "Line": 95,
               "Offset": 173,
               "EndOffset": 175,
               "Path": 0,
@@ -999,7 +1000,7 @@
               "Hits": 0
             },
             {
-              "Line": 94,
+              "Line": 95,
               "Offset": 173,
               "EndOffset": 201,
               "Path": 1,
@@ -1020,7 +1021,7 @@
         },
         "System.DateTime EduPortal.Core.Dtos.BaseModelDto::get_CreatedDate()": {
           "Lines": {
-            "12": 129
+            "12": 125
           },
           "Branches": []
         }
@@ -1111,23 +1112,23 @@
       "EduPortal.Application.Services.RabbitMQPublisherService": {
         "System.Threading.Tasks.Task EduPortal.Application.Services.RabbitMQPublisherService::<StartPublishing>b__6_0(EduPortal.Domain.Entities.OutboxMessage)": {
           "Lines": {
-            "43": 0
+            "47": 0
           },
           "Branches": []
         },
         "System.Void EduPortal.Application.Services.RabbitMQPublisherService::.ctor(EduPortal.Application.Interfaces.UnitOfWorks.IUnitOfWork,EduPortal.Application.Interfaces.Services.IQueueService,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.OutboxMessage,System.Int32>,Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "22": 0,
-            "23": 0,
-            "24": 0,
-            "25": 0,
             "26": 0,
             "27": 0,
             "28": 0,
             "29": 0,
             "30": 0,
             "31": 0,
-            "32": 0
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0
           },
           "Branches": []
         }
@@ -1135,23 +1136,23 @@
       "EduPortal.Application.Services.RabbitMQPublisherService/<ProcessMessage>d__7": {
         "System.Void EduPortal.Application.Services.RabbitMQPublisherService/<ProcessMessage>d__7::MoveNext()": {
           "Lines": {
-            "49": 0,
-            "50": 0,
-            "52": 0,
             "53": 0,
-            "55": 0,
+            "54": 0,
             "56": 0,
+            "57": 0,
             "59": 0,
             "60": 0,
-            "61": 0,
-            "62": 0,
             "63": 0,
             "64": 0,
             "65": 0,
             "66": 0,
             "67": 0,
+            "68": 0,
             "69": 0,
-            "70": 0
+            "70": 0,
+            "71": 0,
+            "73": 0,
+            "74": 0
           },
           "Branches": []
         }
@@ -1159,16 +1160,16 @@
       "EduPortal.Application.Services.RabbitMQPublisherService/<PublishMessage>d__8": {
         "System.Void EduPortal.Application.Services.RabbitMQPublisherService/<PublishMessage>d__8::MoveNext()": {
           "Lines": {
-            "73": 0,
-            "74": 0,
-            "75": 0,
             "77": 0,
             "78": 0,
             "79": 0,
-            "80": 0,
             "81": 0,
+            "82": 0,
             "83": 0,
-            "84": 0
+            "84": 0,
+            "85": 0,
+            "87": 0,
+            "88": 0
           },
           "Branches": []
         }
@@ -1176,19 +1177,19 @@
       "EduPortal.Application.Services.RabbitMQPublisherService/<StartPublishing>d__6": {
         "System.Void EduPortal.Application.Services.RabbitMQPublisherService/<StartPublishing>d__6::MoveNext()": {
           "Lines": {
-            "35": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
             "39": 0,
             "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
             "44": 0,
-            "45": 0,
-            "46": 0
+            "48": 0,
+            "49": 0,
+            "50": 0
           },
           "Branches": [
             {
-              "Line": 37,
+              "Line": 41,
               "Offset": 253,
               "EndOffset": 255,
               "Path": 0,
@@ -1196,7 +1197,7 @@
               "Hits": 0
             },
             {
-              "Line": 37,
+              "Line": 41,
               "Offset": 253,
               "EndOffset": 272,
               "Path": 1,
@@ -1695,130 +1696,184 @@
       "EduPortal.Application.Services.SubscriberNotificationService": {
         "System.Void EduPortal.Application.Services.SubscriberNotificationService::.ctor(EduPortal.Application.Interfaces.Services.IMailService,EduPortal.Application.Interfaces.Repositories.ISubscriberRepository,EduPortal.Application.Interfaces.Repositories.IInvoiceRepository,EduPortal.Application.Interfaces.Repositories.ISubsIndividualRepository)": {
           "Lines": {
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "16": 0
+            "17": 6,
+            "18": 6,
+            "19": 6,
+            "20": 6,
+            "21": 6,
+            "22": 6,
+            "23": 6,
+            "24": 6,
+            "25": 6,
+            "26": 6,
+            "27": 6
           },
           "Branches": []
         }
       },
-      "EduPortal.Application.Services.SubscriberNotificationService/<SendEmail>d__6": {
-        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendEmail>d__6::MoveNext()": {
+      "EduPortal.Application.Services.SubscriberNotificationService/<SendEmail>d__8": {
+        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendEmail>d__8::MoveNext()": {
           "Lines": {
-            "60": 0,
-            "61": 0,
-            "62": 0,
-            "63": 0
+            "102": 2,
+            "103": 2,
+            "104": 2,
+            "105": 2
           },
           "Branches": []
         }
       },
-      "EduPortal.Application.Services.SubscriberNotificationService/<SendEmailNotification>d__3": {
-        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendEmailNotification>d__3::MoveNext()": {
+      "EduPortal.Application.Services.SubscriberNotificationService/<SendEmailNotification>d__5": {
+        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendEmailNotification>d__5::MoveNext()": {
           "Lines": {
-            "19": 0,
-            "21": 0,
-            "22": 0,
-            "25": 0,
-            "26": 0,
-            "28": 0,
-            "29": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0,
-            "35": 0,
-            "36": 0
+            "30": 6,
+            "32": 6,
+            "33": 6,
+            "36": 2,
+            "37": 1,
+            "39": 3,
+            "40": 1,
+            "42": 1,
+            "44": 2,
+            "45": 4,
+            "46": 4,
+            "49": 4,
+            "52": 4,
+            "54": 2
           },
           "Branches": [
             {
-              "Line": 22,
+              "Line": 33,
               "Offset": 58,
               "EndOffset": 62,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 4
             },
             {
-              "Line": 22,
+              "Line": 33,
               "Offset": 58,
               "EndOffset": 71,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 22,
+              "Line": 33,
               "Offset": 64,
-              "EndOffset": 181,
+              "EndOffset": 184,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 3
             },
             {
-              "Line": 22,
+              "Line": 33,
               "Offset": 64,
-              "EndOffset": 294,
+              "EndOffset": 297,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
       },
-      "EduPortal.Application.Services.SubscriberNotificationService/<SendInvoiceReminderNotification>d__5": {
-        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendInvoiceReminderNotification>d__5::MoveNext()": {
+      "EduPortal.Application.Services.SubscriberNotificationService/<SendInvoiceReminderNotification>d__7": {
+        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendInvoiceReminderNotification>d__7::MoveNext()": {
           "Lines": {
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "49": 0,
-            "50": 0,
-            "51": 0,
-            "53": 0,
-            "54": 0,
-            "55": 0,
-            "56": 0,
-            "57": 0
+            "69": 3,
+            "70": 3,
+            "71": 3,
+            "72": 0,
+            "73": 0,
+            "77": 3,
+            "78": 3,
+            "79": 2,
+            "81": 2,
+            "82": 2,
+            "83": 2,
+            "84": 1,
+            "85": 1,
+            "88": 1,
+            "89": 1,
+            "90": 1,
+            "91": 1,
+            "92": 1,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "98": 1
           },
           "Branches": [
             {
-              "Line": 48,
-              "Offset": 65,
-              "EndOffset": 67,
+              "Line": 71,
+              "Offset": 52,
+              "EndOffset": 54,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 0
             },
             {
-              "Line": 48,
-              "Offset": 65,
-              "EndOffset": 84,
+              "Line": 71,
+              "Offset": 52,
+              "EndOffset": 66,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 3
+            },
+            {
+              "Line": 83,
+              "Offset": 435,
+              "EndOffset": 437,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 83,
+              "Offset": 435,
+              "EndOffset": 449,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
             }
           ]
         }
       },
-      "EduPortal.Application.Services.SubscriberNotificationService/<SendSubscriptionTerminationNotification>d__4": {
-        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendSubscriptionTerminationNotification>d__4::MoveNext()": {
+      "EduPortal.Application.Services.SubscriberNotificationService/<SendSubscriptionTerminationNotification>d__6": {
+        "System.Void EduPortal.Application.Services.SubscriberNotificationService/<SendSubscriptionTerminationNotification>d__6::MoveNext()": {
           "Lines": {
-            "39": 0,
-            "40": 0,
-            "41": 0,
-            "42": 0,
-            "43": 0
+            "57": 2,
+            "58": 2,
+            "59": 2,
+            "60": 1,
+            "61": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1
           },
-          "Branches": []
+          "Branches": [
+            {
+              "Line": 59,
+              "Offset": 192,
+              "EndOffset": 194,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 59,
+              "Offset": 192,
+              "EndOffset": 206,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
         }
       }
     },
     "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\Services\\SubscriberTerminateService.cs": {
       "EduPortal.Application.Services.SubscriberTerminateService": {
-        "System.Void EduPortal.Application.Services.SubscriberTerminateService::.ctor(EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.OutboxMessage,System.Int32>,EduPortal.Application.Services.RabbitMQPublisherService,EduPortal.Application.Messaging.RabbitMQConsumerService)": {
+        "System.Void EduPortal.Application.Services.SubscriberTerminateService::.ctor(EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.OutboxMessage,System.Int32>,EduPortal.Application.Services.IRabbitMQPublisherService,EduPortal.Application.Messaging.RabbitMQConsumerService)": {
           "Lines": {
             "20": 0,
             "21": 0,
@@ -1855,32 +1910,32 @@
       "EduPortal.Application.Messaging.RabbitMQConsumerService": {
         "System.Void EduPortal.Application.Messaging.RabbitMQConsumerService::SetupQueueAndExchange(System.String)": {
           "Lines": {
-            "41": 0,
-            "43": 0,
+            "46": 0,
             "48": 0,
-            "49": 0,
-            "50": 0,
-            "51": 0,
-            "52": 0,
-            "53": 0
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0
           },
           "Branches": []
         },
         "System.Void EduPortal.Application.Messaging.RabbitMQConsumerService::.ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "22": 0,
-            "23": 0,
-            "24": 0,
-            "25": 0,
             "27": 0,
             "28": 0,
             "29": 0,
             "30": 0,
+            "32": 0,
             "33": 0,
             "34": 0,
             "35": 0,
-            "37": 0,
-            "38": 0
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "43": 0
           },
           "Branches": []
         }
@@ -1888,7 +1943,7 @@
       "EduPortal.Application.Messaging.RabbitMQConsumerService/<<StartConsuming>b__7_0>d": {
         "System.Void EduPortal.Application.Messaging.RabbitMQConsumerService/<<StartConsuming>b__7_0>d::MoveNext()": {
           "Lines": {
-            "65": 0
+            "70": 0
           },
           "Branches": []
         }
@@ -1896,20 +1951,20 @@
       "EduPortal.Application.Messaging.RabbitMQConsumerService/<ProcessMessage>d__8": {
         "System.Void EduPortal.Application.Messaging.RabbitMQConsumerService/<ProcessMessage>d__8::MoveNext()": {
           "Lines": {
-            "72": 0,
-            "73": 0,
-            "74": 0,
+            "77": 0,
             "78": 0,
             "79": 0,
-            "80": 0,
-            "81": 0,
             "83": 0,
             "84": 0,
-            "85": 0
+            "85": 0,
+            "86": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0
           },
           "Branches": [
             {
-              "Line": 81,
+              "Line": 86,
               "Offset": 138,
               "EndOffset": 140,
               "Path": 0,
@@ -1917,7 +1972,7 @@
               "Hits": 0
             },
             {
-              "Line": 81,
+              "Line": 86,
               "Offset": 138,
               "EndOffset": 143,
               "Path": 1,
@@ -1930,15 +1985,15 @@
       "EduPortal.Application.Messaging.RabbitMQConsumerService/<StartConsuming>d__7": {
         "System.Void EduPortal.Application.Messaging.RabbitMQConsumerService/<StartConsuming>d__7::MoveNext()": {
           "Lines": {
-            "56": 0,
-            "57": 0,
-            "59": 0,
-            "60": 0,
             "61": 0,
             "62": 0,
             "64": 0,
-            "68": 0,
-            "69": 0
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "69": 0,
+            "73": 0,
+            "74": 0
           },
           "Branches": []
         }
@@ -1960,11 +2015,11 @@
       "EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob": {
         "System.Void EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob::.ctor(EduPortal.Application.Interfaces.Services.IQueueService,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.OutboxMessage,System.Int32>,EduPortal.Application.Services.RabbitMQPublisherService,EduPortal.Application.Messaging.RabbitMQConsumerService)": {
           "Lines": {
-            "21": 0,
-            "22": 0,
             "23": 0,
             "24": 0,
-            "25": 0
+            "25": 0,
+            "26": 0,
+            "27": 0
           },
           "Branches": []
         }
@@ -1972,10 +2027,8 @@
       "EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob/<ProcessInvoice>d__6": {
         "System.Void EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob/<ProcessInvoice>d__6::MoveNext()": {
           "Lines": {
-            "58": 0,
-            "59": 0,
+            "60": 0,
             "61": 0,
-            "62": 0,
             "63": 0,
             "64": 0,
             "65": 0,
@@ -1983,16 +2036,18 @@
             "67": 0,
             "68": 0,
             "69": 0,
+            "70": 0,
             "71": 0,
-            "72": 0,
+            "73": 0,
             "74": 0,
-            "75": 0,
             "76": 0,
-            "77": 0
+            "77": 0,
+            "78": 0,
+            "79": 0
           },
           "Branches": [
             {
-              "Line": 61,
+              "Line": 63,
               "Offset": 465,
               "EndOffset": 470,
               "Path": 0,
@@ -2000,7 +2055,7 @@
               "Hits": 0
             },
             {
-              "Line": 61,
+              "Line": 63,
               "Offset": 465,
               "EndOffset": 720,
               "Path": 1,
@@ -2013,32 +2068,32 @@
       "EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob/<RunPaymentReminderJob>d__5": {
         "System.Void EduPortal.Application.HangfireJobs.Managers.ReccurringJobs.InvoiceReminderJob/<RunPaymentReminderJob>d__5::MoveNext()": {
           "Lines": {
-            "28": 0,
             "30": 0,
-            "31": 0,
+            "32": 0,
             "33": 0,
-            "34": 0,
             "35": 0,
             "36": 0,
             "37": 0,
             "38": 0,
+            "39": 0,
             "40": 0,
-            "41": 0,
             "42": 0,
+            "43": 0,
             "44": 0,
             "46": 0,
-            "47": 0,
             "48": 0,
             "49": 0,
             "50": 0,
             "51": 0,
+            "52": 0,
             "53": 0,
-            "54": 0,
-            "55": 0
+            "55": 0,
+            "56": 0,
+            "57": 0
           },
           "Branches": [
             {
-              "Line": 33,
+              "Line": 35,
               "Offset": 200,
               "EndOffset": 205,
               "Path": 0,
@@ -2046,7 +2101,7 @@
               "Hits": 0
             },
             {
-              "Line": 35,
+              "Line": 37,
               "Offset": 390,
               "EndOffset": 243,
               "Path": 1,
@@ -2054,7 +2109,7 @@
               "Hits": 0
             },
             {
-              "Line": 35,
+              "Line": 37,
               "Offset": 390,
               "EndOffset": 395,
               "Path": 0,
@@ -2062,7 +2117,7 @@
               "Hits": 0
             },
             {
-              "Line": 33,
+              "Line": 35,
               "Offset": 200,
               "EndOffset": 558,
               "Path": 1,
@@ -2093,13 +2148,13 @@
       "EduPortal.Application.DTO_s.Subscriber.CreateCorporateDto": {
         "System.String EduPortal.Application.DTO_s.Subscriber.CreateCorporateDto::get_CorporateName()": {
           "Lines": {
-            "11": 48
+            "11": 46
           },
           "Branches": []
         },
         "System.String EduPortal.Application.DTO_s.Subscriber.CreateCorporateDto::get_TaxIdNumber()": {
           "Lines": {
-            "12": 50
+            "12": 48
           },
           "Branches": []
         }
@@ -2109,25 +2164,25 @@
       "EduPortal.Application.DTO_s.Subscriber.CreateIndividualDto": {
         "System.String EduPortal.Application.DTO_s.Subscriber.CreateIndividualDto::get_NameSurname()": {
           "Lines": {
-            "11": 48
+            "11": 46
           },
           "Branches": []
         },
         "System.String EduPortal.Application.DTO_s.Subscriber.CreateIndividualDto::get_IdentityNumber()": {
           "Lines": {
-            "12": 48
+            "12": 46
           },
           "Branches": []
         },
         "System.DateTime EduPortal.Application.DTO_s.Subscriber.CreateIndividualDto::get_BirthDate()": {
           "Lines": {
-            "13": 48
+            "13": 46
           },
           "Branches": []
         },
         "System.String EduPortal.Application.DTO_s.Subscriber.CreateIndividualDto::get_InternalDoorNumber()": {
           "Lines": {
-            "14": 50
+            "14": 48
           },
           "Branches": []
         }
@@ -2175,7 +2230,7 @@
       "EduPortal.Application.DTO_s.Subscriber.SubscriberCreateDTO": {
         "System.Int32 EduPortal.Application.DTO_s.Subscriber.SubscriberCreateDTO::get_Id()": {
           "Lines": {
-            "14": 96
+            "14": 92
           },
           "Branches": []
         },
@@ -2205,7 +2260,7 @@
         },
         "System.Boolean EduPortal.Application.DTO_s.Subscriber.SubscriberCreateDTO::get_IsActive()": {
           "Lines": {
-            "21": 129
+            "21": 125
           },
           "Branches": []
         }
@@ -2353,19 +2408,19 @@
       "EduPortal.Core.Responses.Response`1": {
         "T EduPortal.Core.Responses.Response`1::get_Data()": {
           "Lines": {
-            "12": 29
+            "12": 30
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<System.String> EduPortal.Core.Responses.Response`1::get_Errors()": {
           "Lines": {
-            "13": 9
+            "13": 17
           },
           "Branches": []
         },
         "System.Net.HttpStatusCode EduPortal.Core.Responses.Response`1::get_StatusCode()": {
           "Lines": {
-            "15": 35
+            "15": 48
           },
           "Branches": []
         },
@@ -2410,12 +2465,12 @@
         },
         "EduPortal.Core.Responses.Response`1<T> EduPortal.Core.Responses.Response`1::Fail(System.String,System.Net.HttpStatusCode,System.String,System.Int32)": {
           "Lines": {
-            "38": 5,
-            "40": 5,
-            "41": 5,
-            "42": 5,
-            "44": 5,
-            "45": 5
+            "38": 10,
+            "40": 10,
+            "41": 10,
+            "42": 10,
+            "44": 10,
+            "45": 10
           },
           "Branches": []
         },
@@ -2761,13 +2816,13 @@
       "EduPortal.Domain.Entities.Ad_Ilce": {
         "System.Int32 EduPortal.Domain.Entities.Ad_Ilce::get_ilceKimlikNo()": {
           "Lines": {
-            "13": 0
+            "13": 4
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Ad_Ilce::get_adi()": {
           "Lines": {
-            "14": 0
+            "14": 2
           },
           "Branches": []
         }
@@ -2777,19 +2832,19 @@
       "EduPortal.Domain.Entities.Ad_Mahalle": {
         "System.Int32 EduPortal.Domain.Entities.Ad_Mahalle::get_mahalleKimlikNo()": {
           "Lines": {
-            "13": 0
+            "13": 2
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Ad_Mahalle::get_adi()": {
           "Lines": {
-            "14": 0
+            "14": 2
           },
           "Branches": []
         },
         "System.Int32 EduPortal.Domain.Entities.Ad_Mahalle::get_ilceKimlikNo()": {
           "Lines": {
-            "15": 0
+            "15": 2
           },
           "Branches": []
         }
@@ -2805,7 +2860,7 @@
         },
         "System.Int64 EduPortal.Domain.Entities.Ad_Sayac::get_icKapiKimlikNo()": {
           "Lines": {
-            "14": 0
+            "14": 3
           },
           "Branches": []
         },
@@ -2843,7 +2898,7 @@
       "EduPortal.Domain.Entities.BaseEntity`1": {
         "TKey EduPortal.Domain.Entities.BaseEntity`1::get_Id()": {
           "Lines": {
-            "13": 29
+            "13": 43
           },
           "Branches": []
         },
@@ -2917,61 +2972,61 @@
       "EduPortal.Domain.Entities.Invoice": {
         "System.DateTime EduPortal.Domain.Entities.Invoice::get_Date()": {
           "Lines": {
-            "11": 0
+            "11": 12
           },
           "Branches": []
         },
         "EduPortal.Domain.Entities.Subscriber EduPortal.Domain.Entities.Invoice::get_Subscriber()": {
           "Lines": {
-            "13": 0
+            "13": 6
           },
           "Branches": []
         },
         "System.Int32 EduPortal.Domain.Entities.Invoice::get_SubscriberId()": {
           "Lines": {
-            "14": 3
+            "14": 22
           },
           "Branches": []
         },
         "System.Decimal EduPortal.Domain.Entities.Invoice::get_Amount()": {
           "Lines": {
-            "15": 5
+            "15": 17
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Invoice::get_SubscriberType()": {
           "Lines": {
-            "16": 0
+            "16": 12
           },
           "Branches": []
         },
         "System.DateTime EduPortal.Domain.Entities.Invoice::get_ReadingDate()": {
           "Lines": {
-            "17": 0
+            "17": 12
           },
           "Branches": []
         },
         "System.DateTime EduPortal.Domain.Entities.Invoice::get_DueDate()": {
           "Lines": {
-            "18": 0
+            "18": 12
           },
           "Branches": []
         },
         "System.Nullable`1<System.DateTime> EduPortal.Domain.Entities.Invoice::get_PaymentDate()": {
           "Lines": {
-            "19": 1
+            "19": 5
           },
           "Branches": []
         },
         "System.Boolean EduPortal.Domain.Entities.Invoice::get_IsPaid()": {
           "Lines": {
-            "20": 3
+            "20": 17
           },
           "Branches": []
         },
         "EduPortal.Domain.Entities.MeterReading EduPortal.Domain.Entities.Invoice::get_MeterReading()": {
           "Lines": {
-            "22": 0
+            "22": 4
           },
           "Branches": []
         }
@@ -3065,7 +3120,7 @@
       "EduPortal.Domain.Entities.MeterReading": {
         "System.DateTime EduPortal.Domain.Entities.MeterReading::get_ReadingDate()": {
           "Lines": {
-            "18": 2
+            "18": 6
           },
           "Branches": []
         },
@@ -3167,17 +3222,17 @@
         },
         "System.DateTime EduPortal.Domain.Entities.MeterReading::get_LastIndexDate()": {
           "Lines": {
-            "35": 2
+            "35": 6
           },
           "Branches": []
         },
         "System.Void EduPortal.Domain.Entities.MeterReading::.ctor(System.DateTime)": {
           "Lines": {
-            "12": 2,
-            "13": 2,
-            "14": 2,
-            "15": 2,
-            "16": 2
+            "12": 6,
+            "13": 6,
+            "14": 6,
+            "15": 6,
+            "16": 6
           },
           "Branches": []
         }
@@ -3243,13 +3298,13 @@
       "EduPortal.Domain.Entities.SubsCorporate": {
         "System.String EduPortal.Domain.Entities.SubsCorporate::get_CorporateName()": {
           "Lines": {
-            "13": 1
+            "13": 13
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.SubsCorporate::get_TaxIdNumber()": {
           "Lines": {
-            "14": 5
+            "14": 18
           },
           "Branches": []
         }
@@ -3259,25 +3314,25 @@
       "EduPortal.Domain.Entities.Subscriber": {
         "System.String EduPortal.Domain.Entities.Subscriber::get_SubscriberType()": {
           "Lines": {
-            "15": 2
+            "15": 39
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Subscriber::get_PhoneNumber()": {
           "Lines": {
-            "16": 2
+            "16": 38
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Subscriber::get_CounterNumber()": {
           "Lines": {
-            "17": 11
+            "17": 51
           },
           "Branches": []
         },
         "System.String EduPortal.Domain.Entities.Subscriber::get_Email()": {
           "Lines": {
-            "18": 2
+            "18": 44
           },
           "Branches": []
         },
@@ -3289,7 +3344,7 @@
         },
         "System.Boolean EduPortal.Domain.Entities.Subscriber::get_IsActive()": {
           "Lines": {
-            "20": 5
+            "20": 41
           },
           "Branches": []
         }
@@ -3299,7 +3354,7 @@
       "EduPortal.Domain.Entities.SubscriberInfo": {
         "EduPortal.Domain.Entities.SubsIndividual EduPortal.Domain.Entities.SubscriberInfo::get_Individual()": {
           "Lines": {
-            "11": 0
+            "11": 1
           },
           "Branches": []
         },
@@ -3315,7 +3370,7 @@
       "EduPortal.Domain.Entities.SubsIndividual": {
         "System.String EduPortal.Domain.Entities.SubsIndividual::get_NameSurname()": {
           "Lines": {
-            "18": 1
+            "18": 13
           },
           "Branches": []
         },
@@ -3327,7 +3382,7 @@
         },
         "System.String EduPortal.Domain.Entities.SubsIndividual::get_IdentityNumber()": {
           "Lines": {
-            "20": 5
+            "20": 18
           },
           "Branches": []
         }
@@ -6629,8 +6684,8 @@
       }
     },
     "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\Views\\Shared\\Subscriber\\CreateIndividual.cshtml": {
-      "AspNetCoreGeneratedDocument.Views_Shared_Subscriber_CreateIndividual/<<ExecuteAsync>b__29_0>d": {
-        "System.Void AspNetCoreGeneratedDocument.Views_Shared_Subscriber_CreateIndividual/<<ExecuteAsync>b__29_0>d::MoveNext()": {
+      "AspNetCoreGeneratedDocument.Views_Shared_Subscriber_CreateIndividual/<<ExecuteAsync>b__31_0>d": {
+        "System.Void AspNetCoreGeneratedDocument.Views_Shared_Subscriber_CreateIndividual/<<ExecuteAsync>b__31_0>d::MoveNext()": {
           "Lines": {
             "8": 0,
             "13": 0,
@@ -6658,434 +6713,450 @@
           "Branches": [
             {
               "Line": 13,
-              "Offset": 967,
-              "EndOffset": 969,
+              "Offset": 985,
+              "EndOffset": 987,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 0
             },
             {
               "Line": 13,
-              "Offset": 967,
-              "EndOffset": 1080,
+              "Offset": 985,
+              "EndOffset": 1098,
               "Path": 1,
               "Ordinal": 1,
               "Hits": 0
             },
             {
               "Line": 14,
-              "Offset": 1739,
-              "EndOffset": 1741,
+              "Offset": 1757,
+              "EndOffset": 1759,
               "Path": 0,
               "Ordinal": 2,
               "Hits": 0
             },
             {
               "Line": 14,
-              "Offset": 1739,
-              "EndOffset": 1852,
+              "Offset": 1757,
+              "EndOffset": 1870,
               "Path": 1,
               "Ordinal": 3,
               "Hits": 0
             },
             {
               "Line": 15,
-              "Offset": 2353,
-              "EndOffset": 2355,
+              "Offset": 2371,
+              "EndOffset": 2373,
               "Path": 0,
               "Ordinal": 4,
               "Hits": 0
             },
             {
               "Line": 15,
-              "Offset": 2353,
-              "EndOffset": 2466,
+              "Offset": 2371,
+              "EndOffset": 2484,
               "Path": 1,
               "Ordinal": 5,
               "Hits": 0
             },
             {
               "Line": 20,
-              "Offset": 2931,
-              "EndOffset": 2933,
+              "Offset": 2949,
+              "EndOffset": 2951,
               "Path": 0,
               "Ordinal": 6,
               "Hits": 0
             },
             {
               "Line": 20,
-              "Offset": 2931,
-              "EndOffset": 3044,
+              "Offset": 2949,
+              "EndOffset": 3062,
               "Path": 1,
               "Ordinal": 7,
               "Hits": 0
             },
             {
               "Line": 21,
-              "Offset": 3703,
-              "EndOffset": 3705,
+              "Offset": 3721,
+              "EndOffset": 3723,
               "Path": 0,
               "Ordinal": 8,
               "Hits": 0
             },
             {
               "Line": 21,
-              "Offset": 3703,
-              "EndOffset": 3817,
+              "Offset": 3721,
+              "EndOffset": 3835,
               "Path": 1,
               "Ordinal": 9,
               "Hits": 0
             },
             {
               "Line": 22,
-              "Offset": 4319,
-              "EndOffset": 4321,
+              "Offset": 4337,
+              "EndOffset": 4339,
               "Path": 0,
               "Ordinal": 10,
               "Hits": 0
             },
             {
               "Line": 22,
-              "Offset": 4319,
-              "EndOffset": 4433,
+              "Offset": 4337,
+              "EndOffset": 4451,
               "Path": 1,
               "Ordinal": 11,
               "Hits": 0
             },
             {
               "Line": 27,
-              "Offset": 4899,
-              "EndOffset": 4901,
+              "Offset": 4917,
+              "EndOffset": 4919,
               "Path": 0,
               "Ordinal": 12,
               "Hits": 0
             },
             {
               "Line": 27,
-              "Offset": 4899,
-              "EndOffset": 5013,
+              "Offset": 4917,
+              "EndOffset": 5031,
               "Path": 1,
               "Ordinal": 13,
               "Hits": 0
             },
             {
               "Line": 28,
-              "Offset": 5673,
-              "EndOffset": 5675,
+              "Offset": 5691,
+              "EndOffset": 5693,
               "Path": 0,
               "Ordinal": 14,
               "Hits": 0
             },
             {
               "Line": 28,
-              "Offset": 5673,
-              "EndOffset": 5787,
+              "Offset": 5691,
+              "EndOffset": 5805,
               "Path": 1,
               "Ordinal": 15,
               "Hits": 0
             },
             {
               "Line": 29,
-              "Offset": 6289,
-              "EndOffset": 6291,
+              "Offset": 6307,
+              "EndOffset": 6309,
               "Path": 0,
               "Ordinal": 16,
               "Hits": 0
             },
             {
               "Line": 29,
-              "Offset": 6289,
-              "EndOffset": 6403,
+              "Offset": 6307,
+              "EndOffset": 6421,
               "Path": 1,
               "Ordinal": 17,
               "Hits": 0
             },
             {
               "Line": 37,
-              "Offset": 6869,
-              "EndOffset": 6871,
+              "Offset": 6887,
+              "EndOffset": 6889,
               "Path": 0,
               "Ordinal": 18,
               "Hits": 0
             },
             {
               "Line": 37,
-              "Offset": 6869,
-              "EndOffset": 6983,
+              "Offset": 6887,
+              "EndOffset": 7001,
               "Path": 1,
               "Ordinal": 19,
               "Hits": 0
             },
             {
               "Line": 38,
-              "Offset": 7539,
-              "EndOffset": 7541,
+              "Offset": 7557,
+              "EndOffset": 7559,
               "Path": 0,
               "Ordinal": 20,
               "Hits": 0
             },
             {
               "Line": 38,
-              "Offset": 7539,
-              "EndOffset": 7653,
+              "Offset": 7557,
+              "EndOffset": 7671,
               "Path": 1,
               "Ordinal": 21,
               "Hits": 0
             },
             {
               "Line": 39,
-              "Offset": 8155,
-              "EndOffset": 8157,
+              "Offset": 8173,
+              "EndOffset": 8175,
               "Path": 0,
               "Ordinal": 22,
               "Hits": 0
             },
             {
               "Line": 39,
-              "Offset": 8155,
-              "EndOffset": 8269,
+              "Offset": 8173,
+              "EndOffset": 8287,
               "Path": 1,
               "Ordinal": 23,
               "Hits": 0
             },
             {
               "Line": 44,
-              "Offset": 8735,
-              "EndOffset": 8737,
+              "Offset": 8753,
+              "EndOffset": 8755,
               "Path": 0,
               "Ordinal": 24,
               "Hits": 0
             },
             {
               "Line": 44,
-              "Offset": 8735,
-              "EndOffset": 8849,
+              "Offset": 8753,
+              "EndOffset": 8867,
               "Path": 1,
               "Ordinal": 25,
               "Hits": 0
             },
             {
               "Line": 45,
-              "Offset": 9509,
-              "EndOffset": 9511,
+              "Offset": 9527,
+              "EndOffset": 9529,
               "Path": 0,
               "Ordinal": 26,
               "Hits": 0
             },
             {
               "Line": 45,
-              "Offset": 9509,
-              "EndOffset": 9623,
+              "Offset": 9527,
+              "EndOffset": 9641,
               "Path": 1,
               "Ordinal": 27,
               "Hits": 0
             },
             {
               "Line": 46,
-              "Offset": 10125,
-              "EndOffset": 10127,
+              "Offset": 10143,
+              "EndOffset": 10145,
               "Path": 0,
               "Ordinal": 28,
               "Hits": 0
             },
             {
               "Line": 46,
-              "Offset": 10125,
-              "EndOffset": 10239,
+              "Offset": 10143,
+              "EndOffset": 10257,
               "Path": 1,
               "Ordinal": 29,
               "Hits": 0
             },
             {
               "Line": 64,
-              "Offset": 10827,
-              "EndOffset": 10829,
+              "Offset": 10845,
+              "EndOffset": 10847,
               "Path": 0,
               "Ordinal": 30,
               "Hits": 0
             },
             {
               "Line": 64,
-              "Offset": 10827,
-              "EndOffset": 10941,
+              "Offset": 10845,
+              "EndOffset": 10959,
               "Path": 1,
               "Ordinal": 31,
               "Hits": 0
             },
             {
               "Line": 68,
-              "Offset": 11407,
-              "EndOffset": 11409,
+              "Offset": 11425,
+              "EndOffset": 11427,
               "Path": 0,
               "Ordinal": 32,
               "Hits": 0
             },
             {
               "Line": 68,
-              "Offset": 11407,
-              "EndOffset": 11521,
+              "Offset": 11425,
+              "EndOffset": 11539,
               "Path": 1,
               "Ordinal": 33,
               "Hits": 0
             },
             {
               "Line": 69,
-              "Offset": 12181,
-              "EndOffset": 12183,
+              "Offset": 12199,
+              "EndOffset": 12201,
               "Path": 0,
               "Ordinal": 34,
               "Hits": 0
             },
             {
               "Line": 69,
-              "Offset": 12181,
-              "EndOffset": 12295,
+              "Offset": 12199,
+              "EndOffset": 12313,
               "Path": 1,
               "Ordinal": 35,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 12797,
-              "EndOffset": 12799,
+              "Offset": 12815,
+              "EndOffset": 12817,
               "Path": 0,
               "Ordinal": 36,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 12797,
-              "EndOffset": 12911,
+              "Offset": 12815,
+              "EndOffset": 12929,
               "Path": 1,
               "Ordinal": 37,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 13375,
-              "EndOffset": 13377,
+              "Offset": 13393,
+              "EndOffset": 13395,
               "Path": 0,
               "Ordinal": 38,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 13375,
-              "EndOffset": 13489,
+              "Offset": 13393,
+              "EndOffset": 13507,
               "Path": 1,
               "Ordinal": 39,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 13869,
-              "EndOffset": 13871,
+              "Offset": 13887,
+              "EndOffset": 13889,
               "Path": 0,
               "Ordinal": 40,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 13869,
-              "EndOffset": 13983,
+              "Offset": 13887,
+              "EndOffset": 14001,
               "Path": 1,
               "Ordinal": 41,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 14363,
-              "EndOffset": 14365,
+              "Offset": 14381,
+              "EndOffset": 14383,
               "Path": 0,
               "Ordinal": 42,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 14363,
-              "EndOffset": 14477,
+              "Offset": 14381,
+              "EndOffset": 14495,
               "Path": 1,
               "Ordinal": 43,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 14857,
-              "EndOffset": 14859,
+              "Offset": 14875,
+              "EndOffset": 14877,
               "Path": 0,
               "Ordinal": 44,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 14857,
-              "EndOffset": 14971,
+              "Offset": 14875,
+              "EndOffset": 14989,
               "Path": 1,
               "Ordinal": 45,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 15351,
-              "EndOffset": 15353,
+              "Offset": 15369,
+              "EndOffset": 15371,
               "Path": 0,
               "Ordinal": 46,
               "Hits": 0
             },
             {
               "Line": 70,
-              "Offset": 15351,
-              "EndOffset": 15465,
+              "Offset": 15369,
+              "EndOffset": 15483,
               "Path": 1,
               "Ordinal": 47,
               "Hits": 0
             },
             {
               "Line": 122,
-              "Offset": 15931,
-              "EndOffset": 15933,
+              "Offset": 15949,
+              "EndOffset": 15951,
               "Path": 0,
               "Ordinal": 48,
               "Hits": 0
             },
             {
               "Line": 122,
-              "Offset": 15931,
-              "EndOffset": 16045,
+              "Offset": 15949,
+              "EndOffset": 16063,
               "Path": 1,
               "Ordinal": 49,
               "Hits": 0
             },
             {
               "Line": 123,
-              "Offset": 16555,
-              "EndOffset": 16557,
+              "Offset": 16573,
+              "EndOffset": 16575,
               "Path": 0,
               "Ordinal": 50,
               "Hits": 0
             },
             {
               "Line": 123,
-              "Offset": 16555,
-              "EndOffset": 16669,
+              "Offset": 16573,
+              "EndOffset": 16687,
               "Path": 1,
               "Ordinal": 51,
               "Hits": 0
             },
             {
               "Line": 123,
-              "Offset": 17071,
-              "EndOffset": 17073,
+              "Offset": 17089,
+              "EndOffset": 17091,
               "Path": 0,
               "Ordinal": 52,
               "Hits": 0
             },
             {
               "Line": 123,
-              "Offset": 17071,
-              "EndOffset": 17185,
+              "Offset": 17089,
+              "EndOffset": 17203,
               "Path": 1,
               "Ordinal": 53,
+              "Hits": 0
+            },
+            {
+              "Line": 123,
+              "Offset": 17605,
+              "EndOffset": 17607,
+              "Path": 0,
+              "Ordinal": 54,
+              "Hits": 0
+            },
+            {
+              "Line": 123,
+              "Offset": 17605,
+              "EndOffset": 17719,
+              "Path": 1,
+              "Ordinal": 55,
               "Hits": 0
             }
           ]
@@ -8163,132 +8234,127 @@
       "EduPortal.Controllers.SubscriberController": {
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Index()": {
           "Lines": {
-            "48": 1,
-            "49": 1,
-            "50": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Create()": {
-          "Lines": {
-            "54": 1,
-            "55": 1,
-            "56": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::CreateCorporate()": {
-          "Lines": {
-            "60": 1,
-            "61": 1,
-            "62": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::CreateIndividual()": {
-          "Lines": {
-            "83": 1,
-            "84": 1,
-            "85": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Find()": {
-          "Lines": {
-            "106": 1,
-            "107": 1,
-            "108": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::FindIndividual()": {
-          "Lines": {
-            "112": 1,
-            "113": 1,
-            "114": 1
-          },
-          "Branches": []
-        },
-        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::FindCorporate()": {
-          "Lines": {
-            "125": 1,
-            "126": 1,
-            "127": 1
+            "35": 1,
+            "36": 1,
+            "37": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Terminate()": {
           "Lines": {
-            "138": 1,
-            "139": 1,
-            "140": 1
+            "42": 1,
+            "43": 1,
+            "44": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Create()": {
+          "Lines": {
+            "49": 1,
+            "50": 1,
+            "51": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::CreateCorporate()": {
+          "Lines": {
+            "55": 1,
+            "56": 1,
+            "57": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::CreateIndividual()": {
+          "Lines": {
+            "79": 1,
+            "80": 1,
+            "81": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::Find()": {
+          "Lines": {
+            "104": 1,
+            "105": 1,
+            "106": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::FindIndividual()": {
+          "Lines": {
+            "115": 1,
+            "117": 1,
+            "118": 1
+          },
+          "Branches": []
+        },
+        "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::FindCorporate()": {
+          "Lines": {
+            "172": 1,
+            "174": 1,
+            "175": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::TerminateCorporate()": {
           "Lines": {
-            "144": 1,
-            "145": 1,
-            "146": 1
+            "188": 1,
+            "190": 1,
+            "191": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::TerminateIndividual()": {
           "Lines": {
-            "157": 1,
-            "158": 1,
-            "159": 1
+            "204": 1,
+            "206": 1,
+            "207": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.Controllers.SubscriberController::AddressRegister()": {
           "Lines": {
-            "183": 1,
-            "184": 1,
-            "185": 1
+            "265": 1,
+            "266": 1,
+            "267": 1
           },
           "Branches": []
         },
-        "System.Void EduPortal.Controllers.SubscriberController::.ctor(NToastNotify.IToastNotification,EduPortal.Application.Interfaces.Services.IFakeDataService,EduPortal.Application.Interfaces.Services.ISubsIndividualService,EduPortal.Application.Interfaces.Services.ISubsCorporateService,EduPortal.Application.Interfaces.Services.IAddressService,EduPortal.Application.Interfaces.Services.ICacheService)": {
+        "System.Void EduPortal.Controllers.SubscriberController::.ctor(NToastNotify.IToastNotification,AutoMapper.IMapper,EduPortal.Application.Interfaces.Services.IFakeDataService,EduPortal.Application.Interfaces.Services.ISubsIndividualService,EduPortal.Application.Interfaces.Services.ISubsCorporateService,EduPortal.Application.Interfaces.Services.IAddressService,EduPortal.Application.Interfaces.Services.ICacheService,EduPortal.Application.Interfaces.Services.IMailService)": {
           "Lines": {
-            "29": 24,
-            "30": 24,
-            "31": 24,
-            "32": 24,
-            "33": 24,
-            "34": 24,
-            "35": 24,
-            "36": 24,
-            "37": 24,
-            "38": 24,
-            "39": 24,
-            "40": 24,
-            "41": 24,
-            "42": 24,
-            "43": 24,
-            "44": 24
+            "20": 23,
+            "21": 23,
+            "22": 23,
+            "23": 23,
+            "24": 23,
+            "25": 23,
+            "26": 23,
+            "27": 23,
+            "28": 23,
+            "29": 23,
+            "30": 23
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<CreateCorporate>d__10": {
-        "System.Void EduPortal.Controllers.SubscriberController/<CreateCorporate>d__10::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<CreateCorporate>d__11": {
+        "System.Void EduPortal.Controllers.SubscriberController/<CreateCorporate>d__11::MoveNext()": {
           "Lines": {
-            "66": 3,
-            "67": 4,
-            "69": 2,
-            "70": 2,
+            "61": 3,
+            "62": 4,
+            "64": 2,
+            "65": 2,
+            "66": 1,
+            "68": 1,
+            "70": 1,
             "71": 1,
             "72": 1,
-            "74": 1,
-            "75": 1,
-            "76": 1,
-            "77": 1,
-            "79": 3
+            "73": 1,
+            "75": 3
           },
           "Branches": [
             {
-              "Line": 67,
+              "Line": 62,
               "Offset": 36,
               "EndOffset": 38,
               "Path": 0,
@@ -8296,7 +8362,7 @@
               "Hits": 1
             },
             {
-              "Line": 67,
+              "Line": 62,
               "Offset": 36,
               "EndOffset": 60,
               "Path": 1,
@@ -8306,35 +8372,35 @@
           ]
         }
       },
-      "EduPortal.Controllers.SubscriberController/<CreateFakeData>d__26": {
-        "System.Void EduPortal.Controllers.SubscriberController/<CreateFakeData>d__26::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<CreateFakeData>d__15": {
+        "System.Void EduPortal.Controllers.SubscriberController/<CreateFakeData>d__15::MoveNext()": {
           "Lines": {
-            "189": 1,
-            "190": 1,
-            "191": 1,
-            "192": 1
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<CreateIndividual>d__12": {
-        "System.Void EduPortal.Controllers.SubscriberController/<CreateIndividual>d__12::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<CreateIndividual>d__13": {
+        "System.Void EduPortal.Controllers.SubscriberController/<CreateIndividual>d__13::MoveNext()": {
           "Lines": {
-            "89": 3,
-            "90": 4,
-            "92": 2,
-            "93": 2,
-            "94": 1,
+            "85": 3,
+            "86": 4,
+            "88": 2,
+            "89": 2,
+            "90": 1,
+            "93": 1,
             "95": 1,
+            "96": 1,
             "97": 1,
             "98": 1,
-            "99": 1,
-            "100": 1,
-            "102": 3
+            "100": 3
           },
           "Branches": [
             {
-              "Line": 90,
+              "Line": 86,
               "Offset": 36,
               "EndOffset": 38,
               "Path": 0,
@@ -8342,7 +8408,7 @@
               "Hits": 1
             },
             {
-              "Line": 90,
+              "Line": 86,
               "Offset": 36,
               "EndOffset": 60,
               "Path": 1,
@@ -8352,88 +8418,88 @@
           ]
         }
       },
-      "EduPortal.Controllers.SubscriberController/<FindCorporate>d__17": {
-        "System.Void EduPortal.Controllers.SubscriberController/<FindCorporate>d__17::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<FindCorporate>d__19": {
+        "System.Void EduPortal.Controllers.SubscriberController/<FindCorporate>d__19::MoveNext()": {
           "Lines": {
-            "131": 1,
+            "179": 1,
+            "180": 1,
+            "182": 1,
+            "183": 1
+          },
+          "Branches": []
+        }
+      },
+      "EduPortal.Controllers.SubscriberController/<FindIndividual>d__17": {
+        "System.Void EduPortal.Controllers.SubscriberController/<FindIndividual>d__17::MoveNext()": {
+          "Lines": {
+            "126": 1,
+            "130": 1,
             "132": 1,
-            "133": 1,
-            "134": 1
+            "133": 1
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<FindIndividual>d__15": {
-        "System.Void EduPortal.Controllers.SubscriberController/<FindIndividual>d__15::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<GetAddressData>d__27": {
+        "System.Void EduPortal.Controllers.SubscriberController/<GetAddressData>d__27::MoveNext()": {
           "Lines": {
-            "118": 1,
-            "119": 1,
-            "120": 1,
-            "121": 1
+            "271": 1,
+            "272": 1,
+            "273": 1,
+            "274": 1
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<GetAddressData>d__23": {
-        "System.Void EduPortal.Controllers.SubscriberController/<GetAddressData>d__23::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<GetAddressData>d__28": {
+        "System.Void EduPortal.Controllers.SubscriberController/<GetAddressData>d__28::MoveNext()": {
           "Lines": {
-            "170": 1,
-            "171": 1,
-            "172": 1,
-            "173": 1
+            "278": 1,
+            "279": 1,
+            "280": 1
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<GetAddressData>d__24": {
-        "System.Void EduPortal.Controllers.SubscriberController/<GetAddressData>d__24::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<TerminateCorporate>d__21": {
+        "System.Void EduPortal.Controllers.SubscriberController/<TerminateCorporate>d__21::MoveNext()": {
           "Lines": {
-            "177": 1,
-            "178": 1,
-            "179": 1
+            "195": 1,
+            "196": 1,
+            "197": 1,
+            "198": 1
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<TerminateCorporate>d__20": {
-        "System.Void EduPortal.Controllers.SubscriberController/<TerminateCorporate>d__20::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<TerminateIndividual>d__23": {
+        "System.Void EduPortal.Controllers.SubscriberController/<TerminateIndividual>d__23::MoveNext()": {
           "Lines": {
-            "150": 1,
-            "151": 1,
-            "152": 1,
-            "153": 1
+            "211": 1,
+            "212": 1,
+            "213": 1,
+            "214": 1
           },
           "Branches": []
         }
       },
-      "EduPortal.Controllers.SubscriberController/<TerminateIndividual>d__22": {
-        "System.Void EduPortal.Controllers.SubscriberController/<TerminateIndividual>d__22::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<TerminateSubsCorporate>d__25": {
+        "System.Void EduPortal.Controllers.SubscriberController/<TerminateSubsCorporate>d__25::MoveNext()": {
           "Lines": {
-            "163": 1,
-            "164": 1,
-            "165": 1,
-            "166": 1
-          },
-          "Branches": []
-        }
-      },
-      "EduPortal.Controllers.SubscriberController/<TerminateSubsCorporate>d__28": {
-        "System.Void EduPortal.Controllers.SubscriberController/<TerminateSubsCorporate>d__28::MoveNext()": {
-          "Lines": {
-            "213": 0,
-            "214": 0,
-            "216": 0,
-            "217": 0,
-            "218": 0,
-            "219": 0,
-            "222": 0,
-            "223": 0,
-            "224": 0,
-            "225": 0
+            "239": 0,
+            "240": 0,
+            "242": 0,
+            "243": 0,
+            "244": 0,
+            "246": 0,
+            "249": 0,
+            "250": 0,
+            "252": 0,
+            "253": 0
           },
           "Branches": [
             {
-              "Line": 216,
+              "Line": 242,
               "Offset": 176,
               "EndOffset": 178,
               "Path": 0,
@@ -8441,7 +8507,7 @@
               "Hits": 0
             },
             {
-              "Line": 218,
+              "Line": 244,
               "Offset": 212,
               "EndOffset": 214,
               "Path": 0,
@@ -8449,7 +8515,7 @@
               "Hits": 0
             },
             {
-              "Line": 218,
+              "Line": 244,
               "Offset": 212,
               "EndOffset": 218,
               "Path": 1,
@@ -8457,7 +8523,7 @@
               "Hits": 0
             },
             {
-              "Line": 216,
+              "Line": 242,
               "Offset": 176,
               "EndOffset": 254,
               "Path": 1,
@@ -8467,24 +8533,24 @@
           ]
         }
       },
-      "EduPortal.Controllers.SubscriberController/<TerminateSubsIndividual>d__27": {
-        "System.Void EduPortal.Controllers.SubscriberController/<TerminateSubsIndividual>d__27::MoveNext()": {
+      "EduPortal.Controllers.SubscriberController/<TerminateSubsIndividual>d__24": {
+        "System.Void EduPortal.Controllers.SubscriberController/<TerminateSubsIndividual>d__24::MoveNext()": {
           "Lines": {
-            "196": 0,
-            "197": 0,
-            "199": 0,
-            "200": 0,
-            "201": 0,
-            "202": 0,
-            "203": 0,
-            "206": 0,
-            "207": 0,
-            "208": 0,
-            "209": 0
+            "219": 0,
+            "220": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "227": 0,
+            "230": 0,
+            "231": 0,
+            "233": 0,
+            "234": 0
           },
           "Branches": [
             {
-              "Line": 199,
+              "Line": 222,
               "Offset": 176,
               "EndOffset": 178,
               "Path": 0,
@@ -8492,7 +8558,7 @@
               "Hits": 0
             },
             {
-              "Line": 201,
+              "Line": 224,
               "Offset": 212,
               "EndOffset": 214,
               "Path": 0,
@@ -8500,7 +8566,7 @@
               "Hits": 0
             },
             {
-              "Line": 201,
+              "Line": 224,
               "Offset": 212,
               "EndOffset": 218,
               "Path": 1,
@@ -8508,7 +8574,7 @@
               "Hits": 0
             },
             {
-              "Line": 199,
+              "Line": 222,
               "Offset": 176,
               "EndOffset": 277,
               "Path": 1,
@@ -8996,14 +9062,14 @@
             "45": 0,
             "46": 0,
             "51": 0,
-            "56": 0,
             "57": 0,
-            "59": 0,
-            "61": 0,
-            "65": 0,
-            "66": 0,
-            "71": 0,
-            "72": 0
+            "58": 0,
+            "62": 0,
+            "64": 0,
+            "68": 0,
+            "69": 0,
+            "76": 0,
+            "77": 0
           },
           "Branches": []
         }
@@ -9106,7 +9172,7 @@
           },
           "Branches": []
         },
-        "System.Void EduPortal.MVC.Controllers.HomeController::.ctor(EduPortal.Application.Messaging.RabbitMQConsumerService,EduPortal.Application.Services.RabbitMQPublisherService,EduPortal.MVC.Controllers.LanguageService,EduPortal.Application.Interfaces.Services.ICacheService,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger`1<EduPortal.MVC.Controllers.HomeController>,EduPortal.Persistence.context.AppDbContext,Microsoft.AspNetCore.Identity.UserManager`1<EduPortal.Models.Entities.AppUser>,Microsoft.AspNetCore.Identity.SignInManager`1<EduPortal.Models.Entities.AppUser>,NToastNotify.IToastNotification)": {
+        "System.Void EduPortal.MVC.Controllers.HomeController::.ctor(EduPortal.Application.Messaging.RabbitMQConsumerService,EduPortal.Application.Services.IRabbitMQPublisherService,EduPortal.MVC.Controllers.LanguageService,EduPortal.Application.Interfaces.Services.ICacheService,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger`1<EduPortal.MVC.Controllers.HomeController>,EduPortal.Persistence.context.AppDbContext,Microsoft.AspNetCore.Identity.UserManager`1<EduPortal.Models.Entities.AppUser>,Microsoft.AspNetCore.Identity.SignInManager`1<EduPortal.Models.Entities.AppUser>,NToastNotify.IToastNotification)": {
           "Lines": {
             "38": 0,
             "39": 0,
@@ -9387,39 +9453,39 @@
       "EduPortal.MVC.Controllers.InvoiceController": {
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.MVC.Controllers.InvoiceController::Find()": {
           "Lines": {
-            "23": 0,
-            "24": 0,
-            "25": 0
+            "23": 1,
+            "24": 1,
+            "25": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.MVC.Controllers.InvoiceController::PaymentIndividual()": {
           "Lines": {
-            "35": 0,
-            "36": 0,
-            "37": 0
+            "35": 1,
+            "36": 1,
+            "37": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.MVC.Controllers.InvoiceController::PaymentCorporate()": {
           "Lines": {
-            "48": 0,
-            "49": 0,
-            "50": 0
+            "48": 1,
+            "49": 1,
+            "50": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult EduPortal.MVC.Controllers.InvoiceController::Complaint()": {
           "Lines": {
-            "73": 0,
-            "74": 0,
-            "75": 0
+            "73": 1,
+            "74": 1,
+            "75": 1
           },
           "Branches": []
         },
         "System.Void EduPortal.MVC.Controllers.InvoiceController::.ctor(EduPortal.Application.Interfaces.Services.IInvoiceService)": {
           "Lines": {
-            "16": 7
+            "16": 11
           },
           "Branches": []
         }
@@ -9660,10 +9726,10 @@
         },
         "System.Void EduPortal.Persistence.Repositories.AddressRepository::.ctor(EduPortal.Persistence.context.AppDbContext)": {
           "Lines": {
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1
           },
           "Branches": []
         }
@@ -9754,10 +9820,10 @@
       "EduPortal.Persistence.Repositories.AddressRepository/<GetCounterNumber>d__2": {
         "System.Void EduPortal.Persistence.Repositories.AddressRepository/<GetCounterNumber>d__2::MoveNext()": {
           "Lines": {
-            "25": 0,
-            "26": 0,
-            "27": 0,
-            "28": 0
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 1
           },
           "Branches": []
         }
@@ -9823,11 +9889,11 @@
         },
         "System.Void EduPortal.Persistence.Repositories.GenericRepository`2::.ctor(EduPortal.Persistence.context.AppDbContext)": {
           "Lines": {
-            "20": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0,
-            "24": 0
+            "20": 23,
+            "21": 23,
+            "22": 23,
+            "23": 23,
+            "24": 23
           },
           "Branches": []
         }
@@ -9902,11 +9968,11 @@
       "EduPortal.Persistence.Repositories.InvoiceRepository": {
         "System.Void EduPortal.Persistence.Repositories.InvoiceRepository::.ctor(EduPortal.Persistence.context.AppDbContext,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.SubsCorporate,System.Int32>)": {
           "Lines": {
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2
           },
           "Branches": []
         }
@@ -9914,9 +9980,9 @@
       "EduPortal.Persistence.Repositories.InvoiceRepository/<AnyInvoiceAsync>d__3": {
         "System.Void EduPortal.Persistence.Repositories.InvoiceRepository/<AnyInvoiceAsync>d__3::MoveNext()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "28": 0
+            "26": 2,
+            "27": 2,
+            "28": 2
           },
           "Branches": []
         }
@@ -9926,10 +9992,10 @@
       "EduPortal.Persistence.Repositories.QueueRepository": {
         "System.Void EduPortal.Persistence.Repositories.QueueRepository::.ctor(EduPortal.Persistence.context.AppDbContext)": {
           "Lines": {
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1
           },
           "Branches": []
         }
@@ -9937,7 +10003,7 @@
       "EduPortal.Persistence.Repositories.QueueRepository/<>c": {
         "System.ValueTuple`2<System.Int32,System.Int32> EduPortal.Persistence.Repositories.QueueRepository/<>c::<GetUnpaidInvoices>b__2_0(<>f__AnonymousType22`2<System.Int32,System.Int32>)": {
           "Lines": {
-            "36": 0
+            "36": 6
           },
           "Branches": []
         }
@@ -9945,19 +10011,19 @@
       "EduPortal.Persistence.Repositories.QueueRepository/<GetUnpaidInvoices>d__2": {
         "System.Void EduPortal.Persistence.Repositories.QueueRepository/<GetUnpaidInvoices>d__2::MoveNext()": {
           "Lines": {
-            "25": 0,
-            "26": 0,
-            "27": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1,
             "38": 0,
             "39": 0,
             "40": 0,
             "43": 0,
-            "45": 0
+            "45": 1
           },
           "Branches": []
         }
@@ -9967,21 +10033,11 @@
       "EduPortal.Persistence.Repositories.SubsCorporateRepository": {
         "System.Void EduPortal.Persistence.Repositories.SubsCorporateRepository::.ctor(EduPortal.Persistence.context.AppDbContext,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.SubsCorporate,System.Int32>)": {
           "Lines": {
-            "21": 0,
-            "22": 0,
-            "23": 0,
-            "24": 0,
-            "25": 0
-          },
-          "Branches": []
-        }
-      },
-      "EduPortal.Persistence.Repositories.SubsCorporateRepository/<CreateCorporateSubscription>d__4": {
-        "System.Void EduPortal.Persistence.Repositories.SubsCorporateRepository/<CreateCorporateSubscription>d__4::MoveNext()": {
-          "Lines": {
-            "37": 0,
-            "38": 0,
-            "39": 0
+            "21": 4,
+            "22": 4,
+            "23": 4,
+            "24": 4,
+            "25": 4
           },
           "Branches": []
         }
@@ -9989,12 +10045,12 @@
       "EduPortal.Persistence.Repositories.SubsCorporateRepository/<FindCorporateAsync>d__3": {
         "System.Void EduPortal.Persistence.Repositories.SubsCorporateRepository/<FindCorporateAsync>d__3::MoveNext()": {
           "Lines": {
-            "28": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0
+            "28": 4,
+            "30": 4,
+            "31": 4,
+            "32": 4,
+            "33": 4,
+            "34": 4
           },
           "Branches": []
         }
@@ -10004,10 +10060,10 @@
       "EduPortal.Persistence.Repositories.SubscriberRepository": {
         "System.Void EduPortal.Persistence.Repositories.SubscriberRepository::.ctor(EduPortal.Persistence.context.AppDbContext)": {
           "Lines": {
-            "16": 0,
-            "17": 0,
-            "18": 0,
-            "19": 0
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "19": 2
           },
           "Branches": []
         }
@@ -10340,21 +10396,21 @@
       "EduPortal.Persistence.Repositories.SubscriberRepository/<GetSubscriberInfoAsync>d__3": {
         "System.Void EduPortal.Persistence.Repositories.SubscriberRepository/<GetSubscriberInfoAsync>d__3::MoveNext()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "29": 0,
+            "26": 1,
+            "27": 1,
+            "29": 1,
             "30": 0,
             "31": 0,
-            "34": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
-            "39": 0,
+            "34": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
             "41": 0,
             "42": 0,
             "43": 0,
-            "45": 0,
-            "46": 0
+            "45": 1,
+            "46": 1
           },
           "Branches": [
             {
@@ -10371,7 +10427,7 @@
               "EndOffset": 363,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 36,
@@ -10379,7 +10435,7 @@
               "EndOffset": 404,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 36,
@@ -10395,9 +10451,9 @@
       "EduPortal.Persistence.Repositories.SubscriberRepository/<HasUnpaidInvoices>d__2": {
         "System.Void EduPortal.Persistence.Repositories.SubscriberRepository/<HasUnpaidInvoices>d__2::MoveNext()": {
           "Lines": {
-            "22": 0,
-            "23": 0,
-            "24": 0
+            "22": 1,
+            "23": 1,
+            "24": 1
           },
           "Branches": []
         }
@@ -10407,34 +10463,24 @@
       "EduPortal.Persistence.Repositories.SubsIndividualRepository": {
         "System.Void EduPortal.Persistence.Repositories.SubsIndividualRepository::.ctor(EduPortal.Persistence.context.AppDbContext,EduPortal.Application.Interfaces.Repositories.IGenericRepository`2<EduPortal.Domain.Entities.SubsIndividual,System.Int32>)": {
           "Lines": {
-            "23": 0,
-            "24": 0,
-            "25": 0,
-            "26": 0,
-            "27": 0
+            "23": 4,
+            "24": 4,
+            "25": 4,
+            "26": 4,
+            "27": 4
           },
           "Branches": []
         }
       },
-      "EduPortal.Persistence.Repositories.SubsIndividualRepository/<CreateIndividualSubscription>d__3": {
-        "System.Void EduPortal.Persistence.Repositories.SubsIndividualRepository/<CreateIndividualSubscription>d__3::MoveNext()": {
+      "EduPortal.Persistence.Repositories.SubsIndividualRepository/<FindIndividualAsync>d__3": {
+        "System.Void EduPortal.Persistence.Repositories.SubsIndividualRepository/<FindIndividualAsync>d__3::MoveNext()": {
           "Lines": {
-            "31": 0,
-            "32": 0,
-            "35": 0
-          },
-          "Branches": []
-        }
-      },
-      "EduPortal.Persistence.Repositories.SubsIndividualRepository/<FindIndividualAsync>d__4": {
-        "System.Void EduPortal.Persistence.Repositories.SubsIndividualRepository/<FindIndividualAsync>d__4::MoveNext()": {
-          "Lines": {
-            "38": 0,
-            "39": 0,
-            "40": 0,
-            "41": 0,
-            "42": 0,
-            "43": 0
+            "32": 4,
+            "33": 4,
+            "34": 4,
+            "35": 4,
+            "36": 4,
+            "37": 4
           },
           "Branches": []
         }
@@ -19104,6 +19150,837 @@
         }
       }
     },
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\Migrations\\20240603183649_CorrectMigration.cs": {
+      "EduPortal.Persistence.Migrations.CorrectMigration": {
+        "System.Void EduPortal.Persistence.Migrations.CorrectMigration::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "12": 0,
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Void EduPortal.Persistence.Migrations.CorrectMigration::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "18": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\Migrations\\20240603183649_CorrectMigration.Designer.cs": {
+      "EduPortal.Persistence.Migrations.CorrectMigration": {
+        "System.Void EduPortal.Persistence.Migrations.CorrectMigration::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "241": 0,
+            "242": 0,
+            "243": 0,
+            "244": 0,
+            "245": 0,
+            "246": 0,
+            "247": 0,
+            "248": 0,
+            "249": 0,
+            "251": 0,
+            "252": 0,
+            "253": 0,
+            "254": 0,
+            "255": 0,
+            "256": 0,
+            "257": 0,
+            "258": 0,
+            "259": 0,
+            "260": 0,
+            "261": 0,
+            "262": 0,
+            "263": 0,
+            "264": 0,
+            "265": 0,
+            "266": 0,
+            "267": 0,
+            "268": 0,
+            "269": 0,
+            "270": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "274": 0,
+            "275": 0,
+            "276": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "280": 0,
+            "281": 0,
+            "282": 0,
+            "283": 0,
+            "284": 0,
+            "285": 0,
+            "286": 0,
+            "287": 0,
+            "288": 0,
+            "289": 0,
+            "290": 0,
+            "291": 0,
+            "292": 0,
+            "293": 0,
+            "294": 0,
+            "295": 0,
+            "296": 0,
+            "297": 0,
+            "298": 0,
+            "299": 0,
+            "300": 0,
+            "301": 0,
+            "302": 0,
+            "303": 0,
+            "304": 0,
+            "305": 0,
+            "306": 0,
+            "307": 0,
+            "308": 0,
+            "309": 0,
+            "310": 0,
+            "311": 0,
+            "312": 0,
+            "313": 0,
+            "314": 0,
+            "315": 0,
+            "316": 0,
+            "317": 0,
+            "318": 0,
+            "319": 0,
+            "320": 0,
+            "321": 0,
+            "322": 0,
+            "323": 0,
+            "324": 0,
+            "325": 0,
+            "326": 0,
+            "327": 0,
+            "328": 0,
+            "329": 0,
+            "330": 0,
+            "331": 0,
+            "332": 0,
+            "333": 0,
+            "334": 0,
+            "335": 0,
+            "336": 0,
+            "337": 0,
+            "338": 0,
+            "339": 0,
+            "340": 0,
+            "341": 0,
+            "343": 0,
+            "344": 0,
+            "345": 0,
+            "346": 0,
+            "347": 0,
+            "348": 0,
+            "349": 0,
+            "350": 0,
+            "351": 0,
+            "352": 0,
+            "353": 0,
+            "354": 0,
+            "355": 0,
+            "356": 0,
+            "357": 0,
+            "358": 0,
+            "359": 0,
+            "360": 0,
+            "361": 0,
+            "362": 0,
+            "363": 0,
+            "364": 0,
+            "365": 0,
+            "366": 0,
+            "367": 0,
+            "368": 0,
+            "369": 0,
+            "370": 0,
+            "371": 0,
+            "372": 0,
+            "373": 0,
+            "374": 0,
+            "375": 0,
+            "376": 0,
+            "377": 0,
+            "378": 0,
+            "379": 0,
+            "380": 0,
+            "381": 0,
+            "382": 0,
+            "383": 0,
+            "385": 0,
+            "386": 0,
+            "387": 0,
+            "388": 0,
+            "389": 0,
+            "390": 0,
+            "391": 0,
+            "392": 0,
+            "393": 0,
+            "394": 0,
+            "395": 0,
+            "396": 0,
+            "397": 0,
+            "398": 0,
+            "399": 0,
+            "400": 0,
+            "401": 0,
+            "402": 0,
+            "403": 0,
+            "404": 0,
+            "405": 0,
+            "406": 0,
+            "407": 0,
+            "408": 0,
+            "409": 0,
+            "410": 0,
+            "411": 0,
+            "412": 0,
+            "413": 0,
+            "414": 0,
+            "415": 0,
+            "416": 0,
+            "417": 0,
+            "418": 0,
+            "419": 0,
+            "420": 0,
+            "421": 0,
+            "422": 0,
+            "423": 0,
+            "424": 0,
+            "425": 0,
+            "426": 0,
+            "427": 0,
+            "428": 0,
+            "429": 0,
+            "431": 0,
+            "432": 0,
+            "433": 0,
+            "434": 0,
+            "435": 0,
+            "436": 0,
+            "437": 0,
+            "438": 0,
+            "439": 0,
+            "440": 0,
+            "441": 0,
+            "442": 0,
+            "443": 0,
+            "444": 0,
+            "445": 0,
+            "446": 0,
+            "447": 0,
+            "448": 0,
+            "449": 0,
+            "450": 0,
+            "451": 0,
+            "452": 0,
+            "453": 0,
+            "454": 0,
+            "455": 0,
+            "456": 0,
+            "457": 0,
+            "458": 0,
+            "459": 0,
+            "460": 0,
+            "461": 0,
+            "462": 0,
+            "463": 0,
+            "464": 0,
+            "465": 0,
+            "466": 0,
+            "467": 0,
+            "468": 0,
+            "469": 0,
+            "470": 0,
+            "471": 0,
+            "473": 0,
+            "474": 0,
+            "475": 0,
+            "476": 0,
+            "477": 0,
+            "478": 0,
+            "479": 0,
+            "480": 0,
+            "481": 0,
+            "482": 0,
+            "483": 0,
+            "484": 0,
+            "485": 0,
+            "486": 0,
+            "487": 0,
+            "488": 0,
+            "489": 0,
+            "490": 0,
+            "491": 0,
+            "492": 0,
+            "493": 0,
+            "494": 0,
+            "495": 0,
+            "496": 0,
+            "497": 0,
+            "498": 0,
+            "499": 0,
+            "500": 0,
+            "501": 0,
+            "502": 0,
+            "503": 0,
+            "504": 0,
+            "505": 0,
+            "506": 0,
+            "507": 0,
+            "508": 0,
+            "509": 0,
+            "510": 0,
+            "511": 0,
+            "512": 0,
+            "513": 0,
+            "514": 0,
+            "515": 0,
+            "516": 0,
+            "517": 0,
+            "518": 0,
+            "519": 0,
+            "520": 0,
+            "521": 0,
+            "522": 0,
+            "523": 0,
+            "524": 0,
+            "525": 0,
+            "526": 0,
+            "527": 0,
+            "528": 0,
+            "529": 0,
+            "530": 0,
+            "531": 0,
+            "532": 0,
+            "533": 0,
+            "534": 0,
+            "535": 0,
+            "536": 0,
+            "537": 0,
+            "538": 0,
+            "539": 0,
+            "540": 0,
+            "541": 0,
+            "542": 0,
+            "543": 0,
+            "544": 0,
+            "545": 0,
+            "546": 0,
+            "547": 0,
+            "548": 0,
+            "549": 0,
+            "550": 0,
+            "551": 0,
+            "553": 0,
+            "554": 0,
+            "555": 0,
+            "556": 0,
+            "557": 0,
+            "558": 0,
+            "559": 0,
+            "560": 0,
+            "561": 0,
+            "562": 0,
+            "563": 0,
+            "564": 0,
+            "565": 0,
+            "566": 0,
+            "567": 0,
+            "568": 0,
+            "569": 0,
+            "570": 0,
+            "571": 0,
+            "572": 0,
+            "573": 0,
+            "574": 0,
+            "575": 0,
+            "576": 0,
+            "577": 0,
+            "578": 0,
+            "579": 0,
+            "580": 0,
+            "581": 0,
+            "583": 0,
+            "584": 0,
+            "585": 0,
+            "586": 0,
+            "587": 0,
+            "588": 0,
+            "589": 0,
+            "590": 0,
+            "591": 0,
+            "592": 0,
+            "593": 0,
+            "594": 0,
+            "595": 0,
+            "596": 0,
+            "597": 0,
+            "598": 0,
+            "599": 0,
+            "600": 0,
+            "601": 0,
+            "602": 0,
+            "603": 0,
+            "604": 0,
+            "605": 0,
+            "606": 0,
+            "607": 0,
+            "608": 0,
+            "610": 0,
+            "611": 0,
+            "612": 0,
+            "613": 0,
+            "614": 0,
+            "615": 0,
+            "616": 0,
+            "617": 0,
+            "618": 0,
+            "619": 0,
+            "620": 0,
+            "621": 0,
+            "622": 0,
+            "623": 0,
+            "624": 0,
+            "625": 0,
+            "626": 0,
+            "627": 0,
+            "628": 0,
+            "629": 0,
+            "630": 0,
+            "631": 0,
+            "632": 0,
+            "634": 0,
+            "635": 0,
+            "636": 0,
+            "637": 0,
+            "638": 0,
+            "639": 0,
+            "640": 0,
+            "641": 0,
+            "642": 0,
+            "643": 0,
+            "644": 0,
+            "645": 0,
+            "646": 0,
+            "647": 0,
+            "648": 0,
+            "649": 0,
+            "650": 0,
+            "651": 0,
+            "652": 0,
+            "653": 0,
+            "654": 0,
+            "655": 0,
+            "656": 0,
+            "658": 0,
+            "659": 0,
+            "660": 0,
+            "661": 0,
+            "662": 0,
+            "663": 0,
+            "664": 0,
+            "665": 0,
+            "666": 0,
+            "667": 0,
+            "668": 0,
+            "669": 0,
+            "670": 0,
+            "671": 0,
+            "672": 0,
+            "673": 0,
+            "674": 0,
+            "675": 0,
+            "676": 0,
+            "677": 0,
+            "679": 0,
+            "680": 0,
+            "681": 0,
+            "682": 0,
+            "683": 0,
+            "684": 0,
+            "685": 0,
+            "686": 0,
+            "687": 0,
+            "688": 0,
+            "689": 0,
+            "690": 0,
+            "691": 0,
+            "692": 0,
+            "693": 0,
+            "694": 0,
+            "695": 0,
+            "696": 0,
+            "698": 0,
+            "699": 0,
+            "700": 0,
+            "701": 0,
+            "702": 0,
+            "703": 0,
+            "704": 0,
+            "705": 0,
+            "706": 0,
+            "707": 0,
+            "708": 0,
+            "709": 0,
+            "710": 0,
+            "711": 0,
+            "713": 0,
+            "714": 0,
+            "715": 0,
+            "716": 0,
+            "717": 0,
+            "718": 0,
+            "719": 0,
+            "720": 0,
+            "721": 0,
+            "722": 0,
+            "723": 0,
+            "724": 0,
+            "725": 0,
+            "726": 0,
+            "727": 0,
+            "728": 0,
+            "729": 0,
+            "731": 0,
+            "732": 0,
+            "733": 0,
+            "734": 0,
+            "735": 0,
+            "736": 0,
+            "737": 0,
+            "738": 0,
+            "739": 0,
+            "740": 0,
+            "742": 0,
+            "743": 0,
+            "744": 0,
+            "745": 0,
+            "746": 0,
+            "747": 0,
+            "748": 0,
+            "749": 0,
+            "750": 0,
+            "751": 0,
+            "753": 0,
+            "754": 0,
+            "755": 0,
+            "756": 0,
+            "757": 0,
+            "758": 0,
+            "759": 0,
+            "760": 0,
+            "761": 0,
+            "762": 0,
+            "764": 0,
+            "765": 0,
+            "766": 0,
+            "767": 0,
+            "768": 0,
+            "769": 0,
+            "770": 0,
+            "771": 0,
+            "772": 0,
+            "773": 0,
+            "774": 0,
+            "775": 0,
+            "776": 0,
+            "777": 0,
+            "778": 0,
+            "779": 0,
+            "780": 0,
+            "781": 0,
+            "783": 0,
+            "784": 0,
+            "785": 0,
+            "786": 0,
+            "787": 0,
+            "788": 0,
+            "789": 0,
+            "790": 0,
+            "792": 0,
+            "793": 0,
+            "794": 0,
+            "795": 0,
+            "796": 0,
+            "797": 0,
+            "798": 0,
+            "799": 0,
+            "801": 0,
+            "802": 0,
+            "803": 0,
+            "804": 0,
+            "805": 0,
+            "806": 0,
+            "807": 0,
+            "808": 0,
+            "810": 0,
+            "811": 0,
+            "812": 0,
+            "813": 0,
+            "814": 0,
+            "815": 0,
+            "816": 0,
+            "817": 0,
+            "819": 0,
+            "820": 0,
+            "821": 0,
+            "822": 0,
+            "823": 0,
+            "824": 0,
+            "825": 0,
+            "826": 0,
+            "828": 0,
+            "829": 0,
+            "830": 0,
+            "831": 0,
+            "832": 0,
+            "833": 0,
+            "834": 0,
+            "835": 0,
+            "837": 0,
+            "838": 0,
+            "839": 0,
+            "840": 0,
+            "841": 0,
+            "843": 0,
+            "844": 0,
+            "845": 0,
+            "846": 0,
+            "848": 0,
+            "849": 0,
+            "850": 0,
+            "851": 0,
+            "853": 0,
+            "854": 0,
+            "855": 0,
+            "856": 0,
+            "857": 0,
+            "858": 0,
+            "859": 0,
+            "861": 0
+          },
+          "Branches": []
+        }
+      }
+    },
     "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\Migrations\\AppDbContextModelSnapshot.cs": {
       "EduPortal.Persistence.Migrations.AppDbContextModelSnapshot": {
         "System.Void EduPortal.Persistence.Migrations.AppDbContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
@@ -19132,7 +20009,6 @@
             "41": 0,
             "42": 0,
             "43": 0,
-            "44": 0,
             "45": 0,
             "46": 0,
             "47": 0,
@@ -19165,8 +20041,8 @@
             "74": 0,
             "75": 0,
             "76": 0,
+            "77": 0,
             "78": 0,
-            "79": 0,
             "80": 0,
             "81": 0,
             "82": 0,
@@ -19183,7 +20059,6 @@
             "93": 0,
             "94": 0,
             "95": 0,
-            "96": 0,
             "97": 0,
             "98": 0,
             "99": 0,
@@ -19221,7 +20096,6 @@
             "132": 0,
             "133": 0,
             "134": 0,
-            "135": 0,
             "136": 0,
             "137": 0,
             "138": 0,
@@ -19241,7 +20115,6 @@
             "152": 0,
             "153": 0,
             "154": 0,
-            "155": 0,
             "156": 0,
             "157": 0,
             "158": 0,
@@ -19332,9 +20205,9 @@
             "244": 0,
             "245": 0,
             "246": 0,
-            "247": 0,
             "248": 0,
             "249": 0,
+            "250": 0,
             "251": 0,
             "252": 0,
             "253": 0,
@@ -19380,6 +20253,7 @@
             "293": 0,
             "294": 0,
             "295": 0,
+            "296": 0,
             "297": 0,
             "298": 0,
             "299": 0,
@@ -19421,7 +20295,7 @@
             "335": 0,
             "336": 0,
             "337": 0,
-            "339": 0,
+            "338": 0,
             "340": 0,
             "341": 0,
             "342": 0,
@@ -19463,7 +20337,6 @@
             "378": 0,
             "379": 0,
             "380": 0,
-            "381": 0,
             "382": 0,
             "383": 0,
             "384": 0,
@@ -19500,6 +20373,7 @@
             "415": 0,
             "416": 0,
             "417": 0,
+            "418": 0,
             "419": 0,
             "420": 0,
             "421": 0,
@@ -19508,7 +20382,6 @@
             "424": 0,
             "425": 0,
             "426": 0,
-            "427": 0,
             "428": 0,
             "429": 0,
             "430": 0,
@@ -19529,6 +20402,7 @@
             "445": 0,
             "446": 0,
             "447": 0,
+            "448": 0,
             "449": 0,
             "450": 0,
             "451": 0,
@@ -19549,12 +20423,12 @@
             "466": 0,
             "467": 0,
             "468": 0,
-            "469": 0,
             "470": 0,
             "471": 0,
             "472": 0,
             "473": 0,
             "474": 0,
+            "475": 0,
             "476": 0,
             "477": 0,
             "478": 0,
@@ -19578,6 +20452,7 @@
             "496": 0,
             "497": 0,
             "498": 0,
+            "499": 0,
             "500": 0,
             "501": 0,
             "502": 0,
@@ -19601,6 +20476,7 @@
             "520": 0,
             "521": 0,
             "522": 0,
+            "523": 0,
             "524": 0,
             "525": 0,
             "526": 0,
@@ -19621,11 +20497,11 @@
             "541": 0,
             "542": 0,
             "543": 0,
+            "544": 0,
             "545": 0,
             "546": 0,
             "547": 0,
             "548": 0,
-            "549": 0,
             "550": 0,
             "551": 0,
             "552": 0,
@@ -19639,6 +20515,7 @@
             "560": 0,
             "561": 0,
             "562": 0,
+            "563": 0,
             "564": 0,
             "565": 0,
             "566": 0,
@@ -19653,7 +20530,7 @@
             "575": 0,
             "576": 0,
             "577": 0,
-            "579": 0,
+            "578": 0,
             "580": 0,
             "581": 0,
             "582": 0,
@@ -19670,6 +20547,7 @@
             "593": 0,
             "594": 0,
             "595": 0,
+            "596": 0,
             "597": 0,
             "598": 0,
             "599": 0,
@@ -19678,7 +20556,7 @@
             "602": 0,
             "603": 0,
             "604": 0,
-            "606": 0,
+            "605": 0,
             "607": 0,
             "608": 0,
             "609": 0,
@@ -19688,6 +20566,7 @@
             "613": 0,
             "614": 0,
             "615": 0,
+            "616": 0,
             "617": 0,
             "618": 0,
             "619": 0,
@@ -19698,9 +20577,9 @@
             "624": 0,
             "625": 0,
             "626": 0,
+            "627": 0,
             "628": 0,
             "629": 0,
-            "630": 0,
             "631": 0,
             "632": 0,
             "633": 0,
@@ -19716,6 +20595,7 @@
             "643": 0,
             "644": 0,
             "645": 0,
+            "646": 0,
             "647": 0,
             "648": 0,
             "649": 0,
@@ -19723,7 +20603,7 @@
             "651": 0,
             "652": 0,
             "653": 0,
-            "654": 0,
+            "655": 0,
             "656": 0,
             "657": 0,
             "658": 0,
@@ -19732,6 +20612,7 @@
             "661": 0,
             "662": 0,
             "663": 0,
+            "664": 0,
             "665": 0,
             "666": 0,
             "667": 0,
@@ -19740,14 +20621,15 @@
             "670": 0,
             "671": 0,
             "672": 0,
+            "673": 0,
             "674": 0,
-            "675": 0,
             "676": 0,
             "677": 0,
             "678": 0,
             "679": 0,
             "680": 0,
             "681": 0,
+            "682": 0,
             "683": 0,
             "684": 0,
             "685": 0,
@@ -19756,27 +20638,30 @@
             "688": 0,
             "689": 0,
             "690": 0,
+            "691": 0,
             "692": 0,
             "693": 0,
-            "694": 0,
             "695": 0,
             "696": 0,
             "697": 0,
             "698": 0,
             "699": 0,
+            "700": 0,
             "701": 0,
             "702": 0,
             "703": 0,
             "704": 0,
             "705": 0,
+            "706": 0,
             "707": 0,
             "708": 0,
-            "709": 0,
             "710": 0,
+            "711": 0,
             "712": 0,
             "713": 0,
             "714": 0,
             "715": 0,
+            "716": 0,
             "717": 0,
             "718": 0,
             "719": 0,
@@ -19784,7 +20669,126 @@
             "721": 0,
             "722": 0,
             "723": 0,
-            "725": 0
+            "724": 0,
+            "725": 0,
+            "726": 0,
+            "728": 0,
+            "729": 0,
+            "730": 0,
+            "731": 0,
+            "732": 0,
+            "733": 0,
+            "734": 0,
+            "735": 0,
+            "736": 0,
+            "737": 0,
+            "739": 0,
+            "740": 0,
+            "741": 0,
+            "742": 0,
+            "743": 0,
+            "744": 0,
+            "745": 0,
+            "746": 0,
+            "747": 0,
+            "748": 0,
+            "750": 0,
+            "751": 0,
+            "752": 0,
+            "753": 0,
+            "754": 0,
+            "755": 0,
+            "756": 0,
+            "757": 0,
+            "758": 0,
+            "759": 0,
+            "761": 0,
+            "762": 0,
+            "763": 0,
+            "764": 0,
+            "765": 0,
+            "766": 0,
+            "767": 0,
+            "768": 0,
+            "769": 0,
+            "770": 0,
+            "771": 0,
+            "772": 0,
+            "773": 0,
+            "774": 0,
+            "775": 0,
+            "776": 0,
+            "777": 0,
+            "778": 0,
+            "780": 0,
+            "781": 0,
+            "782": 0,
+            "783": 0,
+            "784": 0,
+            "785": 0,
+            "786": 0,
+            "787": 0,
+            "789": 0,
+            "790": 0,
+            "791": 0,
+            "792": 0,
+            "793": 0,
+            "794": 0,
+            "795": 0,
+            "796": 0,
+            "798": 0,
+            "799": 0,
+            "800": 0,
+            "801": 0,
+            "802": 0,
+            "803": 0,
+            "804": 0,
+            "805": 0,
+            "807": 0,
+            "808": 0,
+            "809": 0,
+            "810": 0,
+            "811": 0,
+            "812": 0,
+            "813": 0,
+            "814": 0,
+            "816": 0,
+            "817": 0,
+            "818": 0,
+            "819": 0,
+            "820": 0,
+            "821": 0,
+            "822": 0,
+            "823": 0,
+            "825": 0,
+            "826": 0,
+            "827": 0,
+            "828": 0,
+            "829": 0,
+            "830": 0,
+            "831": 0,
+            "832": 0,
+            "834": 0,
+            "835": 0,
+            "836": 0,
+            "837": 0,
+            "838": 0,
+            "840": 0,
+            "841": 0,
+            "842": 0,
+            "843": 0,
+            "845": 0,
+            "846": 0,
+            "847": 0,
+            "848": 0,
+            "850": 0,
+            "851": 0,
+            "852": 0,
+            "853": 0,
+            "854": 0,
+            "855": 0,
+            "856": 0,
+            "858": 0
           },
           "Branches": []
         }
@@ -20084,160 +21088,121 @@
       "EduPortal.Persistence.context.AppDbContext": {
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Subscriber> EduPortal.Persistence.context.AppDbContext::get_Subscribers()": {
           "Lines": {
-            "36": 0
+            "29": 19
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.SubsIndividual> EduPortal.Persistence.context.AppDbContext::get_Individuals()": {
           "Lines": {
-            "37": 0
+            "30": 19
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.SubsCorporate> EduPortal.Persistence.context.AppDbContext::get_Corprorates()": {
           "Lines": {
-            "38": 0
+            "31": 18
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Invoice> EduPortal.Persistence.context.AppDbContext::get_Invoices()": {
           "Lines": {
-            "39": 0
+            "32": 28
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.MeterReading> EduPortal.Persistence.context.AppDbContext::get_MeterReadings()": {
           "Lines": {
-            "40": 0
+            "33": 14
           },
           "Branches": []
         },
-        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.InvoiceComplaint> EduPortal.Persistence.context.AppDbContext::get_invoiceComplaints()": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.InvoiceComplaint> EduPortal.Persistence.context.AppDbContext::get_InvoiceComplaints()": {
           "Lines": {
-            "41": 0
+            "34": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.OutboxMessage> EduPortal.Persistence.context.AppDbContext::get_OutboxMessages()": {
           "Lines": {
-            "42": 0
+            "35": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Models.Entities.AppUser> EduPortal.Persistence.context.AppDbContext::get_AppUsers()": {
           "Lines": {
-            "46": 0
+            "36": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Models.Entities.AppRole> EduPortal.Persistence.context.AppDbContext::get_AppRoles()": {
           "Lines": {
-            "47": 0
+            "37": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Models.Entities.AppUserRole> EduPortal.Persistence.context.AppDbContext::get_AppUserRoles()": {
           "Lines": {
-            "48": 0
+            "38": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Models.Entities.AppUserProfile> EduPortal.Persistence.context.AppDbContext::get_Profiles()": {
           "Lines": {
-            "49": 0
+            "39": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_IcKapi> EduPortal.Persistence.context.AppDbContext::get_Ad_IcKapi()": {
           "Lines": {
-            "52": 0
+            "40": 14
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Sayac> EduPortal.Persistence.context.AppDbContext::get_Ad_Sayac()": {
           "Lines": {
-            "53": 0
+            "41": 16
           },
           "Branches": []
         },
-        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Ilce> EduPortal.Persistence.context.AppDbContext::get_Ad_Ilceler()": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Ilce> EduPortal.Persistence.context.AppDbContext::get_Ad_Ilce()": {
           "Lines": {
-            "54": 0
+            "42": 18
           },
           "Branches": []
         },
-        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Mahalle> EduPortal.Persistence.context.AppDbContext::get_Ad_Mahalleler()": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Mahalle> EduPortal.Persistence.context.AppDbContext::get_Ad_Mahalle()": {
           "Lines": {
-            "55": 0
+            "43": 19
           },
           "Branches": []
         },
-        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Sokak> EduPortal.Persistence.context.AppDbContext::get_Ad_Sokaklar()": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_Sokak> EduPortal.Persistence.context.AppDbContext::get_Ad_Sokak()": {
           "Lines": {
-            "56": 0
+            "44": 14
           },
           "Branches": []
         },
-        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_DisKapi> EduPortal.Persistence.context.AppDbContext::get_Ad_Diskapi()": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<EduPortal.Domain.Entities.Ad_DisKapi> EduPortal.Persistence.context.AppDbContext::get_Ad_DisKapi()": {
           "Lines": {
-            "57": 0
+            "45": 14
           },
           "Branches": []
         },
         "System.Void EduPortal.Persistence.context.AppDbContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": {
           "Lines": {
-            "77": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "83": 0,
-            "84": 0,
-            "85": 0
-          },
-          "Branches": []
-        },
-        "System.Void EduPortal.Persistence.context.AppDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
-          "Lines": {
-            "90": 0,
-            "91": 0,
-            "93": 0,
-            "96": 0,
-            "97": 0,
-            "98": 0,
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "106": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0,
-            "111": 0,
-            "112": 0,
-            "113": 0,
-            "114": 0,
-            "115": 0,
-            "116": 0
+            "48": 14,
+            "49": 14,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 14,
+            "56": 14
           },
           "Branches": [
             {
-              "Line": 111,
-              "Offset": 245,
-              "EndOffset": 203,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            },
-            {
-              "Line": 111,
-              "Offset": 245,
-              "EndOffset": 247,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 109,
+              "Line": 49,
               "Offset": 12,
               "EndOffset": 14,
               "Path": 0,
@@ -20245,22 +21210,78 @@
               "Hits": 0
             },
             {
-              "Line": 109,
+              "Line": 49,
+              "Offset": 12,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 14
+            }
+          ]
+        },
+        "System.Void EduPortal.Persistence.context.AppDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "59": 1,
+            "60": 1,
+            "61": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "68": 1,
+            "69": 1,
+            "70": 21,
+            "71": 171,
+            "73": 31,
+            "74": 14,
+            "75": 14,
+            "76": 14,
+            "77": 14,
+            "78": 1
+          },
+          "Branches": [
+            {
+              "Line": 73,
+              "Offset": 228,
+              "EndOffset": 186,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 14
+            },
+            {
+              "Line": 73,
+              "Offset": 228,
+              "EndOffset": 230,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 71,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 145
+            },
+            {
+              "Line": 71,
               "Offset": 12,
               "EndOffset": 21,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 170
             }
           ]
         },
         "System.Void EduPortal.Persistence.context.AppDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<EduPortal.Persistence.context.AppDbContext>,Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Caching.Distributed.IDistributedCache)": {
           "Lines": {
-            "29": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "34": 0
+            "23": 14,
+            "24": 14,
+            "25": 14,
+            "26": 14,
+            "27": 14
           },
           "Branches": []
         }
@@ -20270,12 +21291,12 @@
       "EduPortal.Persistence.Configurations.AppUserConfiguration": {
         "System.Void EduPortal.Persistence.Configurations.AppUserConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<EduPortal.Models.Entities.AppUser>)": {
           "Lines": {
-            "11": 0,
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "19": 0,
-            "20": 0
+            "11": 2,
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "19": 2,
+            "20": 2
           },
           "Branches": []
         }
@@ -20285,11 +21306,11 @@
       "EduPortal.Models.Configurations.AppRoleConfiguration": {
         "System.Void EduPortal.Models.Configurations.AppRoleConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<EduPortal.Models.Entities.AppRole>)": {
           "Lines": {
-            "9": 0,
-            "10": 0,
-            "11": 0,
-            "12": 0,
-            "13": 0
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2
           },
           "Branches": []
         }
@@ -20299,15 +21320,15 @@
       "EduPortal.Models.Configurations.AppUserRoleConfiguration": {
         "System.Void EduPortal.Models.Configurations.AppUserRoleConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<EduPortal.Models.Entities.AppUserRole>)": {
           "Lines": {
-            "9": 0,
-            "10": 0,
-            "11": 0,
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "16": 0,
-            "17": 0
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "15": 2,
+            "16": 2,
+            "17": 2
           },
           "Branches": []
         }
@@ -20317,8 +21338,8 @@
       "EduPortal.Models.Configurations.BaseConfiguration`1": {
         "System.Void EduPortal.Models.Configurations.BaseConfiguration`1::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<T>)": {
           "Lines": {
-            "10": 0,
-            "12": 0
+            "10": 7,
+            "12": 7
           },
           "Branches": []
         }
@@ -20328,9 +21349,9 @@
       "EduPortal.Models.Configurations.ProfileConfiguration": {
         "System.Void EduPortal.Models.Configurations.ProfileConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<EduPortal.Models.Entities.AppUserProfile>)": {
           "Lines": {
-            "9": 0,
-            "10": 0,
-            "12": 0
+            "9": 1,
+            "10": 1,
+            "12": 1
           },
           "Branches": []
         }

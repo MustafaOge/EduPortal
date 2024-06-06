@@ -39,6 +39,7 @@ namespace EduPortal.Persistence.Services
 
                 if (invoice == null)
                 {
+                    toast.AddErrorToastMessage("Fatura bulunamadı");
                     return Response<int>.Fail("Fatura bulunamadı", HttpStatusCode.NotFound);
                 }
 
@@ -112,6 +113,8 @@ namespace EduPortal.Persistence.Services
             return Response<List<Invoice>>.Success(invoices, HttpStatusCode.OK);
         }
 
+
+
         public async Task<Response<InvoiceDetailView>> DetailPay(int id)
         {
             Invoice invoice = await invoiceRepository.GetByIdAsync(id);
@@ -133,7 +136,7 @@ namespace EduPortal.Persistence.Services
             return Response<InvoiceDetailView>.Success(viewModel, HttpStatusCode.OK);
         }
 
-        private async Task<Subscriber> GetSubscriberAsync(Invoice invoice)
+        public async Task<Subscriber> GetSubscriberAsync(Invoice invoice)
         {
             if (invoice.Subscriber != null)
             {

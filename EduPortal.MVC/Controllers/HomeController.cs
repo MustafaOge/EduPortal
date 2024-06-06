@@ -30,12 +30,12 @@ namespace EduPortal.MVC.Controllers
         private readonly ICacheService _cacheService;
         //private LanguageService _localization;
         private readonly LanguageService _localization;
-        private readonly RabbitMQPublisherService _rabbitMQPublisher;
+        private readonly IRabbitMQPublisherService _rabbitMQPublisher;
         private readonly RabbitMQConsumerService _rabbitMQConsumerService;
 
 
 
-        public HomeController(RabbitMQConsumerService rabbitMQConsumerService , RabbitMQPublisherService rabbitMQPublisher,LanguageService localization, ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
+        public HomeController(RabbitMQConsumerService rabbitMQConsumerService , IRabbitMQPublisherService rabbitMQPublisher,LanguageService localization, ICacheService cacheservice, IDistributedCache distributedCache,ILogger<HomeController> logger,  AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IToastNotification toast )
         {
             _logger = logger;
             _userManager = userManager;

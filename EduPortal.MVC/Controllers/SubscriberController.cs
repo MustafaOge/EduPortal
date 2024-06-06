@@ -107,7 +107,7 @@ namespace EduPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateFakeData()
         {
-            await fakeDataService.CreateCounterNumber();
+            fakeDataService.CreateFakeSubsIndividualData();
             return RedirectToAction("Index");
         }
 

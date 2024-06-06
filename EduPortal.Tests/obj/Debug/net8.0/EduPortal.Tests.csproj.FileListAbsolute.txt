@@ -533,3 +533,17 @@ C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\obj\Debug\net8.0\refint
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\obj\Debug\net8.0\EduPortal.Tests.pdb
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\obj\Debug\net8.0\EduPortal.Tests.genruntimeconfig.cache
 C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\obj\Debug\net8.0\ref\EduPortal.Tests.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\MvcTestingAppManifest.json
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Docker.DotNet.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Docker.DotNet.X509.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\MediatR.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Testing.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.TestHost.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Renci.SshNet.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\SshNet.Security.Cryptography.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Testcontainers.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\bin\Debug\net8.0\Testcontainers.MsSql.dll
+C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.Tests\obj\Debug\net8.0\MvcTestingAppManifest.json

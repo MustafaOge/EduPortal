@@ -7,7 +7,7 @@ using EduPortal.Application.Services;
 using EduPortal.Domain.Entities;
 using System.ComponentModel;
 
-namespace EduPortal.Tests
+namespace EduPortal.Tests.UnitTests
 {
     public class AddressServiceTests
     {
@@ -47,6 +47,7 @@ namespace EduPortal.Tests
 
             // Assert
             Assert.NotNull(result);
+            Assert.IsType<string>(result);
             Assert.Equal(expectedCounterNumber, result);
         }
 

@@ -27,12 +27,6 @@ namespace EduPortal.Persistence.Repositories
         }
 
 
-        public async Task CreateIndividualSubscription(SubsIndividual subsIndividual)
-        {
-         await _genericRepository.AddAsync(subsIndividual);
-            //_context.SaveChangesAsync(); // Bu satır eklenerek SavingChanges metodu çalıştırılabilir.
-
-        }
 
         public async Task<SubsIndividual> FindIndividualAsync(string counterOrIdentityNumber)
         {

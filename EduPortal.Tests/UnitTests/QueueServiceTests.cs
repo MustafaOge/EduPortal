@@ -14,7 +14,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EduPortal.Tests;
+namespace EduPortal.Tests.UnitTests;
 
 public class QueueServiceTests
 {

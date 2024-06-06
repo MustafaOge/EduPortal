@@ -72,10 +72,10 @@ namespace EduPortal.Persistence.Repositories
 
         public async Task<IEnumerable<object>> GetAddressData()
         {
-            var ilceler = await _context. Ad_Ilceler.ToListAsync();
-            var mahalleler = await _context.Ad_Mahalleler.ToListAsync();
-            var sokaklar = await _context.Ad_Sokaklar.ToListAsync();
-            var disKapilar = await _context.Ad_Diskapi.ToListAsync();
+            var ilceler = await _context. Ad_Ilce.ToListAsync();
+            var mahalleler = await _context.Ad_Mahalle.ToListAsync();
+            var sokaklar = await _context.Ad_Sokak.ToListAsync();
+            var disKapilar = await _context.Ad_DisKapi.ToListAsync();
             var icKapilar = await _context.Ad_IcKapi.ToListAsync();
 
             var data = new

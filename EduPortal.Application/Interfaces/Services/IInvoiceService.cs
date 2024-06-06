@@ -17,5 +17,7 @@ namespace EduPortal.Application.Interfaces.Services
         Task<Response<List<Invoice>>> GetInvoiceDetail(int id);
         Task<Response<InvoiceDetailView>> DetailPay(int id);
         Task<Response<InvoiceComplaint>> CreateComplaint(InvoiceComplaint model);
+
+        Task<Subscriber> GetSubscriberAsync(Invoice invoice);
     }
 }

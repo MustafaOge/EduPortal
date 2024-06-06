@@ -11,12 +11,12 @@ using EduPortal.Domain.Enums;
 
 namespace EduPortal.Application.Messaging
 {
-    public interface IRabbitMQConsumerService
-    {
-         Task StartConsuming();
+    //public interface IRabbitMQConsumerService
+    //{
+    //     Task StartConsuming();
 
-    }
-    public class RabbitMQConsumerService : IRabbitMQConsumerService
+    //}
+    public class RabbitMQConsumerService 
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly IModel _channel;

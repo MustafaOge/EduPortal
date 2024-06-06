@@ -85,7 +85,7 @@ namespace EduPortal.Persistence.Services
         #region CreateFakeData
         public void CreateFakeInvoiceData()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 200; i++)
             {
                 decimal totalIndex = NumberData.GetNumber(1000, 5000);
                 decimal dayFirstIndex = NumberData.GetNumber(0, 500); // Gündüzün ilk indeksi

@@ -13,7 +13,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduPortal.Tests
+namespace EduPortal.Tests.UnitTests
 {
     public class InvoiceControllerTest
     {
@@ -24,6 +24,15 @@ namespace EduPortal.Tests
         {
             _mockInvoiceService = new Mock<IInvoiceService>();
             _controller = new InvoiceController(_mockInvoiceService.Object);
+        }
+
+        [Fact]
+        public void Find_ExecuteAction_ReturnView()
+        {
+            var result = _controller.Find();
+
+            Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
         }
 
         [Theory]
@@ -42,6 +51,15 @@ namespace EduPortal.Tests
             var redirectResult = Assert.IsType<RedirectToActionResult>(result);
             Assert.Equal("Index", redirectResult.ActionName);
             Assert.Equal("Subscriber", redirectResult.ControllerName);
+        }
+
+        [Fact]
+        public void PaymentIndividual_ExecuteAction_ReturnView()
+        {
+            var result = _controller.PaymentIndividual();
+
+            Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
         }
 
         [Theory]
@@ -68,9 +86,17 @@ namespace EduPortal.Tests
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<SubsIndividual>(viewResult.Model);
-            Assert.NotNull(model); // Model boş olmamalı
+            Assert.NotNull(model);
             Assert.Equal(subsIndividual.CounterNumber, model.CounterNumber);
-            // Diğer özellikler için aynı şekilde devam edebilirsiniz...
+        }
+
+        [Fact]
+        public void PaymentCorporate_ExecuteAction_ReturnView()
+        {
+            var result = _controller.PaymentCorporate();
+
+            Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
         }
 
         [Theory]
@@ -97,9 +123,8 @@ namespace EduPortal.Tests
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<SubsCorporate>(viewResult.Model);
-            Assert.NotNull(model); // Model boş olmamalı
+            Assert.NotNull(model); 
             Assert.Equal(subsCorporate.CounterNumber, model.CounterNumber);
-            // Diğer özellikler için aynı şekilde devam edebilirsiniz...
         }
 
 
@@ -161,6 +186,15 @@ namespace EduPortal.Tests
             Assert.Equal(invoice.Id, model.Invoice.Id);
             Assert.Equal(subscriber.CounterNumber, model.Subscriber.CounterNumber);
             Assert.Equal(meterReadings.Count, model.MeterReadings.Count);
+        }
+
+        [Fact]
+        public void Complaint_ExecuteAction_ReturnView()
+        {
+            var result = _controller.Complaint();
+
+            Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
         }
 
         [Fact]

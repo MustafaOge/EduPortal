@@ -26,10 +26,5 @@ namespace EduPortal.Persistence.Repositories
         {
             return await _context.Set<Invoice>().AnyAsync();
         }
-
-
-
-
-
     }
 }

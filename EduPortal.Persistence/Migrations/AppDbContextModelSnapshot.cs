@@ -22,6 +22,137 @@ namespace EduPortal.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_DisKapi", b =>
+                {
+                    b.Property<long>("disKapiKimlikNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("disKapiKimlikNo"));
+
+                    b.Property<string>("adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("sokakKimlikNo")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("disKapiKimlikNo");
+
+                    b.ToTable("Ad_DisKapi");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_IcKapi", b =>
+                {
+                    b.Property<long>("icKapiKimlikNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("icKapiKimlikNo"));
+
+                    b.Property<string>("adresNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("disKapiKimlikNo")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("icKapiNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ilceKimlikNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("katNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("mahalleKimlikNo")
+                        .HasColumnType("int");
+
+                    b.Property<long>("sokakKimlikNo")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("icKapiKimlikNo");
+
+                    b.ToTable("Ad_IcKapi");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_Ilce", b =>
+                {
+                    b.Property<int>("ilceKimlikNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ilceKimlikNo"));
+
+                    b.Property<string>("adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ilceKimlikNo");
+
+                    b.ToTable("Ad_Ilce");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_Mahalle", b =>
+                {
+                    b.Property<int>("mahalleKimlikNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("mahalleKimlikNo"));
+
+                    b.Property<string>("adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ilceKimlikNo")
+                        .HasColumnType("int");
+
+                    b.HasKey("mahalleKimlikNo");
+
+                    b.ToTable("Ad_Mahalle");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_Sayac", b =>
+                {
+                    b.Property<int>("counterNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("counterNumber"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("icKapiKimlikNo")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("counterNumber");
+
+                    b.ToTable("Ad_Sayac");
+                });
+
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_Sokak", b =>
+                {
+                    b.Property<long>("sokakKimlikNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("sokakKimlikNo"));
+
+                    b.Property<string>("adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("mahalleKimlikNo")
+                        .HasColumnType("int");
+
+                    b.HasKey("sokakKimlikNo");
+
+                    b.ToTable("Ad_Sokak");
+                });
+
             modelBuilder.Entity("EduPortal.Domain.Entities.Invoice", b =>
                 {
                     b.Property<int>("Id")
@@ -55,7 +186,7 @@ namespace EduPortal.Persistence.Migrations
                     b.Property<DateTime>("ReadingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SubscriberId")
+                    b.Property<int>("SubscriberId")
                         .HasColumnType("int");
 
                     b.Property<string>("SubscriberType")
@@ -598,7 +729,9 @@ namespace EduPortal.Persistence.Migrations
                 {
                     b.HasOne("EduPortal.Domain.Entities.Subscriber", "Subscriber")
                         .WithMany("Invoices")
-                        .HasForeignKey("SubscriberId");
+                        .HasForeignKey("SubscriberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Subscriber");
                 });

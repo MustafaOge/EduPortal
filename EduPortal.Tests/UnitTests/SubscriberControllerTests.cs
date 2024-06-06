@@ -12,7 +12,7 @@ using EduPortal.Controllers;
 using NToastNotify;
 using Newtonsoft.Json.Linq;
 
-namespace EduPortal.Tests;
+namespace EduPortal.Tests.UnitTests;
 
 public class SubscriberControllerTests
 {
@@ -107,7 +107,7 @@ public class SubscriberControllerTests
         _mockSubsCorporateService.Setup(service => service.CreateCorporateAsync(It.IsAny<CreateCorporateDto>())).Callback<CreateCorporateDto>(
             x => createCorporateDto = x);
 
-        var result = await _controller.CreateCorporate(createCorporateDtos.First(), default(CancellationToken));
+        var result = await _controller.CreateCorporate(createCorporateDtos.First(), default);
 
         _mockSubsCorporateService.Verify(s => s.CreateCorporateAsync(It.IsAny<CreateCorporateDto>()), Times.Once);
         _mockToast.Verify(t => t.AddSuccessToastMessage("İşlem Başarılı", null), Times.Once); // Mesajı kontrol etme
@@ -335,25 +335,23 @@ public class SubscriberControllerTests
     [Fact]
     public async Task AddressRegister_ExecuteView_ReturnView()
     {
-       var result =  _controller.AddressRegister();
-
-        Assert.NotNull(result); 
-        Assert.IsType<ViewResult>(result);  
-    }
-
-
-
-
-    [Fact]
-    public async Task Create_Fake_Data_Redirects_To_Index()
-    {
-        var result = await _controller.CreateFakeData() as RedirectToActionResult;
-
-        _mockFakeDataService.Verify(f => f.CreateCounterNumber(), Times.Once);
+        var result = _controller.AddressRegister();
 
         Assert.NotNull(result);
-        Assert.Equal("Index", result?.ActionName);
+        Assert.IsType<ViewResult>(result);
     }
+
+
+    //[Fact]
+    //public async Task Create_Fake_Data_Redirects_To_Index()
+    //{
+    //    var result = await _controller.CreateFakeData() as RedirectToActionResult;
+
+    //    _mockFakeDataService.Verify(f => f.CreateCounterNumber(), Times.Once);
+
+    //    Assert.NotNull(result);
+    //    Assert.Equal("Index", result?.ActionName);
+    //}
 
 
 

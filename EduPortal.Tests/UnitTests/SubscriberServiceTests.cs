@@ -11,7 +11,7 @@ using Moq;
 using RabbitMQ.Client;
 using Xunit;
 
-namespace EduPortal.Tests
+namespace EduPortal.Tests.UnitTests
 {
     public class SubscriberServiceTests
     {

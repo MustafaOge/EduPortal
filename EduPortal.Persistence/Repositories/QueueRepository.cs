@@ -29,7 +29,7 @@ namespace EduPortal.Persistence.Repositories
             try
             {
                 var unpaidInvoiceData = await _context.Invoices
-                    .Where(x => !x.IsPaid && x.DueDate >= dueDateThreshold)
+                    .Where(x => !x.IsPaid && x.DueDate < dueDateThreshold)
                     .Select(x => new { Id = x.Id, SubscriberId = x.SubscriberId })
                     .ToListAsync();
 
@@ -37,7 +37,7 @@ namespace EduPortal.Persistence.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"bİR HATA OLUŞTU(GetUnpaidInvoices) : {ex.Message}");
+                Console.WriteLine($"Bir hata oluştu (GetUnpaidInvoices) : {ex.Message}");
 
                 // Hata oluştuğunda bir sonuç döndürün veya null döndürün, işleyen kod buna göre işlem yapabilir
                 return Enumerable.Empty<(int Id, int SubscriberId)>();
@@ -46,5 +46,7 @@ namespace EduPortal.Persistence.Repositories
 
 
 
+
     }
 }
+
