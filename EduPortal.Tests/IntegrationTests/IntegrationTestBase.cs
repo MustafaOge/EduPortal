@@ -1,5 +1,4 @@
 ﻿using EduPortal.Domain.Entities;
-using EduPortal.Persistence.context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -13,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Tests.IntegrationTests
 {
-
     using EduPortal.Persistence.context;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;

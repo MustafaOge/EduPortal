@@ -129,7 +129,7 @@ namespace EduPortal.Persistence.Services
                     ReadingDate = DateTimeData.GetDatetime(new(2023, 2, 10), new(2023, 7, 10)),
                     DueDate = DateTimeData.GetDatetime(new(2024, 3, 10), new(2024, 4, 20)),
                     Date = DateTime.Now,
-                    SubscriberId = NumberData.GetNumber(1, 1200),
+                    SubscriberId = NumberData.GetNumber(4490, 5280),
                     SubscriberType = "Bireysel",
                     MeterReading = meterReading,
                     Amount = (meterReading.TotalDifference) * 1.45m

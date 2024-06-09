@@ -28,6 +28,8 @@ using System.Reflection;
 using Serilog;
 using Serilog.Sinks.Graylog;
 using EduPortal.MVC.Middleware;
+using RabbitMQ.Client;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -115,6 +117,65 @@ builder.Services.ConfigureApplicationCookie(opt =>
 
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 builder.Services.AddScoped<IMailService, MailService>();
+
+
+
+builder.Services.AddSingleton(sp =>
+{
+    var connectionFactory = new ConnectionFactory()
+    {
+        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+    };
+
+    var connection = connectionFactory.CreateConnection();
+
+    var channel = connection.CreateModel();
+    channel.ConfirmSelect();
+
+    channel.ExchangeDeclare("order.created.event.exchange", ExchangeType.Fanout, true, false, null);
+    return channel;
+});
+
+// MassTransit yapýlandýrmasý
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<PaymentStartingMessageConsumer>();
+    x.UsingRabbitMq((context, config) =>
+    {
+        config.Host(new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!), host => { });
+
+        config.UseMessageRetry(r => r.Immediate(5));
+        config.UseMessageRetry(r => r.Interval(5, TimeSpan.FromSeconds(5)));
+
+        config.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15),
+            TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
+
+        config.UseInMemoryOutbox(context);
+
+        // Receive endpoint'lerini yapýlandýrma
+        //config.ReceiveEndpoint("stock.order.created.queue", configureEndpoint =>
+        //{
+        //    configureEndpoint.ConfigureConsumer<OrderCreatedEventConsumerWithMassTransit>(context);
+        //});
+
+        config.ReceiveEndpoint("payment2.order.created.event", configureEndpoint =>
+        {
+            configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
+        });
+    });
+});
+
+// RabbitMQ baðlantýsý için singleton servisi ekleme
+builder.Services.AddSingleton(sp =>
+{
+    var connectionFactory = new ConnectionFactory()
+    {
+        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+    };
+
+    return connectionFactory.CreateConnection();
+});
+
 
 
 

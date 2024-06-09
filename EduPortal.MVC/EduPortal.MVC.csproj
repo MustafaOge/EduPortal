@@ -16,6 +16,8 @@
     <PackageReference Include="Hangfire.AspNetCore" Version="1.8.12" />
     <PackageReference Include="Hangfire.Dashboard.Basic.Authentication" Version="7.0.1" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.12" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.2" />
     <PackageReference Include="MFramework.Services.FakeData" Version="1.0.23" />
     <PackageReference Include="Microsoft.CodeCoverage" Version="17.10.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />

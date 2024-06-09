@@ -19,11 +19,13 @@ namespace EduPortal.Tests.UnitTests
     {
         private readonly Mock<IInvoiceService> _mockInvoiceService;
         private readonly InvoiceController _controller;
+        private readonly IFakeDataService _fakeDataService;
+
 
         public InvoiceControllerTest()
         {
             _mockInvoiceService = new Mock<IInvoiceService>();
-            _controller = new InvoiceController(_mockInvoiceService.Object);
+            _controller = new InvoiceController(_mockInvoiceService.Object, _fakeDataService);
         }
 
         [Fact]

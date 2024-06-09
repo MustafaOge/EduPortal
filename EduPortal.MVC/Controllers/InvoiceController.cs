@@ -13,9 +13,21 @@ using System.Net;
 
 namespace EduPortal.MVC.Controllers
 {
-    public class InvoiceController(IInvoiceService invoiceService)
+    public class InvoiceController(IInvoiceService invoiceService, IFakeDataService fakeDataService)
         : BaseController
     {
+
+        public IActionResult CreateFakeData()
+        {
+            fakeDataService.CreateFakeInvoiceData();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         //[Authorize]
         [HttpGet]

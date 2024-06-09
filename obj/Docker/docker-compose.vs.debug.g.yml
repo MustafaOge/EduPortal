@@ -16,8 +16,8 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=
     volumes:
-      - C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC:/app
-      - C:\Users\Mustafa\Desktop\Portal\backup\8:/src
+      - C:\Users\Mustafa\Desktop\Portal\backup\12\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal.MVC:/app
+      - C:\Users\Mustafa\Desktop\Portal\backup\12\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356:/src
       - C:\Users\Mustafa\vsdbg\vs2017u5:/remote_debugger:rw
       - C:\Users\Mustafa\.nuget\packages\:/.nuget/packages:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

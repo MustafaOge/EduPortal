@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj": {}
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\EduPortal.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj": {
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj",
         "projectName": "EduPortal.Application",
-        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj"
+              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj"
               }
             }
           }
@@ -62,6 +62,14 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.2.2, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
@@ -112,14 +120,14 @@
         }
       }
     },
-    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj",
         "projectName": "EduPortal.Domain",
-        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -187,14 +195,14 @@
         }
       }
     },
-    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj": {
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\EduPortal.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\EduPortal.MVC.csproj",
         "projectName": "EduPortal.MVC",
-        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\EduPortal.MVC.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\EduPortal.MVC.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.MVC\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -210,11 +218,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj"
+              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj"
               },
-              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
+              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\EduPortal.Persistence.csproj"
               }
             }
           }
@@ -252,6 +260,14 @@
             "MFramework.Services.FakeData": {
               "target": "Package",
               "version": "[1.0.23, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.2.2, )"
             },
             "Microsoft.CodeCoverage": {
               "target": "Package",
@@ -323,14 +339,14 @@
         }
       }
     },
-    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
+    "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\EduPortal.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
         "projectName": "EduPortal.Persistence",
-        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\EduPortal.Persistence.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -346,11 +362,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Application\\EduPortal.Application.csproj"
+              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Application\\EduPortal.Application.csproj"
               },
-              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\8\\EduPortal.Domain\\EduPortal.Domain.csproj"
+              "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.Domain\\EduPortal.Domain.csproj"
               }
             }
           }

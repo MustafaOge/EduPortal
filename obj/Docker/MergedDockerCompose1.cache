@@ -1,8 +1,8 @@
-name: dockercompose5351340037822113287
+name: dockercompose8810651433297862696
 services:
   eduportal.mvc:
     build:
-      context: C:\Users\Mustafa\Desktop\Portal\backup\8
+      context: C:\Users\Mustafa\Desktop\Portal\backup\12\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356
       dockerfile: EduPortal.MVC/Dockerfile
       args:
         BUILD_CONFIGURATION: Debug
@@ -64,7 +64,7 @@ services:
         bind:
           create_host_path: true
       - type: bind
-        source: C:\Users\Mustafa\Desktop\Portal\backup\8\EduPortal.MVC
+        source: C:\Users\Mustafa\Desktop\Portal\backup\12\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal.MVC
         target: /app
         bind:
           create_host_path: true
@@ -98,10 +98,10 @@ services:
         bind:
           create_host_path: true
       - type: bind
-        source: C:\Users\Mustafa\Desktop\Portal\backup\8
+        source: C:\Users\Mustafa\Desktop\Portal\backup\12\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356
         target: /src
         bind:
           create_host_path: true
 networks:
   default:
-    name: dockercompose5351340037822113287_default
+    name: dockercompose8810651433297862696_default

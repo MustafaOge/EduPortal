@@ -3,7 +3,6 @@ using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Models.ViewModel;
-using EduPortal.Persistence.context;
 using EduPortal.Service.Services;
 using MFramework.Services.FakeData;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using EduPortal.MVC.Controllers;
 using EduPortal.Application.Services;
 using NToastNotify.Helpers;
+using EduPortal.Application.Messaging;
 namespace EduPortal.Controllers
 {
     public class SubscriberController(
@@ -107,6 +107,8 @@ namespace EduPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateFakeData()
         {
+          //await  orderService.SendMessageAsync("as", "payment2.order.created.event");
+
             fakeDataService.CreateFakeSubsIndividualData();
             return RedirectToAction("Index");
         }

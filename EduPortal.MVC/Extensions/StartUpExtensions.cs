@@ -67,6 +67,7 @@ namespace EduPortal.MVC.Extensions
 
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<PublisherServiceMassTransit>();
 
 
 

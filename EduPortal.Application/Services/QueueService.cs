@@ -27,7 +27,7 @@ namespace EduPortal.Application.Services
             foreach (var invoice in invoices)
             {
                 // Her fatura için uygun aboneyi bulun
-                var subscriber = subscribers.FirstOrDefault(s => s.Id == invoice.SubscriberId && s.Id < 1000);
+                var subscriber = subscribers.FirstOrDefault(s => s.Id == invoice.SubscriberId && s.Id < 4750);
                 if (subscriber != null)
                 {
                     mailInvoices.Add(new MailInvoice { InvoiceId = invoice.Id, SubscriberId = invoice.SubscriberId });
