@@ -124,8 +124,8 @@ Bu mimari, projenin genişleyebilir, sürdürülebilir ve test edilebilir olmas�
 - Proje için XUnit testlerini çalıştırmak için `dotnet test` komutunu kullanın.
 - Tüm testlerin başarıyla geçtiğinden emin olun.
  
+
 ## Veritabanı Diyagramı
 
 ![Logo](https://i.hizliresim.com/emzss85.png)
 
-    [README (1).md](https://github.com/user-attachments/files/16015212/README.1.md)
