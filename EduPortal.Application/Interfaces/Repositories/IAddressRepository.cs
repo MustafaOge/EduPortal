@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Repositories
 {
-    public interface IAddressRepository
+    public interface IAddressRepository:  IGenericRepository<Ad_IcKapi, int>
     {
         /// <summary>
         /// Asynchronously creates counter numbers for internal doors and adds them to the database.
@@ -30,6 +30,17 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <returns></returns>
         Task<Ad_Sayac> GetCounterNumber(string doorNumber);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mahalleAdi"></param>
+        /// <returns></returns>
+        Task<int> GetMahalleKimlikNoByNameAsync(string mahalleAdi);
+
+        
+        List<Subscriber> GetSubscriberList(List<long> mahalleKimlikNumarasi);
+
+        Task<Ad_IcKapi> GetAsync(int neighborhoodId);
 
 
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
+
     public class Ad_Sayac
     {
         [Key]

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EduPortal.Domain.Entities.OutageNotification>
+
+<div class="container">
+    <h2>Kesinti Bilgileri</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Şehir</th>
+                <th>İlçe</th>
+                <th>Mahalle</th>
+                <th>Tarih</th>
+                <th>Başlangıç</th>
+                <th>Bitiş</th>
+                <th>Neden</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var outage in Model)
+            {
+                <tr>
+                    <td>@outage.Province</td>
+                    <td>@outage.District</td>
+                    <td>@outage.EffectedNeighbourhoods</td>
+                    <td>@outage.Date.ToString("dd.MM.yyyy")</td>
+                    <td>@outage.StartTime.ToString("HH:mm")</td>
+                    <td>@outage.EndTime.ToString("HH:mm")</td>
+                    <td>@outage.Reason</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

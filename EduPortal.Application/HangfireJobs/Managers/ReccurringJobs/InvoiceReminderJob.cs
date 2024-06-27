@@ -5,6 +5,7 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
+using EduPortal.Domain.Enums;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,14 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
     {
         private readonly IQueueService _queueService;
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
-        private readonly PublisherServiceMassTransit _publisherServiceMassTransit;
+        private readonly MessagePublisherService _publisherServiceMassTransit;
         private readonly IUnitOfWork _unitOfWork;
 
         public InvoiceReminderJob(
             IQueueService queueService,
             IUnitOfWork unitOfWork,
             IGenericRepository<OutboxMessage, int> outboxMessageRepository,
-            PublisherServiceMassTransit publisherServiceMassTransit)
+            MessagePublisherService publisherServiceMassTransit)
         {
             _unitOfWork = unitOfWork;
             _queueService = queueService ?? throw new ArgumentNullException(nameof(queueService));
@@ -87,7 +88,7 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
 
         private async Task SendMessage(OutboxMessage message)
         {
-            await _publisherServiceMassTransit.SendMessageAsync(message.Payload, "payment2.order.created.event");
+            await _publisherServiceMassTransit.SendMessageAsync(message.Payload, MessageType.InvoiceReminder);
         }
 
         private async Task MarkMessageAsProcessed(OutboxMessage message)

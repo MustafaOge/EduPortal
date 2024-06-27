@@ -11,6 +11,7 @@ namespace EduPortal.Domain.Enums
         ///
         SubscriptionTermination,
         InvoiceReminder,
+        OutageNotification,
         Unknown
     }
 

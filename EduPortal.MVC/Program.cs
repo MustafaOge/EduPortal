@@ -1,4 +1,4 @@
-using CreditWiseHub.Repository.UnitOfWorks;
+﻿using CreditWiseHub.Repository.UnitOfWorks;
 using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.HangfireJobs.Schedules;
 using EduPortal.Application.Interfaces.Repositories;
@@ -13,9 +13,6 @@ using EduPortal.MVC.Controllers;
 using EduPortal.MVC.Extensions;
 using EduPortal.Persistence.context;
 using EduPortal.Persistence.Mapping;
-using EduPortal.Persistence.Repositories;
-using EduPortal.Persistence.Services;
-using EduPortal.Service.Services;
 using FluentValidation.AspNetCore;
 using Hangfire;
 using Microsoft.AspNetCore.Localization;
@@ -30,6 +27,7 @@ using Serilog.Sinks.Graylog;
 using EduPortal.MVC.Middleware;
 using RabbitMQ.Client;
 using MassTransit;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -109,7 +107,7 @@ builder.Services.ConfigureApplicationCookie(opt =>
     opt.ExpireTimeSpan = TimeSpan.FromMinutes(5);
     opt.SlidingExpiration = true; //
     opt.Cookie.Name = "EduPortal";
-    opt.Cookie.SameSite = SameSiteMode.Strict; // �apraz siteleri kabul etme
+    opt.Cookie.SameSite = SameSiteMode.Strict; // çapraz siteleri kabul etme
     opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest; //
     opt.LoginPath = new PathString("/Home/SignIn");
 
@@ -117,7 +115,6 @@ builder.Services.ConfigureApplicationCookie(opt =>
 
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 builder.Services.AddScoped<IMailService, MailService>();
-
 
 
 builder.Services.AddSingleton(sp =>
@@ -132,13 +129,15 @@ builder.Services.AddSingleton(sp =>
     var channel = connection.CreateModel();
     channel.ConfirmSelect();
 
-    channel.ExchangeDeclare("order.created.event.exchange", ExchangeType.Fanout, true, false, null);
+    channel.ExchangeDeclare("payment2.main.queueu", ExchangeType.Fanout, true, false, null);
     return channel;
 });
 
-// MassTransit yap�land�rmas�
+// MassTransit yapýlandýrmasý
 builder.Services.AddMassTransit(x =>
 {
+
+    x.AddConsumer<OutageNotificationConsumer>();
     x.AddConsumer<PaymentStartingMessageConsumer>();
     x.UsingRabbitMq((context, config) =>
     {
@@ -152,20 +151,14 @@ builder.Services.AddMassTransit(x =>
 
         config.UseInMemoryOutbox(context);
 
-        // Receive endpoint'lerini yap�land�rma
-        //config.ReceiveEndpoint("stock.order.created.queue", configureEndpoint =>
-        //{
-        //    configureEndpoint.ConfigureConsumer<OrderCreatedEventConsumerWithMassTransit>(context);
-        //});
-
-        config.ReceiveEndpoint("payment2.order.created.event", configureEndpoint =>
+        config.ReceiveEndpoint("outage-notification-queue", e => e.ConfigureConsumer<OutageNotificationConsumer>(context));
+        config.ReceiveEndpoint("payment2.main.queueu", configureEndpoint =>
         {
             configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
         });
     });
 });
 
-// RabbitMQ ba�lant�s� i�in singleton servisi ekleme
 builder.Services.AddSingleton(sp =>
 {
     var connectionFactory = new ConnectionFactory()
@@ -175,6 +168,8 @@ builder.Services.AddSingleton(sp =>
 
     return connectionFactory.CreateConnection();
 });
+
+
 
 
 
@@ -266,3 +261,159 @@ app.MapControllerRoute(
 app.Run();
 
 public partial class Program { }
+
+
+//builder.Services.AddMassTransit(x =>
+//{
+//    x.AddConsumer<PaymentStartingMessageConsumer_copy>();
+//    x.UsingRabbitMq((context, config) =>
+//    {
+//        config.Host(new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!), host => { });
+
+//        config.UseMessageRetry(r => r.Immediate(5));
+//        config.UseMessageRetry(r => r.Interval(5, TimeSpan.FromSeconds(5)));
+
+
+//        config.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15),
+//            TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
+
+//        config.UseInMemoryOutbox(context);
+
+
+
+
+//        config.ReceiveEndpoint("payment2.order.created.event_copy",
+//            configureEndpoint => { configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer_copy>(context); });
+//    });
+//});
+
+//builder.Services.AddSingleton(sp =>
+//{
+//    var connectionFactory = new ConnectionFactory()
+//    {
+//        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+//    };
+
+//    return connectionFactory.CreateConnection();
+//});
+
+
+//builder.Services.AddMassTransit(x =>
+//{
+//    x.AddConsumer<PaymentStartingMessageConsumer>();
+
+//    x.UsingRabbitMq((context, config) =>
+//    {
+//        config.Host(new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!), host => { });
+
+//        config.UseMessageRetry(r => r.Immediate(5));
+//        config.UseMessageRetry(r => r.Interval(5, TimeSpan.FromSeconds(5)));
+
+//        config.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15),
+//            TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
+
+//        config.UseInMemoryOutbox(context);
+
+
+
+//        // Receive endpoint'lerini yapılandırma
+//        //config.ReceiveEndpoint("stock.order.created.queue", configureEndpoint =>
+//        //{
+//        //    configureEndpoint.ConfigureConsumer<OrderCreatedEventConsumerWithMassTransit>(context);
+//        //});
+
+//        config.ReceiveEndpoint("payment2.order.created.event", configureEndpoint =>
+//        {
+//            configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
+//        });
+//    });
+//});
+
+// RabbitMQ bağlantısı için singleton servisi ekleme
+//builder.Services.AddSingleton(sp =>
+//{
+//    var connectionFactory = new ConnectionFactory()
+//    {
+//        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+//    };
+
+//    return connectionFactory.CreateConnection();
+//});
+
+
+
+
+//builder.Services.AddSingleton(sp =>
+//{
+//    var connectionFactory = new ConnectionFactory()
+//    {
+//        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+//    };
+
+//    return connectionFactory.CreateConnection();
+//});
+
+
+//builder.Services.AddSingleton(sp =>
+//{
+//    var connectionFactory = new ConnectionFactory()
+//    {
+//        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+//    };
+
+//    var connection = connectionFactory.CreateConnection();
+
+//    var channel = connection.CreateModel();
+//    channel.ConfirmSelect();
+
+//    channel.ExchangeDeclare("payment2.order.created.event_copy", ExchangeType.Fanout, true, false, null);
+//    return channel;
+//});
+
+//// MassTransit yapýlandýrmasý
+//builder.Services.AddMassTransit(x =>
+//{
+//    x.AddConsumer<PaymentStartingMessageConsumer>();
+//    x.AddConsumer<PaymentStartingMessageConsumer_copy>();
+
+
+//    x.UsingRabbitMq((context, config) =>
+//    {
+//        config.Host(new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!), host => { });
+
+//        config.UseMessageRetry(r => r.Immediate(5));
+//        config.UseMessageRetry(r => r.Interval(5, TimeSpan.FromSeconds(5)));
+
+//        config.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15),
+//            TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
+
+//        config.UseInMemoryOutbox(context);
+
+//        // Receive endpoint'lerini yapýlandýrma
+//        //config.ReceiveEndpoint("stock.order.created.queue", configureEndpoint =>
+//        //{
+//        //    configureEndpoint.ConfigureConsumer<OrderCreatedEventConsumerWithMassTransit>(context);
+//        //});
+
+//        config.ReceiveEndpoint("payment2.main.queueu", configureEndpoint =>
+//        {
+//            configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
+//        });
+
+
+//        config.ReceiveEndpoint("payment2.order.created.event_copy" +
+//            "",
+//          configureEndpoint => { configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer_copy>(context); });
+//    });
+//});
+
+//// RabbitMQ baðlantýsý için singleton servisi ekleme
+//builder.Services.AddSingleton(sp =>
+//{
+//    var connectionFactory = new ConnectionFactory()
+//    {
+//        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
+//    };
+
+//    return connectionFactory.CreateConnection();
+//});

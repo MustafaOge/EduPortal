@@ -3,6 +3,7 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
+using EduPortal.Domain.Enums;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,10 @@ namespace EduPortal.Application.Services
     public class SubscriberTerminateService : ISubscriberTerminateService
     {
         private readonly IGenericRepository<OutboxMessage, int> _outboxMessageRepository;
-        private readonly PublisherServiceMassTransit _publisherServiceMassTransit;
+        private readonly MessagePublisherService _publisherServiceMassTransit;
         private readonly IUnitOfWork _unitOfWork;
 
-        public SubscriberTerminateService(IUnitOfWork unitOfWork, PublisherServiceMassTransit publisherServiceMassTransit, IGenericRepository<OutboxMessage, int> outboxMessageRepository, IRabbitMQPublisherService rabbitMQPublisher, RabbitMQConsumerService rabbitMQConsumer)
+        public SubscriberTerminateService(IUnitOfWork unitOfWork, MessagePublisherService publisherServiceMassTransit, IGenericRepository<OutboxMessage, int> outboxMessageRepository)
         {
             _outboxMessageRepository = outboxMessageRepository;
             _publisherServiceMassTransit = publisherServiceMassTransit;
@@ -49,7 +50,7 @@ namespace EduPortal.Application.Services
 
             foreach (var item in outboxMessages)
             {
-                await _publisherServiceMassTransit.SendMessageAsync(item.Payload, "payment2.order.created.event");
+                await _publisherServiceMassTransit.SendMessageAsync(item.Payload, MessageType.SubscriptionTermination);
             }
 
             // Gönderme işlemi tamamlandıktan sonra işaretlenmiş mesajları işlemek için başka bir metod çağırılır.

@@ -20,7 +20,8 @@ namespace EduPortal.Service.Services
         ISubscriberRepository subscriberRepository,
         ISubscriberTerminateService subscriberTerminate,
         IAddressService addressService,
-        IMapper mapper
+        IMapper mapper,
+        IOutageNotificationService outageNotificationService
         ) : ISubsIndividualService
     {
         public async Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate)
@@ -32,9 +33,9 @@ namespace EduPortal.Service.Services
                 {
                     return Response<SubsIndividualDto>.Fail("Sayaç numarası bulunamadı veya sağlanmadı.", HttpStatusCode.BadRequest);
                 }
-
                 var individualEntity = mapper.Map<SubsIndividual>(individualCreate);
                 individualEntity.CounterNumber = counterNumber;
+
 
                 await subsIndividualRepository.AddAsync(individualEntity);
                 await unitOfWork.CommitAsync();
@@ -104,7 +105,6 @@ namespace EduPortal.Service.Services
 
             subscriberRepository.Update(subscribers);
             await subscriberTerminate.TerminateSubscriptionAndAddToOutbox(subscribers.Id);
-
 
             await unitOfWork.CommitAsync();
 

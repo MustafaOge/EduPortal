@@ -2336,7 +2336,10 @@
             <line number="69" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="EduPortal.Application.HangfireJobs.Schedules.RecurringJobs" filename="EduPortal.Application\HangfireJobs\Schedules\RecurringJobs.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="EduPortal.Application.
+			   
+			   
+			   Jobs.Schedules.RecurringJobs" filename="EduPortal.Application\HangfireJobs\Schedules\RecurringJobs.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="StartMessageService" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>

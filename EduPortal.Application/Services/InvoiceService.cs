@@ -39,6 +39,7 @@ namespace EduPortal.Persistence.Services
 
                 if (invoice == null)
                 {
+
                     toast.AddErrorToastMessage("Fatura bulunamadı");
                     return Response<int>.Fail("Fatura bulunamadı", HttpStatusCode.NotFound);
                 }

@@ -38,5 +38,8 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <returns>A task that represents the asynchronous operation and returns the invoice reminder message.</returns>
         public Task<string> CreateInvoiceReminderMessage(int invoiceId, int subscriberId);
 
+
+        Task<List<Subscriber>> GetSubscribersByCounterNumberAsync(string counterNumber);
+
     }
 }

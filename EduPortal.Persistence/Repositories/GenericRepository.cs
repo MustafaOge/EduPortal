@@ -30,8 +30,19 @@ namespace EduPortal.Persistence.Repositories
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
         {
-            return await _dbSet.AsNoTracking().Where(expression).ToListAsync();
-
+            try
+            {
+                return await _dbSet
+                    .AsNoTracking()
+                    .Where(expression)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+                {
+                // Hata durumunda burada loglama yapabilirsiniz
+                Console.WriteLine($"Hata: {ex.Message}");
+                throw; // Hatanın yeniden fırlatılması
+            }
         }
 
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)

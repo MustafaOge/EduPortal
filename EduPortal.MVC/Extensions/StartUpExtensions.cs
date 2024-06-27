@@ -54,8 +54,8 @@ namespace EduPortal.MVC.Extensions
 
             //services.AddScoped<IRabbitMQConsumerService>();
 
-            services.AddSingleton<RabbitMQConsumerService>();
-            services.AddScoped<IRabbitMQPublisherService, RabbitMQPublisherService>();
+            //services.AddSingleton<RabbitMQConsumerService>();
+            //services.AddScoped<IRabbitMQPublisherService, RabbitMQPublisherService>();
 
 
 
@@ -67,7 +67,12 @@ namespace EduPortal.MVC.Extensions
 
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IAddressService, AddressService>();
-            services.AddScoped<PublisherServiceMassTransit>();
+            services.AddScoped<MessagePublisherService>();
+
+            services.AddScoped<IOutageNotificationRepository, OutageNotificationRepository>();
+            services.AddScoped<IOutageNotificationService, OutageNotificationService>();
+
+
 
 
 

@@ -12,7 +12,7 @@ namespace EduPortal.Domain.Entities
     {
         [Key]
         public long disKapiKimlikNo { get; set; }
-        public string adi { get; set; } 
+        public string adi { get; set; }
         public long sokakKimlikNo { get; set; }
     }
 }

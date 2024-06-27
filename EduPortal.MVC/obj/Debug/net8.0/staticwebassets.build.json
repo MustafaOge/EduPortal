@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NvRu3+PJ0KcaYHYWp2n3TkpEmvm8yb0Gz6EVpg1Zh/M=",
+  "Hash": "wu62NRaR7Snbhd+lUGIocECXovpwrLDB6UVOynMWGeA=",
   "Source": "EduPortal.MVC",
   "BasePath": "_content/EduPortal.MVC",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\addressdropdown.js"
+    },
+    {
+      "Identity": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\wwwroot\\js\\outagenotification.js",
+      "SourceId": "EduPortal.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\wwwroot\\",
+      "BasePath": "_content/EduPortal.MVC",
+      "RelativePath": "js/outagenotification.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\outagenotification.js"
     },
     {
       "Identity": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\wwwroot\\js\\site.js",

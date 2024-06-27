@@ -7,39 +7,38 @@ using EduPortal.Application.Messaging;
 
 namespace EduPortal.Application.Services
 {
-    // RabbitMQConsumerService'ı başlatmak ve durdurmak için bir servis sınıfı
-    public class RabbitMQService : IHostedService
-    {
-        private readonly RabbitMQConsumerService _rabbitMQConsumer;
+    //// RabbitMQConsumerService'ı başlatmak ve durdurmak için bir servis sınıfı
+    //public class RabbitMQService : IHostedService
+    //{
 
-        public RabbitMQService(RabbitMQConsumerService rabbitMQConsumer)
-        {
-            _rabbitMQConsumer = rabbitMQConsumer;
-        }
+    //    public RabbitMQService(RabbitMQConsumerService rabbitMQConsumer)
+    //    {
+    //        _rabbitMQConsumer = rabbitMQConsumer;
+    //    }
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            //_rabbitMQConsumer.StartConsuming();
-            return Task.CompletedTask;
-        }
+    //    public Task StartAsync(CancellationToken cancellationToken)
+    //    {
+    //        //_rabbitMQConsumer.StartConsuming();
+    //        return Task.CompletedTask;
+    //    }
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            // RabbitMQConsumerService'i durdurma kodu buraya eklenebilir
-            return Task.CompletedTask;
-        }
-    }
+    //    public Task StopAsync(CancellationToken cancellationToken)
+    //    {
+    //        // RabbitMQConsumerService'i durdurma kodu buraya eklenebilir
+    //        return Task.CompletedTask;
+    //    }
+    //}
 
-    // Uygulama başlatıldığında ve durdurulduğunda RabbitMQService'ı başlatmak ve durdurmak için bir genişletme metodu
-    public static class HostBuilderExtensions
-    {
-        public static IHostBuilder UseRabbitMQService(this IHostBuilder hostBuilder)
-        {
-            return hostBuilder.ConfigureServices((context, services) =>
-            {
-                services.AddHostedService<RabbitMQService>();
-            });
-        }
-    }
+    //// Uygulama başlatıldığında ve durdurulduğunda RabbitMQService'ı başlatmak ve durdurmak için bir genişletme metodu
+    //public static class HostBuilderExtensions
+    //{
+    //    public static IHostBuilder UseRabbitMQService(this IHostBuilder hostBuilder)
+    //    {
+    //        return hostBuilder.ConfigureServices((context, services) =>
+    //        {
+    //            services.AddHostedService<RabbitMQService>();
+    //        });
+    //    }
+    //}
 
 }

@@ -177,6 +177,9 @@ namespace EduPortal.Persistence.context
         public DbSet<Ad_Sokak> Ad_Sokak { get; set; }
         public DbSet<Ad_DisKapi> Ad_DisKapi { get; set; }
 
+        public DbSet<OutageNotification> OutageNotification { get; set; }
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -200,6 +203,14 @@ namespace EduPortal.Persistence.context
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.Entity<SubsIndividual>().ToTable("SubsIndividuals");
             modelBuilder.Entity<SubsCorporate>().ToTable("SubsCorporates");
+
+            //modelBuilder.Entity<Ad_IcKapi>()
+            //    .HasOne<Ad_Sayac>(icKapi => icKapi.Ad_Sayac)
+            //    .WithOne(sayac => sayac.icKapiKimlikNo)
+            //    .HasForeignKey<Ad_Sayac>(sayac => sayac.Ad_IcKapiId);
+
+
+            base.OnModelCreating(modelBuilder);
 
             var decimalProps = modelBuilder.Model
                 .GetEntityTypes()

@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\js\\addressdropdown.js"
     },
     {
+      "Id": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\wwwroot\\js\\outagenotification.js",
+      "PackagePath": "staticwebassets\\js\\outagenotification.js"
+    },
+    {
       "Id": "C:\\Users\\Mustafa\\Desktop\\Portal\\backup\\12\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal-a7cb7963d593673c0fb5821b58c468ddfc29a356\\EduPortal.MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

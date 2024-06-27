@@ -14,6 +14,9 @@ namespace EduPortal.Application.HangfireJobs.Schedules
         public static void StartMessageService()
         {
             RecurringJob.AddOrUpdate<InvoiceReminderJob>(j => j.RunPaymentReminderJob(), "0 0 * * *");
+
+            RecurringJob.AddOrUpdate<OutageNotificationJob>(j => j.StartOutageNotification(), "* * * * *");
+
         }
     }
 }

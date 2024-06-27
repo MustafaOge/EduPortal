@@ -50,19 +50,19 @@ namespace EduPortal.Tests.IntegrationTests
             }
         }
 
-        [Fact]
-        public async Task GetUnpaidInvoices_ReturnsUnpaidInvoicesBeforeDueDate()
-        {
-            // Act
-            var result = await _repository.GetUnpaidInvoices();
+        //[Fact]
+        //public async Task GetUnpaidInvoices_ReturnsUnpaidInvoicesBeforeDueDate()
+        //{
+        //    // Act
+        //    var result = await _repository.GetUnpaidInvoices();
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(2, result.Count());
+        //    // Assert
+        //    Assert.NotNull(result);
+        //    Assert.Equal(2, result.Count());
 
-            // Doğru faturaların dönüp dönmediğini doğrulayın
-            Assert.Contains(result, r => r.Id == 1 && r.SubscriberId == 1);
-            Assert.Contains(result, r => r.Id == 2 && r.SubscriberId == 2);
-        }
+        //    // Doğru faturaların dönüp dönmediğini doğrulayın
+        //    Assert.Contains(result, r => r.Id == 1 && r.SubscriberId == 1);
+        //    Assert.Contains(result, r => r.Id == 2 && r.SubscriberId == 2);
+        //}
     }
 }

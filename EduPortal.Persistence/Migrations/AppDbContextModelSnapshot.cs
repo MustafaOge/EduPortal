@@ -50,9 +50,24 @@ namespace EduPortal.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("icKapiKimlikNo"));
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUser")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUser")
+                        .HasColumnType("int");
+
                     b.Property<string>("adresNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("counterNumber")
+                        .HasColumnType("int");
 
                     b.Property<long>("disKapiKimlikNo")
                         .HasColumnType("bigint");
@@ -73,6 +88,16 @@ namespace EduPortal.Persistence.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("icKapiKimlikNo");
+
+                    b.HasIndex("counterNumber");
+
+                    b.HasIndex("disKapiKimlikNo");
+
+                    b.HasIndex("ilceKimlikNo");
+
+                    b.HasIndex("mahalleKimlikNo");
+
+                    b.HasIndex("sokakKimlikNo");
 
                     b.ToTable("Ad_IcKapi");
                 });
@@ -337,6 +362,68 @@ namespace EduPortal.Persistence.Migrations
                     b.ToTable("MeterReadings");
                 });
 
+            modelBuilder.Entity("EduPortal.Domain.Entities.OutageNotification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByUser")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DistributionCompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EffectedNeighbourhoods")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EffectedSubscribers")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HourlyLoadAvg")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsProcessed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MahalleKimlikNumaralari")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Outage_Notification");
+                });
+
             modelBuilder.Entity("EduPortal.Domain.Entities.OutboxMessage", b =>
                 {
                     b.Property<int>("Id")
@@ -594,12 +681,22 @@ namespace EduPortal.Persistence.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("RoleId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("RoleId1");
+
+                    b.HasIndex("UserId1");
 
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
@@ -725,6 +822,49 @@ namespace EduPortal.Persistence.Migrations
                     b.ToTable("SubsIndividuals", (string)null);
                 });
 
+            modelBuilder.Entity("EduPortal.Domain.Entities.Ad_IcKapi", b =>
+                {
+                    b.HasOne("EduPortal.Domain.Entities.Ad_Sayac", "Ad_Sayac")
+                        .WithMany()
+                        .HasForeignKey("counterNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduPortal.Domain.Entities.Ad_DisKapi", "Ad_DisKapi")
+                        .WithMany()
+                        .HasForeignKey("disKapiKimlikNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduPortal.Domain.Entities.Ad_Ilce", "Ad_Ilce")
+                        .WithMany()
+                        .HasForeignKey("ilceKimlikNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduPortal.Domain.Entities.Ad_Mahalle", "Ad_Mahalle")
+                        .WithMany()
+                        .HasForeignKey("mahalleKimlikNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduPortal.Domain.Entities.Ad_Sokak", "Ad_Sokak")
+                        .WithMany()
+                        .HasForeignKey("sokakKimlikNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ad_DisKapi");
+
+                    b.Navigation("Ad_Ilce");
+
+                    b.Navigation("Ad_Mahalle");
+
+                    b.Navigation("Ad_Sayac");
+
+                    b.Navigation("Ad_Sokak");
+                });
+
             modelBuilder.Entity("EduPortal.Domain.Entities.Invoice", b =>
                 {
                     b.HasOne("EduPortal.Domain.Entities.Subscriber", "Subscriber")
@@ -760,15 +900,27 @@ namespace EduPortal.Persistence.Migrations
 
             modelBuilder.Entity("EduPortal.Models.Entities.AppUserRole", b =>
                 {
+                    b.HasOne("EduPortal.Models.Entities.AppRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EduPortal.Models.Entities.AppRole", "Role")
                         .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
+                        .HasForeignKey("RoleId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduPortal.Models.Entities.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EduPortal.Models.Entities.AppUser", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UserId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

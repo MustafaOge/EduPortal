@@ -38,6 +38,11 @@ namespace EduPortal.Application.Services
                     case MessageType.InvoiceReminder:
                         await SendInvoiceReminderNotification(message);
                         break;
+                    case MessageType.OutageNotification:
+                       await SendOutageNotification(message);
+                        Console.WriteLine("Gönderilecek email mesajı: " + message);
+                        //await SendInvoiceReminderNotification(message);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(messageType), messageType, null);
                 }
@@ -50,6 +55,18 @@ namespace EduPortal.Application.Services
 
                 // İstisnayı yeniden fırlat (rethrow):
                 throw;
+            }
+        }
+        public async Task SendOutageNotification(string message)
+        {
+            if (message == null)
+            {
+                throw new Exception("message is empty");
+            }
+            else
+            {
+                await SendEmail("Planlı Elektrik Kesintisi", message);
+                //Console.WriteLine($"Sending outage notification: {message}");
             }
         }
 
