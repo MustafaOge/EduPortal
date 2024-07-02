@@ -1,9 +1,7 @@
-﻿using System.Net;
-using System.Text.Json.Serialization;
-using EduPortal.Domain.Entities;
-using Serilog;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Serilog;
+using System.Net;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace EduPortal.Core.Responses
 {
@@ -23,7 +21,6 @@ namespace EduPortal.Core.Responses
         public static Response<T> Fail(List<string> errors, HttpStatusCode status, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
         {
             string className = Path.GetFileNameWithoutExtension(filePath);
-            // Hataları loglarken sadece hata mesajlarını almak için bir döngü kullanabiliriz
             foreach (var error in errors)
             {
                 string filteredErrorMessage = error.Split(new string[] { "at " }, StringSplitOptions.RemoveEmptyEntries)[0].Trim();
@@ -36,15 +33,11 @@ namespace EduPortal.Core.Responses
 
         public static Response<T> Fail(string errorMessage, HttpStatusCode status, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            // Stack Trace bilgisini içeren kısımları filtreleyerek sadece hata mesajını alıyoruz
             string filteredErrorMessage = errorMessage.Split(new string[] { "at " }, StringSplitOptions.RemoveEmptyEntries)[0].Trim();
             string className = Path.GetFileNameWithoutExtension(filePath);
             Log.Warning($"Yeni hata oluştu: {filteredErrorMessage} - Sınıf: {className}, Satır: {lineNumber}");
 
             return new Response<T> { Errors = new List<string> { filteredErrorMessage }, StatusCode = status };
         }
-
-
-
     }
 }

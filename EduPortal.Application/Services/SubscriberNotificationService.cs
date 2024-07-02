@@ -1,9 +1,6 @@
-﻿using EduPortal.Application.Interfaces.Services;
-using EduPortal.Application.Interfaces.Repositories;
-using System;
-using System.Threading.Tasks;
+﻿using EduPortal.Application.Interfaces.Repositories;
+using EduPortal.Application.Interfaces.Services;
 using EduPortal.Domain.Enums;
-using EduPortal.Domain.Entities;
 
 namespace EduPortal.Application.Services
 {

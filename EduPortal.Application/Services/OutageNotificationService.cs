@@ -4,14 +4,6 @@ using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
 using EduPortal.Domain.Enums;
-using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Application.Services
 {

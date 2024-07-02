@@ -159,15 +159,11 @@ namespace EduPortal.Persistence.Repositories
         }
 
 
-
         public async Task<List<Subscriber>> GetSubscribersByCounterNumberAsync(string counterNumber)
         {
             return await _context.Subscribers
                 .Where(s => s.CounterNumber == counterNumber)
                 .ToListAsync();
         }
-
-
-
     }
 }

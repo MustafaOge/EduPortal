@@ -5,7 +5,6 @@ namespace EduPortal.MVC.Controllers
 {
     public class BaseController : Controller
     {
-
         public IActionResult ChangeLanguage(string culture)
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,

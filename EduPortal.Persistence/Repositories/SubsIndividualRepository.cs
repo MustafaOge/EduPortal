@@ -1,17 +1,8 @@
 ﻿
 using EduPortal.Application.Interfaces.Repositories;
-using EduPortal.Domain.Abstractions;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
-using EduPortal.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Asn1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
@@ -25,8 +16,6 @@ namespace EduPortal.Persistence.Repositories
             _genericRepository = genericRepository;
             _context = context;
         }
-
-
 
         public async Task<SubsIndividual> FindIndividualAsync(string counterOrIdentityNumber)
         {

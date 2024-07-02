@@ -20,8 +20,7 @@ namespace EduPortal.Service.Services
         ISubscriberRepository subscriberRepository,
         ISubscriberTerminateService subscriberTerminate,
         IAddressService addressService,
-        IMapper mapper,
-        IOutageNotificationService outageNotificationService
+        IMapper mapper
         ) : ISubsIndividualService
     {
         public async Task<Response<SubsIndividualDto>> CreateIndividualAsync(CreateIndividualDto individualCreate)

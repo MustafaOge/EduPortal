@@ -3,6 +3,7 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
 using EduPortal.MVC.Controllers;
+using EduPortal.MVC.Models.ViewModel;
 using EduPortal.MVC.Models.ViewModel.YourProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Moq;

@@ -4,13 +4,9 @@ using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Application.Messaging;
 using EduPortal.Application.Services;
-using EduPortal.Persistence.context;
 using EduPortal.Persistence.Repositories;
 using EduPortal.Persistence.Services;
 using EduPortal.Service.Services;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace EduPortal.MVC.Extensions
 {
@@ -45,25 +41,11 @@ namespace EduPortal.MVC.Extensions
             services.AddScoped<IQueueService, QueueService>();
             services.AddScoped<IQueueRepository, QueueRepository>();
 
-            //services.AddScoped<RabbitMQPublisher>();
-            //services.AddScoped<RabbitMQConsumer>();
 
             services.AddScoped<OutboxMessageProcessor>();
-            //services.AddSingleton<IServiceScopeFactory, ServiceScopeFactory>(); // Add IServiceScopeFactory
-
-
-            //services.AddScoped<IRabbitMQConsumerService>();
-
-            //services.AddSingleton<RabbitMQConsumerService>();
-            //services.AddScoped<IRabbitMQPublisherService, RabbitMQPublisherService>();
-
-
-
             services.AddScoped<SubscriberNotificationService>();
 
             services.AddScoped<ISubscriberTerminateService, SubscriberTerminateService>();
-
-            //services.AddSingleton<RabbitMQConnectionManager>();
 
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IAddressService, AddressService>();
@@ -72,12 +54,7 @@ namespace EduPortal.MVC.Extensions
             services.AddScoped<IOutageNotificationRepository, OutageNotificationRepository>();
             services.AddScoped<IOutageNotificationService, OutageNotificationService>();
 
-
-
-
-
-
-
+            services.AddScoped<InvoiceReminderService>();
 
             return services;
         }

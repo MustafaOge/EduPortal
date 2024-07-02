@@ -1,5 +1,4 @@
 ﻿using EduPortal.Domain.Abstractions;
-using EduPortal.Models.Entities;
 using EduPortal.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 
@@ -20,6 +19,5 @@ namespace EduPortal.Models.Entities
 
         //Relational Properties
         public virtual ICollection<AppUserRole> UserRoles { get; set; }
-
     }
 }

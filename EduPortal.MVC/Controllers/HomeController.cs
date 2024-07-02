@@ -1,21 +1,17 @@
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
-using EduPortal.Application.Messaging;
-using EduPortal.Application.Services;
 using EduPortal.Domain.Entities;
 using EduPortal.Models.Entities;
 using EduPortal.Models.ViewModels.AppUsers;
 using EduPortal.MVC.Models;
 using EduPortal.Persistence.context;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using NToastNotify;
 using System.Diagnostics;
-using System.Text;
 using IdentitySignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace EduPortal.MVC.Controllers
@@ -193,11 +189,7 @@ namespace EduPortal.MVC.Controllers
             return View(model);
         }
 
-        //public IActionResult CreateFakeData()
-        //{
-        //    //fakeDataService.CreateCounterNumber();
-        //    return RedirectToAction("Index");
-        //}
+
 
 
         public IActionResult SignIn(string returnUrl)

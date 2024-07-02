@@ -1,24 +1,10 @@
 ﻿using EduPortal.Application.Interfaces.Repositories;
-using EduPortal.Domain.Abstractions;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
-using MassTransit;
-using Microsoft.AspNetCore.JsonPatch.Internal;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
-
-
     public class AddressRepository  :GenericRepository<Ad_IcKapi, int>, IAddressRepository
     {
         protected readonly AppDbContext _context;
@@ -128,11 +114,5 @@ namespace EduPortal.Persistence.Repositories
             return subscribers;
         }
 
-     
-
-        //public List<Ad_IcKapi> GetAllAsync()
-        //{
-        //    _context.Ad_IcKapi.Where(x => x.counterNumber);
-        //}
     }
 }

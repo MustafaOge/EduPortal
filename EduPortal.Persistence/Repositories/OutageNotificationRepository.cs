@@ -1,17 +1,10 @@
 ﻿using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
-using MassTransit;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
-
     public class OutageNotificationRepository : GenericRepository<OutageNotification, int>, IOutageNotificationRepository
     {
         public AppDbContext _context;
@@ -27,9 +20,6 @@ namespace EduPortal.Persistence.Repositories
             _context.OutageNotification.Update(outage);
             _context.SaveChanges();
         }
-
-
-
         public async Task<IEnumerable<string>> GetDistrictsAsync(string province)
         {
             return await _context.OutageNotification
@@ -100,6 +90,4 @@ namespace EduPortal.Persistence.Repositories
                 .ToList();
         }
     }
-
-
 }

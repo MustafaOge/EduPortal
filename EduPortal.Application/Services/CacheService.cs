@@ -2,16 +2,10 @@
 using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
-using EduPortal.Domain.Entities;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using Redis.Sentinel.Services;
 using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Application.Services
 {

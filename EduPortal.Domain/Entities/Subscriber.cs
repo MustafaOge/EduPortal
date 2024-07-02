@@ -1,11 +1,4 @@
-﻿using EduPortal.Domain.Abstractions;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace EduPortal.Domain.Entities
 {
@@ -18,7 +11,5 @@ namespace EduPortal.Domain.Entities
         public string Email { get; set; }
         public List<Invoice>? Invoices { get; set; }
         public bool IsActive { get; set; }
-
     }
 }
-// Authentşcatşon cookies

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EduPortal.Domain.Entities
+﻿namespace EduPortal.Domain.Entities
 {
     public class OutageNotification : BaseEntity<int>
     {
-
         public string? Province { get; set; }
         public string? District { get; set; }
         public DateTime Date { get; set; }
@@ -21,7 +14,5 @@ namespace EduPortal.Domain.Entities
         public int HourlyLoadAvg { get; set; }
         public List<int> MahalleKimlikNumaralari { get; set; } = new List<int>();
         public bool IsProcessed { get; set; }
-
-
     }
 }

@@ -31,7 +31,7 @@ namespace EduPortal.MVC.Controllers
         {
             if (!DateTime.TryParse(selectedDate, out DateTime date))
             {
-                return BadRequest("Geçersiz tarih formatı girildi.");
+                return BadRequest("Geçersiz tarih formatı.");
             }
 
             var outages = _outageNotificationService.GetOutagesByDateAndDistrict(date, district);

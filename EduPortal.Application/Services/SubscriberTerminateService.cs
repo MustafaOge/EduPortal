@@ -5,11 +5,6 @@ using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
 using EduPortal.Domain.Enums;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Application.Services
 {
@@ -40,9 +35,6 @@ namespace EduPortal.Application.Services
             Log.Information("Yeni bir abone silindi silenn abone id :" + outboxMessage.Payload);
             await _outboxMessageRepository.AddAsync(outboxMessage);
             await SendMessage();
-
-
-
         }
         public async Task SendMessage()
         {
@@ -72,10 +64,5 @@ namespace EduPortal.Application.Services
             // İşlem yapıldı olarak işaretlenmiş öğeleri veritabanına kaydetmek için commit yapılabilir
             await _unitOfWork.CommitAsync();
         }
-
-
-
     }
-
-
 }

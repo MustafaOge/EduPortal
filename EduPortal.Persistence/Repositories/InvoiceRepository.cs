@@ -2,11 +2,6 @@
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {

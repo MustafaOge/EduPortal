@@ -1,19 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Domain.Entities
 {
-
-
-    public class Ad_IcKapi : BaseEntityCustom<int> // IcKapiKimlikNo'yu long olarak değiştirildi.
+    public class Ad_IcKapi : BaseEntityCustom<int>
     {
-
         [Key]
         public long icKapiKimlikNo { get; set; }
         public string adresNo { get; set; }
@@ -23,7 +14,6 @@ namespace EduPortal.Domain.Entities
         public int ilceKimlikNo { get; set; }
         public int katNo { get; set; }
         public int icKapiNo { get; set; }
-
         public int counterNumber { get; set; }
 
         [ForeignKey("disKapiKimlikNo")]
@@ -41,7 +31,4 @@ namespace EduPortal.Domain.Entities
         [ForeignKey("counterNumber")]
         public virtual Ad_Sayac Ad_Sayac { get; set; }
     }
-
-
-
 }

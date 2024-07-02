@@ -1,11 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EduPortal.Domain.Entities
+﻿namespace EduPortal.Domain.Entities
 {
     public class MeterReading : BaseEntity<int>
     {
@@ -35,7 +28,5 @@ namespace EduPortal.Domain.Entities
         public DateTime LastIndexDate { get; set; }
 
     }
-
-
 }
 

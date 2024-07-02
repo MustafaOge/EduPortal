@@ -1,14 +1,12 @@
-﻿using EduPortal.Application.Interfaces.Repositories;
-using EduPortal.Core.Responses;
-using EduPortal.Domain.Entities;
+﻿using AutoMapper;
 using EduPortal.Application.DTO_s.Subscriber;
-using System.Net;
+using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
-using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
-using System;
+using EduPortal.Core.Responses;
+using EduPortal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace EduPortal.Service.Services
 {

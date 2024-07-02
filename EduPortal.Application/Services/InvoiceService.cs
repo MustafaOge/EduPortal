@@ -1,22 +1,13 @@
 ﻿using AutoMapper;
-using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
 using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
-using EduPortal.MVC.Models.ViewModel.YourProject.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+using EduPortal.MVC.Models.ViewModel;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Hosting;
 using NToastNotify;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Services
 {

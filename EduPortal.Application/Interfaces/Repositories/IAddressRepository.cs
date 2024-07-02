@@ -1,10 +1,4 @@
 ﻿using EduPortal.Domain.Entities;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Repositories
 {
@@ -31,16 +25,26 @@ namespace EduPortal.Application.Interfaces.Repositories
         Task<Ad_Sayac> GetCounterNumber(string doorNumber);
 
         /// <summary>
-        /// 
+        /// Asynchronously retrieves the unique identifier (ID) of a neighborhood based on its name.
         /// </summary>
-        /// <param name="mahalleAdi"></param>
-        /// <returns></returns>
+        /// <param name="mahalleAdi">The name of the neighborhood.</param>
+        /// <returns>A task that represents the asynchronous operation, containing the ID of the neighborhood.</returns>
         Task<int> GetMahalleKimlikNoByNameAsync(string mahalleAdi);
 
-        
+        /// <summary>
+        /// Retrieves a list of subscribers based on a list of neighborhood IDs.
+        /// </summary>
+        /// <param name="mahalleKimlikNumarasi">A list of neighborhood IDs.</param>
+        /// <returns>A list of subscribers.</returns>
         List<Subscriber> GetSubscriberList(List<long> mahalleKimlikNumarasi);
 
+        /// <summary>
+        /// Asynchronously retrieves information about an internal door for a given neighborhood ID.
+        /// </summary>
+        /// <param name="neighborhoodId">The ID of the neighborhood.</param>
+        /// <returns>A task that represents the asynchronous operation, containing the information about the internal door associated with the neighborhood ID.</returns>
         Task<Ad_IcKapi> GetAsync(int neighborhoodId);
+
 
 
     }

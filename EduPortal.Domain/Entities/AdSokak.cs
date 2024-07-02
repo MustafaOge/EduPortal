@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EduPortal.Domain.Entities
 {
@@ -13,6 +8,5 @@ namespace EduPortal.Domain.Entities
         public long sokakKimlikNo { get; set; }
         public string adi { get; set; }
         public int mahalleKimlikNo { get; set; }
-
     }
 }

@@ -1,16 +1,8 @@
 ﻿
 using EduPortal.Application.Interfaces.Repositories;
-using EduPortal.Domain.Abstractions;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
-using EduPortal.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
@@ -32,7 +24,5 @@ namespace EduPortal.Persistence.Repositories
                        .FirstOrDefaultAsync();
             return response;
         }
-        
-
     }
 }

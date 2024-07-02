@@ -1,6 +1,4 @@
 ﻿using EduPortal.Domain.Entities;
-using System;
-using System.Collections.Generic;
 
 namespace EduPortal.Application.Interfaces.Services
 {

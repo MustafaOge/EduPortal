@@ -11,7 +11,7 @@ namespace EduPortal.Application.HangfireJobs.Managers.ReccurringJobs
     {
        public void  StartOutageNotification()
         {
-            outageNotificationService.SendOutageMessageAsync();
+            //outageNotificationService.SendOutageMessageAsync();
         }
     }
 }

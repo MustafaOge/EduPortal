@@ -1,16 +1,7 @@
-﻿using EduPortal.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EduPortal.Domain.Entities
+﻿namespace EduPortal.Domain.Entities
 {
     public class Consumer : BaseEntity<int>
-    {
-        //public int Id { get; set; }
-        
+    {        
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

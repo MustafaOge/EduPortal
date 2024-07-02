@@ -1,19 +1,8 @@
-﻿using EduPortal.Application.DTO_s.Subscriber;
-using EduPortal.Application.Interfaces.Repositories;
+﻿using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.Services;
 using EduPortal.Application.Interfaces.UnitOfWorks;
-using EduPortal.Core.Responses;
 using EduPortal.Domain.Entities;
 using MFramework.Services.FakeData;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Services
 {
@@ -26,12 +15,10 @@ namespace EduPortal.Persistence.Services
         IInvoiceRepository invoiceRepository) : IFakeDataService
     {
 
-
-
         //TO-DO
         public async Task CreateFakeData()
         {
-       
+
             if (await invoiceRepository.AnyInvoiceAsync())
             {
                 CreateFakeSubsIndividualData(); // Create and save individual subscriber data
@@ -143,16 +130,11 @@ namespace EduPortal.Persistence.Services
         #endregion
 
 
-        public async Task  CreateCounterNumber()
+        public async Task CreateCounterNumber()
         {
 
-          await  addressRepository.CreateCounterNumberAsync();
+            await addressRepository.CreateCounterNumberAsync();
         }
-
-
-
-
-
 
     }
 }

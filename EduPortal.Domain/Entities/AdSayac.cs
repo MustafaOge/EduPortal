@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EduPortal.Domain.Entities
 {
-
     public class Ad_Sayac
     {
         [Key]
@@ -15,5 +9,4 @@ namespace EduPortal.Domain.Entities
         public long icKapiKimlikNo { get; set; }
         public bool active { get; set; }
     }
-
 }

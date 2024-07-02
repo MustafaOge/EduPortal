@@ -3,12 +3,7 @@ using EduPortal.Domain.Abstractions;
 using EduPortal.Persistence.context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
@@ -38,7 +33,7 @@ namespace EduPortal.Persistence.Repositories
                     .ToListAsync();
             }
             catch (Exception ex)
-                {
+            {
                 // Hata durumunda burada loglama yapabilirsiniz
                 Console.WriteLine($"Hata: {ex.Message}");
                 throw; // Hatanın yeniden fırlatılması
@@ -77,7 +72,6 @@ namespace EduPortal.Persistence.Repositories
             _context.SaveChanges();
 
         }
-
 
         public void Update(TEntity entity)
         {

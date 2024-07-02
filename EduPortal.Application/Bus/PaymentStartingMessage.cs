@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace EduPortal.Application.Bus
 {
-    public class PaymentStartingMessage
-    {
-        public string Id { get; set; }
-    }
+    //public class PaymentStartingMessage
+    //{
+    //    public string Id { get; set; }
+    //}
 }

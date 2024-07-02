@@ -1,15 +1,7 @@
-﻿using Castle.Core.Logging;
-using EduPortal.Application.Interfaces.Repositories;
+﻿using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Domain.Entities;
 using EduPortal.Persistence.context;
-using Hangfire.Logging;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Persistence.Repositories
 {
@@ -43,10 +35,6 @@ namespace EduPortal.Persistence.Repositories
                 return Enumerable.Empty<(int Id, int SubscriberId)>();
             }
         }
-
-
-
-
     }
 }
 

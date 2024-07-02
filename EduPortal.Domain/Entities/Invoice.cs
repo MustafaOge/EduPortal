@@ -21,6 +21,5 @@ namespace EduPortal.Domain.Entities
 
         public MeterReading MeterReading { get; set; }
 
-
     }
 }

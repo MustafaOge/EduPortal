@@ -1,17 +1,6 @@
 ﻿using EduPortal.Application.Interfaces.Repositories;
 using EduPortal.Application.Interfaces.UnitOfWorks;
-using EduPortal.Application.Messaging;
 using EduPortal.Domain.Entities;
-using Hangfire;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using NToastNotify.Helpers;
-using RabbitMQ.Client;
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 namespace EduPortal.Application.Services
 {
     public class OutboxMessageProcessor

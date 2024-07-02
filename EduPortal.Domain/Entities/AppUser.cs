@@ -1,5 +1,4 @@
-﻿
-using EduPortal.Domain.Abstractions;
+﻿using EduPortal.Domain.Abstractions;
 using EduPortal.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 

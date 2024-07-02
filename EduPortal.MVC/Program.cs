@@ -28,6 +28,9 @@ using EduPortal.MVC.Middleware;
 using RabbitMQ.Client;
 using MassTransit;
 using static Org.BouncyCastle.Math.EC.ECCurve;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Resources;
+using OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -113,61 +116,58 @@ builder.Services.ConfigureApplicationCookie(opt =>
 
 });
 
+builder.Services.AddOpenTelemetry().WithTracing(options =>
+{
+    options.AddSource("EduPortal.Application.Service.Source").ConfigureResource(cr =>
+    {
+        cr.AddService("EduPotal.Service", serviceVersion: "1.0.0").AddAttributes(
+            new List<KeyValuePair<string, object>>()
+            {
+                new KeyValuePair<string, object>("env", builder.Environment.EnvironmentName)
+            });
+    });
+    options.AddAspNetCoreInstrumentation();
+}).UseOtlpExporter();
+
+
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 builder.Services.AddScoped<IMailService, MailService>();
 
 
-builder.Services.AddSingleton(sp =>
-{
-    var connectionFactory = new ConnectionFactory()
-    {
-        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
-    };
-
-    var connection = connectionFactory.CreateConnection();
-
-    var channel = connection.CreateModel();
-    channel.ConfirmSelect();
-
-    channel.ExchangeDeclare("payment2.main.queueu", ExchangeType.Fanout, true, false, null);
-    return channel;
-});
-
-// MassTransit yapýlandýrmasý
 builder.Services.AddMassTransit(x =>
 {
-
     x.AddConsumer<OutageNotificationConsumer>();
     x.AddConsumer<PaymentStartingMessageConsumer>();
-    x.UsingRabbitMq((context, config) =>
+
+    x.UsingRabbitMq((context, cfg) =>
     {
-        config.Host(new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!), host => { });
+        cfg.Host(builder.Configuration.GetConnectionString("RabbitMQ")!);
 
-        config.UseMessageRetry(r => r.Immediate(5));
-        config.UseMessageRetry(r => r.Interval(5, TimeSpan.FromSeconds(5)));
+        cfg.UseMessageRetry(r => r.Immediate(5));
+        cfg.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
+        cfg.UseInMemoryOutbox();
 
-        config.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15),
-            TimeSpan.FromMinutes(30), TimeSpan.FromMinutes(45)));
-
-        config.UseInMemoryOutbox(context);
-
-        config.ReceiveEndpoint("outage-notification-queue", e => e.ConfigureConsumer<OutageNotificationConsumer>(context));
-        config.ReceiveEndpoint("payment2.main.queueu", configureEndpoint =>
+        cfg.ReceiveEndpoint("outage-notification-queue", e =>
         {
-            configureEndpoint.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
+            e.ConfigureConsumer<OutageNotificationConsumer>(context);
+        });
+
+        cfg.ReceiveEndpoint("payment2.main.queueu", e =>
+        {
+            e.ConfigureConsumer<PaymentStartingMessageConsumer>(context);
         });
     });
 });
 
-builder.Services.AddSingleton(sp =>
-{
-    var connectionFactory = new ConnectionFactory()
+builder.Services.AddOptions<MassTransitHostOptions>()
+    .Configure(options =>
     {
-        Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")!)
-    };
+        options.WaitUntilStarted = true;
+        options.StartTimeout = TimeSpan.FromSeconds(30);
+        options.StopTimeout = TimeSpan.FromSeconds(30);
+    });
 
-    return connectionFactory.CreateConnection();
-});
+
 
 
 

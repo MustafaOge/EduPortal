@@ -1,20 +1,10 @@
 ﻿using AutoMapper;
 using EduPortal.Application.DTO_s.Subscriber;
 using EduPortal.Application.Interfaces.Services;
-using EduPortal.Domain.Entities;
-using EduPortal.MVC.Models.ViewModel;
-using EduPortal.Service.Services;
-using MFramework.Services.FakeData;
-using Microsoft.AspNetCore.Authorization;
+using EduPortal.MVC.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using System.Net;
-using System.Security.Policy;
-using Microsoft.EntityFrameworkCore;
-using EduPortal.MVC.Controllers;
-using EduPortal.Application.Services;
-using NToastNotify.Helpers;
-using EduPortal.Application.Messaging;
 namespace EduPortal.Controllers
 {
     public class SubscriberController(
@@ -83,7 +73,7 @@ namespace EduPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateIndividual(CreateIndividualDto individual, CancellationToken cancellationToken)
         {
-            if (!ModelState.IsValid) return View("Create");
+            //if (!ModelState.IsValid) return View("Create");
             try
             {
                 await subsIndividualService.CreateIndividualAsync(individual);

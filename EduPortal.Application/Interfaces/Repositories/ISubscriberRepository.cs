@@ -1,19 +1,14 @@
 ﻿using EduPortal.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Application.Interfaces.Repositories
 {
     public interface ISubscriberRepository : IGenericRepository<Subscriber, int>
     {
         /// <summary>
-        /// 
+        /// Asynchronously checks if the subscriber with the given ID has unpaid invoices.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The ID of the subscriber.</param>
+        /// <returns>A task that represents the asynchronous operation, containing a boolean value indicating whether the subscriber has unpaid invoices.</returns>
         Task<bool> HasUnpaidInvoices(int id);
 
         /// <summary>
@@ -38,7 +33,11 @@ namespace EduPortal.Application.Interfaces.Repositories
         /// <returns>A task that represents the asynchronous operation and returns the invoice reminder message.</returns>
         public Task<string> CreateInvoiceReminderMessage(int invoiceId, int subscriberId);
 
-
+        /// <summary>
+        /// Asynchronously retrieves a list of subscribers based on the given counter number.
+        /// </summary>
+        /// <param name="counterNumber">The counter number of the subscribers.</param>
+        /// <returns>A task that represents the asynchronous operation, containing a list of subscribers associated with the counter number.</returns>
         Task<List<Subscriber>> GetSubscribersByCounterNumberAsync(string counterNumber);
 
     }
